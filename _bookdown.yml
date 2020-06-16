@@ -26,7 +26,7 @@ rmd_files:
   # End files
   - appendix.Rmd
   - LICENSE.md
-  - CONDUCT.md
+  - CODE_OF_CONDUCT.md
   - CONTRIBUTING.md
   - gloss.md
   - r-rse/objectives.Rmd
