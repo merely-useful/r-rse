@@ -19,6 +19,15 @@ but this is to give a direction on how to write those sections
     - Is adequately structured to make package management and maintanence easier
     (e.g. with Issue Templates, Project Boards, Labels, contributing guidelines)
     
+Comment from cwickham:
+
+This is great! I love the targeted nature.
+
+Just to clarify, this intentionally leaves out the actual code content or structure of code, right? I'm thinking things like designing function APIs (e.g. like things in Tidyverse design guide), using OO (e.g. why would you use S3 etc.)...
+
+I.e. we don't care what your code is, we care about making it available, easily to maintain, and easy for others to contribute to.
+
+    
 - **Teaching/learning activities**:
     - In class portion: 
         - Some lectures for those material that aren't coding heavily
@@ -30,13 +39,16 @@ but this is to give a direction on how to write those sections
         - Group work/project creating an R package based on a set of (given?) problems
         - Formative assessments like coding with immediate feedback on correct/incorrect
         (via learnr package? Esp with new update to RStudio in version 1.3)
+          - Comment from cwickham: This would be awesome! But, writing correctness tests is time consuming...
         - Reading assignments?
+          - Comment from cwickham: If I think about how I might teach this, I see reading assignments as pre-lecture activities that might motivate the content of the class. In that case, I'm hoping I might be able to assign parts of this book ;)
 
 - **Assessment and feedback activities**:
     - Deadlines for milestones to acheive for project, with instructor feedback on progress
     - Out-of-class formative assessments based on maybe learnr tutorials?
     - After completing in-class exercises, go over them as class?
     - Peer review activities? E.g. exercises that have a rubric that go with them that can be used to guide peer review.
+      - From cwickham: In a university setting, what might a TA be able to add here? I.e. assuming you have TA help, how can you use their time to the biggest benefit of learners?
 
 - Key resources to use for this:
   - R packages: usethis, devtools, drake?, pkgdown, testthat, styler, rmarkdown
@@ -44,6 +56,7 @@ but this is to give a direction on how to write those sections
   (we differentiate from this amazing book by structuring everything around 
   this being a course, with exercises, assessments, (group?) projects, 
   instructions/comments/notes for instructors, etc)
+    - From cwickham: Right, I think of R packages as being a reference book, we are writing for people learning this for the first time.
 
 ## Chapter outline
 
@@ -54,15 +67,18 @@ Here is a draft outline to guide development.
     - Overview of course
     - Why to learn it
     - What makes this course different
+      - Comment from cwickham: I'm a big fan of the "Whole Game" chapter in R Packages: it removes some of the magic/fear around packages by walking through making one from scratch. I think it's an activity that's doable in less than an hour and gives students a quick win. Is this something we could do up front? Or is this what you imagine "Setting up an R package" looks like?
 
 - Folder and file structure (RStudio R Projects)
     - Filepaths, very basics of the shell (in RStudio)
     - Making use of the fs package for filesystem management
     
 - Setting up an R package
+    - Comment cwickham: Does this start with what a package is, and why you might want to make one?
     - Using devtools, usethis for development
         - e.g. `use_devtools()` and `use_usethis()`.
     - Developing functions
+      - From cwickham: Can you elaborate? Is this the mechanics of turning a code snippet into a function? Or is it something more?
     - Making and using datasets
 
 - Function development in a package environment
@@ -73,6 +89,8 @@ Here is a draft outline to guide development.
 - (Idea) Additional features to make use of
     - RStudio addins, snippets, rmarkdown templates, templates
     - rstudioapi?
+        - Comment cwickham: You mean as possible components of a package, right? I think of these as things beyond functions that an app can provide. Having a survey of them in one place would be really nice (I can't think of anywhere else that does). Would shiny apps fit here too?
+
 
 - Version control: Using Git and GitHub as a sole user (part 1)
     - Using Git in RStudio (standard add-commmit-history)
@@ -84,10 +102,12 @@ Here is a draft outline to guide development.
     - Unit test (with testthat)
     - Code coverage (with covr)
     - With devtools
+      - From cwickham: Are our learners already OK with debugging? E.g. I'm thinking about Jenny Bryan's Object of closure is not sub-settable keynote, where unit tests are the last strategy she covers, do we assume the learners already know the earlier strategies?
 
 - Build management
     - With devtools
     - Maybe with drake?
+      - cwickham: My knowledge of drake is minimal...for some reason I've thought about it more as a tool for automating data pipelines.
     - Pre-push running test, build, and check
     - Continuous integration using Travis and/or GitHub Actions and AppVeyor 
     (for Windows building)
