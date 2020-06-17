@@ -5,7 +5,6 @@ language:
     tab: "Table "
   ui:
     chapter_name: "Chapter "
-output_dir: "_book/r-rse"
 delete_merged_file: false
 rmd_files:
   - index.Rmd
