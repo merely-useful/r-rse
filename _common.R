@@ -30,6 +30,3 @@ insert_graphic <- function(file) {
     knitr::include_graphics(file)
   }
 }
-
-# To use Python inside the bookdown R Markdown files.
-library(reticulate)

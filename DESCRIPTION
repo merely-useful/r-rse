@@ -1,11 +1,10 @@
 Package: r-rse
 Type: Book
-Title: Merely Useful: Using R for Research Software Engineering
+Title: "Merely Useful: Using R for Research Software Engineering"
 Version: 0.1
 Imports: 
     tinytex,
     bookdown,
     tools,
-    reticulate,
     tidyverse,
     here
