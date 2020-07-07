@@ -5,23 +5,22 @@ language:
     tab: "Table "
   ui:
     chapter_name: "Chapter "
-output_dir: "_book/r-rse"
 delete_merged_file: false
 rmd_files:
   - index.Rmd
-  - r-rse/bash-basics.Rmd
-  - r-rse/bash-advanced.Rmd
-  - r-rse/git-cmdline.Rmd
-  - r-rse/git-advanced.Rmd
-  - r-rse/style.Rmd
-  - r-rse/automate.Rmd
-  - r-rse/teams.Rmd
-  - r-rse/project.Rmd
-  - r-rse/ci.Rmd
-  - r-rse/package-r.Rmd
-  - r-rse/correct.Rmd
-  - r-rse/publish.Rmd
-  - r-rse/finale.Rmd
+  - bash-basics.Rmd
+  - bash-advanced.Rmd
+  - git-cmdline.Rmd
+  - git-advanced.Rmd
+  - style.Rmd
+  - automate.Rmd
+  - teams.Rmd
+  - project.Rmd
+  - ci.Rmd
+  - package-r.Rmd
+  - correct.Rmd
+  - publish.Rmd
+  - finale.Rmd
 
   # End files
   - appendix.Rmd
@@ -29,10 +28,11 @@ rmd_files:
   - CODE_OF_CONDUCT.md
   - CONTRIBUTING.md
   - gloss.md
-  - r-rse/objectives.Rmd
-  - r-rse/keypoints.Rmd
-  - r-rse/solutions.Rmd
-  - r-rse/yaml.Rmd
-  - r-rse/ssh.Rmd
+  - objectives.Rmd
+  - keypoints.Rmd
+  - solutions.Rmd
+  - yaml.Rmd
+  - ssh.Rmd
   - references.Rmd
   - links.md
+before_chapter_script: "_common.R"

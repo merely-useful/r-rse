@@ -1,37 +1,35 @@
 .PHONY : all clean chapters commands crossrefs fixme gloss html links nbspref settings tex-packages
 
-INDEX_HTML=_book/index.html
-ALL_HTML=_book/py-novice/index.html _book/r-novice/index.html _book/py-rse/index.html _book/r-rse/index.html
-ALL_PDF=_book/py-novice/py-novice.pdf _book/r-novice/r-novice.pdf _book/py-rse/py-rse.pdf _book/r-rse/r-rse.pdf
+ALL_HTML=_book/index.html
+ALL_PDF=_book/r-rse.pdf
 EXTRA=climate-data data src zipf
 
 R_RSE_FILES=\
   index.Rmd \
-  r-rse/bash-basics.Rmd \
-  r-rse/bash-advanced.Rmd \
-  r-rse/git-cmdline.Rmd \
-  r-rse/git-advanced.Rmd \
-  r-rse/style.Rmd \
-  r-rse/automate.Rmd \
-  r-rse/teams.Rmd \
-  r-rse/project.Rmd \
-  r-rse/ci.Rmd \
-  r-rse/package-r.Rmd \
-  r-rse/correct.Rmd \
-  r-rse/publish.Rmd \
-  r-rse/finale.Rmd \
-  r-rse/objectives.Rmd \
-  r-rse/keypoints.Rmd \
-  r-rse/solutions.Rmd \
-  r-rse/yaml.Rmd \
-  r-rse/ssh.Rmd
+  bash-basics.Rmd \
+  bash-advanced.Rmd \
+  git-cmdline.Rmd \
+  git-advanced.Rmd \
+  style.Rmd \
+  automate.Rmd \
+  teams.Rmd \
+  project.Rmd \
+  ci.Rmd \
+  package-r.Rmd \
+  correct.Rmd \
+  publish.Rmd \
+  finale.Rmd \
+  objectives.Rmd \
+  keypoints.Rmd \
+  solutions.Rmd \
+  yaml.Rmd \
+  ssh.Rmd
 
 COMMON_FILES=\
   _common.R \
   appendix.Rmd \
   LICENSE.md \
   CONDUCT.md \
-  CONTRIBUTING.md \
   gloss.md \
   references.Rmd \
   links.md \
@@ -49,34 +47,23 @@ commands :
 	@grep -h -E '^##' ${MAKEFILE_LIST} | sed -e 's/## //g' | column -t -s ':'
 
 ## everything : rebuild all HTML and PDF.
-everything : ${INDEX_HTML} ${ALL_HTML} ${ALL_PDF}
+everything : ${ALL_HTML} ${ALL_PDF}
 
 ##   r-rse : rebuild RSE R HTML and PDF.
-r-rse : _book/r-rse/index.html _book/r-rse/r-rse.pdf
+r-rse : _book/index.html _book/r-rse.pdf
 
 #-------------------------------------------------------------------------------
 
 ## html           : build all HTML versions.
 html : ${ALL_HTML}
 
-##   r-rse-html : build RSE R HTML.
-r-rse-html : _book/index.html
-
-_book/index.html : ${R_RSE_FILES} ${COMMON_FILES} ${INDEX_HTML}
+_book/index.html : ${R_RSE_FILES} ${COMMON_FILES}
 	Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::gitbook', quiet = TRUE)"
-
-${INDEX_HTML} : ./_index.html
-	mkdir -p _book
-	cp ./_index.html ${INDEX_HTML}
-	cp -r ${EXTRA} _book
 
 #-------------------------------------------------------------------------------
 
 ## pdf : build PDF version.
-pdf : ${ALL_PDF} ${INDEX_HTML}
-
-##   r-rse-pdf : build RSE R PDF.
-r-rse-pdf : _book/r-rse.pdf
+pdf : ${ALL_PDF}
 
 _book/r-rse.pdf : ${R_RSE_FILES} ${COMMON_FILES}
 	Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::pdf_book', quiet = TRUE)"
