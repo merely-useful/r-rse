@@ -26,7 +26,6 @@ rmd_files:
   - appendix.Rmd
   - LICENSE.md
   - CODE_OF_CONDUCT.md
-  - CONTRIBUTING.md
   - gloss.md
   - objectives.Rmd
   - keypoints.Rmd
