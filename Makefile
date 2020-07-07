@@ -2,7 +2,7 @@
 
 ALL_HTML=_book/index.html
 ALL_PDF=_book/r-rse.pdf
-EXTRA=climate-data data src zipf
+EXTRA=data
 
 R_RSE_FILES=\
   index.Rmd \
@@ -29,7 +29,7 @@ COMMON_FILES=\
   _common.R \
   appendix.Rmd \
   LICENSE.md \
-  CONDUCT.md \
+  CODE_OF_CONDUCT.md \
   gloss.md \
   references.Rmd \
   links.md \
