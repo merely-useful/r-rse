@@ -1,4 +1,4 @@
-# Key Points {#r-rse-keypoints}
+# Key Points {#keypoints}
 
 TODO: Change to making this part automated to list header names and child chunks for keypoints
 

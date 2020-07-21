@@ -1,6 +1,6 @@
-# Continuous Integration {#r-rse-ci}
+# Continuous Integration {#ci}
 
-```{r r-rse-ci-setup, include=FALSE}
+```{r ci-setup, include=FALSE}
 source("_common.R")
 ```
 
@@ -8,7 +8,7 @@ source("_common.R")
 merge and test changes to a project automatically and frequently
 so that developers get feedback about problems
 while those changes are still fresh in their minds.
-Automation tools like Make (Chapter \@ref(r-rse-automate)) can compile software,
+Automation tools like Make (Chapter \@ref(automate)) can compile software,
 run tests,
 re-do analyses,
 and re-create reports with a single command;
@@ -29,12 +29,12 @@ checks out a copy of the project,
 and runs whatever commands the project's managers have set up.
 If the project uses a language like C++ or Java,
 those commands usually start by compiling the source code to create a runnable program
-(Figure \@ref(fig:r-rse-ci-conceptual)).
+(Figure \@ref(fig:ci-conceptual)).
 If we want to reassure ourselves that our software works,
-we can create unit tests as described in Chapter \@ref(r-rse-correct)
+we can create unit tests as described in Chapter \@ref(correct)
 and ask Travis CI to run them as well
 so that (for example) we know whether the code on a branch is working
-before we merge it into the master branch (Section \@ref(r-rse-git-advanced-merge)).
+before we merge it into the master branch (Section \@ref(git-advanced-merge)).
 And if we want to do more,
 we just have to write the commands.
 For example,
@@ -54,7 +54,7 @@ every time a pull request is merged.
 > it creates a new virtual machine to ensure that builds and tests run in a completely clean environment:
 > nothing left over from previous attempts to compile, run, or publish will affect the current attempt.
 
-## How do I set up continuous integration? {#r-rse-ci-basic}
+## How do I set up continuous integration? {#ci-basic}
 
 We have to do five things to set up continuous integration:
 
@@ -71,7 +71,7 @@ We have to do five things to set up continuous integration:
 > This process is for general Travis CI usage.
 > If we are working with R projects or packages,
 > we can simplify things considerably using `usethis::use_travis`
-> (Section \@ref(r-rse-ci-setting-up-with-r)).
+> (Section \@ref(ci-setting-up-with-r)).
 
 Creating an account with an online service is a familiar process for most of us,
 but linking our Travis CI account to our GitHub account may be new.
@@ -91,21 +91,21 @@ We tell Travis CI about our repository through its website interface.
 On the left,
 besides the "My Repositories",
 we can click the "+" to add a repository that is already on GitHub
-(Figure \@ref(fig:r-rse-ci-add-repo)).
+(Figure \@ref(fig:ci-add-repo)).
 After finding our repository in the list that pops up,
 we flick the switch button so that it is green
-(Figure \@ref(fig:r-rse-ci-list-repos)).
+(Figure \@ref(fig:ci-list-repos)).
 If our repository doesn't show up,
 we can re-synchronize the list using the green "Sync account" button on the left sidebar.
 If it still doesn't appear,
 the repository may belong to someone else or be private.
 
 
-```{r r-rse-ci-add-repo, echo=FALSE, fig.cap="ci-add-repo"}
+```{r ci-add-repo, echo=FALSE, fig.cap="ci-add-repo"}
 knitr::include_graphics("figures/FIXME.png")
 ```
 
-```{r r-rse-ci-list-repos, echo=FALSE, fig.cap="ci-list-repos"}
+```{r ci-list-repos, echo=FALSE, fig.cap="ci-list-repos"}
 knitr::include_graphics("figures/FIXME.png")
 ```
 
@@ -114,26 +114,26 @@ knitr::include_graphics("figures/FIXME.png")
 TODO: Explain what the travis yml file does in R
 
 Travis CI' summary report tells us whether the build passed,
-which is shown in green Figure \@ref(fig:r-rse-ci-build-overview),
+which is shown in green Figure \@ref(fig:ci-build-overview),
 or whether it produced warnings or errors,
 which are shown in red.
 
 
-```{r r-rse-ci-build-overview, echo=FALSE, fig.cap="Travis Build Overview"}
+```{r ci-build-overview, echo=FALSE, fig.cap="Travis Build Overview"}
 knitr::include_graphics("figures/FIXME.png")
 ```
 
 The log below this overview contains a wealth of information
 that can help us debug when the build fails.
 
-## How can I display my project's status on GitHub? {#r-rse-ci-display-github}
+## How can I display my project's status on GitHub? {#ci-display-github}
 
 TODO: Can remove, use_travis adds this automatically
 
 Once we commit and push thsi change to GitHub,
 our project will now show the badge for its Travis CI status Figure \@ref(fig:image-github-icon).
 
-```{r r-rse-ci-github-icon, echo=FALSE, fig.cap="The Travis CI Build Badge"}
+```{r ci-github-icon, echo=FALSE, fig.cap="The Travis CI Build Badge"}
 #knitr::include_graphics("figures/FIXME.png")
 ```
 
@@ -148,7 +148,7 @@ our project will now show the badge for its Travis CI status Figure \@ref(fig:
 > it then sends back a different image
 > depending on the most recently recorded build status for that project.
 
-## How can I set up Travis CI for an R project? {#r-rse-ci-setting-up-with-r}
+## How can I set up Travis CI for an R project? {#ci-setting-up-with-r}
 
 The simplest way to set up and use Travis CI with R is to call:
 
@@ -168,10 +168,10 @@ FIXME: add example here of generated YAML file
 The [usethis](https://usethis.r-lib.org/reference/ci.html) documentation has more details,
 but it really is this simple.
 
-## How can I use Travis CI to test my project? {#r-rse-ci-testing}
+## How can I use Travis CI to test my project? {#ci-testing}
 
 The main reason to set up CI is to test the project every time a change is made.
-We still have to write unit tests (Chapter \@ref(r-rse-correct)),
+We still have to write unit tests (Chapter \@ref(correct)),
 but CI makes those tests much more valuable.
 
 For R packages,
@@ -186,7 +186,7 @@ With this in place,
 the Travis CI log located right below the build overview
 will contain all of the information that our testing command produces when tests fail.
 
-We can also have Travis CI report the [code coverage][code-coverage] of our tests (Section \@ref(r-rse-correct-coverage)).
+We can also have Travis CI report the [code coverage][code-coverage] of our tests (Section \@ref(correct-coverage)).
 This command will set everything up for us:
 
 ```r
@@ -195,7 +195,7 @@ usethis::use_coverage()
 
 FIXME: explain what this does to the YAML file.
 
-## How can I use CI for other purposes? {#r-rse-ci-deploying}
+## How can I use CI for other purposes? {#ci-deploying}
 
 Continuous integration was invented for testing,
 but it can be used to automate almost anything.
@@ -232,11 +232,11 @@ At the least,
 please explain what keys like `before_cache` are about
 and provide a diagram showing what files are produced and copied where.
 
-## Summary {#r-rse-ci-summary}
+## Summary {#ci-summary}
 
 FIXME: create concept map for continuous integration.
 
-## Exercises {#r-rse-ci-exercises}
+## Exercises {#ci-exercises}
 
 FIXME: Get feedback on this and fill it out more later.
 
@@ -250,7 +250,7 @@ fix it, but the point is to get comfortable looking through Travis CI' logs.
 5. Correct the test, push to GitHub, and get Travis CI to build your package
 successfully.
 
-## Key Points {#r-rse-ci-keypoints}
+## Key Points {#ci-keypoints}
 
 ```{r, child="keypoints/ci.md"}
 ```
