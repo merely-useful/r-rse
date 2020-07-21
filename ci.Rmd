@@ -102,11 +102,11 @@ the repository may belong to someone else or be private.
 
 
 ```{r r-rse-ci-add-repo, echo=FALSE, fig.cap="ci-add-repo"}
-knitr::include_graphics("figures/rse-correct/travis-add-repo.png")
+knitr::include_graphics("figures/FIXME.png")
 ```
 
 ```{r r-rse-ci-list-repos, echo=FALSE, fig.cap="ci-list-repos"}
-knitr::include_graphics("figures/rse-correct/travis-list-repos.png")
+knitr::include_graphics("figures/FIXME.png")
 ```
 
 ### Setting up a repo
@@ -120,7 +120,7 @@ which are shown in red.
 
 
 ```{r r-rse-ci-build-overview, echo=FALSE, fig.cap="Travis Build Overview"}
-knitr::include_graphics("figures/rse-correct/travis-build-pass.png")
+knitr::include_graphics("figures/FIXME.png")
 ```
 
 The log below this overview contains a wealth of information
@@ -134,7 +134,7 @@ Once we commit and push thsi change to GitHub,
 our project will now show the badge for its Travis CI status Figure \@ref(fig:image-github-icon).
 
 ```{r r-rse-ci-github-icon, echo=FALSE, fig.cap="The Travis CI Build Badge"}
-#knitr::include_graphics("figures/rse-ci/github-icon.png")
+#knitr::include_graphics("figures/FIXME.png")
 ```
 
 > **How Do Badges Work?**
@@ -252,5 +252,5 @@ successfully.
 
 ## Key Points {#r-rse-ci-keypoints}
 
-```{r, child="keypoints/rse-ci.md"}
+```{r, child="keypoints/ci.md"}
 ```

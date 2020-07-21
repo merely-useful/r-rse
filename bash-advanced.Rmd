@@ -580,10 +580,10 @@ $ find .
 ./chapter-1
 ./chapter-1/index.html
 ./figures
-./figures/figure-4.png
-./figures/figure-1.png
-./figures/figure-3.png
-./figures/figure-2.png
+./figures/FIXME.png
+./figures/FIXME.png
+./figures/FIXME.png
+./figures/FIXME.png
 ./chapter-3
 ./chapter-3/index.html
 ./chapter-2
@@ -616,10 +616,10 @@ $ find . -type f
 ```text
 ./index.html
 ./chapter-1/index.html
-./figures/figure-4.png
-./figures/figure-1.png
-./figures/figure-3.png
-./figures/figure-2.png
+./figures/FIXME.png
+./figures/FIXME.png
+./figures/FIXME.png
+./figures/FIXME.png
 ./chapter-3/index.html
 ./chapter-2/index.html
 ./bibliography.bib
@@ -632,10 +632,10 @@ $ find . -name "*.png"
 ```
 
 ```text
-./figures/figure-4.png
-./figures/figure-1.png
-./figures/figure-3.png
-./figures/figure-2.png
+./figures/FIXME.png
+./figures/FIXME.png
+./figures/FIXME.png
+./figures/FIXME.png
 ```
 
 As we said earlier,
@@ -1097,7 +1097,7 @@ FIXME: exercise to introduce ? and other wildcards.
 
 ## Key Points {#r-rse-bash-advanced-keypoints}
 
-```{r, child="keypoints/rse-bash-advanced.md"}
+```{r, child="keypoints/bash-advanced.md"}
 ```
 
 ```{r, child="./links.md"}

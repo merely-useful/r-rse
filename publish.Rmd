@@ -436,8 +436,5 @@ How would you go about publishing the code associated with that project
 
 ## Key Points {#r-rse-publish-keypoints}
 
-```{r, child="keypoints/rse-publish.md"}
-```
-
-```{r, child="./links.md"}
+```{r, child="keypoints/publish.md"}
 ```

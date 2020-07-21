@@ -388,5 +388,5 @@ FIXME: create exercises for review.
 
 ## Key Points {#r-rse-style-keypoints}
 
-```{r, child="keypoints/rse-style.md"}
+```{r, child="keypoints/style.md"}
 ```

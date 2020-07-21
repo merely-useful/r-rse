@@ -149,9 +149,9 @@ TODO: Redo for R projects as packages.
 
 ```{r project-noble, echo=FALSE, fig.cap="Project Layout"}
 if (knitr::is_latex_output()) {
-  knitr::include_graphics("figures/rse-project/noble.pdf")
+  knitr::include_graphics("figures/FIXME.png")
 } else {
-  knitr::include_graphics("figures/rse-project/noble.svg")
+  knitr::include_graphics("figures/FIXME.png")
 }
 ```
 
@@ -897,5 +897,5 @@ Use the [Wayback Machine][wayback-machine] to find a link that is more likely to
 
 ## Key Points {#r-rse-project-keypoints}
 
-```{r, child="keypoints/rse-project.md"}
+```{r, child="keypoints/project.md"}
 ```

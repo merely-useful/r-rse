@@ -792,9 +792,9 @@ but some of the work can be automated.
 
 ```{r r-rse-correct-concept, echo=FALSE, fig.cap="Correctness Concept Map"}
 if (knitr::is_latex_output()) {
-  knitr::include_graphics("figures/rse-correct/concept.pdf")
+  knitr::include_graphics("figures/FIXME.png")
 } else {
-  knitr::include_graphics("figures/rse-correct/concept.svg")
+  knitr::include_graphics("figures/FIXME.png")
 }
 ```
 
@@ -859,5 +859,5 @@ to check that it raises errors when it should.
 
 ## Key Points {#r-rse-correct-keypoints}
 
-```{r, child="keypoints/rse-correct.md"}
+```{r, child="keypoints/correct.md"}
 ```

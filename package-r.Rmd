@@ -754,13 +754,13 @@ What does `usethis::use_package_doc` do?
 
 ```{r r-rse-package-r-concept, echo=FALSE, fig.cap="R Packaging Concept Map"}
 if (knitr::is_latex_output()) {
-  knitr::include_graphics("figures/rse-package-r/r-rse-package-r.pdf")
+  knitr::include_graphics("figures/FIXME.png")
 } else {
-  knitr::include_graphics("figures/rse-package-r/r-rse-package-r.svg")
+  knitr::include_graphics("figures/FIXME.png")
 }
 ```
 
 ## Key Points {#r-rse-package-r-keypoints}
 
-```{r, child="keypoints/rse-package-r.md"}
+```{r, child="keypoints/package-r.md"}
 ```

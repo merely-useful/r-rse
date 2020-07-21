@@ -899,13 +899,13 @@ which makes it a great way to assemble pipelines out of whatever is lying around
 
 ```{r automate-concept, echo=FALSE, fig.cap="Automation Concept Map"}
 if (knitr::is_latex_output()) {
-  knitr::include_graphics("figures/rse-automate/concept.pdf")
+  knitr::include_graphics("figures/FIXME.png")
 } else {
-  knitr::include_graphics("figures/rse-automate/concept.svg")
+  knitr::include_graphics("figures/FIXME.png")
 }
 ```
 
-```{r, child="keypoints/rse-automate.md"}
+```{r, child="keypoints/automate.md"}
 ```
 
 ## Exercises {#r-rse-automate-exercises}

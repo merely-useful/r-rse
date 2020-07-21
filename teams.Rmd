@@ -451,9 +451,9 @@ Figure \@ref(fig:teams-lifecycle) how issues can move from state to state in a 
 
 ```{r teams-lifecycle, echo=FALSE, fig.cap="Issue Lifecycle"}
 if (knitr::is_latex_output()) {
-  knitr::include_graphics("figures/rse-teams/lifecycle.pdf")
+  knitr::include_graphics("figures/FIXME.png")
 } else {
-  knitr::include_graphics("figures/rse-teams/lifecycle.svg")
+  knitr::include_graphics("figures/FIXME.png")
 }
 ```
 

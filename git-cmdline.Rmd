@@ -986,7 +986,7 @@ Run the command `git blame names.txt`.
 
 ## Key Points {#r-rse-git-cmdline-keypoints}
 
-```{r, child="keypoints/rse-git-cmdline.md"}
+```{r, child="keypoints/git-cmdline.md"}
 ```
 
 ```{r, child="./links.md"}

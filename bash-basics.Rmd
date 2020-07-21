@@ -2599,7 +2599,7 @@ before running them. Why do you think it does this?
 
 ## Key Points {#r-rse-bash-basics-keypoints}
 
-```{r, child="keypoints/rse-bash-basics.md"}
+```{r, child="keypoints/bash-basics.md"}
 ```
 
 ```{r, child="./links.md"}
