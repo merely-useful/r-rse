@@ -762,5 +762,5 @@ if (knitr::is_latex_output()) {
 
 ## Key Points {#r-rse-package-r-keypoints}
 
-```{r, child="keypoints/package-r.md"}
+```{r, child="keypoints/packaging.md"}
 ```

@@ -41,7 +41,7 @@ source("_common.R")
 ```
 
 ## R Packaging
-```{r, child="keypoints/package-r.md"}
+```{r, child="keypoints/packaging.md"}
 ```
 
 ## Python Packaging
