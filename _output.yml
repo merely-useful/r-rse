@@ -4,7 +4,7 @@ bookdown::gitbook:
   split_bib: false
   highlight: haddock
   config:
-    #download: ["pdf"]
+    # download: ["pdf"]
     toc:
       collapse: section
       before: |
@@ -18,10 +18,10 @@ bookdown::gitbook:
       link: https://github.com/merely-useful/r-rse/blob/main/%s
       text: "View"
     sharing: null
-bookdown::pdf_book:
-  keep_tex: true
-  latex_engine: "xelatex"
-  template: null
-  pandoc_args: ['--top-level-division=chapter', '--csl=jcb.csl']
-  includes:
-    in_header: preamble.tex
+# bookdown::pdf_book:
+#   keep_tex: true
+#   latex_engine: "xelatex"
+#   template: null
+#   pandoc_args: ['--top-level-division=chapter', '--csl=jcb.csl']
+#   includes:
+#     in_header: preamble.tex
