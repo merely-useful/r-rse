@@ -98,6 +98,17 @@ The styler package can help with that.
 1. We use Simplified English rather than Traditional English, i.e., American
 rather than British spelling and grammar.
 
+1. The perspective for writing is as if we are the instructor doing
+the live coding (or lecture) to the learners. So language might be something like:
+    - For live coding:
+        - "We will now do this" rather than "You will now do this"
+    - For exercises:
+        - "You should/will/need to"
+    - For reading material or informational sections:
+        - "You can/could/might"
+    - Pronouns should in general be active and direct, e.g. ("we", "you"),
+    rather than indirect ("they").
+
 ## Using R packages in the book
 
 GitHub Actions needs to know what packages to install to build the website. To
