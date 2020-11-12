@@ -128,7 +128,7 @@ Here is a draft outline to guide development.
         - E.g. with pr_* functions from usethis
 
 - Checking correctness of code
-    - Using basic debugging strategies ("breakpoints", simple `print()` or `stop()` calls, `browser()`)
+    - Using basic debugging strategies ("breakpoints", simple `print()` or `stop()` calls, `debug()`, `browser()`)
     - Unit test (with testthat)
     - Code coverage (with covr)
     - With devtools
