@@ -108,6 +108,9 @@ the live coding (or lecture) to the learners. So language might be something lik
         - "You can/could/might"
     - Pronouns should in general be active and direct, e.g. ("we", "you"),
     rather than indirect ("they").
+    
+1. Keep code chunks no longer than 70 characters long, since the PDF output 
+will be a bit tight.
 
 ## Using R packages in the book
 
