@@ -106,11 +106,16 @@ the live coding (or lecture) to the learners. So language might be something lik
         - "You should/will/need to"
     - For reading material or informational sections:
         - "You can/could/might"
-    - Pronouns should in general be active and direct, e.g. ("we", "you"),
-    rather than indirect ("they").
+    - Pronouns should in general be active and direct, e.g. first or second
+    person ("we", "you"), rather than indirect third-person ("they").
+      - When third person pronoun is necessary, use either "she" or "they"
+      unless talking about e.g. one of the personas.
+      - Active and direct in the sense that content is directed about something
+      tangible
     
 1. Keep code chunks no longer than 70 characters long, since the PDF output 
 will be a bit tight.
+
 
 ## Using R packages in the book
 
