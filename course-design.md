@@ -71,12 +71,29 @@ but this is to give a direction on how to write those sections
     - Guidelines on how to make this course either online or in person
 
 - Key resources to use for this:
-  - R packages: usethis, devtools, drake?, pkgdown, testthat, styler, rmarkdown
+  - R packages: usethis, devtools, pkgdown, testthat, styler, rmarkdown
   - Online books: [R Packages](https://r-pkgs.org/) 
   (we differentiate from this amazing book by structuring everything around 
   this being a course, with exercises, assessments, (group?) projects, 
   instructions/comments/notes for instructors, etc)
     - We use the R Packages book as a reference
+
+- Overview of the (3-4?) packages developed throughout course:
+    - Zipf's Law package: Used as key example for code-along, content, and most
+    exercises.
+    - Individual-based, small and simple package: Used as the first main "deliverable"
+    for the course. Due after Build Management, with potential milestones due
+    every 1-2 chapters. Final chapter exercises could be focused on completing the
+    and working towards milestones and deliverable.
+    - Individual-based, small improvements to existing package: Used as second 
+    deliverable, due after "Community involvement". Should only build off of
+    and improve an existing package, so doesn't need many milestones. Used to
+    reinforce importance of having documentation that can involve the community.
+    Could be the final exercises of chapters between Build Management and 
+    Community Involvement.
+    - Group-based, larger package: Optional, best used in longer length,
+    class-based courses where groups can be formed. Is third and final
+    deliverable. No need to have final exercises for this, instructor can decide.
     
 ## Chapter outline
 
