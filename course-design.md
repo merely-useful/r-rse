@@ -81,7 +81,7 @@ Here is a draft outline to guide development.
 
 - Syllabus
     - Overview of course
-    - Why to learn it
+    - Why to learn it and learning outcomes
     - Intended learner (personas, assumptions and expectations etc)
     - What makes this course different
         - Go over the "Whole Game" chapter of the R Packages book (https://r-pkgs.org/whole-game.html)
@@ -100,6 +100,7 @@ Here is a draft outline to guide development.
         - Actual process of taking code and converting it into a function will
         be done in next chapter
     - Making and using datasets
+        - Downloading zipf data at this point, using `usethis::use_data_raw()`, write the script to download the data and process into `data/` via `usethis::use_data()`.
 
 - Function development in a package environment
     - Process of creating non-function code, checking that it works, then
@@ -126,6 +127,7 @@ Here is a draft outline to guide development.
     creating branches, adding and updating remotes)
     - Setting up GitHub for R package (make use of usethis), pushing and pulling
         - E.g. with pr_* functions from usethis
+    - Emphasize exercises to practice, not showing output of git in code chunks (they are a pain to edit afterwards)
 
 - Checking correctness of code
     - Using basic debugging strategies ("breakpoints", simple `print()` or `stop()` calls, `debug()`, `browser()`)
@@ -162,6 +164,7 @@ Here is a draft outline to guide development.
     - Licensing
     - Governance
     - NEWS file
+    - reprex?
 
 - Version control: Workflows around using GitHub (part 2)
     - Make use of R builtin tools like the usethis pull request helpers 
@@ -176,6 +179,7 @@ Here is a draft outline to guide development.
 
 - Preparing for package release
     - Check builds on other systems (with rhub)
+        - Etiquette for using (mostly free) servers and external build systems like GitHub Actions and rhub (e.g. don't overuse them)
     - Running local CRAN checks
     - Managing your versions, git tagging
 
@@ -188,7 +192,13 @@ Here is a draft outline to guide development.
     - Governance
     - Issue assignment
     - Relying on and using code of conduct to build culture and standards
-
+    - Setting up SSH, two-factor authentication, PATs?
+- Appendices (ideas)
+    - Template of Code of Conduct for participating in course
+    - Instructions to potential instructors
+    - Solutions
+    - Glossary
+    - References
 ## Final projects for formal assessment
 
 Two project deliverables for learners:
