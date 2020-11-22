@@ -1,4 +1,4 @@
-# Course design components for *RSE in R*
+# Course design
 
 ## Basic design components
 
@@ -31,19 +31,27 @@ but this is to give a direction on how to write those sections
         - Could include dedicated group work sessions after the teamwork lessons
         (at end), with instructor and helpers available in class
     - Out of class: 
-        - Group work/project creating an R package based on a set of (given?) problems
-            - Or include several potential projects that are either individual
-            or group based so that instructor or learner has options to choose from
-            based on the situation, class structure, and other needs
-            - Maybe provide several potential problem sets as starting points? Or 
-            get the learners to determine their own? (this might be difficult) 
-            Optional is to choose a few simple existing packages (that don't
-            follow these guidelines from the book) and get them to re-make it
-            using the principles (and maybe later ask package maintainer if they
-            would like the features as a PR?)
-        - Formative assessments like coding with immediate feedback on correct/incorrect
-        (via learnr package? Esp with new update to RStudio in version 1.3)
-          - Need to consider that writing correctness tests is time consuming
+        - Individual project to build a package of a known problem, to solidify 
+        their learning. Projects to choose from could be known and simple
+        problems in data analysis that may or may not have already been
+        implemented as an R package
+        - Another individual but small project, done after the "involving
+        community" chapter, to take existing packages that don't implement some
+        best practices and improving them. Pull requests to original package
+        would be optional and would only be done depending on whether maintain
+        wants them.
+            - For a potential list of packages, could include in "For Instructors"
+            instructions for how to find packages that learners could use. (e.g.
+            how to search through GitHub).
+            - For self-learners, could provide some tips on how to find packages
+            like this.
+        - Group project to create a slightly more advanced R package based on a
+        set of potential problems to choose from.
+            - This is built as a set of instructions for instructors on how to 
+            create this project that fits with the needs and context of the given
+            class.
+        - Informal formative assessments (or instructions on types that instructor 
+        could use or make)
         - Reading assignments to motivate and inform on content given in-class
 
 - **Assessment and feedback activities**:
@@ -89,6 +97,7 @@ Here is a draft outline to guide development.
 
 - Folder and file structure (RStudio R Projects)
     - File paths, very basics of the shell (in RStudio)
+    - Working directory and how it is set with RStudio R Projects
     - Making use of the fs package for filesystem management
     
 - Setting up an R package
@@ -106,19 +115,14 @@ Here is a draft outline to guide development.
       converting it into a function
         - There are several workflows for this (create in vignette Rmd, make a dev/creating.R
         script as a development location, developing in the examples Roxygen
-        section, etc). Which to use?
+        section, "Untitled1.R"). Which to use?
+            - Mostly *how workflow actually looks like*.
     - Building functions up slowly, making small targeted functions that build up
     into a bigger more complex functions
     - Process control (if-else, stop, return, switch)
     - Dependency management
     - Function documentation (with roxygen2), part 1
         - To use `@examples` to help with creating function
-
-- (Idea) Additional features to make use of
-    - RStudio addins, snippets, rmarkdown templates, templates
-    - rstudioapi? (as a component of the package, maybe to insert text in rstudio, etc)
-    - Things that a package can do aside from functions
-    - Idea: Shiny app here?
 
 - Version control: Using Git and GitHub as a sole user (part 1)
     - Using Git in RStudio (standard add-commit-history)
@@ -133,19 +137,16 @@ Here is a draft outline to guide development.
     - Code coverage (with covr)
     - With devtools
 
-- Build management
+- Build management and workflow
     - With devtools
+    - Running local CRAN checks
     - General workflow (load_all, test, check)
-    - Maybe with drake?
-        - Cover it minimally or as a later stand-alone topic.
-        - Drake is (maybe?) more targeted to data analysis pipelines, not package dev
     - Pre-push running test, build, and check
     - Continuous integration using GitHub Actions 
 
 - Developing documentation and tutorials on usage
     - Vignettes, README (with rmarkdown and usethis)
     - Function documentation (with roxygen2), part 2
-    - learnr tutorials via `use_tutorials()`?
     - Running spell checks and styling (with spelling and styler)
 
 - Exposing your package to the world with a website:
@@ -176,7 +177,6 @@ Here is a draft outline to guide development.
 
 - Preparing for package release
     - Check builds on other systems (with rhub)
-    - Running local CRAN checks
     - Managing your versions, git tagging
 
 - R package development in a team-based environment
@@ -189,26 +189,36 @@ Here is a draft outline to guide development.
     - Issue assignment
     - Relying on and using code of conduct to build culture and standards
 
+- Appendix: Other uses of packages
+    - RStudio addins, snippets, rmarkdown templates, templates
+    - rstudioapi
+
 ## Final projects for formal assessment
 
-Two project deliverables for learners:
+Three project deliverables, with individual milestones for each, for learners:
 
 - Package created alone as the first deliverable
     - Due after "package release" lesson
     - This will be a simpler package compared to the next one
-- Package created as a team as the second deliverable
+- Improve existing package to fit best practices (Pull Request is optional, dependent
+on maintainer wishes).
+- Package created as a team as the third deliverable (but indicate that this is
+dependent on classes that allow group work, so instructor should use this if wanted)
     - Due after teamwork lesson (so they have learned the basic skills of package dev
     and now start from scratch with these skills to create a package)
-- Another idea for an additional deliverable could be to submit simple pull
-requests to existing packages to address an issue
-    
+
 Ideas to how project should be started:
 
 - We give them several general problems to solve, with or without data that needs to be worked
     - Or existing solutions that could be improved on
-- We let them decide on the problem (this is tricky since it requires domain knowledge)
 - We get them to re-create an existing package that could use more work or development
 (there are no end to these types of packages, especially the earlier ones)
     - Could get them to refactor code to be more readable
 - We get them to choose an existing package to develop on their own and then
 to contribute back (e.g. develop a website for the package and update the documentation)
+- In all examples, include instructions for instructors on how to design their
+own, more field-specific and class context-dependent problems.
+    - Provide pretty concrete problems/examples, and then let individual
+    instructors deviate to more student directed problems if they want. E.g.
+    it's a lot easier for an instructor to evaluate an alternate project, if
+    they already have an example to look at that they know will work out.
