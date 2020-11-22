@@ -16,9 +16,9 @@ but this is to give a direction on how to write those sections
     - Is designed to involve the community, such as gaining potential contributors
     (including licensing, code of conduct, contributing guidelines, 
     well described README)
-    - Has user-friendly (i.e. targetted to a novice to intermediate user)
+    - Has user-friendly (i.e. targeted to a novice to intermediate user)
     documentation and tutorials on how to use the package (e.g. a nice website)
-    - Is adequately structured to make package management and maintanence easier
+    - Is adequately structured to make package management and maintenance easier
     (e.g. with Issue Templates, Project Boards, Labels, contributing guidelines)
 
 - **Teaching/learning activities**:
@@ -32,13 +32,22 @@ but this is to give a direction on how to write those sections
         (at end), with instructor and helpers available in class
     - Out of class: 
         - Group work/project creating an R package based on a set of (given?) problems
+            - Or include several potential projects that are either individual
+            or group based so that instructor or learner has options to choose from
+            based on the situation, class structure, and other needs
+            - Maybe provide several potential problem sets as starting points? Or 
+            get the learners to determine their own? (this might be difficult) 
+            Optional is to choose a few simple existing packages (that don't
+            follow these guidelines from the book) and get them to re-make it
+            using the principles (and maybe later ask package maintainer if they
+            would like the features as a PR?)
         - Formative assessments like coding with immediate feedback on correct/incorrect
         (via learnr package? Esp with new update to RStudio in version 1.3)
           - Need to consider that writing correctness tests is time consuming
         - Reading assignments to motivate and inform on content given in-class
 
 - **Assessment and feedback activities**:
-    - Deadlines for milestones to acheive for projects, with instructor feedback on progress
+    - Deadlines for milestones to achieve for projects, with instructor feedback on progress
     - Out-of-class formative assessments based on maybe learnr tutorials?
     - After completing in-class exercises, go over them as class?
     - Peer review activities? E.g. exercises that have a rubric that go with them that can be used to guide peer review.
@@ -51,6 +60,7 @@ but this is to give a direction on how to write those sections
     - A TA could be assigned to a group and be the learners direct link to getting feedback
     and help
     - TA could act as Carpentry-style helpers during the live coding sessions
+    - Guidelines on how to make this course either online or in person
 
 - Key resources to use for this:
   - R packages: usethis, devtools, drake?, pkgdown, testthat, styler, rmarkdown
@@ -65,15 +75,20 @@ but this is to give a direction on how to write those sections
 Course chapters and content need to be strongly aligned with learning outcome/goal.
 Here is a draft outline to guide development.
 
+- Overview of material
+    - How to use, why to use, general details and overall description
+        - Reference "For Instructors" section for instructors to check out
+
 - Syllabus
     - Overview of course
     - Why to learn it
+    - Intended learner (personas, assumptions and expectations etc)
     - What makes this course different
         - Go over the "Whole Game" chapter of the R Packages book (https://r-pkgs.org/whole-game.html)
         to give an idea of what it all looks like in the end of this course
 
 - Folder and file structure (RStudio R Projects)
-    - Filepaths, very basics of the shell (in RStudio)
+    - File paths, very basics of the shell (in RStudio)
     - Making use of the fs package for filesystem management
     
 - Setting up an R package
@@ -82,15 +97,18 @@ Here is a draft outline to guide development.
         - e.g. `use_devtools()` and `use_usethis()`.
     - Developing functions
         - Basic explanation of what a function is and its components
-        - Acutal process of taking code and converting it into a function will
+        - Actual process of taking code and converting it into a function will
         be done in next chapter
     - Making and using datasets
 
 - Function development in a package environment
     - Process of creating non-function code, checking that it works, then
       converting it into a function
+        - There are several workflows for this (create in vignette Rmd, make a dev/creating.R
+        script as a development location, developing in the examples Roxygen
+        section, etc). Which to use?
     - Building functions up slowly, making small targeted functions that build up
-    into a bigger more complex function
+    into a bigger more complex functions
     - Process control (if-else, stop, return, switch)
     - Dependency management
     - Function documentation (with roxygen2), part 1
@@ -103,24 +121,26 @@ Here is a draft outline to guide development.
     - Idea: Shiny app here?
 
 - Version control: Using Git and GitHub as a sole user (part 1)
-    - Using Git in RStudio (standard add-commmit-history)
+    - Using Git in RStudio (standard add-commit-history)
     - Using Git in the Terminal of RStudio (moving in history with checkout,
     creating branches, adding and updating remotes)
     - Setting up GitHub for R package (make use of usethis), pushing and pulling
+        - E.g. with pr_* functions from usethis
 
 - Checking correctness of code
-    - Using basic debugging strategies ("breakpoints", simple `print()` or `stop()` calls)
+    - Using basic debugging strategies ("breakpoints", simple `print()` or `stop()` calls, `debug()`, `browser()`)
     - Unit test (with testthat)
     - Code coverage (with covr)
     - With devtools
 
 - Build management
     - With devtools
+    - General workflow (load_all, test, check)
     - Maybe with drake?
         - Cover it minimally or as a later stand-alone topic.
+        - Drake is (maybe?) more targeted to data analysis pipelines, not package dev
     - Pre-push running test, build, and check
-    - Continuous integration using Travis and/or GitHub Actions and AppVeyor 
-    (for Windows building)
+    - Continuous integration using GitHub Actions 
 
 - Developing documentation and tutorials on usage
     - Vignettes, README (with rmarkdown and usethis)
@@ -140,6 +160,7 @@ Here is a draft outline to guide development.
     - Contributing guidelines 
     - Being inclusive (code of conduct)
     - Licensing
+    - Governance
     - NEWS file
 
 - Version control: Workflows around using GitHub (part 2)
@@ -174,14 +195,17 @@ Two project deliverables for learners:
 
 - Package created alone as the first deliverable
     - Due after "package release" lesson
+    - This will be a simpler package compared to the next one
 - Package created as a team as the second deliverable
     - Due after teamwork lesson (so they have learned the basic skills of package dev
     and now start from scratch with these skills to create a package)
-    - After these 
-
+- Another idea for an additional deliverable could be to submit simple pull
+requests to existing packages to address an issue
+    
 Ideas to how project should be started:
 
 - We give them several general problems to solve, with or without data that needs to be worked
+    - Or existing solutions that could be improved on
 - We let them decide on the problem (this is tricky since it requires domain knowledge)
 - We get them to re-create an existing package that could use more work or development
 (there are no end to these types of packages, especially the earlier ones)
