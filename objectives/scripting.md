@@ -1,2 +1,0 @@
--   Use the argparse library to manage command-line arguments in a program.
--   Structure Python scripts according to a simple template.
