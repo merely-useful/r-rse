@@ -1,12 +1,19 @@
 # Course Assignments
 
-Three project deliverables, with individual milestones for each, for learners:
+This course is designed to have learners complete three project deliverables,
+with individual milestones in each project.
+
+## Package 
+
+This will be a simpler package compared to the next one
 
 - Package created alone as the first deliverable
-    - Due after "package release" lesson
-    - This will be a simpler package compared to the next one
+
+- Recommended to be due after "Build Management" lesson REF
+    
 - Improve existing package to fit best practices (Pull Request is optional, dependent
 on maintainer wishes).
+
 - Package created as a team as the third deliverable (but indicate that this is
 dependent on classes that allow group work, so instructor should use this if wanted)
     - Due after teamwork lesson (so they have learned the basic skills of package dev
