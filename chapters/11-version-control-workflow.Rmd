@@ -1,0 +1,13 @@
+# Version control: Workflows around using GitHub (part 2)
+
+- Make use of R builtin tools like the usethis pull request helpers
+  (and learning how to make use of this yourself)
+- Using this workflow as a team or as a contributor
+
+
+
+## Final exercise
+
+<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+
+
