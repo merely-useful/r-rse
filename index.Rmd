@@ -1,10 +1,13 @@
 ---
 title: "Merely Useful: Using R for Research Software Engineering"
-author: "Kate Hertweck, Damien Irving, Luke Johnston, Joel Ostblom, Charlotte Wickham, Ian Flores Siaca, and Greg Wilson"
+author: "Kate Hertweck, Damien Irving, Luke Johnston, Madeleine Bonsma-Fisher, Joel Ostblom, Charlotte Wickham, Ian Flores Siaca, and Greg Wilson"
 documentclass: book
-bibliography: book.bib
+bibliography: includes/book.bib
+csl: includes/jcb.csl
 citation-package: none
 link-citations: yes
+github-repo: "merely-useful/r-rse"
+favicon: favicon.ico
 site: bookdown::bookdown_site
 date: "`r Sys.Date()`"
 lot: yes
@@ -73,6 +76,8 @@ as long as there is attribution to this source.
 
 TODO: Who is this book targeted towards? and why? and how can each use it.
 
+## Instructional design
+
 ## Acknowledgments {#rse-intro-ack}
 
 This book owes its existence to
@@ -82,5 +87,15 @@ and to everyone who has contributed,
 particularly Jonathan Dursi
 and the authors of [@Nobl2009; @Hadd2010; @Wils2014; @Scop2015; @Tasc2017; @Wils2017; @Brow2018; @Deve2018; @Shol2019; @Wils2019].
 
-```{r, child="./links.md"}
+```{r, child="./appendices/links.md"}
 ```
+
+<!-- - Overview of material -->
+<!--     - How to use, why to use, general details and overall description -->
+<!--         - Reference "For Instructors" section for instructors to check out -->
+
+
+  <!-- - Online books: [R Packages](https://r-pkgs.org/)  -->
+  <!-- (we differentiate from this amazing book by structuring everything around  -->
+  <!-- this being a course, with exercises, assessments, (group?) projects,  -->
+  <!-- instructions/comments/notes for instructors, etc) -->
