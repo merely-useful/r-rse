@@ -1,0 +1,13 @@
+# Preparing for package release
+
+- Check builds on other systems (with rhub)
+- Etiquette for using (mostly free) servers and external build systems like GitHub Actions and rhub (e.g. do not overuse them)
+- Managing your versions, git tagging
+
+
+
+## Final exercise
+
+<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+
+

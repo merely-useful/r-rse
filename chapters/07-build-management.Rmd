@@ -1,0 +1,15 @@
+# Build management and workflow
+
+- With devtools
+- Running local CRAN checks
+- General workflow (load_all, test, check)
+- Pre-push running test, build, and check
+- Continuous integration using GitHub Actions
+
+
+
+## Final exercise
+
+<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+
+

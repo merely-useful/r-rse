@@ -1,0 +1,19 @@
+# R package development in a team-based environment
+
+- Making use of GitHub Organizations/Teams
+- Branch protection, member roles
+- Resolving conflict, personality differences
+- Running meetings, code of conduct
+- Decision making
+- Governance
+- Issue assignment
+- Relying on and using code of conduct to build culture and standards
+- Setting up SSH, two-factor authentication, PATs?
+
+
+
+## Final exercise
+
+<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+
+

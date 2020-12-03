@@ -1,0 +1,13 @@
+# Folder and file structure (RStudio R Projects)
+
+- File paths, very basics of the shell (in RStudio)
+- Working directory and how it is set with RStudio R Projects
+- Making use of the fs package for filesystem management
+
+
+
+## Final exercise
+
+<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+
+
