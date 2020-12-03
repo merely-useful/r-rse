@@ -1,0 +1,14 @@
+# Project management of your package development (either sole or in a team)
+
+- Issue tracking
+- Labeling
+- Project boards
+- Milestones
+
+
+
+## Final exercise
+
+<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+
+
