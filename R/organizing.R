@@ -1,14 +1,10 @@
-# Project management of your package development (either sole or in a team)
+library(tidyverse)
 
-- Issue tracking
-- Labeling
-- Project boards
-- Milestones
-
-
+"
 
 ## Final exercise
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
-
+" %>%
+    walk2(chapters, write_lines, append = TRUE)
