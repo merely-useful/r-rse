@@ -1,0 +1,19 @@
+# Setting up an R package
+
+- Describing what a package is and when or why to make one
+- Using devtools, usethis for development
+- e.g. `use_devtools()` and `use_usethis()`.
+- Developing functions
+- Basic explanation of what a function is and its components
+- Actual process of taking code and converting it into a function will
+    be done in next chapter
+- Making and using datasets
+- Downloading zipf data at this point, using `usethis::use_data_raw()`, write the script to download the data and process into `data/` via `usethis::use_data()`.
+
+
+
+## Final exercise
+
+<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+
+

@@ -1,0 +1,13 @@
+# Developing documentation and tutorials on usage
+
+- Vignettes, README (with rmarkdown and usethis)
+- Function documentation (with roxygen2), part 2
+- Running spell checks and styling (with spelling and styler)
+
+
+
+## Final exercise
+
+<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+
+
