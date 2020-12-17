@@ -23,10 +23,10 @@ The individual steps look like this:
   - `devtools::check()`
 2. Add a function called `FIXME`
   - `usethis::use_r("FIXME")`
-3. Load all the functions and see if the `FIXME` function works.
-  - `devtools::load_all()` 
-4. Add and build documentation for the `FIXME` function.
+3. Add and build documentation for the `FIXME` function.
   - `devtools::document()`
+4. Load all the functions and see if the `FIXME` function works.
+  - `devtools::load_all()` 
 5. Write and execute tests for the `FIXME` function.
   - `usethis::use_test("FIXME")`
   - `devtoools::test()`
