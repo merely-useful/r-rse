@@ -15,7 +15,7 @@ The purpose of this exercise is for the participant to go through a cycle of ite
 - 1) checking if their package succeeds with R CMD
 - 2) adding a function and the related steps
 - 3) check if the package succeeds R CMD with the new additions
-- 4) deploy a GitHub Action that performs the R CMD check every time they do a Git commit. 
+- 4) deploy a GitHub Action that performs the R CMD check every time they push to GitHub. 
 
 The individual steps look like this:
 
