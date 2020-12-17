@@ -1,0 +1,22 @@
+# Function development in a package environment
+
+- Process of creating non-function code, checking that it works, then
+   converting it into a function
+- There are several workflows for this (create in vignette Rmd, make a dev/creating.R
+    script as a development location, developing in the examples Roxygen
+    section, 'Untitled1.R'). Which to use?
+- Mostly *how workflow actually looks like*.
+- Building functions up slowly, making small targeted functions that build up
+  into a bigger more complex functions
+- Process control (if-else, stop, return, switch)
+- Dependency management
+- Function documentation (with roxygen2), part 1
+- To use `@examples` to help with creating function
+
+
+
+## Final exercise
+
+<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+
+

@@ -1,10 +1,9 @@
 bookdown::gitbook:
-  pandoc_args: ["--csl", "jcb.csl"]
   keep_md: true
   split_bib: false
   highlight: haddock
   config:
-    #download: ["pdf"]
+    # download: ["pdf"]
     toc:
       collapse: section
       before: |
@@ -12,13 +11,16 @@ bookdown::gitbook:
       after: |
         <li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
     edit:
-      link: https://github.com/merely-useful/r-rse/edit/master/%s
+      link: https://github.com/merely-useful/r-rse/edit/main/%s
       text: "Edit"
+    view:
+      link: https://github.com/merely-useful/r-rse/blob/main/%s
+      text: "View"
     sharing: null
-bookdown::pdf_book:
-  keep_tex: true
-  latex_engine: "xelatex"
-  template: null
-  pandoc_args: ['--top-level-division=chapter', '--csl=jcb.csl']
-  includes:
-    in_header: preamble.tex
+# bookdown::pdf_book:
+#   keep_tex: true
+#   latex_engine: "xelatex"
+#   template: null
+#   pandoc_args: ['--top-level-division=chapter', '--csl=jcb.csl']
+#   includes:
+#     in_header: preamble.tex

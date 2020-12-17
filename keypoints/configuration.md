@@ -1,4 +1,0 @@
--   Read a system-wide configuration file, then a user configuration file, then a job configuration file.
--   Format configuration files using YAML.
--   Dump all configuration values in the same format used for input on request.
--   Include the software version number in the dumped configuration.

@@ -1,0 +1,14 @@
+# Exposing your package to the world with a website:
+
+- Setting up a website (with pkgdown)
+- Customizing the themes
+- Getting all resources and material organized
+- Defining lifecycle of your package and individual functions (with lifecycle)
+
+
+
+## Final exercise
+
+<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+
+

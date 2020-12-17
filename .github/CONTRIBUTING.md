@@ -13,7 +13,7 @@ and decide on how to address it and continue on.
 
 ## Workflow for adding content
 
-The main development branch is `master` and the website is built on `gh-pages`.
+The main development branch is `main` and the website is built on `gh-pages`.
 To add content, create a new branch in the repository and submit a PR.
 We suggest using the `pr_*` family of functions from the usethis package.
 See the [documentation](https://usethis.r-lib.org/articles/articles/pr-functions.html)

@@ -1,4 +1,0 @@
--   Explain why branches can be useful.
--   Merge branches back into the master branch.
--   Define the terms fork, clone, origin, remote.
--   Understand how to make a pull request and explain what they are useful for.
