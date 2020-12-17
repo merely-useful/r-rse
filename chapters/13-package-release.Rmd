@@ -1,4 +1,4 @@
-# Preparing for package release
+# Preparing for package release {#package-release}
 
 - Check builds on other systems (with rhub)
 - Etiquette for using (mostly free) servers and external build systems like GitHub Actions and rhub (e.g. do not overuse them)
