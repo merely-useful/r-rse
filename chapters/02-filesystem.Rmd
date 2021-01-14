@@ -1,6 +1,7 @@
 # Folder and file structure (RStudio R Projects)
 
 - File paths, very basics of the shell (in RStudio)
+  - `cd`, `ls`, flags
 - Working directory and how it is set with RStudio R Projects
 - Making use of the fs package for filesystem management
 
@@ -10,4 +11,13 @@
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
+FIXME: using `usethis::create_package` in the next chapter?
+- Is there anything we actually need to create here?
+- Are final exercises entirely applied, or should they be conceptual too?
 
+1. Create a new RStudio project for your project assignment,
+and answer the following questions:
+  - What is the absolute path to your project directory?
+  - If you close RStudio, how can you ensure your working directory is your project directory when you next open the application?
+
+2. Practice creating files with fs and comparing with `usethis` functions?
