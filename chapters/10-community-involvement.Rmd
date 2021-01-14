@@ -37,7 +37,6 @@ Complete these tasks for your package for the first project assignment. For more
     - A list of project-related resources, like links to your README, roadmap or other task list, etc. 
     - A list of communication channels your project uses, if applicable (mailing lists, forums, chat clients, etc.)
     - Instructions for how to submit changes or report a problem, specific to your project
-    - A list of "Good First Bugs:" suggested tasks for people who want to contribute to your project for the first time
     - A description of how you recognize contributors
     - Instructions on where to go for help: who to contact and how
     - A link to your Code of Conduct
