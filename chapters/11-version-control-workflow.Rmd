@@ -9,7 +9,7 @@
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
-Complete these tasks for your package for the first project assignment.
+Complete these tasks as part of the package for your first project assignment:
 
 1. Create a new Issue on your package's GitHub repository about fixing FIXME
 function.
@@ -23,7 +23,7 @@ function.
     - Merge the newly created Pull Request.
 6. In your local Git repository, run `pr_finish()` to finish up.
 
-Repeat this process by a few more times by making changes to:
+Repeat this process one more time by making changes to:
 
 - FIXME
 
