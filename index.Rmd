@@ -2,7 +2,8 @@
 title: "Merely Useful: Using R for Research Software Engineering"
 author: "Kate Hertweck, Damien Irving, Luke Johnston, Madeleine Bonsma-Fisher, Joel Ostblom, Charlotte Wickham, Ian Flores Siaca, and Greg Wilson"
 documentclass: book
-bibliography: book.bib
+bibliography: includes/book.bib
+csl: includes/jcb.csl
 citation-package: none
 link-citations: yes
 github-repo: "merely-useful/r-rse"
@@ -86,7 +87,7 @@ and to everyone who has contributed,
 particularly Jonathan Dursi
 and the authors of [@Nobl2009; @Hadd2010; @Wils2014; @Scop2015; @Tasc2017; @Wils2017; @Brow2018; @Deve2018; @Shol2019; @Wils2019].
 
-```{r, child="./links.md"}
+```{r, child="./appendices/links.md"}
 ```
 
 <!-- - Overview of material -->

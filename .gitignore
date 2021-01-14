@@ -24,3 +24,4 @@ merely-useful.Rmd
 merely-useful.log
 settings.json
 r-rse.Rmd
+.Rbuildignore

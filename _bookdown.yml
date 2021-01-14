@@ -10,8 +10,7 @@ rmd_files:
   - index.Rmd
 
   # End files
-  - appendices/appendix.Rmd
+  - appendices/appendix.md
   - appendices/gloss.md
   - appendices/references.Rmd
-  - appendices/links.md
 before_chapter_script: "_common.R"
