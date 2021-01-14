@@ -2,12 +2,28 @@
 
 - Make use of R builtin tools like the usethis pull request helpers
   (and learning how to make use of this yourself)
+- E.g. with pr_* functions from usethis
 - Using this workflow as a team or as a contributor
-
-
 
 ## Final exercise
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
+Complete these tasks for your package for the first project assignment.
+
+1. Create a new Issue on your package's GitHub repository about fixing FIXME
+function.
+2. Using the `pr_*` helpers, create a new branch called `fixing-function` using
+`pr_init("fixing-function")`.
+3. Make the following changes to the FIXME function:
+    - FIXME
+4. Add and commit these changes.
+5. Push the changes up to GitHub by using `pr_push()`.
+    - Create a new Pull Request based on the push.
+    - Merge the newly created Pull Request.
+6. In your local Git repository, run `pr_finish()` to finish up.
+
+Repeat this process by a few more times by making changes to:
+
+- FIXME
 
