@@ -4,10 +4,7 @@
 - Using Git in the Terminal of RStudio (moving in history with checkout,
   creating branches, adding and updating remotes)
 - Setting up GitHub for R package (make use of usethis), pushing and pulling
-- E.g. with pr_* functions from usethis
 - Emphasize exercises to practice, not showing output of git in code chunks (they are a pain to edit afterwards)
-
-
 
 ## Final exercise
 
