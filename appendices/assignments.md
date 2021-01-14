@@ -138,7 +138,12 @@ would benefit more from the course if they see and use an application they are
 familiar with.
     - If it doesn't involve data, it's still recommended to structure the project
     package around using or working with data in some way.
-    
+- Package problems are always better if they are targeted to the background 
+knowledge of the instructor and the learners. Field-specific and class
+context-dependent problems will more likely be remembers and learned than other
+problems.
+TODO: Add some examples that instructors can based off of and deviate if needed.
+
 Here are some example datasets that could form the basis for the project packages:
 
 - [NYC Dog Licensing dataset](https://data.cityofnewyork.us/Health/NYC-Dog-Licensing-Dataset/nu7n-tubp)
@@ -168,9 +173,25 @@ for evolving such a vector, and functions that the control evolution.
 might be corporate/team/school colors and functions that might include a custom
 ggplot2 theme for them.
 
-## Expectations of learners for completing projects
+### Second assignment
 
-- After Git lesson, to frequently and consistently commit and push to GitHub.
-The GitHub history will be checked to confirm this happens.
-- Complete the final exercise tasks shortly after finishing their associated
-lesson.
+The learners should either be given a list of some potential packages to improve
+or be given detailed instructions on how to find potential packages. If you want
+to provide a list of possible packages, here is some instructions on how to find
+these packages to give the learners:
+
+TODO: Include instructions here, eg what search terms to use in GitHub etc and how to find packages.
+TODO: Include some example packages to try to base off of.
+
+### Third assignment
+
+The specific problem or package that groups will create depends heavily on their
+background knowledge and skills, as well as that of the instructor. To make the 
+most of learning and progress, groups should preferably be given a set of pre-existing
+problems that a package could solve. This problem can already be a solved problem;
+in fact, given learners a solved problem will make it easier for them to practice
+the skills and tools of research software engineering, rather than the domain
+specific knowledge and skills that might be required for solving an as-yet-solved
+problem.
+
+TODO: Fill in with more advice for this project assignment.
