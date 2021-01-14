@@ -16,10 +16,8 @@ jobs:
       - name: Setup R
         uses: r-lib/actions/setup-r@master
 
-
-      - uses: r-lib/actions/setup-pandoc@v1
-        with:
-            pandoc-version: '2.7.3' # The pandoc version to download (if necessary) and use.
+      - name: Setup pandoc
+        uses: r-lib/actions/setup-pandoc@master
 
       - name: Query dependencies
         run: |
