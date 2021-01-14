@@ -1,9 +1,10 @@
 # Course Assignments
 
 <!-- Perspective for this section would be on the student, but the instructor
-section would be of course on the instructor. -->
+section would be of course on the instructor. Or should this be entirely 
+targeted to the instructor? -->
 
-This course is designed around completing two or three project assignments.
+This course is designed around completing at least two project assignments.
 You would largely work on these assignments outside of class time.
 Each project assignment has several milestones you would need to complete
 throughout the course, usually due shortly after encountering them during
