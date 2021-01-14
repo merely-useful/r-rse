@@ -4,10 +4,11 @@ Title: "Merely Useful: Using R for Research Software Engineering"
 Version: 0.1
 Imports: 
     tinytex,
-    bookdown,
+    bookdown (>= 0.21.6),
     tools,
     tidyverse,
     here,
     bslib (>= 0.2.3.9000)
 Remotes:  
-    rstudio/bslib
+    rstudio/bslib,
+    rstudio/bookdown
