@@ -75,41 +75,55 @@ reinforce importance of having documentation that can involve the community.
 Could be the final exercises of chapters between Build Management and 
 Community Involvement.
 
-    
-- Improve existing package to fit best practices (Pull Request is optional, dependent
-on maintainer wishes).
-
-- potential examples include (link to GitHub search or reference to how to search GH)
-
-- In all examples, include instructions for instructors on how to design their
-own, more field-specific and class context-dependent problems.
-    - Provide pretty concrete problems/examples, and then let individual
-    instructors deviate to more student directed problems if they want. E.g.
-    it's a lot easier for an instructor to evaluate an alternate project, if
-    they already have an example to look at that they know will work out.
-
+1. Choose a package to improve by either:
+    1. Selecting one from the list of packages provided by the instructor.
+    2. Selecting one based on a search of GitHub, based on the search
+    instructions provided by the instructor.
+2. Improve the package to better fit with best practices based on what you've learned.
+    - You don't need to update everything in the package, only what you can and
+    what you've learned so far.
+    - You can optionally submit a Pull Request of the changes, but this depends
+    on whether the maintainer is open to Pull Requests. If you want to submit a
+    Pull Request, check if an issue already exists for improving something
+    and comment in the Issue that you will try to address the issue in a Pull
+    Request. Otherwise, open a new Issue and ask if the maintainer would be open
+    to Pull Requests.
 
 ## Third project: Each group creating a package
 
-IDEA: To start this at end of 
+This assignment is *optional* as it depends on multiple factors like class size,
+duration of course, or virtual vs in-person. This would be the third and final 
+deliverable for the learners. There are no final exercises in each chapter that
+learners need to complete related to this assignment. Exercises and the
+structure of the group work would be determined by the instructor.
+This assignment would best be due sometime after the teamwork lesson (REF).
 
-Optional, best used in longer length,
-class-based courses where groups can be formed. Is third and final
-deliverable. No need to have final exercises for this, instructor can decide.
+- Using the same process as was done with the first project assignment,
+complete a package as a team, using the tools taught in the team and community
+chapters (TODO: REF).
 
+## Rubric and expectations of the learner
 
-- Package created as a team as the third deliverable (but indicate that this is
-dependent on classes that allow group work, so instructor should use this if wanted)
-    - Due after teamwork lesson (so they have learned the basic skills of package dev
-    and now start from scratch with these skills to create a package)
+TODO: Can fill this out more as we work on book
 
+The expectations for completing the project assignments change as the course 
+progresses.
+
+- After the first Git lesson (REF), project should have frequent and consistent
+commits and, after the GitHub lesson (REF), pushes to GitHub.
+The GitHub history will be checked to confirm this happens.
+- Tasks in the final chapter exercises should be completed shortly after
+finishing the chapter.
 
 ## For instructors (add once file is merged)
 
 Making an interesting project assignment can be quite difficult, so this section
 gives some suggestions and guidance on how what the specific project should be.
-
-Here are some general guidelines:
+The specific type and number of assignments are of course ultimately decided by
+the instructor of the course, but at the least, this course is designed to with
+two main project assignments in mind, as described above. The specific details of
+the assignments are completed by the instructor, however, this section contains
+some general advice and guidelines.
 
 - The first project package description already provides a suggested package to
 create. As the instructor you can modify this example to focus on weather
