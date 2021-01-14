@@ -1,11 +1,11 @@
-.PHONY : all clean chapters commands crossrefs fixme gloss html links nbspref settings tex-packages
+.PHONY : all commands fixme html pdf tex-packages
 
 ALL_HTML=_book/index.html
 ALL_PDF=_book/r-rse.pdf
 
 #-------------------------------------------------------------------------------
 
-all : commands
+all : html
 
 ## commands : show all commands.
 commands :
@@ -13,9 +13,6 @@ commands :
 
 ## everything : rebuild all HTML and PDF.
 everything : ${ALL_HTML} ${ALL_PDF}
-
-##   r-rse : rebuild RSE R HTML and PDF.
-r-rse : _book/index.html _book/r-rse.pdf
 
 #-------------------------------------------------------------------------------
 
@@ -39,6 +36,7 @@ fixme :
 
 # TODO: Add R script to add non-breaking space.
 
-## tex-packages : install required LaTeX packages.
+# tex-packages : install required LaTeX packages.
+# TODO fix this.
 tex-packages :
 	-tlmgr install $$(cat ./tex-packages.txt)
