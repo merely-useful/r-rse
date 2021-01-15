@@ -8,7 +8,8 @@ Imports:
     tools,
     tidyverse,
     here,
-    bslib (>= 0.2.3.9000)
-Remotes:  
+    bslib (>= 0.2.3.9000),
+    downlit
+Remotes: 
     rstudio/bslib,
     rstudio/bookdown
