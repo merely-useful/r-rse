@@ -2,6 +2,8 @@ bookdown::bs4_book:
     repo: https://github.com/merely-useful/r-rse
     theme:
         primary: "#326da8"
+    includes:
+        in_header: includes/header.html
 # bookdown::pdf_book:
 #   keep_tex: true
 #   latex_engine: "xelatex"
