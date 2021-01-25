@@ -1,19 +1,33 @@
 # R package development in a team-based environment
 
-- Making use of GitHub Organizations/Teams
-- Branch protection, member roles
-- Resolving conflict, personality differences
-- Running meetings, code of conduct
-- Decision making
-- Governance
-- Issue assignment
-- Relying on and using code of conduct to build culture and standards
-- Setting up SSH, two-factor authentication, PATs?
-
-
+-   Making use of GitHub Organizations/Teams
+-   Branch protection, member roles
+-   Resolving conflict, personality differences
+-   Running meetings, code of conduct
+-   Decision making
+-   Governance
+-   Issue assignment
+-   Relying on and using code of conduct to build culture and standards
+-   Setting up SSH, two-factor authentication, PATs?
 
 ## Final exercise
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
+These exercises are to be done on the *first project assignment* (the
+individual-based one). You won't be able to practice everything that you've
+learned during this chapter for this exercise. If you have the team-based, third
+project assignment, you'll be able to use these skills and knowledge in that
+setting.
 
+1. Set up branch protection for your main branch in your package repository on
+GitHub.
+2. Create a file called `GOVERNANCE` (FIXME: Should this be here?) and write
+some general guidelines on:
+    - How decisions are made.
+    - If and how meetings will be run and held.
+    - What culture and standards are valued and how they will be shaped.
+    - How conflict/disagreements will be resolved.
+3. On your GitHub account, set up 2FA and SSH.
+4. In your GitHub package repository settings, create a PAT for working with...
+TODO: This item might already be done for setting up GitHub actions.
