@@ -19,7 +19,9 @@ The purpose of this exercise is for the participant to go through a cycle of ite
 
 The individual steps look like this:
 
-1. Check that the package builds with the current functions
+<!-- COMMENT: Include check() after each step? -->
+
+1. Check the package in its current state. Fix any notes, warnings, or errors.
   - `devtools::check()`
 2. Add a function called `FIXME`
   - `usethis::use_r("FIXME")`
