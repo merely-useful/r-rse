@@ -1,6 +1,14 @@
 ---
 title: "Merely Useful: Using R for Research Software Engineering"
-author: "Kate Hertweck, Damien Irving, Luke Johnston, Madeleine Bonsma-Fisher, Joel Ostblom, Charlotte Wickham, Ian Flores Siaca, and Greg Wilson"
+author: 
+- "Madeleine Bonsma-Fisher"
+- "Kate Hertweck"
+- "Damien Irving"
+- "Luke Johnston"
+- "Joel Ostblom"
+- "Ian Flores Siaca"
+- "Charlotte Wickham"
+- "Greg Wilson"
 documentclass: book
 bibliography: includes/book.bib
 csl: includes/jcb.csl
@@ -13,6 +21,11 @@ date: "`r Sys.Date()`"
 lot: yes
 lof: yes
 ---
+
+```{r}
+
+```
+
 
 # Welcome to the course webpage!
 
