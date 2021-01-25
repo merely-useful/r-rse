@@ -3,16 +3,16 @@
 <!-- Perspective for this section would be on the student, but the instructor
 section would be of course on the instructor. Or should this be entirely 
 targeted to the instructor? -->
-
-This course is designed around completing at least two project assignments.
+At the end of this book, you will have written at least one R package. 
+To help you get there, we provide "assignments" --- 
+projects we expect you complete as you move through the book.
 You would largely work on these assignments outside of class time.
 Each project assignment has several milestones you would need to complete
 throughout the course, usually due shortly after encountering them during
 the course. The project assignments are to:
 
-1. Create a small and simple package that you would complete on your own.
-2. Make small and simple improvements to existing packages on GitHub that you
-would complete on your own.
+1. Create a small and simple package on your own.
+2. Make small and simple improvements to a package on GitHub.
 3. Create a slightly larger, team-based package that you would complete in a
 group of 2-3 other learners. This last assignment is optional and depends on
 the specific context of the course.
@@ -22,7 +22,7 @@ Each project assignment is described in more detail below.
 ## First project: Create a package on your own
 
 The first assignment is to create a small, simple package. The *learning
-objective* for this project is that you would practice and reinforce the skills 
+objective* for this project is to practice and reinforce the skills 
 and knowledge you've learned during the course and to start building your
 confidence in package development that will help for the later assignments.
 
@@ -48,14 +48,14 @@ generated or extracted the dataset.
 - Roxygen documentation for each function.
 - A README with enough detail to know what the package aims to do, a simple
 example for how to use it, how to install it, and how to contribute.
-- A CONTRIBUTING guidelines and a Code of Conduct.
+- CONTRIBUTING guidelines and a Code of Conduct.
 - Has a passing R CMD check on the Continuous Integration service (in this case
 GitHub Actions).
 
-The instructor will decide the exact details of what is required to complete this
+For an instructor led course, your instructor will decide the exact details of what is required to complete this
 assignment and what topic or problems the package should focus on.
 For those who are doing this course on their own, the assignment is to create a
-package that should creates some custom summaries of the climate, either local,
+package that creates some custom summaries of the climate, either local,
 regional, national, or global. These summaries could include minimum and maximum
 historical temperatures, how many days of rainy or cloudy days, or rainfall.
 You can decide on which location to choose, but we recommend creating something
@@ -66,7 +66,7 @@ website.
 For an example of what this might look like, see 
 TODO: Add the repo of the example climate package.
 
-## Second project: Each learner contributing to an existing package
+## Second project: Contributing to an existing package on your own
 
 Individual-based, small improvements to existing package: Used as second 
 deliverable, due after "Community involvement". Should only build off of
@@ -89,7 +89,7 @@ Community Involvement.
     Request. Otherwise, open a new Issue and ask if the maintainer would be open
     to Pull Requests.
 
-## Third project: Each group creating a package
+## Third project: Creating a package as a team
 
 This assignment is *optional* as it depends on multiple factors like class size,
 duration of course, or virtual vs in-person. This would be the third and final 
@@ -118,30 +118,32 @@ finishing the chapter.
 ## For instructors (add once file is merged)
 
 Making an interesting project assignment can be quite difficult, so this section
-gives some suggestions and guidance on how what the specific project should be.
+gives some suggestions and guidance on what the specific project assignment should be.
 The specific type and number of assignments are of course ultimately decided by
-the instructor of the course, but at the least, this course is designed to with
+the instructor of the course, but at the least, this course is designed with
 two main project assignments in mind, as described above. The specific details of
 the assignments are completed by the instructor, however, this section contains
 some general advice and guidelines.
 
-- The first project package description already provides a suggested package to
-create. As the instructor you can modify this example to focus on weather
-from a specific city, a specific time period, or different aspects of the weather
-(e.g. temperature only).
+- Package problems are always better if they are targeted to the background 
+knowledge of the instructor and the learners. Field-specific and class
+context-dependent problems will more likely be remembered and learned than other
+problems.
+- In the final exercises, we provide a suggested package - 
+weather summaries, as described above. 
+As the instructor, one way to tailor your class, 
+is to modify this example to focus on weather from a local city, 
+a specific time period, or different aspects of the weather (e.g. temperature only).
 - While the project package does not necessarily need to involve data, it might
-be more motivating for the learners to work on if the project did include data of 
-some time. R is a language predominantly used by researchers and data scientists
+be more motivating for the learners to work on if the project does include data. 
+R is a language predominantly used by researchers and data scientists
 for doing data analysis, visualization, and related reporting. Given this,
 learners taking this course are probably already familiar with these tasks and
 would benefit more from the course if they see and use an application they are
 familiar with.
     - If it doesn't involve data, it's still recommended to structure the project
     package around using or working with data in some way.
-- Package problems are always better if they are targeted to the background 
-knowledge of the instructor and the learners. Field-specific and class
-context-dependent problems will more likely be remembers and learned than other
-problems.
+
 TODO: Add some examples that instructors can based off of and deviate if needed.
 
 Here are some example datasets that could form the basis for the project packages:
@@ -159,13 +161,13 @@ Here are some example datasets that could form the basis for the project package
 
 Other potential examples to use for non-dataset-based project packages include:
 
-- A simple package for working with missing values. Some function within it could
+- A simple package for working with missing values. Functions within it could
 include simpler versions of other functions like `naniar::count_missing()`,
 `tidyr::replace_na()`, or `dplyr::na_if()`. The data to work with could be
 anything that has missing values (or should have missing values), primarily to use
 as a way to build and demonstrate the functions.
 
-- Simple simulations like in [Nature of Code](https://natureofcode.com/). The
+- Simple simulations like cellular automata in [Nature of Code](https://natureofcode.com/). The
 package might have a function for plotting a vector of zeros and one, functions
 for evolving such a vector, and functions that the control evolution.
 
@@ -188,7 +190,7 @@ TODO: Include some example packages to try to base off of.
 The specific problem or package that groups will create depends heavily on their
 background knowledge and skills, as well as that of the instructor. To make the 
 most of learning and progress, groups should preferably be given a set of pre-existing
-problems that a package could solve. This problem can already be a solved problem;
+problems that a package could solve. This problem can be an already-solved problem;
 in fact, given learners a solved problem will make it easier for them to practice
 the skills and tools of research software engineering, rather than the domain
 specific knowledge and skills that might be required for solving an as-yet-solved
