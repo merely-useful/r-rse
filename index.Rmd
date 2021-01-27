@@ -22,11 +22,6 @@ lot: yes
 lof: yes
 ---
 
-```{r}
-
-```
-
-
 # Welcome to the course webpage!
 
 > It's still magic even if you know how it's done.
@@ -89,9 +84,41 @@ as long as there is attribution to this source.
 
 TODO: Who is this book targeted towards? and why? and how can each use it.
 
+While the learning content of this book targets the specific learning personas
+described in FIXME, we wrote this book with three audiences in mind:
+
+1. **Instructors** who would use this book as the basis for a course or workshop
+of their own. Throughout the book there are sections dedicated to this reader
+that give information or instructions on how to use or modify the material for
+the instructors specific context.
+2. **Learners in a class setting** who would be taking this course in a more
+formal class or workshop setting that is lead by an instructor(s). Much of the
+book is written with this reader in mind.
+3. **Independent learners** who would be going through the material and learning
+on their own. An independent learner can for the most part follow the book as if
+they were a learner in a class setting, with some modifications that we highlight
+and describe where necessary.
+
 ## Instructional design
 
-## Acknowledgments {#rse-intro-ack}
+The instructional design of the learning material contained in this book revolves
+around three key concepts:
+
+1. Participatory live-coding lessons, where participants join with instructors
+to write and troubleshoot code step-by-step. We believe that this encourages
+participants to actively engage with the material, to build muscle memory
+through typing, and to learn how to handle mistakes, rather than passively
+observing content.|
+2. In-class and out-of-class exercises that includes independent reading of
+assigned books 
+|Participants read more concept-heavy content at their own
+pace.|Including reading activities provides diverse learning opportunities aside
+from listening skills, can be advantageous for non-native English speakers, and
+can slow the pace of learning to enhance retention.|
+|Completion of brief exercises|Exercises are interspersed throughout the live-coding sessions to complement the content.|Hands-on, practical exercises help reinforce what was previously learned and provides an opportunity to work through code at the learners' own pace.|
+3. Project- and problem-based assignments that includes both  |Group assignment work|Participants collaborate with others to apply skills taught over the workshop in terms of cleaning, manipulating, analyzing, and visualizing data.|Helps to reinforce learning by applying the skills and knowledge to a new problem and task, thus building confidence in using the skills.|
+
+## Acknowledgments
 
 This book owes its existence to
 everyone we met through [the Carpentries][carpentries].
