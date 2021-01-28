@@ -24,13 +24,17 @@
     # A line or two of R code that does something useful
     FIXME
     ```
-    Turn it into a function called `FIXME()` that takes argument for       `FIXME` and `FIXME` and include it in your FIXME package.
+    Turn it into a function called `FIXME()` that takes arguments for `FIXME` and `FIXME` and include it in your FIXME package.
+    
+    Insert a Roxygen Skeleton for this function, making sure to edit the title, description, argument descriptions, and example. Don't forget to run `document()` to produce the help page.
 
 2. Add a `FIXME2()` function to your FIXME package
 
     Add another function called `FIMXE2()`, that ... FIXME.
     It should return an error if FIXME.
     *This function is intentionlly given without a snippet of code so you can practice the function development workflow.*
+    
+    Insert a Roxygen Skeleton for this function, making sure to edit the title, description, argument descriptions, and example. Don't forget to run `document()` to produce the help page.
 
 You'll know you are done when after installing your package and starting a fresh R session:
 
