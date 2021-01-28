@@ -10,19 +10,19 @@
 -   Relying on and using code of conduct to build culture and standards
 -   Setting up SSH, two-factor authentication, PATs?
 
-## Final exercise
+## Final exercises
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
+### For the first project assignment
+
 These exercises are to be done on the *first project assignment* (the
 individual-based one). You won't be able to practice everything that you've
-learned during this chapter for this exercise. If you have the team-based, third
-project assignment, you'll be able to use these skills and knowledge in that
-setting.
+learned during this chapter for this exercise.
 
 1. Set up branch protection for your main branch in your package repository on
 GitHub.
-2. Create a file called `GOVERNANCE` (FIXME: Should this be here?) and write
+2. Create a file called `GOVERNANCE.md` (FIXME: Should this be here?) and write
 some general guidelines on:
     - How decisions are made.
     - If and how meetings will be run and held.
@@ -31,3 +31,23 @@ some general guidelines on:
 3. On your GitHub account, set up 2FA and SSH.
 4. In your GitHub package repository settings, create a PAT for working with...
 TODO: This item might already be done for setting up GitHub actions.
+
+### For the third project assignment
+
+These exercises are to be done for the *third, team-based project assignment*.
+
+1. Assign one team member to create a GitHub Organization account. 
+Have this team member add the other members to the Organization.
+    - Set each team member with "Maintainer" permissions.
+2. Assign another team member to create a new repository where the
+project package will be hosted.
+    - This team member will then set up branch protection of the main
+    branch.
+3. In the new repository, create a new file called `GOVERNANCE.md`.
+As a group, decide on and write down:
+    - How decisions will be made.
+    - How meetings will be run.
+    - How disagreements will be resolved.
+4. As a group, decide on the tasks that need to be completed and
+create Issues of those tasks. Together, assign which team member
+will do which tasks.
