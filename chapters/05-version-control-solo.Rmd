@@ -1,13 +1,33 @@
 # Version control: Using Git and GitHub as a sole user (part 1)
 
-- Using Git in RStudio (standard add-commit-history)
-- Using Git in the Terminal of RStudio (moving in history with checkout,
-  creating branches, adding and updating remotes)
-- Setting up GitHub for R package (make use of usethis), pushing and pulling
-- Emphasize exercises to practice, not showing output of git in code chunks (they are a pain to edit afterwards)
+Emphasize exercises to practice,
+not showing output of git in code chunks (they are a pain to edit afterwards).
+
+Clearly identify which tasks are best accomplished by each interface.
+
+- Using Git integration in RStudio (standard add-commit-history)
+- Using Git in the Terminal of RStudio
+  - moving in history with checkout
+  - creating branches
+  - adding and updating remotes
+- Setting up GitHub for R package (make use of `usethis`), pushing and pulling
 
 ## Final exercise
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
+1. For the project previously used for demonstration in this chapter,
+perform the following tasks:
+- initialize the repository
+- checkout a point in history
+- create a new branch
+- commit some new changes to the file
+- what will happen if you attempt to merge your branches?
 
+2. For your project assignment,
+perform the following tasks,
+noting the approach you used 
+(Git integration in RStudio, command-line interface, `usethis`):
+- initialize the repository
+- commit all relevant files (are there any you need to ignore?)
+- publish the repository to GitHub
