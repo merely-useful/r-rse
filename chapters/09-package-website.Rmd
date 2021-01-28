@@ -6,9 +6,40 @@
 - Defining lifecycle of your package and individual functions (with lifecycle)
 
 
-
 ## Final exercise
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
+The purpose of this exercise is for the participant to go through a successful deployment of a customized `pkgdown` website and documenting their function's lifecycles.
 
+A. Setting up a website (with pkgdown)
+
+1. Set up the `pkgdown` infrastructure
+> `usethis::use_pkgdown()`
+
+2. Build the site locally
+> `pkgdown::build_site()`
+
+3. Serve the site locally
+> `pkgdown::serve_site()`
+
+B. Customizing the themes
+
+4. Change the default theme using `_pkgdown.yml`
+> Add the yaml inside the file
+
+5. Add a custom title and description for the Home Page
+> Modify `home.title` and `home.description` inside of `_pkgdown.yml`
+
+C. Getting all resources and material organized
+
+6. Organize functions in the reference section
+> Modify `_pkgdown.yml` to add custom sections to separate functions
+
+6(b). Organize tutorials and vignettes (optional)
+> Modify `_pkgdown.yml` to add custom sections to organize tutorials and vignettes.
+
+D. Defining lifecycle of your package and individual functions (with lifecycle)
+
+7. Add "experimental" lifecycle tag to one of the developed functions
+> Modify the functions Roxygen annotations; `@description \\`r lifecycle::badge("experimental")\\``
