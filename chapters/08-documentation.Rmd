@@ -18,6 +18,7 @@
 2. **Creating a README**
     * Run `use_readme_rmd()` to create a file called `README.Rmd`. 
     * Edit `README.Rmd` to include a description of your package and its purpose, installation instructions, and one or more examples of its use.
+    * Knit the `README.Rmd` file so it creates a `README.md` file.
 
 3. **Creating a vignette** 
     * Create a template vignette for your package by running `use_vignette(FIXME, title = FIXME)`.
@@ -30,4 +31,3 @@
     * Run `style_pkg()` to restyle all the files in your package to follow the tidyverse style guide.
     * Run `spell_check_package()` to check the spelling in your documentation files. 
     Fix any errors, then run `update_wordlist()` to add any special words to the spell-checker that you want to ignore (for example, "tibble").
-
