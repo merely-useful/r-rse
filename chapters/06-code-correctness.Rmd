@@ -9,6 +9,17 @@
 
 ## Final exercise
 
-<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+1. Add tests for one function in your package.  You should include tests that:
+
+    * confirm the type of the output,
+    * confirm the size of the output, 
+    * confirm the values in the output,
+    * confirm the correct error messages are received when bad input is given.
+
+    Confirm your tests run and pass with `test()`.    
+
+3. Check your code coverage in your package with `package_coverage()`.  Add at least two tests to improve your code coverage.  
+
+
 
 
