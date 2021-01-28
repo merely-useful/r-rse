@@ -50,9 +50,13 @@ example for how to use it, how to install it, and a link to how to contribute.
 - Has a passing R CMD check on the Continuous Integration service (in this case
 GitHub Actions).
 
-> For an instructor led course, your instructor will decide the exact details of what is required to complete this
-assignment and what topic or problems the package should focus on.
-For the *self-directed learner* who are doing this course on their
+TODO: Add some optional things to add to the package, for those keen on doing it.
+
+For an instructor led course, your instructor will decide the exact
+details of what is required to complete this assignment and what topic
+or problems the package should focus on.
+
+> For the *self-directed learner* who are doing this course on their
 own, the assignment is to create a package that creates some custom
 summaries of the climate, either local, regional, national, or global.
 These summaries could include minimum and maximum historical
