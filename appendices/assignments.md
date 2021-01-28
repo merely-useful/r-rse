@@ -3,9 +3,12 @@
 <!-- Perspective for this section would be on the student, but the instructor
 section would be of course on the instructor. Or should this be entirely 
 targeted to the instructor? -->
+
+## For learners
+
 At the end of this book, you will have written at least one R package. 
 To help you get there, we provide "assignments" --- 
-projects we expect you complete as you move through the book.
+projects we expect you to complete as you move through the book.
 You would largely work on these assignments outside of class time.
 Each project assignment has several milestones you would need to complete
 throughout the course, usually due shortly after encountering them during
@@ -14,24 +17,19 @@ the course. The project assignments are to:
 1. Create a small and simple package on your own.
 2. Make small and simple improvements to a package on GitHub.
 3. Create a slightly larger, team-based package that you would complete in a
-group of 2-3 other learners. This last assignment is optional and depends on
+group of 2-3 other learners. This last assignment is *optional* and depends on
 the specific context of the course.
 
-Each project assignment is described in more detail below.
+Each project assignment is described in more detail below. In addition
+to the descriptions, notes are included throughout for those learners
+who are working through this book and learning on their own.
 
-## First project: Create a package on your own
+### First project: Create a package on your own
 
 The first assignment is to create a small, simple package. The *learning
 objective* for this project is to practice and reinforce the skills 
 and knowledge you've learned during the course and to start building your
 confidence in package development that will help for the later assignments.
-
-<!--
-NOTE: I moved this due date to after chapter 13 rather than chapter 7, since
-we could keep writing the final exercises to keep building up this package.
-Plus, for those learners who will use this on their own, this would be nice to
-keep going with.
--->
 
 The project assignment is recommended to be **due** immediately after the
 Package Release lesson (Chapter \@ref(package-release)). At the end of each
@@ -47,38 +45,47 @@ generated or extracted the dataset.
 - A unit test for each function.
 - Roxygen documentation for each function.
 - A README with enough detail to know what the package aims to do, a simple
-example for how to use it, how to install it, and how to contribute.
-- CONTRIBUTING guidelines and a Code of Conduct.
+example for how to use it, how to install it, and a link to how to contribute.
+- CONTRIBUTING guidelines, a License, and a Code of Conduct.
 - Has a passing R CMD check on the Continuous Integration service (in this case
 GitHub Actions).
 
-For an instructor led course, your instructor will decide the exact details of what is required to complete this
+> For an instructor led course, your instructor will decide the exact details of what is required to complete this
 assignment and what topic or problems the package should focus on.
-For those who are doing this course on their own, the assignment is to create a
-package that creates some custom summaries of the climate, either local,
-regional, national, or global. These summaries could include minimum and maximum
-historical temperatures, how many days of rainy or cloudy days, or rainfall.
-You can decide on which location to choose, but we recommend creating something
-for your own city or region. Climate data is available from at the
-[World Weather Information Service](https://worldweather.wmo.int/en/dataguide.html)
+For the *self-directed learner* who are doing this course on their
+own, the assignment is to create a package that creates some custom
+summaries of the climate, either local, regional, national, or global.
+These summaries could include minimum and maximum historical
+temperatures, how many days of rainy or cloudy days, or rainfall. You
+can decide on which location to choose, but we recommend creating
+something for your own city or region. Climate data is available from
+at the
+TODO: Add link to climate data
 website.
+TODO: Add more detail and descriptions on how to do this.
 
 For an example of what this might look like, see 
 TODO: Add the repo of the example climate package.
 
-## Second project: Contributing to an existing package on your own
+### Second project: Contributing to an existing package on your own
 
-Individual-based, small improvements to existing package: Used as second 
-deliverable, due after "Community involvement". Should only build off of
-and improve an existing package, so doesn't need many milestones. Used to
-reinforce importance of having documentation that can involve the community.
-Could be the final exercises of chapters between Build Management and 
-Community Involvement.
+The second assignment is to contribute to an existing package. The *learning
+objective* for this project is to practice and reinforce the skills 
+and knowledge you've learned on community involvement and of the
+importance of having documentation that can involve the community.
+Completing this assignment will make it easier to finish the first
+assignment. The project assignment is recommended to be **due**
+immediately after the Chapter \@ref(github-workflows).
+Like with the first project, at the end of Chapters 
+ref(TODO: Add ref) and \@ref(github-workflows) there are some final exercises
+with tasks to help guide you in completing this second project
+assignment. 
 
 1. Choose a package to improve by either:
     1. Selecting one from the list of packages provided by the instructor.
     2. Selecting one based on a search of GitHub, based on the search
     instructions provided by the instructor.
+    3. If a *self-directed learner*, see the instructions below.
 2. Improve the package to better fit with best practices based on what you've learned.
     - You don't need to update everything in the package, only what you can and
     what you've learned so far.
@@ -88,8 +95,11 @@ Community Involvement.
     and comment in the Issue that you will try to address the issue in a Pull
     Request. Otherwise, open a new Issue and ask if the maintainer would be open
     to Pull Requests.
+    
+> For *self-directed learners*, 
+TODO: include instructions on how to find packages to contribute to.
 
-## Third project: Creating a package as a team
+### Third project: Creating a package as a team
 
 This assignment is *optional* as it depends on multiple factors like class size,
 duration of course, or virtual vs in-person. This would be the third and final 
@@ -102,7 +112,7 @@ This assignment would best be due sometime after the teamwork lesson (REF).
 complete a package as a team, using the tools taught in the team and community
 chapters (TODO: REF).
 
-## Rubric and expectations of the learner
+### Rubric and expectations of the learner
 
 TODO: Can fill this out more as we work on book
 
@@ -141,8 +151,6 @@ for doing data analysis, visualization, and related reporting. Given this,
 learners taking this course are probably already familiar with these tasks and
 would benefit more from the course if they see and use an application they are
 familiar with.
-    - If it doesn't involve data, it's still recommended to structure the project
-    package around using or working with data in some way.
 
 TODO: Add some examples that instructors can based off of and deviate if needed.
 
