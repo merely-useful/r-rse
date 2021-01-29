@@ -93,22 +93,27 @@ and describe where necessary.
 
 ## Instructional design
 
-The instructional design of the learning material contained in this book revolves
-around three key concepts:
+The instructional design of the learning material contained in this
+book revolves around three key concepts:
 
-1. Participatory live-coding lessons, where participants join with instructors
-to write and troubleshoot code step-by-step. We believe that this encourages
-participants to actively engage with the material, to build muscle memory
-through typing, and to learn how to handle mistakes, rather than passively
-observing content.|
-2. In-class and out-of-class exercises that includes independent reading of
-assigned books 
-|Participants read more concept-heavy content at their own
-pace.|Including reading activities provides diverse learning opportunities aside
-from listening skills, can be advantageous for non-native English speakers, and
-can slow the pace of learning to enhance retention.|
-|Completion of brief exercises|Exercises are interspersed throughout the live-coding sessions to complement the content.|Hands-on, practical exercises help reinforce what was previously learned and provides an opportunity to work through code at the learners' own pace.|
-3. Project- and problem-based assignments that includes both  |Group assignment work|Participants collaborate with others to apply skills taught over the workshop in terms of cleaning, manipulating, analyzing, and visualizing data.|Helps to reinforce learning by applying the skills and knowledge to a new problem and task, thus building confidence in using the skills.|
+1. *Participatory live-coding* lessons, where participants join with
+instructors to write and troubleshoot code step-by-step. We believe
+that this encourages participants to actively engage with the
+material, to build muscle memory through typing, and to learn how to
+handle mistakes, rather than passively observing content.
+2. *In-class and out-of-class exercises* that includes independent
+reading of assigned material and hands-on, practical work.
+The hands-on exercises are interspersed throughout the live-coding
+sessions to complement and reinforce the content being learned as well
+as give learners the opportunity to work through the code and problems
+at their own pace. Reading activities are used to build concept-heavy
+knowledge.
+3. *Project- and problem-based assignments* that includes both independent
+and group-based work. For the project assignments, learners reinforce
+what they learned through a new problem and challenge. The independent
+work prepares them for the group-based (though optional) work, where
+they can practice team-based skills like communication, project management,
+and running meetings.
 
 ## Acknowledgments
 
