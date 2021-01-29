@@ -1,19 +1,89 @@
 # R package development in a team-based environment
 
-- Making use of GitHub Organizations/Teams
-- Branch protection, member roles
-- Resolving conflict, personality differences
-- Running meetings, code of conduct
-- Decision making
-- Governance
-- Issue assignment
-- Relying on and using code of conduct to build culture and standards
-- Setting up SSH, two-factor authentication, PATs?
+-   Making use of GitHub Organizations/Teams
+-   Branch protection, member roles
+-   Resolving conflict, personality differences
+-   Running meetings, code of conduct
+-   Decision making
+-   Governance
+-   Issue assignment
+-   Relying on and using code of conduct to build culture and standards
+-   Setting up SSH, two-factor authentication, PATs?
 
+<!--
+TODO: revise this text when adding the actual content.
+A team work contract communicates specifically **how** the core group of people who are working together
+and gives more detail about the logistics of working together and the expectations you have for each other.
+This document will govern your working relationship and if done correctly,
+should help you manage and resolve any issues that arise.
+MIT's online software construction course has [a good description of what to put in a team work contract](http://web.mit.edu/6.005/www/fa15/projects/abcplayer/team-contract/).
+Some key aspects of the team work contract could be:
 
+- How will work be distributed in a fair and equitable way?
+- What are the expected work hours for the project? 
+- How often will group meetings occur ([here is a nice article](http://third-bit.com/2018/05/11/meetings.html) on meetings)?
+- Will you have meeting agendas and minutes? If so, what will be the system for rotating through these responsibilities?
+- What will be the style of working?
+    - Will you start each day with [stand-ups](https://www.atlassian.com/agile/scrum/standups), or submit a summary of your contributions 4 hours before each meeting? or something else?
+- What is the quality of work each team member expects from themselves and each other?
+- When are team members not available (e.g., evenings and Sundays because of family obligations).
+- And any other similar things that govern your working relationships.
 
-## Final exercise
+Use this opportunity to use your prior knowledge/experience to improve your teamwork, communication, leadership, and organizational skills.
+You will need all of these for your capstone projects (and beyond)!
+
+We recommend that generate the team work contract according to these guidelines
+
+- For 5 minutes, each team member will silently write out 4 different suggestions for the team work contract on their computer.
+- Next, paste all suggestions into a common Google doc (or similar)
+  and arrange them to put similar suggestions together.
+- Spend 10 -15 minutes discussing the suggestions
+  and decide which ones you will use for your team contract either by consensus or voting
+  (you can of course add new ones at this point if any were missed earlier)
+- Add the final contract in a file called `team-contract.md` in the repo root
+  (in organizations this file might be kept internal instead of committed to a public repo).
+    - These are the principles you adhere to when working.
+    - This file should only be updated if there is agreement between team members to do so.
+-->
+
+## Final exercises
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
+### For the first project assignment
 
+These exercises are to be done on the *first project assignment* (the
+individual-based one). You won't be able to practice everything that you've
+learned during this chapter for this exercise.
+
+1. Set up branch protection for your main branch in your package repository on
+GitHub.
+2. Create a file called `GOVERNANCE.md` (FIXME: Should this be here?) and write
+some general guidelines on:
+    - How decisions are made.
+    - If and how meetings will be run and held.
+    - What culture and standards are valued and how they will be shaped.
+    - How conflict/disagreements will be resolved.
+3. On your GitHub account, set up 2FA and SSH.
+4. In your GitHub package repository settings, create a PAT for working with...
+TODO: This item might already be done for setting up GitHub actions.
+
+### For the third project assignment
+
+These exercises are to be done for the *third, team-based project assignment*.
+
+1. Assign one team member to create a GitHub Organization account. 
+Have this team member add the other members to the Organization.
+    - Set each team member with "Maintainer" permissions.
+2. Assign another team member to create a new repository where the
+project package will be hosted.
+    - This team member will then set up branch protection of the main
+    branch.
+3. In the new repository, create a new file called `GOVERNANCE.md`.
+As a group, decide on and write down:
+    - How decisions will be made.
+    - How meetings will be run.
+    - How disagreements will be resolved.
+4. As a group, decide on the tasks that need to be completed and
+create Issues of those tasks. Together, assign which team member
+will do which tasks.
