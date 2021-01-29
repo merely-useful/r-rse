@@ -65,15 +65,6 @@ The original source material for this course is found on the
 [GitHub Actions]: https://github.com/features/actions
 [`r-rse`]: https://github.com/merely-useful/r-rse
 
-## Re-use and licensing {#licensing}
-
-All of this material can be freely re-used under the terms of the
-[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
-and the course code is licensed under a 
-[MIT License](https://github.com/merely-useful/r-rse/blob/main/LICENSE-MIT.md),
-so the material can be used, re-used, and modified, 
-as long as there is attribution to this source.
-
 ## Target audience
 
 While the learning content of this book targets the specific learning personas
@@ -114,6 +105,15 @@ what they learned through a new problem and challenge. The independent
 work prepares them for the group-based (though optional) work, where
 they can practice team-based skills like communication, project management,
 and running meetings.
+
+## Re-use and licensing {#licensing}
+
+All of this material can be freely re-used under the terms of the
+[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
+and the course code is licensed under a 
+[MIT License](https://github.com/merely-useful/r-rse/blob/main/LICENSE-MIT.md),
+so the material can be used, re-used, and modified, 
+as long as there is attribution to this source.
 
 ## Acknowledgments
 
