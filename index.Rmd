@@ -126,13 +126,3 @@ and the authors of [@Nobl2009; @Hadd2010; @Wils2014; @Scop2015; @Tasc2017; @Wils
 
 ```{r, child="./appendices/links.md"}
 ```
-
-<!-- - Overview of material -->
-<!--     - How to use, why to use, general details and overall description -->
-<!--         - Reference "For Instructors" section for instructors to check out -->
-
-
-  <!-- - Online books: [R Packages](https://r-pkgs.org/)  -->
-  <!-- (we differentiate from this amazing book by structuring everything around  -->
-  <!-- this being a course, with exercises, assessments, (group?) projects,  -->
-  <!-- instructions/comments/notes for instructors, etc) -->
