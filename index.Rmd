@@ -74,9 +74,7 @@ and the course code is licensed under a
 so the material can be used, re-used, and modified, 
 as long as there is attribution to this source.
 
-## Target audience of book
-
-TODO: Who is this book targeted towards? and why? and how can each use it.
+## Target audience
 
 While the learning content of this book targets the specific learning personas
 described in FIXME, we wrote this book with three audiences in mind:
