@@ -30,33 +30,27 @@ lof: yes
 
 TODO: Fill in this with a brief description on what course does, why its important, etc
 
-Computers are now as essential for research as telescopes, test tubes, and libraries,
-which means that researchers need need to know how to build, use, and share software.
-However,
-most introductions to programming focus on developing commercial applications,
-not on exploring problems and answering questions.
-This series of books will show you how to do the latter
-both on your own and as part of a team.
+Computers are as essential for science and research as telescopes,
+test tubes, and libraries. Researchers in many fields are increasingly
+needing to know how to create, use, and share software given modern
+demands and requirements for research. However, most introductions to
+programming focus on developing commercial applications and not
+typically on the type of tasks and activities that researchers more
+commonly do, like exploring problems and answering questions. This
+book will show you how to create software as part of your research
+cycle and work where you either work alone or as part of a team. For
+researchers who spend most of their time building software packages,
+this book will help prepare you for being a [research software
+engineer][rse].
 
-The prequels to this book introduce three core skills:
-how to write short programs to clean and analyze data in a reproducible way,
-how to keep track of what you have done,
-and how to share your software and your results with other people.
-But just as some astronomers spend their careers designing telescopes,
-some researchers focus on building software to make their colleagues' lives easier.
-People who do this are called [research software engineers][rse],
-and the aim of this book is to get you ready for this role—to help you go from writing code for your own use
-to creating tools to help your entire field advance.
-
-TODO: Update section? Needs revision.
-
-For researchers and data scientists who can write functions to create programs that are several pages long,
-and who want to be more productive and have more confidence in their results,
-this book provides a pragmatic, tools-based introduction to research software engineering.
-Unlike material courses aimed at computer scientists and professional software developers,
-this book uses data analysis as a motivating example
-and assumes that the learner's ultimate goal is to answer questions rather than ship products.
-
+For researchers and data scientists who can write functions to create
+programs that are hundreds of lines long and who want to be more
+productive and have more confidence in their results, this book
+provides a pragmatic, tools-based introduction to research software
+engineering. Unlike courses aimed at computer scientists and
+professional software developers, this book uses data analysis as the
+motivating example and assumes that the learner's ultimate goal is to
+answer questions rather than ship products.
 
 The course material was created using [rmarkdown] to write the lessons,
 [bookdown] to create the book format, [GitHub] to host the [Git] 
