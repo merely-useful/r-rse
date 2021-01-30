@@ -7,7 +7,7 @@
 - Licensing
 - Governance
 - NEWS file
-- reprex?
+- reprex
 
 
 
@@ -31,7 +31,7 @@ Complete these tasks for your package for the first project assignment. For more
 - Create a file called CONTRIBUTING.md by running `usethis::use_tidy_contributing()`. This file will contain information for people interacting with your project about how they can use your package and/or how they can get involved. Here are some example Contributing Guidelines:
     - [Atom](https://github.com/atom/atom/blob/master/CONTRIBUTING.md)
     - [Data Carpentry Geospatial R lesson](https://github.com/datacarpentry/r-intro-geospatial/blob/master/CONTRIBUTING.md)
-    - FIXME: more examples
+    - [Tidyverse](https://www.tidyverse.org/contribute/)
 - The default CONTRIBUTING.md you created has a template for instructions for submitting changes or reporting a problem. Modify CONTRIBUTING.md to include the following:
     - A welcome statement and brief description of your project
     - A list of project-related resources, like links to your README, roadmap or other task list, etc. 
@@ -49,3 +49,7 @@ Complete these tasks for your package for the first project assignment. For more
 
 6. Create a NEWS file
 - Create a file called NEWS.md in the top level of your project by running `usethis::use_news_md()`.
+
+7. Create a reprex
+- Use the `reprex` package to create a minimal reproducible example for one of the functions in your package.
+- If you like, add the reprex to one of your documentation files (i.e. README, CONTRIBUTING) as an example of how to use that function.
