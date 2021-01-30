@@ -1,13 +1,35 @@
 # Folder and file structure (RStudio R Projects)
 
-- File paths, very basics of the shell (in RStudio)
+- Very basics of the shell (in RStudio),
+and filesystem terminology
+  - `cd`, `ls`, flags
+  - recursive
+  - paths: home and root
 - Working directory and how it is set with RStudio R Projects
-- Making use of the fs package for filesystem management
-
+- Making use of the `fs` package for filesystem management
+  - similar functions in base R and why `fs` is preferred
+  - `dir_ls()`, `dir_tree()`
+  - `dir_map()`
+  - `file_delete()`, `file_info()`, `file_move()`
 
 
 ## Final exercise
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
+The exercises in this chapter check your understanding of foundational concepts represented here,
+but the tasks performed do not directly contribute to the project assignment.
+We'll learn ways in the next chapter to create the essential elements required for a package project,
+and begin working on your assignment.
 
+1. Create a new RStudio project called `practice_filesystem`,
+and answer the following questions:
+  - What is the absolute path to your project directory?
+  - If you close RStudio, how can you ensure your working directory is your project directory when you next open the application?
+
+2. Using your `practice_filesystem` project created in the previous exercise,
+write the commands you can use to perform the following tasks with functions from `fs`:
+  - list all of the files in your project
+  - create a new directory called `practice_files/` containing files named `example1.txt` and `example_script.R`.
+  - move `example1.txt` to your main project directory
+  - delete `practice_files/` and everything it contains
