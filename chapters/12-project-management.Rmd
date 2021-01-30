@@ -20,8 +20,15 @@
 - Add a link to one or more issue categories to CONTRIBUTING.md. Add a link to issues that a new contributor could attempt, i.e. "good first bug".
 - Add links to your issues and/or issue labels to your roadmap.
 
-3. Create GitHub milestones
-- Create one or more GitHub milestones based on your roadmap. Add issues to your milestone(s). Add links to these milestones to your roadmap.
-
-4. Create a GitHub Project board
-- Create a GitHub Project for your package. Organize your issues from left to right in some version of "to-do", "in-progress", and "complete". 
+3. GitHub milestones and Projects
+- Look at some examples of packages that use GitHub milestones and GitHub Projects. Are there situations in which one project management approach is better than the other? Which do you prefer, or which do you feel suits your project better?
+    - Milestone examples:
+        - [ggplot2](https://github.com/tidyverse/ggplot2/milestones)
+	- FIXME: more examples?
+    - Project examples:
+        - [bootstrap](https://github.com/twbs/bootstrap/projects)
+	- FIXME: more examples?
+- If you prefer milestones, create one or more GitHub milestones based on your roadmap.
+Add issues to your milestone(s). Add links to these milestones to your roadmap.
+- If you prefer GitHub Projects, create a GitHub Project for your package.
+Organize your issues from left to right in some version of "to-do", "in-progress", and "complete".
