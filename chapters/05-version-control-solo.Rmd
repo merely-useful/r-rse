@@ -22,7 +22,7 @@ perform the following tasks:
 - checkout a point in history
 - create a new branch
 - commit some new changes to the file
-- what will happen if you attempt to merge your branches?
+- what will happen if you attempt to merge your branches? Merge and find out.
 
 2. For your project assignment,
 perform the following tasks,
