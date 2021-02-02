@@ -52,6 +52,11 @@ GitHub Actions).
 
 TODO: Add some optional things to add to the package, for those keen on doing it.
 
+Some optional things to add include:
+
+- A pkgdown website.
+- Local rhub checks.
+
 For an instructor led course, your instructor will decide the exact
 details of what is required to complete this assignment and what topic
 or problems the package should focus on.
@@ -196,6 +201,8 @@ these packages to give the learners:
 
 TODO: Include instructions here, eg what search terms to use in GitHub etc and how to find packages.
 TODO: Include some example packages to try to base off of.
+
+- CRAN Views FIXME: expand on this.
 
 ### Third assignment
 
