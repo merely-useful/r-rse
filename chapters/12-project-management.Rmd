@@ -1,4 +1,4 @@
-# Project management of your package development (either sole or in a team)
+# Project management of your package development (either solo or in a team)
 
 - Issue tracking
 - Labeling
@@ -11,4 +11,24 @@
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
+1. Create a [project roadmap](https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/start-your-project-roadmap/). 
+- Create a roadmap for your project describing short-term, medium-term, and long-term project goals. This can be a GitHub issue or a file called ROADMAP.md. Example: [STEMMM Role Models roadmap](https://github.com/KirstieJane/STEMMRoleModels/issues/1).
 
+2. Issue tracking and labeling 
+- Create several GitHub issues for your project using your roadmap for inspiration. These can range from simple project improvements (like scanning for typos in the README) to complex feature additions or bugs to be fixed. 
+- Create several issue labels that make sense for your project, i.e. good first bug, discussion, help wanted, documentation, feature, etc. Label your issues with one or more appropriate labels.
+- Add a link to one or more issue categories to CONTRIBUTING.md. Add a link to issues that a new contributor could attempt, i.e. "good first bug".
+- Add links to your issues and/or issue labels to your roadmap.
+
+3. GitHub milestones and Projects
+- Look at some examples of packages that use GitHub milestones and GitHub Projects. Are there situations in which one project management approach is better than the other? Which do you prefer, or which do you feel suits your project better?
+    - Milestone examples:
+        - [ggplot2](https://github.com/tidyverse/ggplot2/milestones)
+	- FIXME: more examples?
+    - Project examples:
+        - [bootstrap](https://github.com/twbs/bootstrap/projects)
+	- FIXME: more examples?
+- If you prefer milestones, create one or more GitHub milestones based on your roadmap.
+Add issues to your milestone(s). Add links to these milestones to your roadmap.
+- If you prefer GitHub Projects, create a GitHub Project for your package.
+Organize your issues from left to right in some version of "to-do", "in-progress", and "complete".

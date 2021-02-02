@@ -2,12 +2,12 @@
 
 - Designing your package to be used by or contributed to from the community
   (refer to Mozilla Science Labs Open Leaders material)
-- Contributing guidelines
 - Being inclusive (code of conduct)
+- Contributing guidelines
 - Licensing
 - Governance
 - NEWS file
-- reprex?
+- reprex
 
 
 
@@ -15,4 +15,41 @@
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
+Complete these tasks for your package for the first project assignment. For more information and tips at any step, refer to the [Mozilla Open Leadership Training Series resources](https://mozilla.github.io/open-leadership-training-series/articles/readme/)
 
+1. Review your README
+ - Write a one-paragraph description of your package using the [Up-Goer Five Text Editor](https://splasho.com/upgoer5/). (You don't need to use this in your actual README, but it is a fun exercise to see what words you think are common might not be!)
+ - Review your README from the viewpoint of a new contributor to your project. Does your README clearly explain the purpose and function of your package without using jargon? Make any edits you like to make your README clear and welcoming.
+ 
+2. Create a Code of Conduct
+- Create a file in the top level of your package called CODE-OF-CONDUCT.md by running `usethis::use_code_of_conduct()`. This function automatically populates your code of conduct with the [Contributor Covenant](https://www.contributor-covenant.org/). You may keep or modify the template, or you may draft your own entirely. Make sure to attribute the source of any outside text you use or modify, and make sure the license of the text you use permits your use or modification. Here are some other example codes of conduct:
+    - [Citizen Code of Conduct](https://github.com/stumpsyn/policies/blob/master/citizen_code_of_conduct.md)
+    - [Django Code of Conduct](https://www.djangoproject.com/conduct/)
+- Include a link to your Code of Conduct in your README.
+ 
+3. Create Contributing Guidelines
+- Create a file called CONTRIBUTING.md by running `usethis::use_tidy_contributing()`. This file will contain information for people interacting with your project about how they can use your package and/or how they can get involved. Here are some example Contributing Guidelines:
+    - [Atom](https://github.com/atom/atom/blob/master/CONTRIBUTING.md)
+    - [Data Carpentry Geospatial R lesson](https://github.com/datacarpentry/r-intro-geospatial/blob/master/CONTRIBUTING.md)
+    - [Tidyverse](https://www.tidyverse.org/contribute/)
+- The default CONTRIBUTING.md you created has a template for instructions for submitting changes or reporting a problem. Modify CONTRIBUTING.md to include the following:
+    - A welcome statement and brief description of your project
+    - A list of project-related resources, like links to your README, roadmap or other task list, etc. 
+    - A list of communication channels your project uses, if applicable (mailing lists, forums, chat clients, etc.)
+    - Instructions for how to submit changes or report a problem, specific to your project
+    - A description of how you recognize contributors
+    - Instructions on where to go for help: who to contact and how
+    - A link to your Code of Conduct
+ 
+4. Add a license 
+- Choose a license for your package. Visit [choosealicense.com](https://choosealicense.com/) and choose a license that makes sense for your project. This license will live in a file called LICENSE.md in the top level of your project. If you choose a common license, it's likely that you can create LICENSE.md by running `usethis::use_mit_license()` (for the MIT license) or another related `use_NAME_license` function.
+
+5. Project Governance
+- FIXME: this might be a good place to go through the [Personas and Pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/) exercise, then add something to CONTRIBUTING.md about what the leadership structure is, if any, and how to get there. 
+
+6. Create a NEWS file
+- Create a file called NEWS.md in the top level of your project by running `usethis::use_news_md()`.
+
+7. Create a reprex
+- Use the `reprex` package to create a minimal reproducible example for one of the functions in your package.
+- If you like, add the reprex to one of your documentation files (i.e. README, CONTRIBUTING) as an example of how to use that function.

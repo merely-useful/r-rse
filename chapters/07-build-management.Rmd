@@ -6,10 +6,33 @@
 - Pre-push running test, build, and check
 - Continuous integration using GitHub Actions
 
-
+<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
 ## Final exercise
 
-<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+The purpose of this exercise is for the participant to go through a cycle of iteration of:
 
+- 1) checking if their package succeeds with R CMD
+- 2) adding a function and the related steps
+- 3) check if the package succeeds R CMD with the new additions
+- 4) deploy a GitHub Action that performs the R CMD check every time they push to GitHub. 
 
+The individual steps look like this:
+
+<!-- COMMENT: Include check() after each step? -->
+
+1. Check the package in its current state. Fix any notes, warnings, or errors.
+  - `devtools::check()`
+2. Add a function called `FIXME`
+  - `usethis::use_r("FIXME")`
+3. Add and build documentation for the `FIXME` function.
+  - `devtools::document()`
+4. Load all the functions and see if the `FIXME` function works.
+  - `devtools::load_all()` 
+5. Write and execute tests for the `FIXME` function.
+  - `usethis::use_test("FIXME")`
+  - `devtoools::test()`
+6. Check that the package builds with the new additions
+  - `devtools::check()`
+7. Deploy a GitHub action to perform a standard R CMD check
+  - `usethis::use_github_action_check_standard()`

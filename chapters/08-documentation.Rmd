@@ -10,4 +10,24 @@
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
+1. **Documenting functions**
+    * Inspect the `roxygen` comments in your functions (lines beginning with `#'`). 
+    Add or edit at least one example for each function, and make sure the `param`, `return`, and `export` fields match the function behavior.
+    * Run `document()` to convert your function documentation to `.Rd` files. 
 
+2. **Creating a README**
+    * Run `use_readme_rmd()` to create a file called `README.Rmd`. 
+    * Edit `README.Rmd` to include a description of your package and its purpose, installation instructions, and one or more examples of its use.
+    * Knit the `README.Rmd` file so it creates a `README.md` file.
+
+3. **Creating a vignette** 
+    * Create a template vignette for your package by running `use_vignette(FIXME, title = FIXME)`.
+    * Modify the vignette to include:
+	- a high-level paragraph description of your package and its purpose.
+	- an example of how to use your package, including code.
+    * Use `knitr` to preview your vignette.
+
+4. **Checking spelling and style**
+    * Run `style_pkg()` to restyle all the files in your package to follow the tidyverse style guide.
+    * Run `spell_check_package()` to check the spelling in your documentation files. 
+    Fix any errors, then run `update_wordlist()` to add any special words to the spell-checker that you want to ignore (for example, "tibble").
