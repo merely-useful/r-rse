@@ -43,3 +43,5 @@ D. Defining lifecycle of your package and individual functions (with lifecycle)
 
 7. Add "experimental" lifecycle tag to one of the developed functions
 > Modify the functions Roxygen annotations; `@description \\`r lifecycle::badge("experimental")\\``
+
+8. Commit the changes and push up to GitHub. Confirm that the package website has been built.
