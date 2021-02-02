@@ -36,6 +36,7 @@ B. Etiquette for using (mostly free) servers and external build systems like Git
 1. Read the usage limits on GitHub Actions and rhub
 > - https://docs.github.com/en/actions/reference/usage-limits-billing-and-administration
 > - https://docs.r-hub.io/#regularly
+TODO: Add a question to assess whether they've read it?
 
 1(b). Run the GitHub Actions for the package, locally (optional)
 > https://github.com/nektos/act
@@ -46,7 +47,7 @@ B. Etiquette for using (mostly free) servers and external build systems like Git
 C. Managing your versions, git tagging
 
 1. Upgrade version in the R package
-> In the DESCRIPTION file, modify the minor version number
+> In the DESCRIPTION file, use `usethis::use_version()` to modify the minor version number
 
 2. Build your package and commit
 > `devtools::build()`
@@ -54,3 +55,4 @@ C. Managing your versions, git tagging
 
 3. Tag your commit (version # is flexible)
 > `git tag -a v1.0 -m "Version Tag 1.0"`
+TODO: Use use_release_issue() as well?
