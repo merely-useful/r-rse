@@ -1,4 +1,4 @@
-# Version control: Workflows around using GitHub (part 2)
+# Version control: Workflows around using GitHub (part 2) {#github-workflows}
 
 - Make use of R builtin tools like the usethis pull request helpers
   (and learning how to make use of this yourself)
