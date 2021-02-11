@@ -5,14 +5,74 @@
 - E.g. with pr_* functions from usethis
 - Using this workflow as a team or as a contributor
 
+## List of actions/code done
+
+- What are branches and forks
+    - when to use either
+- How to use them effectively
+    - How branches can help both solo and as a team
+    - When forks are good vs being contributor on a repo (write access)
+- What are PRs, how to use them (either non-fork or fork)
+    - Keeping things targeted (e.g. a PR should conceptually
+    fix or add similarly related things)
+- How usethis package can help simplify this process (contributing either as
+solo or team)
+    - needing a token: create_github_token
+        - What are PATs
+    - pr_init
+    - pr_push
+    - pr_pull
+    - pr_pause
+    - pr_resume
+    - pr_merge_main
+- usethis as a maintainer or in a team (reviewing PRs)
+    - pr_fetch
+    - pr_push
+    - pr_finish
+    
+
+```{r, eval=FALSE}
+library(usethis)
+
+# create_github_token()
+# edit_r_environ()
+# TODO: Talk about security?
+# gh_token_help()
+
+# TODO: Add to CONTRIBUTING guidelines about using usethis pr
+pr_init("contributing-update")
+
+# Not added to code, but added to text. Using this so package gets built exactly
+# as stated in content.
+contribute_pr_helpers_text <- "
+TODO: Add text about using usethis
+"
+
+# gert::git_add("CONTRIBUTING.md")
+# gert::git_commit("add to use usethis pr_ helpers in contributing")
+
+# pr_push()
+# Go into GitHub and merge PR (R function to do that? pr_fetch? git_merge then
+# git_push?)
+
+# pr_init("another-branch") # TODO: other changes?
+# pr_pause()
+# Someone reviews the PR and accepts it
+# pr_resume() #?
+# pr_finish()
+```
+
 ## Final exercise
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+
+TODO: Add guidelines about using usethis::pr_ helpers? or at least link to it?
 
 Complete these tasks as part of the package for your first project assignment:
 
 1. Create a new Issue on your package's GitHub repository about fixing FIXME
 function.
+TODO: This 1. should actually be below.
 2. Using the `pr_*` helpers, create a new branch called `fixing-function` using
 `pr_init("fixing-function")`.
 3. Make the following changes to the FIXME function:
@@ -26,4 +86,29 @@ function.
 Repeat this process one more time by making changes to:
 
 - FIXME
+
+```{r, eval=FALSE}
+# This is the actions done to the project package
+# 1. new issue
+# githubr::gh_new_issue ? or gh package?
+# new_number <- githubr::gh_issue_list ?
+
+# 2. 
+# pr_init("fixing-function")
+
+# 3. 
+# TODO: What to change?
+
+# 4.
+# git_add("R/TODO")
+# git_commit(str_c("update function to have TODO. Closes ", new_number))
+
+# 5.
+# pr_push()
+# pr_pause()
+# git_merge("fixing-function")
+# git_push() ?
+# pr_resume("fixing-function")
+# pr_finish()
+```
 
