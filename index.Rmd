@@ -31,15 +31,15 @@ lof: yes
 TODO: Fill in this with a brief description on what course does, why its important, etc
 
 Computers are as essential for science and research as telescopes,
-test tubes, and libraries. Researchers in many fields are increasingly
-needing to know how to create, use, and share software given modern
+test tubes, and libraries. Researchers in many fields need
+to know how to create, use, and share software given modern
 demands and requirements for research. However, most introductions to
 programming focus on developing commercial applications and not
 typically on the type of tasks and activities that researchers more
 commonly do, like exploring problems and answering questions. This
 book will show you how to create software as part of your research
-cycle and work where you either work alone or as part of a team. For
-researchers who spend most of their time building software packages,
+cycle whether you work alone or as part of a team. For
+researchers who build software packages,
 this book will help prepare you for being a [research software
 engineer][rse].
 
@@ -73,9 +73,9 @@ described in FIXME, we wrote this book with three audiences in mind:
 1. **Instructors** who would use this book as the basis for a course or workshop
 of their own. Throughout the book there are sections dedicated to this reader
 that give information or instructions on how to use or modify the material for
-the instructors specific context.
+the instructor's specific context.
 2. **Learners in a class setting** who would be taking this course in a more
-formal class or workshop setting that is lead by an instructor(s). Much of the
+formal class or workshop setting that is lead by an instructor or instructors. Much of the
 book is written with this reader in mind.
 3. **Independent learners** who would be going through the material and learning
 on their own. An independent learner can for the most part follow the book as if
@@ -89,20 +89,20 @@ book revolves around three key concepts:
 
 1. *Participatory live-coding* lessons, where participants join with
 instructors to write and troubleshoot code step-by-step. We believe
-that this encourages participants to actively engage with the
+that this method encourages participants to actively engage with the
 material, to build muscle memory through typing, and to learn how to
 handle mistakes, rather than passively observing content.
-2. *In-class and out-of-class exercises* that includes independent
+2. *In-class and out-of-class exercises* that include independent
 reading of assigned material and hands-on, practical work.
 The hands-on exercises are interspersed throughout the live-coding
-sessions to complement and reinforce the content being learned as well
+sessions to complement and reinforce the content as well
 as give learners the opportunity to work through the code and problems
 at their own pace. Reading activities are used to build concept-heavy
 knowledge.
-3. *Project- and problem-based assignments* that includes both independent
+3. *Project- and problem-based assignments* that include both independent
 and group-based work. For the project assignments, learners reinforce
 what they learned through a new problem and challenge. The independent
-work prepares them for the group-based (though optional) work, where
+work prepares them for the optional group-based work, where
 they can practice team-based skills like communication, project management,
 and running meetings.
 
