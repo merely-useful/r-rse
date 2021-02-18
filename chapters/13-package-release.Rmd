@@ -2,8 +2,8 @@
 
 - Check builds on other systems (with rhub)
 - Etiquette for using (mostly free) servers and external build systems like GitHub Actions and rhub (e.g. do not overuse them)
-- Managing your versions, git tagging
-
+- Managing your versions, git tagging, DOI?
+- ORCID here?
 
 
 ## Final exercise
