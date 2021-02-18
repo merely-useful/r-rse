@@ -15,7 +15,10 @@
 
 ## Final exercise {#03-final-exercise}
 
-Complete these tasks as part of the package for your first project assignment:
+Complete these tasks as part of the package for your first project assignment.
+Refer to the project assignment for exact details on what you are required to
+create and on what the package should do. For this exercise, we will be using
+an package about weather in Kenya as an explain and reference.
 
 1. Decide on a simple but descriptive name for your new package. Use
 [available][pkg-available] to see if the name is taken.
@@ -40,3 +43,5 @@ You'll know you are finished if:
 * Your package can be installed with `install()` (or `Ctrl-Shift-B` to build it).
 * In a fresh R session, after running `library(FIXME)` you can access the data
 by its name.
+
+TODO: Add actions done to kenyaweather package here?
