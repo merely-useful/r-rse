@@ -3,7 +3,7 @@
 - Describing what a package is and when or why to make one
     - Use [available](https://github.com/r-lib/available) to make a name (naming is hard).
 - Using devtools, usethis for development
-- e.g. `use_devtools()` and `use_usethis()`.
+    - e.g. `use_devtools()` and `use_usethis()`.
 - Developing functions
 - Basic explanation of what a function is and its components
 - Actual process of taking code and converting it into a function will
