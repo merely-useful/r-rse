@@ -12,6 +12,20 @@ Clearly identify which tasks are best accomplished by each interface.
   - adding and updating remotes
 - Setting up GitHub for R package (make use of `usethis`), pushing and pulling
 
+
+<!---
+Moved from syllabus:
+
+And some people still worry that if they make their data and code generally available,
+someone else will use it and publish a result they have come up with themselves.
+This is almost unheard of in practice,
+but that doesn't stop people using it as a scare tactic.
+Other people are afraid of looking foolish or incompetent by sharing code that might contain bugs.
+This isn't just [impostor syndrome][impostor-syndrome]:
+members of marginalized groups are frequently judged more harshly than others,
+so being wrong in public is much riskier for them.
+-->
+
 ## Final exercise
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
