@@ -1,170 +1,144 @@
 # Course Syllabus {#syllabus}
 
-TODO: Put learning outcomes, objectives, etc here from course-design.Rmd
+Computational skills are essential in the modern research environment, which
+increasingly have massive datasets or use high performance computing servers,
+along with a trend for a greater demand that scientific studies be
+reproducible and open. This book will teach you the tools, skills, and knowledge
+necessary to make research software that is open, reproducible, sustainable, and
+more rigorous. (TODO: other word?) First and foremost, the main learning goal of
+this course is that you learn to **create and develop an R package**.
+More specifically, the learning objectives are to:
 
-This book covers the tools and practices needed to create work that is open, reproducible, and sustainable.
-You can use this book for self-study
-or as the foundation of a one-semester course for graduate students or senior undergraduates.
-By its end,
-you will be able to:
+- Explain what an R package is, how it is structured, and how to set one up.
+- List and describe what some best (or good enough) practices are in package
+development and how to implement them. 
+- Explain what a code style guide is, why it is important, and how to write code
+that adheres to the style guide.
+- Describe why user-friendly and well-written documentation is crucial to
+building a usable package and some steps to take to achieve this type of
+documentation.
+- Cover what CRAN is, what policies and quality-control steps it has for packages,
+and how to prepare a package for submission to CRAN so that it passes these checks
+and requirements.
 
--   Use [branches][branch] to coordinate development of complex software.
--   Enable users to configure software without modifying it.
--   Re-run analyses and rebuild packages reproducibly with a single command.
--   Test your software and know which parts have not yet been tested.
--   Keep track of what still needs to be done and who's working on it.
--   Work on remote computers such as computing clusters or the cloud.
--   Document software so it can be easily used, maintained, and extended.
--   Create packages that can be installed in standard ways and be used by others.
--   Work productively in a small team where everyone is welcome.
+Aside from the direct technical aspects of building an R package, the course
+will also cover topics that enhance and improve the process of package development.
+These learning objectives are to:
 
-## Learning outcomes
+- Describe and apply effective workflows and project management tools that help
+to coordinate the development of software, particularly for software that is
+complex or when working in a team.
+- Outline (and optionally practice) how to work productively in a small team,
+that is inclusive and welcoming.
+- Explain the importance of and learning to design software and documentation
+that involves the community, such as by gaining potential contributors.
 
-- **Learning outcome/goal**: Ultimately, to be able to create an R package, that:
-    - Passes checks and requirements to (potentially) be submitted to CRAN
-    - Incorporates best practices in package development 
-    (unit testing, continuous integration, version control)
-    - Has code that is written and developed in a readable, clean, and
-    style-guide consistent format, so others can more easily read it
-    - Is designed to involve the community, such as gaining potential contributors
-    (including licensing, code of conduct, contributing guidelines, 
-    well described README)
-    - Has user-friendly (i.e. targeted to a novice to intermediate user)
-    documentation and tutorials on how to use the package (e.g. a nice website)
-    - Is adequately structured to make package management and maintenance easier
-    (e.g. with Issue Templates, Project Boards, Labels, contributing guidelines)
+TODO: Include objectives about having ORCID and getting DOIs?
 
-## Who are these lessons for? {#rse-intro-personas}
+Overall, we'll be addressing the questions:
+
+- What is an R package and why should I create one?
+- How can I build an R package that is re-usable, well-built, and well-documented?
+- What is CRAN and should I submit my package to it? If so, how do I do it?
+- How can I work effectively as a team on building an R package or to
+contribute to an existing package?
+
+By the end of the course, learners are expected to have the skills and knowledge
+necessary to build their own packages and to, if relevant, submit these packages
+to CRAN.
+
+TODO: Include bioconductor?
+
+## Who is this course for? {#rse-intro-personas}
+
+We designed this course with the below types of learners in mind, who are fictional
+characters with potentially realistic backgrounds:
 
 Amira
-:   completed a master's in library science five years ago
-    and has since worked for a small aid organization.
-    She did some statistics during her degree,
-    and has learned some R and Python by doing data science courses online,
-    but has no formal training in programming.
-    Amira would like to tidy up the scripts, data sets, and reports she has created
-    in order to share them with her colleagues.
-    These lessons will show her how to do this and what "done" looks like.
+: Completed a master's in library science five years ago and has since worked
+for a small aid organization. She did some statistics during her degree, and has
+learned some R and Python by doing data science courses online, but has no
+formal training in programming. Amira would like to tidy up the scripts, data
+sets, and reports she has created in order to share them with her colleagues.
+These lessons will show her how to do this and what "done" looks like.
 
 Jun
-:   completed an [Insight Data Science][insight] fellowship last year after doing a PhD in Geology
-    and now works for a company that does forensic audits.
-    He uses a variety of machine learning and visualization packages,
-    and would now like to turn some of his own work into an open source project.
-    This book will show him how such a project should be organized
-    and how to encourage people to contribute to it.
+: Completed an [Insight Data Science][insight] fellowship last year after
+doing a PhD in Geology and now works for a company that does forensic audits. He
+uses a variety of machine learning and visualization packages, and would now
+like to turn some of his own work into an open source project. This book will
+show him how such a project should be organized and how to encourage people to
+contribute to it.
 
 Sami
-:   became a competent programmer during a bachelor's degree in applied math
-    and was then hired by the university's research computing center.
-    The kinds of applications they are being asked to support
-    have shifted from fluid dynamics to data analysis;
-    this guide will teach them how to build and run data pipelines
-    so that they can pass those skills on to their users.
+: Became a competent programmer during a bachelor's degree in applied math and
+was then hired by the university's research computing center. The kinds of
+applications they are being asked to support have shifted from fluid dynamics to
+data analysis; this guide will teach them how to build and run re-usable data
+analysis pipelines so that they can pass those skills on to their users.
 
 ### Prerequisites
 
-Learners must be able to:
+Learners are expected to be able to:
 
--   Write reusable functions to analyze tabular data using [R][r].
--   Keep track of their work using [Git][git] and [GitHub][github].
--   Create reproducible reports using [R Markdown][r-markdown].
--   Publish those reports with appropriate metadata such as a [DOI][doi] and [ORCID][orcid].
+- Write reusable functions to analyze tabular data using [R][r].
+- Have a basic understanding of [Git][git] and [GitHub][github], and have at least
+used them for basic version control tasks.
+- Create reproducible reports using [R Markdown][r-markdown].
 
 Learners will need:
 
--   A personal computer with Internet access.
--   A [Unix shell][unix-shell] (see Appendix \@ref(install) for how to set this up on Windows).
--   [R][r] and [RStudio][rstudio].
--   A [GitHub][github] account.
+- A personal computer with Internet access.
+- To have [R][r], [Git][git], and [RStudio][rstudio] installed.
+- A [GitHub][github] account.
 
-If you are using Windows,
-please install [Chocolatey][chocolatey]:
-you can use it to install other programs as you go along.
+## What's the big picture?
 
-## What's the big picture? {#rse-intro-big-picture}
+This book and the tools, skills, and knowledge being taught come out of the
+growing awareness of and demand for [open science][open-science],
+[reproducible research][reproducibility], and 
+[software sustainability][sustainable-software]. So what are these?
 
-To make sense of what follows,
-we must distinguish two key ideas:
+- [Open science][open-science] is a movement to make scientific data, methods,
+and results publicly and freely accessible by publishing them with 
+[open licenses][open-license]. These licenses allow others to re-use and modify
+these outputs without worrying about copyright infringement, often only requiring
+attribution to the original source.
+- [Reproducible research][reproducible-research] means ensuring that anyone with
+access to data and software can feasibly reproduce the same or similar results,
+both to check them and to build on them. It's important to note that science can
+be open but not reproducible and reproducible but not open.
+- [Sustainable software][sustainable-software] is when software is developed in
+a way that makes it easier for other people to extend and/or maintain it, rather
+than to replace it. Sustainability isn't just about the software itself, it also
+depends on the skills and culture of its users. For instance, if a software
+package is being maintained by a couple of post-docs who are being paid a
+fraction of what they could earn in industry and have no realistic hope of
+promotion because their field doesn't value tool building, it doesn't matter
+whether the package is well tested and easy to install: sooner or later
+(probably sooner) it will become [abandonware][abandonware].
 
--   [Open science][open-science]
-    focuses on making data, methods, and results freely available to all
-    by publishing them under [open licenses][open-license].
--   [Reproducible research][reproducible-research]
-    means ensuring that anyone with access to data and software can feasibly reproduce results,
-    both to check them and to build on them.
+## Overview of the packages created throughout course
 
-People often conflate these terms,
-but they are distinct:
+Throughout the book, you will build several packages. There is the main
+one (`zipfs`) and 2 or 3 project assignment packages (see the assignment
+descriptions in Appendix \@ref(course-assignments)). For two of the packages,
+we have already built them so you can use them as an example and a reference
+(`zipfs` and `kenyaweather`).
 
--   If you share your data and the programs that analyze it,
-    but don't document what steps to take in what order,
-    your work is open but not reproducible.
--   If you completely automate your analysis,
-    but your data is only available to people in your lab,
-    your work is reproducible but not open.
-
-The third key idea is [sustainability][sustainable-software].
-Software is sustainable if it's easier for people to maintain it and extend it than to replace it.
-However,
-sustainability isn't just a property of the software:
-it also depends on the skills and culture of its users.
-If a software package is being maintained by a couple of post-docs
-who are being paid a fraction of what they could earn in industry
-and have no realistic hope of promotion because their field doesn't value tool building,
-it doesn't matter whether the package is well tested and easy to install:
-sooner or later (probably sooner)
-it will become [abandonware][abandonware].
-
-### Why isn't all of this already normal?
-
-Nobody argues that research should be irreproducible or unsustainable,
-but "not against it" and actively supporting it are very different things.
-Academia doesn't yet know how to reward people for writing useful software,
-so while you may be thanked,
-the effort you put in may not translate into job security or decent pay.
-
-And some people still worry that if they make their data and code generally available,
-someone else will use it and publish a result they have come up with themselves.
-This is almost unheard of in practice,
-but that doesn't stop people using it as a scare tactic.
-Other people are afraid of looking foolish or incompetent by sharing code that might contain bugs.
-This isn't just [impostor syndrome][impostor-syndrome]:
-members of marginalized groups are frequently judged more harshly than others,
-so being wrong in public is much riskier for them.
-
-## Recommended schedule
-
-TODO: Put here or put in "Instructions to instructors" section?
-
-## Overview of packages built throughout course
-
-- Overview of the (3-4?) packages developed throughout course:
-    - Zipf's Law package: Used as key example for code-along, content, and most
-    exercises.
-    - Individual-based, small and simple package: Used as the first main "deliverable"
-    for the course. Due after Build Management, with potential milestones due
-    every 1-2 chapters. Final chapter exercises could be focused on completing the
-    and working towards milestones and deliverable.
-    - Individual-based, small improvements to existing package: Used as second 
-    deliverable, due after "Community involvement". Should only build off of
-    and improve an existing package, so doesn't need many milestones. Used to
-    reinforce importance of having documentation that can involve the community.
-    Could be the final exercises of chapters between Build Management and 
-    Community Involvement.
-    - Group-based, larger package: Optional, best used in longer length,
-    class-based courses where groups can be formed. Is third and final
-    deliverable. No need to have final exercises for this, instructor can decide.
-    
-
-## Key resources used
-
-- Key resources to use for this:
-  - R packages: usethis, devtools, pkgdown, testthat, styler, rmarkdown
-  - Online books: [R Packages](https://r-pkgs.org/) 
-    - We use the R Packages book as a reference
+- The main package used throughout the book is the Zipf's Law package `zipfs`.
+This package is used for the code-alongs, the actual content, and most of the
+exercises.
+- The example package for the first project assignment is the Weather in Kenya
+package `kenyaweather`. This package is used as a reference when you work on
+your package for the first project assignment.
+- A currently existing package that you'll contribute to, which is the second
+project assignment.
+- (Optional) A group-based package, which is the third project assignment.
 
 ## Chapters outline
+
+TODO: Remove this at a later point, keep for now for an overview.
 
 Course chapters and content need to be strongly aligned with learning outcome/goal.
 Here is a draft outline to guide development.
@@ -173,9 +147,6 @@ Here is a draft outline to guide development.
     - Overview of course
     - Why to learn it and learning outcomes
     - Intended learner (personas, assumptions and expectations etc)
-    - What makes this course different
-        - Go over the "Whole Game" chapter of the R Packages book (https://r-pkgs.org/whole-game.html)
-        to give an idea of what it all looks like in the end of this course
 
 2. Folder and file structure (RStudio R Projects)
     - File paths, very basics of the shell (in RStudio)
@@ -277,10 +248,6 @@ Here is a draft outline to guide development.
     - Setting up SSH, two-factor authentication, PATs?
 
 - Appendices (ideas)
-    - Other uses of packages
-        - RStudio addins, snippets, rmarkdown templates, templates
-        - rstudioapi
-    - Template of Code of Conduct for participating in course
     - Instructions to potential instructors
     - Solutions
     - Glossary
