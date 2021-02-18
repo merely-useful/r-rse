@@ -51,7 +51,8 @@ following tasks, noting the approach you used (Git integration in RStudio,
 command-line interface, `usethis`):
     - Initialize the repository (`use_git()` in the R Console).
     - In the RStudio Git Interface, add and commit all the relevant files that
-    you've worked on until this point. Are there any you need to ignore? TODO: Should we have this?
+    you've worked on until this point. Are there any you need to ignore? 
+    TODO: Should we have this thing about ignore? At this point would there be anything?
     - Connect your new Git repository to GitHub (`use_github()` in the R Console)
     and push the changes up.
     - Go to your newly created GitHub repository and confirm that your history 
