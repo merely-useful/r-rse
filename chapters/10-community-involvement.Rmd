@@ -1,4 +1,4 @@
-# Involving the community:
+# Involving the community {#community-involvement}
 
 - Designing your package to be used by or contributed to from the community
   (refer to Mozilla Science Labs Open Leaders material)
@@ -53,3 +53,5 @@ Complete these tasks for your package for the first project assignment. For more
 7. Create a reprex
 - Use the `reprex` package to create a minimal reproducible example for one of the functions in your package.
 - If you like, add the reprex to one of your documentation files (i.e. README, CONTRIBUTING) as an example of how to use that function.
+
+### Exercises for second project assignment

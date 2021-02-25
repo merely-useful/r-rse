@@ -1,4 +1,4 @@
-# Project management of your package development (either solo or in a team)
+# Project management of your package development (either solo or in a team) {#project-management}
 
 - Issue tracking
 - Labeling

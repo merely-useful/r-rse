@@ -5,12 +5,14 @@
 - Getting all resources and material organized
 - Defining lifecycle of your package and individual functions (with lifecycle)
 
+## Final exercise {#09-final-exercise}
 
-## Final exercise
-
-<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
-
-The purpose of this exercise is for the participant to go through a successful deployment of a customized `pkgdown` website and documenting their function's lifecycles.
+Complete these tasks as part of the package for your first project assignment.
+Refer to the project assignment TODO: Add ref to assignment here?
+for more details. As with the other final exercises,
+we will use the `kenyaweather` package as an example and reference.
+Don't forget to add and commit any changes you've made into the Git history
+after each task.
 
 A. Setting up a website (with pkgdown)
 

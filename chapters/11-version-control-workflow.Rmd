@@ -27,3 +27,4 @@ Repeat this process one more time by making changes to:
 
 - FIXME
 
+### Exercises for second project assignment
