@@ -1,33 +1,41 @@
-# Developing documentation and tutorials on usage
+# Developing documentation and tutorials on usage {#package-documentation}
 
 - Vignettes, README (with rmarkdown and usethis)
 - Function documentation (with roxygen2), part 2
+    - Markdown functionality with `usethis::use_roxygen_md()`
 - Running spell checks and styling (with spelling and styler)
 
+## Final exercise {#08-final-exercise}
 
+Complete these tasks as part of the package for your first project assignment.
+Refer to the project assignment TODO: Add ref to assignment here?
+for more details. As with the other final exercises,
+we will use the `kenyaweather` package as an example and reference.
+Don't forget to add and commit any changes you've made into the Git history
+after each task.
 
-## Final exercise
+1. Add the ability to write your roxygen2 documentation using Markdown with 
+`usethis::use_roxygen_md()`.
 
-<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+2. Go through your existing function documentations and fill them in more.
+Especially focus on completing the `@param`, `@return`, and `@examples` fields.
+Then run `document()` (`Ctrl-Shift-D`).
 
-1. **Documenting functions**
-    * Inspect the `roxygen` comments in your functions (lines beginning with `#'`). 
-    Add or edit at least one example for each function, and make sure the `param`, `return`, and `export` fields match the function behavior.
-    * Run `document()` to convert your function documentation to `.Rd` files. 
+3. Create a README file for your repository by using `use_readme_rmd()`.
+    - Edit the `README.Rmd` to include a description of your package and its
+    purpose, installation instructions, and one or more examples of how to use it.
+    - Knit the `README.Rmd` file so it creates a `README.md` file.
 
-2. **Creating a README**
-    * Run `use_readme_rmd()` to create a file called `README.Rmd`. 
-    * Edit `README.Rmd` to include a description of your package and its purpose, installation instructions, and one or more examples of its use.
-    * Knit the `README.Rmd` file so it creates a `README.md` file.
+4. Add a vignette to your project package by running `use_vignette("YOURPACKAGENAME")`,
+replacing `YOURPACKAGENAME` with the name of your actual project package.
+Edit the vignette to include a:
+	- Higher-level paragraph describing your package and its purpose.
+	- An example of how to use your package, including code, that's more complete
+	than what the README might have.
+    - Use `knitr` to Knit and preview your vignette.
 
-3. **Creating a vignette** 
-    * Create a template vignette for your package by running `use_vignette(FIXME, title = FIXME)`.
-    * Modify the vignette to include:
-	- a high-level paragraph description of your package and its purpose.
-	- an example of how to use your package, including code.
-    * Use `knitr` to preview your vignette.
-
-4. **Checking spelling and style**
-    * Run `style_pkg()` to restyle all the files in your package to follow the tidyverse style guide.
-    * Run `spell_check_package()` to check the spelling in your documentation files. 
-    Fix any errors, then run `update_wordlist()` to add any special words to the spell-checker that you want to ignore (for example, "tibble").
+5. Check the spelling and style of your files in your package by running
+`styler::style_pkg()` to restyle your files and `use_spell_check()` to check the
+spelling. Fix any problems and if there are any special words, create a
+new file in `inst/WORDLIST`, add the word, and run `spelling::update_wordlist()`.
+Then re-run these styling and spelling checks to confirm no problems exist anymore.
