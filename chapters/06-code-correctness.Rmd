@@ -8,7 +8,7 @@ calls, `debug()`, `browser()`)
 - Code coverage (with covr)
 - With devtools
 
-## Final exercise
+## Final exercise {#06-final-exercise}
 
 Complete these tasks as part of the package for your first project assignment.
 Refer to the project assignment TODO: Add ref to assignment here?

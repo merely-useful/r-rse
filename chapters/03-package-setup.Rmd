@@ -11,8 +11,6 @@
 - Making and using datasets
 - Downloading zipf data at this point, using `usethis::use_data_raw()`, write the script to download the data and process into `data/` via `usethis::use_data()`.
 
-
-
 ## Final exercise {#03-final-exercise}
 
 Complete these tasks as part of the package for your first project assignment.

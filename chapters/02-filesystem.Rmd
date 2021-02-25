@@ -12,8 +12,7 @@ and filesystem terminology
   - `dir_map()`
   - `file_delete()`, `file_info()`, `file_move()`
 
-
-## Final exercise
+## Final exercise {02-final-exercise}
 
 The exercises in this chapter check your understanding of fundamental concepts represented here,
 but the tasks performed do not directly contribute to the project assignment.
