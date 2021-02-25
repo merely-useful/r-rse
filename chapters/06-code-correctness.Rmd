@@ -14,7 +14,8 @@ Complete these tasks as part of the package for your first project assignment.
 Refer to the project assignment TODO: Add ref to assignment here?
 for more details. As with the other final exercises,
 we will use the `kenyaweather` package as an example and reference.
-Don't forget to add and commit any changes you've made into the Git history.
+Don't forget to add and commit any changes you've made into the Git history
+after each task.
 
 1. Open one of your R scripts (if you have more than one) in the `R/` folder.
     - In the R Console, type out `use_test()` to create a unit test for the script.
