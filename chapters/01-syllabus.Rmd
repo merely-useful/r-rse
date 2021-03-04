@@ -119,10 +119,18 @@ whether the package is well tested and easy to install: sooner or later
 
 ## Overview of the packages created throughout course
 
-Throughout the book, you will build several packages. There is the main
-one (`zipfs`) and 2 or 3 project assignment packages (see the assignment
+Throughout the book, you will build several packages. First, by following along with 
+the examples, you will build a package (`zipfs`) to analyze a fascinating result in
+the field of quantitative linguistics. Zipf’s Law states that the second most
+common word in a body of text appears half as often as the most common,
+the third most common appears a third as often, and so on. To test whether
+Zipf’s Law holds for a collection of classic novels that are freely available
+from Project Gutenberg, we write a software package that counts and
+analyzes the word frequency distribution in any arbitrary body of text.
+Guided assignment questions for building two other packages are
+also given in the book (see the assignment 
 descriptions in Appendix \@ref(course-assignments)). For two of the packages,
-we have already built them so you can use them as an example and a reference
+we have provided completed examples for reference
 (`zipfs` and `kenyaweather`).
 
 - The main package used throughout the book is the Zipf's Law package `zipfs`.
