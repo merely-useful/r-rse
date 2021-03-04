@@ -31,23 +31,12 @@ complex or when working in a team.
 - Outline (and optionally practice) how to work productively in a small team
 that is inclusive and welcoming.
 - Learning why and how to design software and documentation
-that involves the community, such as by gaining potential contributors.
+involving community contributors.
 
-TODO: Include objectives about having ORCID and getting DOIs?
-
-Overall, we'll be addressing the questions:
-
-- What is an R package and why should I create one?
-- How can I build an R package that is re-usable, well-built, and well-documented?
-- What is CRAN and should I submit my package to it? If so, how do I do it?
-- How can I work effectively as a team on building an R package or to
-contribute to an existing package?
-
-By the end of the course, you will have the skills and knowledge
-necessary to build your own packages and to, if relevant, submit these packages
-to CRAN.
-
-TODO: Include bioconductor?
+By the end of the course, you will have the skills and knowledge necessary to:
+build your own packages that are well-built, well-documented, and re-usable;
+work effectively as part of a team or as a contributor; and, if relevant, prepare
+your package to be submitted to CRAN. 
 
 ## Who is this course for? {#rse-intro-personas}
 
