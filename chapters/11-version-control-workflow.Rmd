@@ -1,20 +1,40 @@
-# Version control: Workflows around using GitHub (part 2) {#github-workflows}
+# Workflows when using GitHub {#github-workflows}
 
 - Make use of R builtin tools like the usethis pull request helpers
   (and learning how to make use of this yourself)
 - E.g. with pr_* functions from usethis
 - Using this workflow as a team or as a contributor
 
-## List of actions/code done
+<!-- List of actions/code done -->
 
-- What are branches and forks
-    - when to use either
+## Branches and forks
+
+- when to use either
+
 - How to use them effectively
     - How branches can help both solo and as a team
     - When forks are good vs being contributor on a repo (write access)
+
+### Exercise: Do these situations warrant a branch or fork?
+
+Concept and thought, not code based.
+
+1. 
+2. 
+3. 
+
+## GitHub pull requests
+
 - What are PRs, how to use them (either non-fork or fork)
     - Keeping things targeted (e.g. a PR should conceptually
     fix or add similarly related things)
+
+### Exercise: 
+
+Concept and thought, not code based.
+
+## Helpers from usethis
+
 - How usethis package can help simplify this process (contributing either as
 solo or team)
     - needing a token: create_github_token
@@ -44,9 +64,11 @@ pr_init("contributing-update")
 
 # Not added to code, but added to text. Using this so package gets built exactly
 # as stated in content.
+# contributing_text <- readLines(here::here("CONTRIBUTING.md")) # Yea?
 contribute_pr_helpers_text <- "
 TODO: Add text about using usethis
 "
+# writeLines(contribute_pr_helpers_text, here::here("CONTRIBUTING.md"))
 
 # gert::git_add("CONTRIBUTING.md")
 # gert::git_commit("add to use usethis pr_ helpers in contributing")
@@ -58,7 +80,8 @@ TODO: Add text about using usethis
 # pr_init("another-branch") # TODO: other changes?
 # pr_pause()
 # Someone reviews the PR and accepts it
-# pr_resume() #?
+# pr_resume("another-branch")
+# 
 # pr_finish()
 ```
 
