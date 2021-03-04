@@ -3,7 +3,7 @@
 # PRs that affect these files.
 
 appendices/assignments.md @lwjohnst86
-chapters/01-syllabus.Rmd @k8hertweck @lwjohnst86
+chapters/01-preface.Rmd @k8hertweck @lwjohnst86
 chapters/02-filesystem.Rmd @k8hertweck @mbonsma
 chapters/03-package-setup.Rmd @cwickham @lwjohnst86
 chapters/04-function-development.Rmd @cwickham @mbonsma

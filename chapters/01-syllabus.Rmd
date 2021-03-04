@@ -1,4 +1,4 @@
-# Course Syllabus {#syllabus}
+# Preface {#preface}
 
 Computational skills are essential in the modern research environment, which
 increasingly involves large datasets and high performance computing,
