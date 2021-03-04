@@ -1,36 +1,36 @@
 # Course Syllabus {#syllabus}
 
 Computational skills are essential in the modern research environment, which
-increasingly have massive datasets or use high performance computing servers,
-along with a trend for a greater demand that scientific studies be
+increasingly involves large datasets and high performance computing,
+along with increasing demand that scientific studies be
 reproducible and open. This book will teach you the tools, skills, and knowledge
-necessary to make research software that is open, reproducible, sustainable, and
-more rigorous. (TODO: other word?) First and foremost, the main learning goal of
-this course is that you learn to **create and develop an R package**.
+necessary to make research software that is open, reproducible, and
+sustainable. First and foremost, the main learning goal of
+this course is that you learn to **develop an R package**.
 More specifically, the learning objectives are to:
 
 - Explain what an R package is, how it is structured, and how to set one up.
-- List and describe what some best (or good enough) practices are in package
+- List and describe some best (or good enough) practices in package
 development and how to implement them. 
 - Explain what a code style guide is, why it is important, and how to write code
 that adheres to the style guide.
 - Describe why user-friendly and well-written documentation is crucial to
-building a usable package and some steps to take to achieve this type of
+building a usable package and some steps to achieve this type of
 documentation.
 - Cover what CRAN is, what policies and quality-control steps it has for packages,
 and how to prepare a package for submission to CRAN so that it passes these checks
 and requirements.
 
-Aside from the direct technical aspects of building an R package, the course
+Aside from the technical aspects of building an R package, the course
 will also cover topics that enhance and improve the process of package development.
 These learning objectives are to:
 
-- Describe and apply effective workflows and project management tools that help
-to coordinate the development of software, particularly for software that is
+- Describe and apply effective workflows and project management tools that
+coordinate the development of software, particularly for software that is
 complex or when working in a team.
-- Outline (and optionally practice) how to work productively in a small team,
+- Outline (and optionally practice) how to work productively in a small team
 that is inclusive and welcoming.
-- Explain the importance of and learning to design software and documentation
+- Learning why and how to design software and documentation
 that involves the community, such as by gaining potential contributors.
 
 TODO: Include objectives about having ORCID and getting DOIs?
@@ -43,16 +43,15 @@ Overall, we'll be addressing the questions:
 - How can I work effectively as a team on building an R package or to
 contribute to an existing package?
 
-By the end of the course, learners are expected to have the skills and knowledge
-necessary to build their own packages and to, if relevant, submit these packages
+By the end of the course, you will have the skills and knowledge
+necessary to build your own packages and to, if relevant, submit these packages
 to CRAN.
 
 TODO: Include bioconductor?
 
 ## Who is this course for? {#rse-intro-personas}
 
-We designed this course with the below types of learners in mind, who are fictional
-characters with potentially realistic backgrounds:
+The following personas are examples of the types of people that are our target audience.
 
 Amira
 : Completed a master's in library science five years ago and has since worked
@@ -132,9 +131,9 @@ exercises.
 - The example package for the first project assignment is the Weather in Kenya
 package `kenyaweather`. This package is used as a reference when you work on
 your package for the first project assignment.
-- A currently existing package that you'll contribute to, which is the second
+- You will contribute to an existing package (that you or an instructor will choose) for the second
 project assignment.
-- (Optional) A group-based package, which is the third project assignment.
+- Optionally, you will create a package in a group for the third project assignment.
 
 ## Chapters outline
 
