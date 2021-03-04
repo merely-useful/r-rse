@@ -24,7 +24,7 @@ to creating tools to help your entire field advance.
 
 This repository contains the material for a semester-long course on
 learning to do research software engineering with R.
-For more detail on the course, check out the [syllabus](https://merely-useful.github.io/r-rse/syllabus.html).
+For more detail on the course, check out the [course overview](https://merely-useful.github.io/r-rse/preface.html).
 
 ## Instructional Design
 
