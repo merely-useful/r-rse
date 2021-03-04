@@ -1,6 +1,6 @@
 welcome-to-the-course-webpage
-licensing
-target-audience-of-book
+target-audience
 instructional-design
-rse-intro-ack
+licensing
+acknowledgments
 glossary
