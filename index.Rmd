@@ -22,11 +22,6 @@ lot: yes
 lof: yes
 ---
 
-```{r}
-
-```
-
-
 # Welcome to the course webpage!
 
 > It's still magic even if you know how it's done.
@@ -35,33 +30,27 @@ lof: yes
 
 TODO: Fill in this with a brief description on what course does, why its important, etc
 
-Computers are now as essential for research as telescopes, test tubes, and libraries,
-which means that researchers need need to know how to build, use, and share software.
-However,
-most introductions to programming focus on developing commercial applications,
-not on exploring problems and answering questions.
-This series of books will show you how to do the latter
-both on your own and as part of a team.
+Computers are as essential for science and research as telescopes,
+test tubes, and libraries. Researchers in many fields need
+to know how to create, use, and share software given modern
+demands and requirements for research. However, most introductions to
+programming focus on developing commercial applications and not
+typically on the type of tasks and activities that researchers more
+commonly do, like exploring problems and answering questions. This
+book will show you how to create software as part of your research
+cycle whether you work alone or as part of a team. For
+researchers who build software packages,
+this book will help prepare you for being a [research software
+engineer][rse].
 
-The prequels to this book introduce three core skills:
-how to write short programs to clean and analyze data in a reproducible way,
-how to keep track of what you have done,
-and how to share your software and your results with other people.
-But just as some astronomers spend their careers designing telescopes,
-some researchers focus on building software to make their colleagues' lives easier.
-People who do this are called [research software engineers][rse],
-and the aim of this book is to get you ready for this role—to help you go from writing code for your own use
-to creating tools to help your entire field advance.
-
-TODO: Update section? Needs revision.
-
-For researchers and data scientists who can write functions to create programs that are several pages long,
-and who want to be more productive and have more confidence in their results,
-this book provides a pragmatic, tools-based introduction to research software engineering.
-Unlike material courses aimed at computer scientists and professional software developers,
-this book uses data analysis as a motivating example
-and assumes that the learner's ultimate goal is to answer questions rather than ship products.
-
+For researchers and data scientists who can write functions to create
+programs that are hundreds of lines long and who want to be more
+productive and have more confidence in their results, this book
+provides a pragmatic, tools-based introduction to research software
+engineering. Unlike courses aimed at computer scientists and
+professional software developers, this book uses data analysis as the
+motivating example and assumes that the learner's ultimate goal is to
+answer questions rather than ship products.
 
 The course material was created using [rmarkdown] to write the lessons,
 [bookdown] to create the book format, [GitHub] to host the [Git] 
@@ -76,6 +65,47 @@ The original source material for this course is found on the
 [GitHub Actions]: https://github.com/features/actions
 [`r-rse`]: https://github.com/merely-useful/r-rse
 
+## Target audience
+
+While the learning content of this book targets the specific learning personas
+described in FIXME, we wrote this book with three audiences in mind:
+
+1. **Instructors** who would use this book as the basis for a course or workshop
+of their own. Throughout the book there are sections dedicated to this reader
+that give information or instructions on how to use or modify the material for
+the instructor's specific context.
+2. **Learners in a class setting** who would be taking this course in a more
+formal class or workshop setting that is lead by an instructor or instructors. Much of the
+book is written with this reader in mind.
+3. **Independent learners** who would be going through the material and learning
+on their own. An independent learner can for the most part follow the book as if
+they were a learner in a class setting, with some modifications that we highlight
+and describe where necessary.
+
+## Instructional design
+
+The instructional design of the learning material contained in this
+book revolves around three key concepts:
+
+1. *Participatory live-coding* lessons, where participants join with
+instructors to write and troubleshoot code step-by-step. We believe
+that this method encourages participants to actively engage with the
+material, to build muscle memory through typing, and to learn how to
+handle mistakes, rather than passively observing content.
+2. *In-class and out-of-class exercises* that include independent
+reading of assigned material and hands-on, practical work.
+The hands-on exercises are interspersed throughout the live-coding
+sessions to complement and reinforce the content as well
+as give learners the opportunity to work through the code and problems
+at their own pace. Reading activities are used to build concept-heavy
+knowledge.
+3. *Project- and problem-based assignments* that include both independent
+and group-based work. For the project assignments, learners reinforce
+what they learned through a new problem and challenge. The independent
+work prepares them for the optional group-based work, where
+they can practice team-based skills like communication, project management,
+and running meetings.
+
 ## Re-use and licensing {#licensing}
 
 All of this material can be freely re-used under the terms of the
@@ -85,13 +115,7 @@ and the course code is licensed under a
 so the material can be used, re-used, and modified, 
 as long as there is attribution to this source.
 
-## Target audience of book
-
-TODO: Who is this book targeted towards? and why? and how can each use it.
-
-## Instructional design
-
-## Acknowledgments {#rse-intro-ack}
+## Acknowledgments
 
 This book owes its existence to
 everyone we met through [the Carpentries][carpentries].
@@ -102,13 +126,3 @@ and the authors of [@Nobl2009; @Hadd2010; @Wils2014; @Scop2015; @Tasc2017; @Wils
 
 ```{r, child="./appendices/links.md"}
 ```
-
-<!-- - Overview of material -->
-<!--     - How to use, why to use, general details and overall description -->
-<!--         - Reference "For Instructors" section for instructors to check out -->
-
-
-  <!-- - Online books: [R Packages](https://r-pkgs.org/)  -->
-  <!-- (we differentiate from this amazing book by structuring everything around  -->
-  <!-- this being a course, with exercises, assessments, (group?) projects,  -->
-  <!-- instructions/comments/notes for instructors, etc) -->

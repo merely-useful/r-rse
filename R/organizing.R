@@ -1,4 +1,5 @@
 library(tidyverse)
+chapters <- fs::dir_ls("chapters/", glob = "*.Rmd")
 
 "
 
