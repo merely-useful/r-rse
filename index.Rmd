@@ -22,7 +22,7 @@ lot: yes
 lof: yes
 ---
 
-# Welcome to the course webpage!
+# Welcome!
 
 > It's still magic even if you know how it's done.
 >
