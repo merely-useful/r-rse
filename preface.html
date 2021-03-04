@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 2 Preface | Merely Useful: Using R for Research Software Engineering</title>
+<meta name="author" content="Madeleine Bonsma-Fisher">
+<meta name="author" content="Kate Hertweck">
+<meta name="author" content="Damien Irving">
+<meta name="author" content="Luke Johnston">
+<meta name="author" content="Joel Ostblom">
+<meta name="author" content="Ian Flores Siaca">
+<meta name="author" content="Charlotte Wickham">
+<meta name="author" content="Greg Wilson">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.4.9002/tabs.js"></script><script src="libs/bs3compat-0.2.4.9002/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><link rel="shortcut icon" href="favicon.ico">
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Merely Useful: Using R for Research Software Engineering</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Welcome!</a></li>
+<li><a class="active" href="preface.html"><span class="header-section-number">2</span> Preface</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="glossary.html"><span class="header-section-number">A</span> Glossary</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/merely-useful/r-rse">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="preface" class="section level1">
+<h1>
+<span class="header-section-number">2</span> Preface<a class="anchor" aria-label="anchor" href="#preface"><i class="fas fa-link"></i></a>
+</h1>
+<p>Computational skills are essential in the modern research environment, which
+increasingly involves large datasets and high performance computing,
+along with increasing demand that scientific studies be reproducible and
+open. With these modern demands, researchers across nearly all disciplines often
+need to create, use, and share software. Most introductions to programming or
+software engineering focus on developing commercial applications, however,
+researchers needs are largely related to exploring problems and answering
+questions. This book covers the fundamentals of creating software as part of
+your research cycle whether you work alone or as part of a team. We wrote this
+book with three audiences in mind:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Learners in a class setting</strong> who would be taking this course in a more
+formal class or workshop setting that is lead by an instructor or instructors.
+Much of the book is written with this reader in mind.</li>
+<li>
+<strong>Independent learners</strong> who would be going through the material and learning
+on their own. An independent learner can for the most part follow the book as if
+they were a learner in a class setting, with some modifications that we
+highlight and describe where necessary.</li>
+<li>
+<strong>Instructors</strong> who would use this book as the basis for a course or workshop
+of their own. Throughout the book there are sections dedicated to this reader
+that give information or instructions on how to use or modify the material for
+the instructor’s specific context.</li>
+</ol>
+<div id="introduction-for-learners" class="section level2">
+<h2>
+<span class="header-section-number">2.1</span> Introduction for learners<a class="anchor" aria-label="anchor" href="#introduction-for-learners"><i class="fas fa-link"></i></a>
+</h2>
+<p>This primary aim of this book is to teach you the tools, skills, and knowledge
+necessary to making research software that is open, reproducible, and
+sustainable. For researchers and data scientists who can write functions to
+create programs that are hundreds of lines long and who want to be more
+productive and have more confidence in their results, this book provides a
+pragmatic, tools-based introduction to research software engineering.
+For researchers whose tasks include building software packages, this book will
+help train you to be a [research software engineer][rse]. Unlike courses aimed
+at computer scientists and professional software developers, this book uses data
+analysis as the motivating example and assumes that the learner’s ultimate goal
+is to answer questions rather than ship products.</p>
+<p>First and foremost, the main learning goal of this course is that you learn to
+<em>develop an R package</em>. More specifically, the <strong>learning objectives</strong> are to:</p>
+<ul>
+<li>Explain what an R package is, how it is structured, and how to set one up.</li>
+<li>List and describe some best (or good enough) practices in package
+development and how to implement them.</li>
+<li>Explain what a code style guide is, why it is important, and how to write code
+that adheres to the style guide.</li>
+<li>Describe why user-friendly and well-written documentation is crucial to
+building a usable package and some steps to achieve this type of
+documentation.</li>
+<li>Cover what CRAN is, what policies and quality-control steps it has for packages,
+and how to prepare a package for submission to CRAN so that it passes these checks
+and requirements.</li>
+</ul>
+<p>Aside from the technical aspects of building an R package, the course
+will also cover topics that enhance and improve the process of package development.
+These learning objectives are to:</p>
+<ul>
+<li>Describe and apply effective workflows and project management tools that
+coordinate the development of software, particularly for software that is
+complex or when working in a team.</li>
+<li>Outline (and optionally practice) how to work productively in a small team
+that is inclusive and welcoming.</li>
+<li>Learning why and how to design software and documentation
+involving community contributors.</li>
+</ul>
+<p>By the end of the course, you will have the skills and knowledge necessary to:
+build your own packages that are well-built, well-documented, and re-usable;
+work effectively as part of a team or as a contributor; and, if relevant, prepare
+your package to be submitted to CRAN.</p>
+<p>TODO: Add graphic for overview? Something like <a href="https://moderndive.com/preface.html#fig:pipeline-figure" class="uri">https://moderndive.com/preface.html#fig:pipeline-figure</a>?</p>
+<div id="learner-personas" class="section level3">
+<h3>
+<span class="header-section-number">2.1.1</span> Who is this course for?<a class="anchor" aria-label="anchor" href="#learner-personas"><i class="fas fa-link"></i></a>
+</h3>
+<p>The following personas are examples of the types of people that are our target audience.</p>
+<dl>
+<dt>Amira</dt>
+<dd>Completed a master’s in library science five years ago and has since worked
+for a small aid organization. She did some statistics during her degree, and has
+learned some R and Python by doing data science courses online, but has no
+formal training in programming. Amira would like to tidy up the scripts, data
+sets, and reports she has created in order to share them with her colleagues.
+These lessons will show her how to do this and what “done” looks like.
+</dd>
+<dt>Jun</dt>
+<dd>Completed an [Insight Data Science][insight] fellowship last year after
+doing a PhD in Geology and now works for a company that does forensic audits. He
+uses a variety of machine learning and visualization packages, and would now
+like to turn some of his own work into an open source project. This book will
+show him how such a project should be organized and how to encourage people to
+contribute to it.
+</dd>
+<dt>Sami</dt>
+<dd>Became a competent programmer during a bachelor’s degree in applied math and
+was then hired by the university’s research computing center. The kinds of
+applications they are being asked to support have shifted from fluid dynamics to
+data analysis; this guide will teach them how to build and run re-usable data
+analysis pipelines so that they can pass those skills on to their users.
+</dd>
+</dl>
+</div>
+<div id="prerequisites" class="section level3">
+<h3>
+<span class="header-section-number">2.1.2</span> Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"><i class="fas fa-link"></i></a>
+</h3>
+<p>Learners are expected to be able to:</p>
+<ul>
+<li>Write reusable functions to analyze tabular data using [R][r].</li>
+<li>Have a basic understanding of <a href="https://git-scm.com/">Git</a> and <a href="https://github.com/">GitHub</a>, and have at least
+used them for basic version control tasks.</li>
+<li>Create reproducible reports using [R Markdown][r-markdown].</li>
+</ul>
+<p>Learners will need:</p>
+<ul>
+<li>A personal computer with Internet access.</li>
+<li>To have [R][r], <a href="https://git-scm.com/">Git</a>, and [RStudio][rstudio] installed.</li>
+<li>A <a href="https://github.com/">GitHub</a> account.</li>
+</ul>
+</div>
+<div id="whats-the-big-picture" class="section level3">
+<h3>
+<span class="header-section-number">2.1.3</span> What’s the big picture?<a class="anchor" aria-label="anchor" href="#whats-the-big-picture"><i class="fas fa-link"></i></a>
+</h3>
+<p>This book and the tools, skills, and knowledge being taught come out of the
+growing awareness of and demand for [open science][open-science],
+[reproducible research][reproducibility], and
+[software sustainability][sustainable-software]. So what are these?</p>
+<ul>
+<li>[Open science][open-science] is a movement to make scientific data, methods,
+and results publicly and freely accessible by publishing them with
+[open licenses][open-license]. These licenses allow others to re-use and modify
+these outputs without worrying about copyright infringement, often only requiring
+attribution to the original source.</li>
+<li>[Reproducible research][reproducible-research] means ensuring that anyone with
+access to data and software can feasibly reproduce the same or similar results,
+both to check them and to build on them. It’s important to note that science can
+be open but not reproducible and reproducible but not open.</li>
+<li>[Sustainable software][sustainable-software] is when software is developed in
+a way that makes it easier for other people to extend and/or maintain it, rather
+than to replace it. Sustainability isn’t just about the software itself, it also
+depends on the skills and culture of its users. For instance, if a software
+package is being maintained by a couple of post-docs who are being paid a
+fraction of what they could earn in industry and have no realistic hope of
+promotion because their field doesn’t value tool building, it doesn’t matter
+whether the package is well tested and easy to install: sooner or later
+(probably sooner) it will become [abandonware][abandonware].</li>
+</ul>
+</div>
+<div id="overview-of-the-packages-created-throughout-course" class="section level3">
+<h3>
+<span class="header-section-number">2.1.4</span> Overview of the packages created throughout course<a class="anchor" aria-label="anchor" href="#overview-of-the-packages-created-throughout-course"><i class="fas fa-link"></i></a>
+</h3>
+<p>Throughout the book, you will build several packages.</p>
+<ul>
+<li>The main package used throughout the book is the Zipf’s Law package <code>zipfs</code>.
+This package is used for the code-alongs, the actual content, and most of the
+exercises. More details about the Zipf’s Law will be introduced in Chapter
+<a href="#package-setup"><strong>??</strong></a>.</li>
+<li>The example package for the first project assignment is the Weather in Kenya
+package <code>kenyaweather</code>. This package is used as a reference when you work on
+your package for the first project assignment.</li>
+<li>You will contribute to an existing package (that you or an instructor will
+choose) for the second project assignment.</li>
+<li>Optionally, you will create a package in a group for the third project assignment.</li>
+</ul>
+<p>Specific details about the project assignments are found in
+Appendix <a href="#course-assignments"><strong>??</strong></a>). Two of the packages are completed and can be
+used as references (<code>zipfs</code> and <code>kenyaweather</code>).</p>
+</div>
+<div id="for-the-self-directed-learner" class="section level3">
+<h3>
+<span class="header-section-number">2.1.5</span> For the self-directed learner<a class="anchor" aria-label="anchor" href="#for-the-self-directed-learner"><i class="fas fa-link"></i></a>
+</h3>
+<p>TODO: Fill this in or combine with other sections?</p>
+</div>
+<div id="chapters-outline" class="section level3">
+<h3>
+<span class="header-section-number">2.1.6</span> Chapters outline<a class="anchor" aria-label="anchor" href="#chapters-outline"><i class="fas fa-link"></i></a>
+</h3>
+<p>TODO: Remove this at a later point, keep for now for an overview.</p>
+<p>Course chapters and content need to be strongly aligned with learning outcome/goal.
+Here is a draft outline to guide development.</p>
+<ol style="list-style-type: decimal">
+<li>Syllabus
+<ul>
+<li>Overview of course</li>
+<li>Why to learn it and learning outcomes</li>
+<li>Intended learner (personas, assumptions and expectations etc)</li>
+</ul>
+</li>
+<li>Folder and file structure (RStudio R Projects)
+<ul>
+<li>File paths, very basics of the shell (in RStudio)</li>
+<li>Working directory and how it is set with RStudio R Projects</li>
+<li>Making use of the fs package for filesystem management</li>
+</ul>
+</li>
+<li>Setting up an R package
+<ul>
+<li>Describing what a package is and when or why to make one</li>
+<li>Using devtools, usethis for development
+<ul>
+<li>e.g. <code>use_devtools()</code> and <code>use_usethis()</code>.</li>
+</ul>
+</li>
+<li>Developing functions
+<ul>
+<li>Basic explanation of what a function is and its components</li>
+<li>Actual process of taking code and converting it into a function will
+be done in next chapter</li>
+</ul>
+</li>
+<li>Making and using datasets
+<ul>
+<li>Downloading zipf data at this point, using <code>usethis::use_data_raw()</code>, write the script to download the data and process into <code>data/</code> via <code>usethis::use_data()</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Function development in a package environment
+<ul>
+<li>Process of creating non-function code, checking that it works, then
+converting it into a function
+<ul>
+<li>There are several workflows for this (create in vignette Rmd, make a dev/creating.R
+script as a development location, developing in the examples Roxygen
+section, “Untitled1.R”). Which to use?
+<ul>
+<li>Mostly <em>how workflow actually looks like</em>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Building functions up slowly, making small targeted functions that build up
+into a bigger more complex functions</li>
+<li>Process control (if-else, stop, return, switch)</li>
+<li>Dependency management</li>
+<li>Function documentation (with roxygen2), part 1
+<ul>
+<li>To use <code>@examples</code> to help with creating function</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Version control: Using Git and GitHub as a sole user (part 1)
+<ul>
+<li>Using Git in RStudio (standard add-commit-history)</li>
+<li>Using Git in the Terminal of RStudio (moving in history with checkout,
+creating branches, adding and updating remotes)</li>
+<li>Setting up GitHub for R package (make use of usethis), pushing and pulling
+<ul>
+<li>E.g. with pr_* functions from usethis</li>
+</ul>
+</li>
+<li>Emphasize exercises to practice, not showing output of git in code chunks (they are a pain to edit afterwards)</li>
+</ul>
+</li>
+<li>Checking correctness of code
+<ul>
+<li>Using basic debugging strategies (“breakpoints”, simple <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> or <code><a href="https://rdrr.io/r/base/stop.html">stop()</a></code> calls, <code><a href="https://rdrr.io/r/base/debug.html">debug()</a></code>, <code><a href="https://rdrr.io/r/base/browser.html">browser()</a></code>)</li>
+<li>Unit test (with testthat)</li>
+<li>Code coverage (with covr)</li>
+<li>With devtools</li>
+</ul>
+</li>
+<li>Build management and workflow
+<ul>
+<li>With devtools</li>
+<li>Running local CRAN checks</li>
+<li>General workflow (load_all, test, check)</li>
+<li>Pre-push running test, build, and check</li>
+<li>Continuous integration using GitHub Actions</li>
+</ul>
+</li>
+<li>Developing documentation and tutorials on usage
+<ul>
+<li>Vignettes, README (with rmarkdown and usethis)</li>
+<li>Function documentation (with roxygen2), part 2</li>
+<li>Running spell checks and styling (with spelling and styler)</li>
+</ul>
+</li>
+<li>Exposing your package to the world with a website:
+<ul>
+<li>Setting up a website (with pkgdown)</li>
+<li>Customizing the themes</li>
+<li>Getting all resources and material organized</li>
+<li>Defining lifecycle of your package and individual functions (with lifecycle)</li>
+</ul>
+</li>
+<li>Involving the community:
+<ul>
+<li>Designing your package to be used by or contributed to from the community
+(refer to Mozilla Science Labs Open Leaders material)</li>
+<li>Contributing guidelines</li>
+<li>Being inclusive (code of conduct)</li>
+<li>Licensing</li>
+<li>Governance</li>
+<li>NEWS file</li>
+<li>reprex?</li>
+</ul>
+</li>
+<li>Version control: Workflows around using GitHub (part 2)
+<ul>
+<li>Make use of R builtin tools like the usethis pull request helpers
+(and learning how to make use of this yourself)</li>
+<li>Using this workflow as a team or as a contributor</li>
+</ul>
+</li>
+<li>Project management of your package development (either sole or in a team)
+<ul>
+<li>Issue tracking</li>
+<li>Labeling</li>
+<li>Project boards</li>
+<li>Milestones</li>
+</ul>
+</li>
+<li>Preparing for package release
+<ul>
+<li>Check builds on other systems (with rhub)
+<ul>
+<li>Etiquette for using (mostly free) servers and external build systems like GitHub Actions and rhub (e.g. don’t overuse them)</li>
+</ul>
+</li>
+<li>Managing your versions, git tagging</li>
+</ul>
+</li>
+<li>R package development in a team-based environment
+<ul>
+<li>Making use of GitHub Organizations/Teams</li>
+<li>Branch protection, member roles</li>
+<li>Resolving conflict, personality differences</li>
+<li>Running meetings, code of conduct</li>
+<li>Decision making</li>
+<li>Governance</li>
+<li>Issue assignment</li>
+<li>Relying on and using code of conduct to build culture and standards</li>
+<li>Setting up SSH, two-factor authentication, PATs?</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>Appendices (ideas)
+<ul>
+<li>Instructions to potential instructors</li>
+<li>Solutions</li>
+<li>Glossary</li>
+<li>References</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="introduction-for-instructors" class="section level2">
+<h2>
+<span class="header-section-number">2.2</span> Introduction for instructors<a class="anchor" aria-label="anchor" href="#introduction-for-instructors"><i class="fas fa-link"></i></a>
+</h2>
+<p>The instructional design of the learning material contained in this
+book revolves around three key concepts:</p>
+<ol style="list-style-type: decimal">
+<li>
+<em>Participatory live-coding</em> lessons, where participants join with
+instructors to write and troubleshoot code step-by-step. We believe
+that this method encourages participants to actively engage with the
+material, to build muscle memory through typing, and to learn how to
+handle mistakes, rather than passively observing content.
+<span class="citation">(Brown and Wilson, <a href="references.html#ref-Brow2018" role="doc-biblioref">2018</a>; Wilson, <a href="references.html#ref-Wils2018" role="doc-biblioref">2019</a><a href="references.html#ref-Wils2018" role="doc-biblioref">a</a>)</span>
+</li>
+<li>
+<em>In-class and out-of-class exercises</em> that include independent
+reading of assigned material and hands-on, practical work.
+The hands-on exercises are interspersed throughout the live-coding
+sessions to complement and reinforce the content as well
+as give learners the opportunity to work through the code and problems
+at their own pace. Reading activities are used to build concept-heavy
+knowledge.</li>
+<li>
+<em>Project- and problem-based assignments</em> that include both independent
+and group-based work. For the project assignments, learners reinforce
+what they learned through a new problem and challenge. The independent
+work prepares them for the optional group-based work, where
+they can practice team-based skills like communication, project management,
+and running meetings.</li>
+</ol>
+<p>More details for instructors can be found in Appendix TODO: Add ref label.</p>
+</div>
+<div id="licensing" class="section level2">
+<h2>
+<span class="header-section-number">2.3</span> Re-use and licensing<a class="anchor" aria-label="anchor" href="#licensing"><i class="fas fa-link"></i></a>
+</h2>
+<p>All of this material can be freely re-used under the terms of the
+<a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>
+and the course code is licensed under a
+<a href="https://github.com/merely-useful/r-rse/blob/main/LICENSE-MIT.md">MIT License</a>,
+so the material can be used, re-used, and modified,
+as long as there is attribution to this source.</p>
+<p>The source for the book can be found at the <a href="https://github.com/merely-useful/r-rse"><code>r-rse</code> GitHub repository</a>.
+Any corrections, additions, or contributions are very much welcomed.
+Check out our
+<a href="https://github.com/merely-useful/r-rse/blob/main/.github/CONTRIBUTING.md">contributing guidelines</a>
+as well as our
+<a href="https://github.com/merely-useful/r-rse/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a>
+for more information on how to contribute.</p>
+</div>
+<div id="acknowledgments" class="section level2">
+<h2>
+<span class="header-section-number">2.4</span> Acknowledgments<a class="anchor" aria-label="anchor" href="#acknowledgments"><i class="fas fa-link"></i></a>
+</h2>
+<p>This book owes its existence to
+everyone we met through [the Carpentries][carpentries].
+We are also grateful to [Insight Data Science][insight] for sponsoring the early
+stages of this work, to everyone who has contributed,
+and to the authors of <span class="citation">(Noble, <a href="references.html#ref-Nobl2009" role="doc-biblioref">2009</a>; Haddock and Dunn, <a href="references.html#ref-Hadd2010" role="doc-biblioref">2010</a>; Wilson et al., <a href="references.html#ref-Wils2014" role="doc-biblioref">2014</a>, <a href="references.html#ref-Wils2017" role="doc-biblioref">2017</a>; Scopatz and Huff, <a href="references.html#ref-Scop2015" role="doc-biblioref">2015</a>; Taschuk and Wilson, <a href="references.html#ref-Tasc2017" role="doc-biblioref">2017</a>; Brown and Wilson, <a href="references.html#ref-Brow2018" role="doc-biblioref">2018</a>; Devenyi et al., <a href="references.html#ref-Deve2018" role="doc-biblioref">2018</a>; Sholler et al., <a href="references.html#ref-Shol2019" role="doc-biblioref">2019</a>; Wilson, <a href="references.html#ref-Wils2019" role="doc-biblioref">2019</a><a href="references.html#ref-Wils2019" role="doc-biblioref">b</a>)</span>.</p>
+<p>TODO: Add more R relevant acknowledgements here.</p>
+
+</div>
+</div>
+
+
+
+<div class="chapter-nav">
+<div class="prev"><a href="index.html"><span class="header-section-number">1</span> Welcome!</a></div>
+<div class="next"><a href="glossary.html"><span class="header-section-number">A</span> Glossary</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#preface"><span class="header-section-number">2</span> Preface</a></li>
+<li>
+<a class="nav-link" href="#introduction-for-learners"><span class="header-section-number">2.1</span> Introduction for learners</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#learner-personas"><span class="header-section-number">2.1.1</span> Who is this course for?</a></li>
+<li><a class="nav-link" href="#prerequisites"><span class="header-section-number">2.1.2</span> Prerequisites</a></li>
+<li><a class="nav-link" href="#whats-the-big-picture"><span class="header-section-number">2.1.3</span> What’s the big picture?</a></li>
+<li><a class="nav-link" href="#overview-of-the-packages-created-throughout-course"><span class="header-section-number">2.1.4</span> Overview of the packages created throughout course</a></li>
+<li><a class="nav-link" href="#for-the-self-directed-learner"><span class="header-section-number">2.1.5</span> For the self-directed learner</a></li>
+<li><a class="nav-link" href="#chapters-outline"><span class="header-section-number">2.1.6</span> Chapters outline</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#introduction-for-instructors"><span class="header-section-number">2.2</span> Introduction for instructors</a></li>
+<li><a class="nav-link" href="#licensing"><span class="header-section-number">2.3</span> Re-use and licensing</a></li>
+<li><a class="nav-link" href="#acknowledgments"><span class="header-section-number">2.4</span> Acknowledgments</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/merely-useful/r-rse/blob/master/chapters/01-preface.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/merely-useful/r-rse/edit/master/chapters/01-preface.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+</div>
+  
+
+  
+
+</div>
+ <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Merely Useful: Using R for Research Software Engineering</strong>" was written by Madeleine Bonsma-Fisher, Kate Hertweck, Damien Irving, Luke Johnston, Joel Ostblom, Ian Flores Siaca, Charlotte Wickham, Greg Wilson. It was last built on 2021-03-04.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

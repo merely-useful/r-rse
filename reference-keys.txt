@@ -1,6 +1,13 @@
-welcome-to-the-course-webpage
-target-audience
-instructional-design
+welcome
+preface
+introduction-for-learners
+learner-personas
+prerequisites
+whats-the-big-picture
+overview-of-the-packages-created-throughout-course
+for-the-self-directed-learner
+chapters-outline
+introduction-for-instructors
 licensing
 acknowledgments
 glossary
