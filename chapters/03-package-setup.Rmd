@@ -1,4 +1,4 @@
-# Setting up an R package
+# Setting up an R package {#package-setup}
 
 - Describing what a package is and when or why to make one
     - Use [available](https://github.com/r-lib/available) to make a name (naming is hard).
@@ -10,6 +10,16 @@
     be done in next chapter
 - Making and using datasets
 - Downloading zipf data at this point, using `usethis::use_data_raw()`, write the script to download the data and process into `data/` via `usethis::use_data()`.
+
+## About Zipf's Law
+
+We'll create a package (`zipfs`) to analyze a fascinating result in the field of
+quantitative linguistics. Zipf’s Law states that the second most common word in
+a body of text appears half as often as the most common, the third most common
+appears a third as often, and so on. To test whether Zipf’s Law holds for a
+collection of classic novels that are freely available from Project Gutenberg,
+we write a software package that counts and analyzes the word frequency
+distribution in any arbitrary body of text.
 
 ## Final exercise {#03-final-exercise}
 
