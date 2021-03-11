@@ -12,38 +12,50 @@ Refer to the project assignment TODO: Add ref to assignment here?
 for more details. As with the other final exercises,
 we will use the `kenyaweather` package as an example and reference.
 Don't forget to add and commit any changes you've made into the Git history
-after each task.
+after each task, and pushing to GitHub.
 
-A. Setting up a website (with pkgdown)
+1. Add a `pkgdown` website infrastructure to your package by running 
+`usethis::use_pkgdown()` in the R Console.
+    - Test that the site can build locally (on your own computer) by running 
+    `pkgdown::build_site()`.
 
-1. Set up the `pkgdown` infrastructure
-> `usethis::use_pkgdown()`
+2. Search through the potential themes and select which one you'd like for your
+package website. Set your selected theme by adding the below in the
+`_pkgdown.yml`, replacing the `THEMENAME` with the theme you chose.
 
-2. Build the site locally
-> `pkgdown::build_site()`
 
-3. Serve the site locally
-> `pkgdown::serve_site()`
+    ```yaml
+    template:
+      params:
+        bootswatch: THEMENAME
+    ```
 
-B. Customizing the themes
+3. Customize your website title and description for the homepage by adding
+the below to your `_pkgdown.yml` file.
 
-4. Change the default theme using `_pkgdown.yml`
-> Add the yaml inside the file
+    ```yaml
+    home:
+        title: TITLE
+        description: >
+            DESCRIPTION
+    ```
 
-5. Add a custom title and description for the Home Page
-> Modify `home.title` and `home.description` inside of `_pkgdown.yml`
+4. Organize your package functions into sections in the reference section of
+the `_pkgdown.yml` file by using the `pkgdown::template_reference()` function as
+the starting point.
 
-C. Getting all resources and material organized
+5. Given your package is still in development, indicate that it is
+"experimental" by using the lifecycle package:
+    - Setup lifecycle with `use_lifecycle()`.
+    - Add the badge to your README with `use_lifecycle_badge("experimental")`.
+    - In each of your R functions, include the experimental lifecycle badge
+    in the Roxygen documentation right below the function title.
+    
+        ```r
+        #' `r lifecycle::badge("experimental")`
+        ```
 
-6. Organize functions in the reference section
-> Modify `_pkgdown.yml` to add custom sections to separate functions
-
-6(b). Organize tutorials and vignettes (optional)
-> Modify `_pkgdown.yml` to add custom sections to organize tutorials and vignettes.
-
-D. Defining lifecycle of your package and individual functions (with lifecycle)
-
-7. Add "experimental" lifecycle tag to one of the developed functions
-> Modify the functions Roxygen annotations; `@description \\`r lifecycle::badge("experimental")\\``
-
-8. Commit the changes and push up to GitHub. Confirm that the package website has been built.
+6. Configure your repository to use GitHub Actions by adding the appropriate
+action with `usethis::use_github_action("pkgdown")`. Commit all the new
+changes and push up to GitHub. Check that the Actions have been started
+and confirm that the website has been built.
