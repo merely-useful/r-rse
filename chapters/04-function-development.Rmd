@@ -16,9 +16,9 @@ TODO: should this be here or later?
 - Function documentation (with roxygen2), part 1
 - To use `@examples` to help with creating function
 
-## Final exercise
+## Final exercise {#04-final-exercise}
 
-INCOMPLETE
+TODO: INCOMPLETE, need to think about this more.
 
 Complete these tasks as part of the package for your first project assignment.
 The exact functions you should create will depend heavily on what your package

@@ -25,7 +25,7 @@ members of marginalized groups are frequently judged more harshly than others,
 so being wrong in public is much riskier for them.
 -->
 
-## Final exercise {#5-final-exercise}
+## Final exercise {#05-final-exercise}
 
 Complete these tasks as part of the package for your first project assignment.
 Refer to the project assignment for exact details on what you are required to

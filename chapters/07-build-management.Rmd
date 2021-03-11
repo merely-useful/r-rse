@@ -6,7 +6,7 @@
 - Pre-push running test, build, and check
 - Continuous integration using GitHub Actions
 
-## Final exercise {#7-final-exercise}
+## Final exercise {#07-final-exercise}
 
 Complete these tasks as part of the package for your first project assignment.
 Refer to the project assignment TODO: Add ref to assignment here?
