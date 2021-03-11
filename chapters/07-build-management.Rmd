@@ -13,7 +13,7 @@ Refer to the project assignment TODO: Add ref to assignment here?
 for more details. As with the other final exercises,
 we will use the `kenyaweather` package as an example and reference.
 Don't forget to add and commit any changes you've made into the Git history
-after each task.
+after each task, and pushing to GitHub.
 
 1. In your project package, check the package by running `check()` (with
 `Ctrl-Shift-E` in RStudio). Do you have any notes, warnings, or errors from the

@@ -12,7 +12,7 @@ Refer to the project assignment TODO: Add ref to assignment here?
 for more details. As with the other final exercises,
 we will use the `kenyaweather` package as an example and reference.
 Don't forget to add and commit any changes you've made into the Git history
-after each task.
+after each task, and pushing to GitHub.
 
 1. Add the ability to write your roxygen2 documentation using Markdown with 
 `usethis::use_roxygen_md()`.
