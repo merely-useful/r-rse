@@ -1,5 +1,6 @@
 ---
-title: "Merely Useful: Using R for Research Software Engineering"
+title: "Research Software Engineering with R"
+subtitle: "Building software that makes research possible"
 author: 
 - "Madeleine Bonsma-Fisher"
 - "Kate Hertweck"
@@ -55,5 +56,5 @@ The original source material for this course is found on the
 [GitHub Actions]: https://github.com/features/actions
 [`r-rse`]: https://github.com/merely-useful/r-rse
 
-```{r, child="./appendices/links.md"}
+```{r, child="includes/links.md"}
 ```
