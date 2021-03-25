@@ -1,34 +1,55 @@
 # Project management of your package development (either solo or in a team) {#project-management}
 
+- Project [roadmaps][project-roadmap]
 - Issue tracking
+    - These can range from simple project improvements (like scanning for typos in the README) to complex feature additions or bugs to be fixed.
 - Labeling
+    - Labels should make sense for your project, i.e. good first bug, discussion, help wanted, documentation, feature, etc. 
 - Project boards
+    - If you prefer GitHub Projects, create a GitHub Project for your package. Organize your issues from left to right in some version of "to-do", "in-progress", and "complete".
 - Milestones
 
+[project-roadmap]: https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/start-your-project-roadmap/
 
+<!-- TODO: This is better here, not in the final exercise. -->
+<!-- Example: [STEMMM Role Models -->
+<!-- roadmap](https://github.com/KirstieJane/STEMMRoleModels/issues/1). -->
 
-## Final exercise
+## Final exercise {#12-final-exercise}
 
-<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+Complete these tasks as part of the package for your first project assignment.
+Refer to the project assignment TODO: Add ref to assignment here?
+for more details. As with the other final exercises,
+we will use the `kenyaweather` package as an example and reference.
+Don't forget to add and commit any changes you've made into the Git history
+after each task, and pushing to GitHub. Make use of the usethis `pr_*` workflow
+described in Chapter \@ref(github-workflows).
 
-1. Create a [project roadmap](https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/start-your-project-roadmap/). 
-- Create a roadmap for your project describing short-term, medium-term, and long-term project goals. This can be a GitHub issue or a file called ROADMAP.md. Example: [STEMMM Role Models roadmap](https://github.com/KirstieJane/STEMMRoleModels/issues/1).
+1. Create a [roadmap][project-roadmap] for your project describing short-term,
+medium-term, and long-term project goals. For now keep these goals about completing
+the first project assignment. This can be a GitHub issue or a file called
+`ROADMAP.md`. TODO: We should decide on one, to restrict learners choice.
 
-2. Issue tracking and labeling 
-- Create several GitHub issues for your project using your roadmap for inspiration. These can range from simple project improvements (like scanning for typos in the README) to complex feature additions or bugs to be fixed. 
-- Create several issue labels that make sense for your project, i.e. good first bug, discussion, help wanted, documentation, feature, etc. Label your issues with one or more appropriate labels.
-- Add a link to one or more issue categories to CONTRIBUTING.md. Add a link to issues that a new contributor could attempt, i.e. "good first bug".
-- Add links to your issues and/or issue labels to your roadmap.
+2. Using your roadmap as inspiration for todo items, create new Issues for a few
+of your project's tasks.
+    - Create several new Issue Labels. GitHub provides a few good default ones.
+    Add some new ones like FIXME: Add specific labels here, other than the ones
+    that github makes.
+    - Add a link in your `CONTRIBUTING.md` to Issues with the label `good first
+    bug` so new contributors know where they can get started.
+    - In your roadmap, add links to relevant Issues for others (and yourself)
+    to be able to quickly find and look over.
 
-3. GitHub milestones and Projects
-- Look at some examples of packages that use GitHub milestones and GitHub Projects. Are there situations in which one project management approach is better than the other? Which do you prefer, or which do you feel suits your project better?
+TODO: This exercise might be more appropriate as a core exercise of this chapter, rather than part of the final one.
+3. Look at some examples of packages that use GitHub Milestones and GitHub Projects. Are there situations in which one project management approach is better than the other? Which do you prefer, or which do you feel suits your project better?
     - Milestone examples:
         - [ggplot2](https://github.com/tidyverse/ggplot2/milestones)
 	- FIXME: more examples?
     - Project examples:
         - [bootstrap](https://github.com/twbs/bootstrap/projects)
 	- FIXME: more examples?
-- If you prefer milestones, create one or more GitHub milestones based on your roadmap.
-Add issues to your milestone(s). Add links to these milestones to your roadmap.
-- If you prefer GitHub Projects, create a GitHub Project for your package.
-Organize your issues from left to right in some version of "to-do", "in-progress", and "complete".
+
+4. Depending on whether you prefer Milestones or Projects, create one for your
+project for finishing this first project assignment. 
+
+### Exercises for second project assignment?
