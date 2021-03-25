@@ -1,4 +1,3 @@
-[pkg-available]: https://github.com/r-lib/available
 [abandonware]: glossary.html#abandonware
 [absolute-error]: glossary.html#absolute-error
 [absolute-path]: glossary.html#absolute-path
