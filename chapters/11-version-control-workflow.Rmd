@@ -29,6 +29,6 @@ function or to fix an existing function (you don't have to actually fix it).
 
 Repeat this process one more time by making changes to:
 
-- FIXME
+- FIXME: Adding to README maybe or one of the vignettes?
 
 ### Exercises for second project assignment?
