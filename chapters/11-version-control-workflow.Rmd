@@ -1,19 +1,105 @@
 # Workflows when using GitHub {#github-workflows}
 
-- Make use of R builtin tools like the usethis pull request helpers
-  (and learning how to make use of this yourself)
-- E.g. with pr_* functions from usethis
-- Using this workflow as a team or as a contributor
+<!-- Brief summary of list of actions/code/concepts done -->
 
-<!-- List of actions/code done -->
+- Exercises: Conceptual, how can people effectively collaborate on a project?
+- Branching/forks
+- Pull Requests
+    - Exercises: Reading, comprehension, and conceptual understanding (non-coding)
+- usethis::git_sitrep()
+- usethis::gh_token_help()
+- usethis::create_github_token()
+- Save PAT in password manager (they should have this anyway, but this forces them)
+- gitcreds::gitcreds_set(), everytime computer restarts, only saved for session
+    - Exercises: Conceptual understanding of PAT, tokens, and password managers (non-coding)
+    - Exercises: Setting up PAT, saving PAT, using gitcreds at start of session
+- usethis pr_* helpers
+- As contributor/sole developer/as team
+    - usethis::pr_init()
+        - Make changes to Contributing about using pr helpers
+    - usethis::pr_push()
+    - usethis::pr_view()
+    - usethis::pr_pause()
+    - Exercise: Make an edit on the PR changed files using GitHubs edit interface.
+    - Exercise: Create another PR for adding ...FIXME.
+    - usethis::pr_resume()
+    - usethis::pr_pull()
+    - usethis::pr_merge_main()
+    - usethis::pr_push()
+    - PR has been merged
+    - gert::git_branch_list() # Show list of created branches
+    - usethis::pr_finish()
+    - Exercise: Do the same process for the other PR you had created.
+    - gert::git_branch_list() # Show list of created branches
+    - usethis::pr_init()
+    - usethis::pr_forget()
+    - gert::git_branch_list() # Show list of created branches
+- As maintainer, reviewer, team lead. (Hard to do exercises for this... need to
+think how this part would be implemented/practiced.)
+    - usethis::pr_view()
+    - usethis::pr_fetch()
+    - usethis::pr_push()
+    - usethis::pr_merge_main()
+    - usethis::pr_view()
+    - Manually merge PR.
+    - usethis::pr_finish()
+    - Exercise: Conceptual, write out/describe how this process could improve
+    collaboration and teamwork.
 
-## Branches and forks
+## Learning objectives {#11-learning-objectives}
+
+- Learn what branching in Git is, about the concept behind it, and why it's so
+powerful as a software development tool.
+- Learn how to use branching in Git, as well as the related concept of forking
+and Pull Requests in GitHub, by making use of usethis' Pull Request helper
+functions.
+- Understand how the concepts and workflows shown could be applied in team
+or contributor settings and why they are powerful tools for collaboration and
+teamwork.
+
+## Collaborating with Git
+
+### Exercise: Consider ways of collaborating and their effectiveness.
+
+Chartreuse and Fuchsia are collaborating on a project.
+Describe what is in each of the four repositories involved after each of the steps below.
+
+1.  Chartreuse creates a repository containing a `README.md` file on GitHub
+    and clones it to their desktop.
+2.  Fuchsia forks that repository on GitHub
+    and clones their copy to their desktop.
+3.  Fuchsia adds a file `fuchsia.txt` to the `master` branch of their desktop repository
+    and pushes that change to their repository on GitHub.
+4.  Fuchsia creates a pull request from the `master` branch of their repository on GitHub
+    to the `master` branch of Chartreuse's repository on GitHub.
+5.  Chartreuse does *not* merge Fuchsia's PR.
+    Instead,
+    they add a file `chartreuse.txt` to the `master` branch of their desktop repository
+    and push that change to their repository on GitHub.
+6.  Fuchsia adds a remote to their desktop repository called `upstream`
+    that points at Chartreuse's repository on GitHub
+    and runs `git pull upstream master`,
+    then merges any changes or conflicts.
+7.  Fuchsia pushes from the `master` branch of their desktop repository
+    to the `master` branch of their GitHub repository.
+8.  Chartreuse merges Fuchsia's pull request.
+9.  Chartreuse runs `git pull origin master` on the desktop.
+
+### Branches and forks
 
 - when to use either
 
 - How to use them effectively
     - How branches can help both solo and as a team
     - When forks are good vs being contributor on a repo (write access)
+    
+## Collaborating with GitHub
+
+- What are PRs, how to use them (either non-fork or fork)
+    - Keeping things targeted (e.g. a PR should conceptually
+    fix or add similarly related things)
+    
+### Exercise: Reading and comprehension task?
 
 ### Exercise: Do these situations warrant a branch or fork?
 
@@ -23,39 +109,89 @@ Concept and thought, not code based.
 2. 
 3. 
 
-## GitHub pull requests
-
-- What are PRs, how to use them (either non-fork or fork)
-    - Keeping things targeted (e.g. a PR should conceptually
-    fix or add similarly related things)
-
-### Exercise: 
+### Exercise: Consider some situations that would benefit from using PRs
 
 Concept and thought, not code based.
 
-## Helpers from usethis
+## Securing your GitHub
 
-- How usethis package can help simplify this process (contributing either as
-solo or team)
-    - needing a token: create_github_token
-        - What are PATs
-    - pr_init
-    - pr_push
-    - pr_pull
-    - pr_pause
-    - pr_resume
-    - pr_merge_main
-- usethis as a maintainer or in a team (reviewing PRs)
-    - pr_fetch
-    - pr_push
-    - pr_finish
-    
+
+- usethis::git_sitrep()
+
+- usethis::gh_token_help()
+
+- usethis::create_github_token()
+
+- Save PAT in password manager (they should have this anyway, but this forces them)
+- gitcreds::gitcreds_set(), everytime computer restarts, only saved for session
+    - Exercises: Conceptual understanding of PAT, tokens, and password managers (non-coding)
+    - Exercises: Setting up PAT, saving PAT, using gitcreds at start of session
+
+
+## Simplified collaboration with usethis
+
+### Workflows for contributors on solo or team projects
+
+- usethis pr_* helpers
+- As contributor/sole developer/as team
+    - usethis::pr_init()
+        - Make changes to Contributing about using pr helpers
+    - usethis::pr_push()
+    - usethis::pr_view()
+    - usethis::pr_pause()
+    - Exercise: Make an edit on the PR changed files using GitHubs edit interface.
+    - Exercise: Create another PR for adding ...FIXME.
+    - usethis::pr_resume()
+    - usethis::pr_pull()
+    - usethis::pr_merge_main()
+    - usethis::pr_push()
+    - PR has been merged
+    - gert::git_branch_list() # Show list of created branches
+    - usethis::pr_finish()
+    - Exercise: Do the same process for the other PR you had created.
+
+## Removing a branch
+
+- gert::git_branch_list() # Show list of created branches
+- usethis::pr_init()
+- usethis::pr_forget()
+- gert::git_branch_list() # Show list of created branches
+
+### Exercise: Deleting a branch without merging
+
+TODO: Taken from PyRSE, needs to be modified.
+
+Create a branch called `experiment`.
+In it, create a file called `experiment.txt` that contains your name and the date,
+then switch back to `master`.
+
+1.  What happens when you try to delete the `experiment` branch using `git branch -d experiment`?
+    Why?
+
+2.  What option can you give Git to delete the `experiment` branch?
+    Why should you be very careful using it?
+
+3.  What do you think will happen if you try to delete the branch you are currently on using this flag?
+
+### Workflows for project maintainers or team leads
+
+- As maintainer, reviewer, team lead. (Hard to do exercises for this... need to
+think how this part would be implemented/practiced.)
+    - usethis::pr_view()
+    - usethis::pr_fetch()
+    - usethis::pr_push()
+    - usethis::pr_merge_main()
+    - usethis::pr_view()
+    - Manually merge PR.
+    - usethis::pr_finish()
+    - Exercise: Conceptual, write out/describe how this process could improve
+    collaboration and teamwork.
 
 ```{r, eval=FALSE}
 library(usethis)
 
 # create_github_token()
-# edit_r_environ()
+# gitcreds::
 # TODO: Talk about security?
 # gh_token_help()
 
@@ -84,6 +220,7 @@ TODO: Add text about using usethis
 # 
 # pr_finish()
 ```
+
 
 ## Final exercise
 
