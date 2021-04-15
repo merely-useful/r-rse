@@ -52,7 +52,7 @@ distribution in any arbitrary body of text.
 * Creating a package    
 
     * Text: Where should your package live? What should you call your package?
-    * Code: `usethis::create_package()`
+    * Code: `usethis::create_package()` (maybe also `available::available()`?)
     * Text: `DESCRIPTION` is structured text that describes package, 
     `R/` for R script files that define functions in the package. 
     * Exercise: Repeat steps, e.g. `usethis::create_package("zipfs")`, 
@@ -75,7 +75,7 @@ distribution in any arbitrary body of text.
     
 * Adding data to a package
 
-    * Text: Data live in `data/` as `.RData` files.  
+    * Text: Data live in `data/` as `.rda` files.  
     * Code: `usethis::use_data("FIXME")` Here with simplified data. Restart, `devtools::load_all()`, `FIXME`
     * Text: Should document how data was created. 
     Put raw data and scripts that end in `usethis::use_data()` in `data-raw/`
