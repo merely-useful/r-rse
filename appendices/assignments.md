@@ -197,6 +197,8 @@ ggplot2 theme for them.
 
 ### Second assignment
 
+TODO: Expand on this about whether instructors should have this or not.
+
 The learners should either be given a list of some potential packages to improve
 or be given detailed instructions on how to find potential packages. If you want
 to provide a list of possible packages, here is some instructions on how to find
@@ -208,6 +210,8 @@ TODO: Include some example packages to try to base off of.
 - CRAN Views FIXME: expand on this.
 
 ### Third assignment
+
+TODO: Expand on this that it is optional.
 
 The specific problem or package that groups will create depends heavily on their
 background knowledge and skills, as well as that of the instructor. To make the 
