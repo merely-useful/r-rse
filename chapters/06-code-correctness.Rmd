@@ -1,11 +1,57 @@
 # Checking correctness of code
 
-- Using basic debugging strategies ('breakpoints', simple `print()` or `stop()` calls, `debug()`, `browser()`)
 - Unit test (with testthat)
+- Using basic debugging strategies ('breakpoints', simple `print()` or `stop()` calls, `debug()`, `browser()`)
 - Code coverage (with covr)
 - With devtools
 
+## Learning Objectives
 
+* Add a formal test of a package function using testthat
+* Run all the tests for a file in `R/`
+* Describe an expectation using an `expect_xxx()` function
+* Enter the interactive debugger and use it to explore why unexpected behavior is occurring
+* Check the coverage to tests, and suggest areas that need additional testing
+
+## Outline of action steps 
+
+* Adding formal tests to your package
+    * Text: How do we know our code is correct? So far, informal testing with examples.  Load functions, run example code, examine output. Formal testing automates this.
+    * Text: Getting set up to use testthat. 
+    * Code: `use_test()`, `test_file()` (and "Run tests" button in RStudio IDE)
+    * Text: The structure of test files: many tests of functions from corresponding .R file, where each test (created with `test_that()`), contains a series of expectations (created with `expect_xxx()`).
+    * Text: What are expectations? Most common `expect_equal()`. Demo simple examples by running `expect_equal()` on command line.  Build from default placeholder, to example with `extract_element()`.  
+    * Exercise: Replace default expectation with `expect_equal()` expectations of `extract_element()`. 
+    * Text: Other expectations,  near but not exactly a certain value, type/size of output, a side effect (e.g. an error). Point to https://testthat.r-lib.org/reference/index.html#section-expectations. 
+    * Code: `expect_equal(tolerance = )`, with same test of `fit_zipfs()` from py-rse.
+    * Exercise: Add another expectation that tests the error handling of `extract_element()`.
+
+* Debugging your functions
+    * Text: Tracking down problems.  Give code example with unexpected output.  How do we figure out what the problem is? 
+    * Code: Motivation? Maybe, something like:
+        ```
+        > book_meta(c("Title: Dracula", "Author: Bram Stoker"))  
+        # A tibble: 0 x 3  
+        # … with 3 variables: author <chr>, title <chr>, release <chr>  
+        ```
+    Why don't we get a one row tibble back?
+    * Text: Print debugging. An easy way to start, but like a postmortem, 
+    can't step in and try to solve problem.
+    * Code: `print()`, `cat()`, `str()`
+    * Text: Diving inside your functions. Sometimes you want to try things inside your function. The interactive debugger puts you inside the function environment.
+    * Code: Adding Editor breakpoints
+    * Text: Navigating the interactive debugger, focus on Environment and Console, execute next statement, stop.
+    * Text: Other ways to enter the interactive debugger? e.g. `debug()`, `browser()`
+    * Exercise: Back to motivation, can you narrow down the problem and suggest
+    a solution?
+    * Text: One solution, `extract_element("Author: Bram Stoker", "Title")`, would be more useful if returned `NA`. Use tests to describe bugs - test fails now, but you'll know you've fixed the bug once test passes.
+    * Code: Add tests that fail.
+    * Exercise: Fix the failing tests, and confirm all tests pass. 
+    
+* Checking code coverage
+    * Text: A way to check what parts of package are being tested. Use to guide writing of more tests.  Don't have to feel like 100% is goal, but when adding new code, generally don't want to go backwards.
+    * Code: `package_coverage()`, `usethis::use_github_action("test-coverage")`
+    <!-- I think I remember we are heading towards GitHub actions over Travis, hence `use_github_action` not `use_coverage()`  -->
 
 ## Final exercise
 
