@@ -65,13 +65,13 @@ described in Chapter \@ref(github-workflows).
 
 1. Set up branch protection for your `main` branch in your package repository on
 GitHub.
-2. Create a file called `GOVERNANCE.md` (FIXME: Should this be here?) and write
+2. On your GitHub account, set up 2FA.
+3. Create a file called `GOVERNANCE.md` (FIXME: Should this be here?) and write
 some general guidelines on:
     - How decisions are made.
     - If and how meetings will be run and held.
     - What culture and standards are valued and how they will be shaped.
     - How conflict/disagreements will be resolved.
-3. On your GitHub account, set up 2FA.
 4. In your GitHub package (user?) repository settings, create a PAT for working with...
 TODO: This item might already be done for setting up GitHub actions.
 ...by using `usethis::create_github_token()`.

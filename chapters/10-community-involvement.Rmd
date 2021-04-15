@@ -32,6 +32,19 @@ This chapter is very description-heavy with minimal code.
 - Project Governance
   - Text: project longevity and sustainability, pathways to leadership. Possible areas to cover: [project maintenance](https://mozilla.github.io/open-leadership-training-series/articles/open-project-maintenance/open-project-maintenance/), contributor [personas and pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/), [leadership structure](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/understand-meaningful-participation-and-distributed-leadership/), [event planning and facilitation](https://mozilla.github.io/open-leadership-training-series/articles/running-awesome-community-events/event-planning-and-facilitation/).
 
+<!---
+NOTE: This is potential content to use, if it fits.
+
+And some people still worry that if they make their data and code generally available,
+someone else will use it and publish a result they have come up with themselves.
+This is almost unheard of in practice,
+but that doesn't stop people using it as a scare tactic.
+Other people are afraid of looking foolish or incompetent by sharing code that might contain bugs.
+This isn't just [impostor syndrome][impostor-syndrome]:
+members of marginalized groups are frequently judged more harshly than others,
+so being wrong in public is much riskier for them.
+-->
+
 
 ## Final exercise {#10-final-exercise}
 

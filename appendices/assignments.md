@@ -166,6 +166,7 @@ familiar with.
 
 TODO: Add some examples that instructors can based off of and deviate if needed.
 TODO: update or revise this list below.
+TODO: Add instructions about how students will name their new package (ch3 final exercise.)
 
 Here are some example datasets that could form the basis for the project packages:
 

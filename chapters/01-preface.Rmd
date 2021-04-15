@@ -35,7 +35,9 @@ For researchers whose tasks include building software packages, this book will
 help train you to be a [research software engineer][rse]. Unlike courses aimed
 at computer scientists and professional software developers, this book uses data
 analysis as the motivating example and assumes that the learner's ultimate goal
-is to answer questions rather than ship products.
+is to answer questions rather than develop commercial software products.
+
+TODO: Add more about linking why we should even write packages in the first place.
 
 First and foremost, the main learning goal of this course is that you learn to
 *develop an R package*. More specifically, the **learning objectives** are to:
@@ -98,6 +100,8 @@ applications they are being asked to support have shifted from fluid dynamics to
 data analysis; this guide will teach them how to build and run re-usable data
 analysis pipelines so that they can pass those skills on to their users.
 
+TODO: Add undergrad persona.
+
 ### Prerequisites
 
 Learners are expected to be able to:
@@ -139,9 +143,14 @@ promotion because their field doesn't value tool building, it doesn't matter
 whether the package is well tested and easy to install: sooner or later
 (probably sooner) it will become [abandonware][abandonware].
 
+This book presents software development that emphasizes openness,
+reproducibility, and sustainability, because it supports both individual
+researchers and the entire research community.
+
 ### Overview of the packages created throughout course
 
-Throughout the book, you will build several packages. 
+Throughout the book, you will build at least two packages (maybe more depending on
+the course instructor). 
 
 - The main package used throughout the book is the Zipf's Law package `zipfs`.
 This package is used for the code-alongs, the actual content, and most of the
@@ -150,9 +159,6 @@ exercises. More details about the Zipf's Law will be introduced in Chapter
 - The example package for the first project assignment is the Weather in Kenya
 package `kenyaweather`. This package is used as a reference when you work on
 your package for the first project assignment.
-- You will contribute to an existing package (that you or an instructor will
-choose) for the second project assignment.
-- Optionally, you will create a package in a group for the third project assignment.
 
 Specific details about the project assignments are found in 
 Appendix \@ref(course-assignments)). Two of the packages are completed and can be
