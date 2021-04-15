@@ -152,7 +152,7 @@ researchers and the entire research community.
 Throughout the book, you will build at least two packages (maybe more depending on
 the course instructor). 
 
-- The main package used throughout the book is the Zipf's Law package `zipfs`.
+- The main example package developed throughout the book is the Zipf's Law package `zipfs`.
 This package is used for the code-alongs, the actual content, and most of the
 exercises. More details about the Zipf's Law will be introduced in Chapter
 \@ref(package-setup).

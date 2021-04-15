@@ -24,7 +24,7 @@ quantitative linguistics. Zipf’s Law states that the second most common word i
 a body of text appears half as often as the most common, the third most common
 appears a third as often, and so on. To test whether Zipf’s Law holds for a
 collection of classic novels that are freely available from Project Gutenberg,
-we write a software package that counts and analyzes the word frequency
+we will write a software package that counts and analyzes the word frequency
 distribution in any arbitrary body of text.
 
 ## Outline of action steps
@@ -96,7 +96,7 @@ distribution in any arbitrary body of text.
 Complete these tasks as part of the package for your first project assignment.
 Refer to the project assignment for exact details on what you are required to
 create and on what the package should do. For this exercise, we will be using
-an package about weather in Kenya as an example and reference.
+a package about weather in Kenya as an example and reference.
 
 1. Decide on a simple but descriptive name for your new package. Use
 [available][pkg-available] to see if the name is taken.
