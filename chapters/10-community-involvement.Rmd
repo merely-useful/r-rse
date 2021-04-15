@@ -15,7 +15,7 @@ This chapter is very description-heavy with minimal code.
 
 - Creating a welcoming community with welcoming materials
 <!-- I grouped reprex and NEWS with the README because they seem related to the general welcoming presentation of a project, but they could go elsewhere. -->
-  - Text: the purpose of a README and what goes into one ([Mozilla reference](https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/write-a-great-project-readme/), [R packages reference](https://r-pkgs.org/release.html#readme)).
+  - Text: making your project approachable with a welcoming README ([Mozilla reference](https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/write-a-great-project-readme/), [R packages reference](https://r-pkgs.org/release.html#readme)).
   - Text: making your project easy to use and understand with reproducible examples. `reprex`: not just for bug reports!
   - Code: use the `reprex` package to create a minimal reproducible example
   - Text: using a NEWS file ([reference](https://r-pkgs.org/release.html#news))
