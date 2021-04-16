@@ -1,14 +1,93 @@
-# R package development in a team-based environment
+# Team-based development {#team-package-dev}
 
--   Making use of GitHub Organizations/Teams
--   Branch protection, member roles
--   Resolving conflict, personality differences
--   Running meetings, code of conduct
--   Decision making
--   Governance
--   Issue assignment
--   Relying on and using code of conduct to build culture and standards
--   Setting up SSH, two-factor authentication, PATs?
+TODO: Decide if this should be a chapter covered by solo learner and if so, how?
+
+## Learning objectives
+
+- To learn about and apply tools within GitHub for improving team work and
+coordination on developing an R package in a team-based environment.
+- To understand how explicitly stating culture and standards for behaving and
+interacting with those in your team can help build a healthy and productive team
+environment.
+
+## Overview (remove this header later)
+
+- Making use of GitHub Organizations/Teams, member roles
+    - Text: 
+        - Centralize team activity, more settings to control how team members
+        contribute, more control for other members
+        - Different roles and permissions of members ("owners", "maintainers", etc)
+    - Exercise:
+        - Solo: Create a new GitHub Organization and make a new (random?) repo 
+        in the newly created Organization. (or move the package repo over into the
+        Organization?)
+        - Team: 
+            - Discuss within your team who wants to be assigned the "owner" of
+            the organization
+            - One of the owners create a new GitHub Organization
+            - Add the other team members and set their permission level to maintainer,
+            (and owner if there will be more than one.)
+            - Create new repo of the ... (FIXME: not sure which repo should be created)
+- Setting up two-factor authentication
+    - Text: What is it and why to use it.
+    - Text: In general 2FA is highly highly encouraged, but on team-based projects,
+    its even more so important, especially for repo owners and organization "owners".
+    - Exercise: Set up 2FA for your GitHub account.
+- Branch protection
+    - Text: Used to assign a specific person or people to be responsible for specific
+    branches, to provide a level of accountability and prevent unreviewed content
+    from being added to package.
+    - Text: Generally, depending on skill of member in git/github, best give
+    more team members access to modifying branch than to have less. But ultimately
+    it is a safety and accountability feature that needs to be discussed with team.
+    - Exercise: 
+        - Solo: In the Organization repo, set up branch protection for the main branch.
+        - Team:
+            - In the organization repo, set up branch protection for the main branch
+            and assign the owners as the only ones who can push to the branch.
+            FIXME: Make sure this is the correct terminology.
+- Relying on and using code of conduct, contributing guide, governance to build
+culture and standards
+    - Text: An implicit team culture will naturally evolve as people work together,
+    but having purely implicit cultural norms makes it difficult for newcomers
+    and for dealing with problems that come from misunderstanding of these cultural
+    practices. Much of this comes from the code of conduct and contributing guidelines,
+    but there are other aspects that can be team-, country-, etc specific.
+    - Exercise:
+        - (Solo/team?): Brainstorm come explicit expected behaviours, norms, 
+        practices that you would like in a team environment. Write this text
+        down and put it in the (FIXME: where? governance? conduct?)
+    - Text: Consider how a team might handle, prevent/limit, and resolving
+    conflict and personality differences. These often are team-specific.
+    - Exercise:
+        - (Solo/team?): Brainstorm ideas for what things to write about and include
+        in an explicit document about how these are handled.
+- Running meetings
+    - Where would text be about this? Contributing? Governance?
+    - Text: Running effective meetings is a key skill to working as a team.
+    - Text: List some best practices.
+    - Exercise: 
+        - Consider past meetings you've had. Think of the worse and best meetings.
+        What made a good meeting? What made a bad one?
+        - Team: Discuss and brainstorm as a team some practices you agree with 
+        and want to implement in your meetings.
+- Governance (team focused)
+    - Text: Governance is being explicit about the structure of the team, who does
+    what and is responsible for what, how decisions are made, etc.
+    - Exercise:
+        - Solo: ? FIXME: add something here?
+        - Team: Discuss as a team how you want to make decisions, who is responsible 
+        for what, etc. Write these decisions in the Governance file.
+    - Text: A major advantage of using GitHub is the project management, like issue assignments.
+    How to assign issues/tasks can be a challenge and depending on the size of the
+    team, you might need someone dedicated to coordinating issue assignment etc.
+    - Exercise:
+        - Team: Discuss and write down who will have the role of coordinating issues/tasks
+        to team members.
+    - Text: CODEOWNERS (?) who is primarily responsible for what parts of the package
+    (e.g. R code vs vignettes). Using this concept can help streamline and automate
+    other tasks.
+    - Have exercise here or too much?
 
 <!--
 TODO: revise this text when adding the actual content.
