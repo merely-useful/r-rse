@@ -3,17 +3,26 @@
 <!-- Brief summary of list of actions/code/concepts done -->
 
 - Exercises: Conceptual, how can people effectively collaborate on a project?
+    - Maybe get them to create a vignette article with their answers/thoughts? 
+    Articles that are ignored from package build. (we discussed this a bit
+    already, needs more discussion)
 - Branching/forks
+    - Text: what is it, power of it, features.
 - Pull Requests
     - Exercises: Reading, comprehension, and conceptual understanding (non-coding)
-- usethis::git_sitrep()
-- usethis::gh_token_help()
-- usethis::create_github_token()
-- Save PAT in password manager (they should have this anyway, but this forces them)
-- gitcreds::gitcreds_set(), everytime computer restarts, only saved for session
+- Security:
+    - Text: why its important, how to do it.
+    - Code:
+        - usethis::git_sitrep()
+        - usethis::gh_token_help()
+        - usethis::create_github_token()
+    - Text: Save PAT in password manager (they should have this anyway, but this forces them)
+    - Code: 
+        - gitcreds::gitcreds_set(), everytime computer restarts, only saved for session
     - Exercises: Conceptual understanding of PAT, tokens, and password managers (non-coding)
     - Exercises: Setting up PAT, saving PAT, using gitcreds at start of session
 - usethis pr_* helpers
+    - Text: Why use these over GitHub interface
 - As contributor/sole developer/as team
     - usethis::pr_init()
         - Make changes to Contributing about using pr helpers
@@ -60,6 +69,8 @@ teamwork.
 ## Collaborating with Git
 
 ### Exercise: Consider ways of collaborating and their effectiveness.
+
+TODO: Taken from PyRSE, needs modification.
 
 Chartreuse and Fuchsia are collaborating on a project.
 Describe what is in each of the four repositories involved after each of the steps below.
@@ -115,6 +126,7 @@ Concept and thought, not code based.
 
 ## Securing your GitHub
 
+Why this is important, etc.
 
 - usethis::git_sitrep()
 
@@ -126,7 +138,6 @@ Concept and thought, not code based.
 - gitcreds::gitcreds_set(), everytime computer restarts, only saved for session
     - Exercises: Conceptual understanding of PAT, tokens, and password managers (non-coding)
     - Exercises: Setting up PAT, saving PAT, using gitcreds at start of session
-
 
 ## Simplified collaboration with usethis
 
@@ -159,19 +170,13 @@ Concept and thought, not code based.
 
 ### Exercise: Deleting a branch without merging
 
-TODO: Taken from PyRSE, needs to be modified.
+TODO: Taken from PyRSE, needs more modifying.
 
-Create a branch called `experiment`.
-In it, create a file called `experiment.txt` that contains your name and the date,
-then switch back to `master`.
+Create a branch called `experiment` with pr_init(). Create a new vignette
+called `experiment.Rmd` with use_article(). Add your name to the YAML header.
+Commit the changes and move back to main branch with pr_pause().
 
-1.  What happens when you try to delete the `experiment` branch using `git branch -d experiment`?
-    Why?
-
-2.  What option can you give Git to delete the `experiment` branch?
-    Why should you be very careful using it?
-
-3.  What do you think will happen if you try to delete the branch you are currently on using this flag?
+1.  Run pr_forget()...
 
 ### Workflows for project maintainers or team leads
 
@@ -186,8 +191,10 @@ think how this part would be implemented/practiced.)
     - usethis::pr_finish()
     - Exercise: Conceptual, write out/describe how this process could improve
     collaboration and teamwork.
-
+    
 ```{r, eval=FALSE}
+# NOTE: This is some of the code used throughout the chapter, put in a format
+# that any changes to the project can be automatically added at final book build.
 library(usethis)
 
 # create_github_token()
@@ -220,7 +227,6 @@ TODO: Add text about using usethis
 # 
 # pr_finish()
 ```
-
 
 ## Final exercise
 
