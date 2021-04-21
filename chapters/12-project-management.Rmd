@@ -7,12 +7,26 @@
 
 ## Outline of action steps
 
-<!-- We have a choice about the order of presenting this material: should we start at the top, with high-level project management, and then go over the components (i.e. GitHub projects / milestones -> roadmap -> issues) or should we start small with issues and build up to their combined uses for project management? -->
+<!-- We have a choice about the order of presenting this material: should we start at the top, with high-level project management, and then go over the components (i.e. GitHub projects / milestones -> roadmap -> issues) or should we start small with issues and build up to their combined uses for project management? Issues as bug reports and feature requests from the community are now covered in chapter 10; here we get into issue categorization, labeling, and milestones and project boards.-->
 
 - Project management with GitHub Issues
-  - Text: How GitHub issues can help you keep track of tasks, log bugs or problems, and communicate with your community ([reference](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/project-set-up-for-collaboration-with-github/#project-structure-and-organization)). How to label issues and link issues to other parts of your project.
+  - Text: Beyond bugs: how GitHub issues can help you keep track of tasks and communicate with your community ([reference](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/project-set-up-for-collaboration-with-github/#project-structure-and-organization)). How to label issues and link issues to other parts of your project.
+  - Exercise: create at least three issue labels for the `zipfs` repository. Label the existing issues so that each has at least one label.
+
 - Planning and managing your project's goals
   - Text: [Roadmaps](https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/start-your-project-roadmap/), GitHub Projects, and Milestones are all ways to keep track of the big-picture goals and progress of your project on GitHub.
+  - Exercise: create a roadmap for the `zipfs` project, either as an issue or as a file called ROADMAP.md.
+  - Exercise: create several new issues for the `zipfs` project using the roadmap as inspiration. Add labels to these issues.
+  - Exercise: look at some examples of packages that use GitHub milestones and GitHub Projects. Are there situations in which one project management approach is better than the other?
+    - Milestone examples:
+        - [ggplot2](https://github.com/tidyverse/ggplot2/milestones)
+	      - FIXME: more examples?
+    - Project examples:
+        - [bootstrap](https://github.com/twbs/bootstrap/projects)
+	      - FIXME: more examples?
+  - Exercise: create a GitHub Project for the `zipfs` repo containing the columns "To do", "In progress", and "Done".
+  - Exercise: create a milestone using the roadmap as inspiration. Assign at least two issues to the milestone.
+  - Exercise: in the `zipfs` roadmap, add links to the issues you created based on the roadmap and a link to the milestone.
 
 ## Final exercise
 
@@ -28,14 +42,8 @@
 - Add links to your issues and/or issue labels to your roadmap.
 
 3. GitHub milestones and Projects
-- Look at some examples of packages that use GitHub milestones and GitHub Projects. Are there situations in which one project management approach is better than the other? Which do you prefer, or which do you feel suits your project better?
-    - Milestone examples:
-        - [ggplot2](https://github.com/tidyverse/ggplot2/milestones)
-	- FIXME: more examples?
-    - Project examples:
-        - [bootstrap](https://github.com/twbs/bootstrap/projects)
-	- FIXME: more examples?
+- Recall the examples you looked at of packages that use GitHub milestones and GitHub Projects. Which approach do you prefer, or which do you feel suits your project better?
 - If you prefer milestones, create one or more GitHub milestones based on your roadmap.
 Add issues to your milestone(s). Add links to these milestones to your roadmap.
 - If you prefer GitHub Projects, create a GitHub Project for your package.
-Organize your issues from left to right in some version of "to-do", "in-progress", and "complete".
+Organize your issues from left to right in some version of "to-do", "in progress", and "complete".
