@@ -40,8 +40,14 @@ This chapter is very description-heavy with minimal code.
 
   - Text: the purpose of Contributing guidelines and what they can contain ([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/)). Emphasize that the different sections are quite project-specific (i.e. your project might not use communication channels outside of GitHub).
   - Code: `usethis::use_tidy_contributing()`
-- Project Governance
-  - Text: project longevity and sustainability, pathways to leadership. Possible areas to cover: [project maintenance](https://mozilla.github.io/open-leadership-training-series/articles/open-project-maintenance/open-project-maintenance/), contributor [personas and pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/), [leadership structure](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/understand-meaningful-participation-and-distributed-leadership/), [event planning and facilitation](https://mozilla.github.io/open-leadership-training-series/articles/running-awesome-community-events/event-planning-and-facilitation/).
+  - Exercise: choose two open source products that you have used and find their contributing guidelines. Do they contain any sections that aren't in the default Tidy Contributing Guidelines that you think are useful?
+
+- Project management for a user-friendly package
+
+  - Text: creating, using, and managing GitHub Issues to maintain your project. GitHub Issues provides a way to log bugs and project improvement suggestions from you, collaborators, and your user community. Creating [issue templates](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository) for bugs and feature requests.
+  - Exercise: create an issue template for reporting bugs in the `zipfs` package.
+  - Exercise: create an issue describing a possible new feature or enhancement for the `zipfs` package.
+  - Text: project maintenance, longevity and sustainability. Possible areas to cover: [project maintenance](https://mozilla.github.io/open-leadership-training-series/articles/open-project-maintenance/open-project-maintenance/), contributor [personas and pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/), [leadership structure](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/understand-meaningful-participation-and-distributed-leadership/), [event planning and facilitation](https://mozilla.github.io/open-leadership-training-series/articles/running-awesome-community-events/event-planning-and-facilitation/).
 
 ## Final exercise
 
@@ -76,8 +82,10 @@ Complete these tasks for your package for the first project assignment. For more
 4. Add a license 
 - Choose a license for your package. Visit [choosealicense.com](https://choosealicense.com/) and choose a license that makes sense for your project. This license will live in a file called LICENSE.md in the top level of your project. If you choose a common license, it's likely that you can create LICENSE.md by running `usethis::use_mit_license()` (for the MIT license) or another related `use_NAME_license` function.
 
-5. Project Governance
-- FIXME: this might be a good place to go through the [Personas and Pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/) exercise, then add something to CONTRIBUTING.md about what the leadership structure is, if any, and how to get there. 
+5. Project management
+- Create an [issue template](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository) for your project, providing guidelines for what you think might be the most common category of issue that contributors and users might submit.
+- Add a line to CONTRIBUTING.md requesting that new issues use the template if applicable.
+- FIXME: this might be a good place to go through the [Personas and Pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/) exercise, focusing on user and contributor personas, then add something to CONTRIBUTING.md about the target user of the package.
 
 6. Create a NEWS file
 - Create a file called NEWS.md in the top level of your project by running `usethis::use_news_md()`.
