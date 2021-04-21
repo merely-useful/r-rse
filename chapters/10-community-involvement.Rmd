@@ -1,11 +1,10 @@
 # Involving the community:
 
 - Designing your package to be used by or contributed to from the community
-  (refer to Mozilla Science Labs Open Leaders material)
 - Being inclusive (code of conduct)
 - Contributing guidelines
 - Licensing
-- Governance
+- Project management for a user-friendly package
 - NEWS file
 - reprex
 
@@ -15,18 +14,30 @@ This chapter is very description-heavy with minimal code.
 
 - Creating a welcoming community with welcoming materials
 <!-- I grouped reprex and NEWS with the README because they seem related to the general welcoming presentation of a project, but they could go elsewhere. -->
+
   - Text: making your project approachable with a welcoming README ([Mozilla reference](https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/write-a-great-project-readme/), [R packages reference](https://r-pkgs.org/release.html#readme)).
+  - Exercise: write a one-paragraph description of the `zipfs` package using the [Up-Goer Five Text Editor](https://splasho.com/upgoer5/).
   - Text: making your project easy to use and understand with reproducible examples. `reprex`: not just for bug reports!
-  - Code: use the `reprex` package to create a minimal reproducible example
-  - Text: using a NEWS file ([reference](https://r-pkgs.org/release.html#news))
+  - Code: use the `reprex` package to create a minimal reproducible example for a function in the `zipfs` package.
+  - Exercise: use `reprex` to create a minimal reproducible example for the `book-meta` function in the `zipfs` package (or another function not described in the code section).
+  - Text: using a NEWS file ([reference](https://r-pkgs.org/release.html#news)). How and when to update the NEWS file.
   - Code: `usethis::use_news_md()`
+  - Exercise: make an edit to `NEWS.md` in the `zipfs` package describing the most recent change that was make to the structure or code of `zipfs` (FIXME: we can be more specific here, like referring to a change made in the previous chapter.)
+
 - Code of Conduct
-  - Text: inclusivity, safety, the purpose of a Code of Conduct and what goes into one ([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-a-code-of-conduct/)).
+
+  - Text: inclusivity and safety with a focus on package users and community contributors, the purpose of a Code of Conduct and what goes into one ([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-a-code-of-conduct/)).
   - Code: `usethis::use_code_of_conduct()`
+  - Exercise: read the Code of Conduct file in the `zipfs` package and edit it to include a method of contact for reporting violations.
 - Licensing
   - Text: why do you need a license, what is the purpose of a license ([reference](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/sharing-your-work-in-the-open/))
   - Code: `usethis::use_NAME_license` i.e. `usethis::use_mit_license()`
+  - Exercises:
+      - Explore [choosealicense.com](https://choosealicense.com/) and read about the different types of open source licenses.
+      - Choose two open source products that you have used (for example [Firefox](https://www.mozilla.org/en-US/MPL/), [Atom](https://github.com/atom/atom/blob/master/LICENSE.md), or [Wordpress](https://wordpress.org/about/license/)). Find and read the license for each product.
+
 - Contributing guidelines
+
   - Text: the purpose of Contributing guidelines and what they can contain ([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/)). Emphasize that the different sections are quite project-specific (i.e. your project might not use communication channels outside of GitHub).
   - Code: `usethis::use_tidy_contributing()`
 - Project Governance
