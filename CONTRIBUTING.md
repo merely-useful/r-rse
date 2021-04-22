@@ -116,6 +116,12 @@ the live coding (or lecture) to the learners. So language might be something lik
 1. Keep code chunks no longer than 70 characters long, since the PDF output 
 will be a bit tight.
 
+## Language considerations
+
+- Write in plain, international English.
+- Write in the active voice. The assumed reader for "you" refers to:
+    - The learner when writing in chapters and learning content.
+    - The instructor for instructor sections and appendices.
 
 ## Using R packages in the book
 
