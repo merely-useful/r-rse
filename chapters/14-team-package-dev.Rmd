@@ -1,6 +1,6 @@
 # Team-based development {#team-package-dev}
 
-TODO: Decide if this should be a chapter covered by solo learner and if so, how?
+- For solo learners, relevant information will be added to callout boxes like Carpentries.
 
 ## Learning objectives
 
@@ -18,9 +18,9 @@ environment.
         contribute, more control for other members
         - Different roles and permissions of members ("owners", "maintainers", etc)
     - Exercise:
-        - Solo: Create a new GitHub Organization and make a new (random?) repo 
-        in the newly created Organization. (or move the package repo over into the
-        Organization?)
+        - Solo: Create a new GitHub Organization and make a new (random) repo 
+        in the newly created Organization. 
+            - TODO: Add a callout box here.
         - Team: 
             - Discuss within your team who wants to be assigned the "owner" of
             the organization
@@ -56,14 +56,15 @@ culture and standards
     - Exercise:
         - (Solo/team?): Brainstorm come explicit expected behaviours, norms, 
         practices that you would like in a team environment. Write this text
-        down and put it in the (FIXME: where? governance? conduct?)
+        down and put it in the team's own CODE OF CONDUCT for admin purposes and 
+        not for external contributors.
     - Text: Consider how a team might handle, prevent/limit, and resolving
     conflict and personality differences. These often are team-specific.
     - Exercise:
         - (Solo/team?): Brainstorm ideas for what things to write about and include
         in an explicit document about how these are handled.
 - Running meetings
-    - Where would text be about this? Contributing? Governance?
+    - Put this text in Contributing
     - Text: Running effective meetings is a key skill to working as a team.
     - Text: List some best practices.
     - Exercise: 
@@ -76,8 +77,16 @@ culture and standards
     what and is responsible for what, how decisions are made, etc.
     - Exercise:
         - Solo: ? FIXME: add something here?
+            - Make a list of project administration or upkeep tasks (such as
+            labeling and assigning user-created GitHub Issues, initiating
+            meetings or check-ins, or fixing bugs). For each task, describe what
+            changes to your project documentation (if any) would be necessary to
+            enable someone else to do that task. What information and expertise
+            would they need? How familiar would they need to be with the
+            project? (thought exercise specifically about delegation.)
         - Team: Discuss as a team how you want to make decisions, who is responsible 
         for what, etc. Write these decisions in the Governance file.
+            - TODO: Decide later on if Governance file is the approach we want to do.
     - Text: A major advantage of using GitHub is the project management, like issue assignments.
     How to assign issues/tasks can be a challenge and depending on the size of the
     team, you might need someone dedicated to coordinating issue assignment etc.
@@ -87,7 +96,6 @@ culture and standards
     - Text: CODEOWNERS (?) who is primarily responsible for what parts of the package
     (e.g. R code vs vignettes). Using this concept can help streamline and automate
     other tasks.
-    - Have exercise here or too much?
 
 <!--
 TODO: revise this text when adding the actual content.
