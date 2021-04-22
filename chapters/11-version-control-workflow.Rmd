@@ -79,22 +79,22 @@ Describe what is in each of the four repositories involved after each of the ste
     and clones it to their desktop.
 2.  Fuchsia forks that repository on GitHub
     and clones their copy to their desktop.
-3.  Fuchsia adds a file `fuchsia.txt` to the `master` branch of their desktop repository
+3.  Fuchsia adds a file `fuchsia.txt` to the `main` branch of their desktop repository
     and pushes that change to their repository on GitHub.
-4.  Fuchsia creates a pull request from the `master` branch of their repository on GitHub
-    to the `master` branch of Chartreuse's repository on GitHub.
+4.  Fuchsia creates a pull request from the `main` branch of their repository on GitHub
+    to the `main` branch of Chartreuse's repository on GitHub.
 5.  Chartreuse does *not* merge Fuchsia's PR.
     Instead,
-    they add a file `chartreuse.txt` to the `master` branch of their desktop repository
+    they add a file `chartreuse.txt` to the `main` branch of their desktop repository
     and push that change to their repository on GitHub.
 6.  Fuchsia adds a remote to their desktop repository called `upstream`
     that points at Chartreuse's repository on GitHub
-    and runs `git pull upstream master`,
+    and runs `git pull upstream main`,
     then merges any changes or conflicts.
-7.  Fuchsia pushes from the `master` branch of their desktop repository
-    to the `master` branch of their GitHub repository.
+7.  Fuchsia pushes from the `main` branch of their desktop repository
+    to the `main` branch of their GitHub repository.
 8.  Chartreuse merges Fuchsia's pull request.
-9.  Chartreuse runs `git pull origin master` on the desktop.
+9.  Chartreuse runs `git pull origin main` on the desktop.
 
 ### Branches and forks
 
