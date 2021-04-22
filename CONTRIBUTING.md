@@ -38,68 +38,77 @@ in the PR.
     ```
 
 This book is written in [Bookdown](https://bookdown.org/).
-If you want to preview builds on your own computer, please:
+If you want to preview builds on your own computer:
 
-1. Build the website by using Ctrl-Shift-B when in RStudio or;
-1. When in the terminal run `make html` or `make pdf` (the book gets built to
-`_book/`)
+1. Build the website by using Ctrl-Shift-B when in RStudio.
 
 Please note that Bookdown works best with [TinyTeX](https://yihui.name/tinytex/).
-After installing it, you can run `make tex-packages` to install all the packages this book depends on.
-You do _not_ need to do this if you are only building and previewing the HTML versions of the books.
+Install it with:
 
-## Other considerations when making edits
+```r
+install.packages("tinytex")
+tinytex::install_tinytex()
+```
 
-1.  The ID for each chapter and section heading is set by putting
-`{#some-label}` on the heading line. Please use the stem of the file's name in
-labels, i.e., start all labels for chapter `stuff.Rmd` with the word `stuff`.
-Also include the course type to the beginning (e.g. "r-", "py-", and "rse-").
+## Guidelines
 
-1.  Each chapter starts with a list of questions and a list of learning
-objectives and ends with a list of key points. These lists are kept in plain
-Markdown files in the `questions`, `objectives`, and `keypoints` folders
-respectively so that they can be included in both the chapters and the
-`objectives.Rmd` and `keypoints.Rmd` appendices.
+### Content-related
 
-1. Please always use `[text][label]` to refer to links and put the URL itself in
-the `links.md` file to ensure consistency between chapters.
+- When targeting solo learners with content, use a callout box TODO: Add more details about this here.
 
-1. Please use the free desktop version of [draw.io](https://www.draw.io/) to
-draw diagrams. Save the source as `figures/stem/stem.drawio` and export drawings
-as all of PDF, PNG, and SVG.
+- As much as is reasonable, we want to restrict the variability in how this is 
+taught overall while explicitly indicating areas that could be modified.
+As an example, final exercises are written in a way to emphasis building
+the kenyaweather package rather than letting the instructor decide.
 
-1. Since LaTeX doesn't understand SVG images, hand-drawn diagrams are included as follows:
-    -   Create an R code block with the header `{r stem-label, echo=FALSE, fig.cap="Some Caption"}`, which means:
-        -   Give this figure the ID `fig:stem-label`.
-            (Bookdown automatically puts `fig:` in front of figure labels,
-            though it doesn't prefix section labels with anything.)
-        -   Don't show the R code used to load the image, just its output (i.e., the image).
-        -   Give the figure the specified caption.
-    -   Use `insert_graphic("figures/stem/filename.ext")` to include your image. If you are using a `.pdf` image, make sure that you have the same file but as a `.svg` as well. 
+### Markdown-related
 
-1.  Use `@Name1234` or `[@Name1234]` to refer to bibliography entries. These
-entries must exist in the `book.bib` file. For multiple entries, separate the
-entries with `;`, i.e. `[@Name1234;@Name5678]`.
+- When referring to links, use `[text][label]`  and put the URL itself in
+the `includes/links.md` file.
 
-1.  Use `\@ref(label)` to refer to labels for sections and figures. Note that:
-    -   This only inserts the section number, not the words `Chapter`, `Appendix`, `Section`, or `Figure`.
-    -   Those are round parentheses, not curly braces.
-    -   If the figure's chunk ID is `stem-label`, use `fig:stem-label` to refer to it.
+- Use `@Name1234` or `[@Name1234]` to refer to bibliography entries. These
+entries must exist in the `includes/book.bib` file. For multiple entries,
+separate the entries with `;`, i.e. `[@Name1234;@Name5678]`.
 
-1.  Glossary entries are in `gloss.md`, which is plain Markdown rather than R Markdown.
-    -   To refer to a glossary entry, use a direct link of the form `[text]``(glossary.html#term-label)`.
-    -   Glossary definitions are set in bold and use an HTML anchor tag to provide the ID.
-        We should find a more elegant way to do this.
+- Use `\@ref(label)` to refer to labels for sections and figures.
+    - This needs to be accompanied by e.g. `Chapter`, `Appendix`, `Section`, or
+    `Figure`.
+    - Chunks with code for figures should have a label to refer to, e.g.
+    `dot-plot` and referred to with `fig:dot-plot`.
 
-1. Style guide: We follow the [tidyverse style
-guide](https://style.tidyverse.org/). Please read and adhere to those styles.
-The styler package can help with that.
+- TODO: Write text about adding glossary entries.
 
-1. We use Simplified English rather than Traditional English, i.e., American
-rather than British spelling and grammar.
+### Graphical
 
-1. The perspective for writing is as if we are the instructor doing
-the live coding (or lecture) to the learners. So language might be something like:
+- We suggest using the free desktop version of [draw.io](https://www.draw.io/) to
+draw diagrams. Save the source as `figures/CHAPTERNAME/raw/stem.drawio` and
+export drawings as all of PNG and SVG. Use `knitr::include_graphics()` to insert
+these figures.
+
+### Code-related
+
+- We use the new `main` terminology for the "main" branch of a Git project on
+GitHub (originally `master`).
+
+- We use the [tidyverse style guide](https://style.tidyverse.org/). 
+Please read and adhere to those styles. The 
+[styler](https://styler.r-lib.org/) package can help a lot with that.
+
+- Code chunks should not be longer than 70 characters long, due to limitations
+with the PDF output. TODO: This will probably be automated and you won't need to 
+think about this.
+
+### Language-related
+
+- Write in plain, international Simplified English (i.e. American compared to British).
+
+- Write in the active voice. The assumed reader for "you" refers to:
+    - The learner when writing in chapters and learning content.
+    - The instructor for instructor sections and appendices.
+
+- For chapters and learning content, the perspective for writing is as if we are
+the instructor doing the live coding (or lecture) to the learners. So language
+might be something like:
     - For live coding:
         - "We will now do this" rather than "You will now do this"
     - For exercises:
@@ -108,42 +117,24 @@ the live coding (or lecture) to the learners. So language might be something lik
         - "You can/could/might"
     - Pronouns should in general be active and direct, e.g. first or second
     person ("we", "you"), rather than indirect third-person ("they").
-      - When third person pronoun is necessary, use either "she" or "they"
-      unless talking about e.g. one of the personas.
-      - Active and direct in the sense that content is directed about something
-      tangible
-    
-1. Keep code chunks no longer than 70 characters long, since the PDF output 
-will be a bit tight.
-
-## Language considerations
-
-- Write in plain, international English.
-- Write in the active voice. The assumed reader for "you" refers to:
-    - The learner when writing in chapters and learning content.
-    - The instructor for instructor sections and appendices.
+      - When third person pronoun is necessary, use "they" unless talking about
+      e.g. one of the personas.
 
 ## Using R packages in the book
 
 GitHub Actions needs to know what packages to install to build the website. To
-add an R package dependency, use the command `usethis::use_package()` in the R
-Console while in the `r-rse` R project in RStudio. This will add the package
-dependency to the `DESCRIPTION` file under the imports section. For example, if
-you want to add the package dplyr, you would type out
-`usethis::use_package("dplyr")` and hit enter.
+add an R package dependency, type in the R console while in the `r-rse` R
+project in RStudio:
 
-**Note**, this section only documents what was done and why. This does not need
-to be done, unless others want to clone this repository for their own purposes.
-In order for GitHub Actions to build the website to the `gh-pages` branch,
-a GitHub Personal Access Token (PAT) must be added. This PAT can be generated
-and assigned to the Secrets setting of the project repository, followed by these
-steps:
+``` r
+usethis::use_package("packagename")
+```
 
-1. Create a [PAT](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line)
-for your account on GitHub (make sure to enable the "repo" scope so that using
-this token will enable writing to your GitHub repos) and copy the token to your
-clipboard.
-1. Go to the GitHub repository Settings, then to Secrets.
-1. Create a New Secret for `UNIQUE_PAT` and paste the PAT token into the field.
-1. Create another New Secret, called `EMAIL` and include your email there.
+This will add the package dependency to the `DESCRIPTION` file under the imports
+section. For example, if you want to add the package dplyr, you would type out
+`usethis::use_package("dplyr")` and hit enter. Unless necessary for the building
+of the book, use CRAN official packages.
 
+The book is build using GitHub Actions with this 
+[`deploy_bookdown.yaml`](.github/workflows/deploy_bookdown.yaml)
+action.
