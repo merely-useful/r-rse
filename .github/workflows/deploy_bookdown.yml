@@ -9,6 +9,8 @@ jobs:
   bookdown:
     name: Render-Book
     runs-on: macOS-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -16,32 +18,15 @@ jobs:
       - name: Setup R
         uses: r-lib/actions/setup-r@master
 
+      - name: Setup pandoc
+        uses: r-lib/actions/setup-pandoc@master
 
-      - uses: r-lib/actions/setup-pandoc@v1
+      - name: Cache Renv packages
+        uses: actions/cache@v2
         with:
-            pandoc-version: '2.7.3' # The pandoc version to download (if necessary) and use.
-
-      - name: Query dependencies
-        run: |
-          install.packages('remotes')
-          saveRDS(remotes::dev_package_deps(dependencies = TRUE), ".github/depends.Rds", version = 2)
-        shell: Rscript {0}
-
-      - name: Cache R packages
-        uses: actions/cache@v1
-        with:
-          path: ${{ env.R_LIBS_USER }}
-          key: macOS-r-4.0-1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: macOS-r-4.0-1-
-
-      - name: Install dependencies
-        run: |
-          install.packages("remotes")
-          remotes::install_deps(dependencies = TRUE)
-        shell: Rscript {0}
-
-      - name: Render Book
-        run: Rscript -e 'bookdown::render_book("index.Rmd", quiet = TRUE)'
+          path: $HOME/.local/share/renv
+          key: r-${{ hashFiles('renv.lock') }}
+          restore-keys: r-
 
       - name: Cache bookdown results
         uses: actions/cache@v1
@@ -50,14 +35,19 @@ jobs:
           key: bookdown-${{ hashFiles('**/*Rmd') }}
           restore-keys: bookdown-
 
+      - name: Install packages
+        run: |
+          R -e 'install.packages("renv")'
+          R -e 'renv::restore()'
+
+      - name: Build site
+        run: Rscript -e 'bookdown::render_book("index.Rmd", quiet = TRUE)'
+
       - uses: actions/upload-artifact@v1
         with:
           name: _book
           path: _book/
 
-# Need to first create an empty gh-pages branch
-# see https://pkgdown.r-lib.org/reference/deploy_site_github.html
-# and also add secrets for a UNIQUE_PAT and EMAIL to the repository
 # gh-action from Cecilapp/GitHub-Pages-deploy
   checkout-and-deploy:
    runs-on: ubuntu-latest
@@ -73,10 +63,9 @@ jobs:
          # Destination path
          path: _book # optional
      - name: Deploy to GitHub Pages
-       uses: Cecilapp/GitHub-Pages-deploy@master
+       uses: Cecilapp/GitHub-Pages-deploy@v3
        env:
-          EMAIL: ${{ secrets.EMAIL }}               # must be a verified email
-          GH_TOKEN: ${{ secrets.UNIQUE_PAT }} # https://github.com/settings/tokens
-          BUILD_DIR: _book/                     # "_site/" by default
-
-
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # https://github.com/settings/tokens
+       with:
+          build_dir: _book/
+          email: lwjohnst@gmail.com

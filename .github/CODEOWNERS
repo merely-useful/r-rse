@@ -1,0 +1,19 @@
+
+# Codeowners for these files will be automatically added as reviewers to
+# PRs that affect these files.
+
+appendices/assignments.md @lwjohnst86
+chapters/01-preface.Rmd @k8hertweck @lwjohnst86
+chapters/02-filesystem.Rmd @k8hertweck @mbonsma
+chapters/03-package-setup.Rmd @cwickham @lwjohnst86
+chapters/04-function-development.Rmd @cwickham @mbonsma
+chapters/05-version-control-solo.Rmd @k8hertweck @ian-flores
+chapters/06-code-correctness.Rmd @cwickham @lwjohnst86
+chapters/07-build-management.Rmd @ian-flores @cwickham
+chapters/08-documentation.Rmd @mbonsma @ian-flores
+chapters/09-package-website.Rmd @ian-flores @cwickham
+chapters/10-community-involvement.Rmd @mbonsma @k8hertweck
+chapters/11-version-control-workflow.Rmd @lwjohnst86 @ian-flores
+chapters/12-project-management.Rmd @mbonsma @k8hertweck
+chapters/13-package-release.Rmd @ian-flores @cwickham
+chapters/14-team-package-dev.Rmd @lwjohnst86 @joelostblom

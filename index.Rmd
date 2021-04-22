@@ -1,6 +1,15 @@
 ---
-title: "Merely Useful: Using R for Research Software Engineering"
-author: "Kate Hertweck, Damien Irving, Luke Johnston, Madeleine Bonsma-Fisher, Joel Ostblom, Charlotte Wickham, Ian Flores Siaca, and Greg Wilson"
+title: "Research Software Engineering with R"
+subtitle: "Building software that makes research possible"
+author: 
+- "Madeleine Bonsma-Fisher"
+- "Kate Hertweck"
+- "Damien Irving"
+- "Luke Johnston"
+- "Joel Ostblom"
+- "Ian Flores Siaca"
+- "Charlotte Wickham"
+- "Greg Wilson"
 documentclass: book
 bibliography: includes/book.bib
 csl: includes/jcb.csl
@@ -14,47 +23,33 @@ lot: yes
 lof: yes
 ---
 
-# Welcome to the course webpage!
+# Welcome!
 
 > It's still magic even if you know how it's done.
 >
 > — Terry Pratchett
 
-TODO: Fill in this with a brief description on what course does, why its important, etc
+TODO: Add version of book here?
 
-Computers are now as essential for research as telescopes, test tubes, and libraries,
-which means that researchers need need to know how to build, use, and share software.
-However,
-most introductions to programming focus on developing commercial applications,
-not on exploring problems and answering questions.
-This series of books will show you how to do the latter
-both on your own and as part of a team.
+Welcome to our book! We are actively working on it, so it is largely a work in
+progress.
 
-The prequels to this book introduce three core skills:
-how to write short programs to clean and analyze data in a reproducible way,
-how to keep track of what you have done,
-and how to share your software and your results with other people.
-But just as some astronomers spend their careers designing telescopes,
-some researchers focus on building software to make their colleagues' lives easier.
-People who do this are called [research software engineers][rse],
-and the aim of this book is to get you ready for this role—to help you go from writing code for your own use
-to creating tools to help your entire field advance.
-
-TODO: Update section? Needs revision.
-
-For researchers and data scientists who can write functions to create programs that are several pages long,
-and who want to be more productive and have more confidence in their results,
-this book provides a pragmatic, tools-based introduction to research software engineering.
-Unlike material courses aimed at computer scientists and professional software developers,
-this book uses data analysis as a motivating example
-and assumes that the learner's ultimate goal is to answer questions rather than ship products.
-
+Computers and computational work are essential components to conducting 
+science and research. However, most introductions to software development
+and programming focus on largely on developing commercial applications and not
+often on the type of tasks and activities that researchers more commonly do,
+like exploring problems and answering questions. This book will cover how to
+create software as part of your research cycle. For researchers who build
+software packages, this book will help prepare you for being a [research
+software engineer][rse].
 
 The course material was created using [rmarkdown] to write the lessons,
 [bookdown] to create the book format, [GitHub] to host the [Git] 
 repository of the material, and [GitHub Actions] to create the website.
 The original source material for this course is found on the 
-[`r-rse`] GitHub repository.
+[`r-rse`] GitHub repository. For those interested in contributing, read the
+[`README.md`](https://github.com/merely-useful/r-rse/blob/main/README.md)
+for more information.
 
 [rmarkdown]: https://rmarkdown.rstudio.com/
 [bookdown]: https://bookdown.org/yihui/bookdown/
@@ -63,39 +58,5 @@ The original source material for this course is found on the
 [GitHub Actions]: https://github.com/features/actions
 [`r-rse`]: https://github.com/merely-useful/r-rse
 
-## Re-use and licensing {#licensing}
-
-All of this material can be freely re-used under the terms of the
-[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
-and the course code is licensed under a 
-[MIT License](https://github.com/merely-useful/r-rse/blob/main/LICENSE-MIT.md),
-so the material can be used, re-used, and modified, 
-as long as there is attribution to this source.
-
-## Target audience of book
-
-TODO: Who is this book targeted towards? and why? and how can each use it.
-
-## Instructional design
-
-## Acknowledgments {#rse-intro-ack}
-
-This book owes its existence to
-everyone we met through [the Carpentries][carpentries].
-We are also grateful to [Insight Data Science][insight] for sponsoring the early stages of this work
-and to everyone who has contributed,
-particularly Jonathan Dursi
-and the authors of [@Nobl2009; @Hadd2010; @Wils2014; @Scop2015; @Tasc2017; @Wils2017; @Brow2018; @Deve2018; @Shol2019; @Wils2019].
-
-```{r, child="./appendices/links.md"}
+```{r, child="includes/links.md"}
 ```
-
-<!-- - Overview of material -->
-<!--     - How to use, why to use, general details and overall description -->
-<!--         - Reference "For Instructors" section for instructors to check out -->
-
-
-  <!-- - Online books: [R Packages](https://r-pkgs.org/)  -->
-  <!-- (we differentiate from this amazing book by structuring everything around  -->
-  <!-- this being a course, with exercises, assessments, (group?) projects,  -->
-  <!-- instructions/comments/notes for instructors, etc) -->

@@ -5,12 +5,13 @@ language:
     tab: "Table "
   ui:
     chapter_name: "Chapter "
-delete_merged_file: false
 rmd_files:
   - index.Rmd
+  - chapters/01-preface.Rmd
 
   # End files
   - appendices/appendix.md
   - appendices/gloss.md
   - appendices/references.Rmd
 before_chapter_script: "_common.R"
+delete_merged_file: true

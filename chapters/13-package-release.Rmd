@@ -1,4 +1,4 @@
-# Preparing for package release
+# Preparing for package release {#package-release}
 
 - Check builds on other systems (with rhub)
 - Etiquette for using (mostly free) servers and external build systems like GitHub Actions and rhub (e.g. do not overuse them)
@@ -10,4 +10,49 @@
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
+The purpose of this exercise is for the participant to go through an iteration of doing an R CMD check of the package in remote systems, understanding how to use these systems and lastly practice how to tag git commits to track versions.
 
+A. Check builds on other systems (with rhub)
+<!--> https://r-hub.github.io/rhub/articles/rhub.html-->
+
+1. Validate email with rhub
+> `rhub::validate_email("youremail@email.com")`
+
+2. Run a package check against the directory
+> `rhub::check()`
+
+3. Run a package check against the tarball
+> `devtools::build()`
+> `rhub::check(<tarball>)`
+
+4. Run a package check against a specific OS
+> `rhub::check(<OS>)`
+
+5. Browse previous checks
+> `rhub::list_package_checks()`
+
+B. Etiquette for using (mostly free) servers and external build systems like GitHub Actions and rhub (e.g. do not overuse them)
+
+1. Read the usage limits on GitHub Actions and rhub
+> - https://docs.github.com/en/actions/reference/usage-limits-billing-and-administration
+> - https://docs.r-hub.io/#regularly
+TODO: Add a question to assess whether they've read it?
+
+1(b). Run the GitHub Actions for the package, locally (optional)
+> https://github.com/nektos/act
+
+1(c). Run the rhub check locally (optional)
+> https://r-hub.github.io/rhub/articles/local-debugging.html
+
+C. Managing your versions, git tagging
+
+1. Upgrade version in the R package
+> In the DESCRIPTION file, use `usethis::use_version()` to modify the minor version number
+
+2. Build your package and commit
+> `devtools::build()`
+> `git commit`
+
+3. Tag your commit (version # is flexible)
+> `git tag -a v1.0 -m "Version Tag 1.0"`
+TODO: Use use_release_issue() as well?

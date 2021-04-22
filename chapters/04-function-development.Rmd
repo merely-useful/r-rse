@@ -8,15 +8,107 @@
 - Mostly *how workflow actually looks like*.
 - Building functions up slowly, making small targeted functions that build up
   into a bigger more complex functions
-- Process control (if-else, stop, return, switch)
+- Process control (if, stop)
 - Dependency management
 - Function documentation (with roxygen2), part 1
 - To use `@examples` to help with creating function
 
+## Learning Objectives
 
+* Convert a chunk of R code into a function
+* Include a function in an R package
+* Provide basic function documentation using Roxygen
+* Use functions from other packages in a function in your own package
+* Return an error message from a function
+
+## Outline of action steps
+
+* Writing Functions in R
+  * Text: Writing a function starts with working chunk of code. 
+  Where can I write this code, so it doesn't interfere with package
+  conventions?
+  * Code: `use_directory("dev", ignore = TRUE)`
+  * Text: Review how to turn code into a function: pick a name, identify arguments, 
+  fill in the function constructor.  
+  * Code: Use code from `extract_element()` and `book_meta()` on `dracula` as an example. 
+  Convert repeated extracting of elements to `extract_element()`. Avoid pipe for now.
+  * Exercise: Give updated chunk that uses `extract_element()`. Write 
+  the `book_meta()` function.
+
+* Including Functions in an R Package
+  * Text: Functions live in `.R` files in `R/`.
+  How should functions be organized into files?
+  * Code: `use_r("book-meta")`, `load_all()`, run examples.
+  * Exercise: Write `count_words()` based on chunk. 
+
+* Dependencies: Using Functions From Other Packages
+  * Text: We have a problem.  On clean session, `load_all()`, 
+  `book_meta(dracula)`, produces an error, 
+  can't find `tibble()`. Difference between interactive work (`library(tibble)`)
+  and package development (don't want to load entire libraries in user's workspaces)
+  * Text: Two changes needed: specify our package relies on another, 
+  inside functions, be specific about where functions inside our own code come from.
+  * Code: `use_package("tibble")`, `tibble::tibble()`
+  * Exercise: Fix dependency problems in `extract_element()`.
+  * Text: The pipe needs slightly more complicated handling.
+  * Code: `use_pipe()`
+  * Exercise: Fix dependency problems in `count_words()`.
+
+* Documenting Functions
+  * Text: Outline of Roxygen workflow: special comments above functions + `document()`, 
+  generates `man/` and allows `?function_name`
+  * Code: With `book_meta()` RStudio: Code -> Insert ROxygen Skeleton, `document()`, `?book_meta()`
+  * Text: Common Roxygen tags (title, arguments, return, examples), demo with `book_meta()`
+  * Exercise: Document `count_words()`
+  * Text: `@export`, why we might not document every function.
+
+* Stopping Your Function with an Error
+  * Text: Alternate workflow for editing functions, 
+  use `@examples`, edit directly in `R/book-meta.R`. 
+  Add `book_meta(1)` as example.
+  <!-- This will cause a check error later, because examples need to run without error. -->
+  * Text: Basic checks of user input, how to return an error
+  * Code: `if()`, `stop()`
+  * Exercise: Add an input check to `count_words()`.
+  * Text: Re-iterate idea of extracting common code into simpler functions.
+  Suggest input check could be its own function.
+  * Text: Mention other kinds of process control, give pointer to learn more.
+  
 
 ## Final exercise
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
+1. Add a `FIXME()` function to your FIXME package
+    
+    The following code snippet produces ... FIXME.  
+    ```{r, eval = FALSE}
+    # A line or two of R code that does something useful
+    FIXME
+    ```
+    Turn it into a function called `FIXME()` that takes arguments for `FIXME` and `FIXME` and include it in your FIXME package.
+    
+    Insert a Roxygen Skeleton for this function, making sure to edit the title, description, argument descriptions, and example. Don't forget to run `document()` to produce the help page.
 
+2. Add a `FIXME2()` function to your FIXME package
+
+    Add another function called `FIMXE2()`, that ... FIXME.
+    It should return an error if FIXME.
+    *This function is intentionlly given without a snippet of code so you can practice the function development workflow.*
+    
+    Insert a Roxygen Skeleton for this function, making sure to edit the title, description, argument descriptions, and example. Don't forget to run `document()` to produce the help page.
+
+You'll know you are done when after installing your package and starting a fresh R session:
+
+* The following code runs without error and produces the right output
+
+    ```{r, eval = FALSE}
+    library(FIXME)
+    FIXME()
+    FIXME2()
+    
+    # Should give an error
+    FIXME2()
+    ```
+    
+* `?FIXME()` and `?FIXME2()` bring up help pages that have at least a title, a description of each argument, and at least one example of usage.

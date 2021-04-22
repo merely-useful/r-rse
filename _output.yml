@@ -1,26 +1,12 @@
-bookdown::gitbook:
-  keep_md: true
-  split_bib: false
-  highlight: haddock
-  config:
-    # download: ["pdf"]
-    toc:
-      collapse: section
-      before: |
-        <li><strong><a href="./">Merely Useful: R-RSE</a></strong></li>
-      after: |
-        <li><a href="https://github.com/rstudio/bookdown">Published with bookdown</a></li>
-    edit:
-      link: https://github.com/merely-useful/r-rse/edit/main/%s
-      text: "Edit"
-    view:
-      link: https://github.com/merely-useful/r-rse/blob/main/%s
-      text: "View"
-    sharing: null
+bookdown::bs4_book:
+    repo: https://github.com/merely-useful/r-rse
+    theme:
+        primary: "#326da8"
+    includes:
+        in_header: includes/header.html
 # bookdown::pdf_book:
 #   keep_tex: true
 #   latex_engine: "xelatex"
 #   template: null
-#   pandoc_args: ['--top-level-division=chapter', '--csl=jcb.csl']
 #   includes:
 #     in_header: preamble.tex
