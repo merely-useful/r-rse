@@ -5,7 +5,13 @@
 - Project boards
 - Milestones
 
-## Outline of action steps
+## Learning objectives
+
+* Use GitHub issues, issue labels, and roadmaps to coordinate project tasks and goals
+* Create GitHub Projects and GitHub Milestones for long-term project management
+* Explain the purpose of Projects and Milestones and when to use each
+
+## Outline
 
 <!-- We have a choice about the order of presenting this material: should we start at the top, with high-level project management, and then go over the components (i.e. GitHub projects / milestones -> roadmap -> issues) or should we start small with issues and build up to their combined uses for project management? Issues as bug reports and feature requests from the community are now covered in chapter 10; here we get into issue categorization, labeling, and milestones and project boards.-->
 
