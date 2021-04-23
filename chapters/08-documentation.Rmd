@@ -4,7 +4,49 @@
 - Function documentation (with roxygen2), part 2
 - Running spell checks and styling (with spelling and styler)
 
+## Learning Objectives
 
+* Describe the purpose of documenting code and packages
+* Document functions with `roxygen`
+* Create a README and vignette for package documentation
+* Ensure that documentation is consistent with up-to-date style guidelines using `styler`
+
+## Outline
+
+* Introduction: the purpose of documentation
+
+  * Text: documentation is for collaborators, users, and future you. It is key for openness, reproducibility, and sustainability.
+
+* Documentation workflow: documenting the small stuff ([R Packages reference](https://r-pkgs.org/man.html?q=roxygen#man))
+
+  * Text: why document functions
+  * Code: function documentation cycle. Add `roxygen` comments (with cursor in function definition, do `Code > Insert roxygen skeleton` in RStudio). Run `devtools::document()`.
+  * Exercise: add `roxygen` comments to two functions in the `zipfs` package.
+
+* The README
+
+  * Text: basic components of a README (description, installation instructions, usage, examples)
+  * Code: `usethis::use_readme_rmd()` - creates an R markdown document with some boilerplate sections and text.
+  * Code: `knitr` to knit README for previewing
+  * Exercise: read the help file for `use_readme_rmd()` and `use_readme_md()`. What is the difference between `.Rmd` and `.md` files? Why might one or the other be better for a README?
+  * Exercise: run `use_readme_rmd()` to create a README for the `zipfs` project (if this isn't done in the previous code section). Edit `README.Rmd` to include a description of `zipfs`, installation instructions, and an example of its use. Knit the `README.Rmd` file so it creates a `README.md` file.
+
+* Vignettes
+
+  * Text: vignettes focus on the purpose and usage of a package or package component, a long-form description of something the package does, with examples.
+  * Code: `browseVignettes()` and `browseVignettes("packagename")`
+  * Exercise: find the vignette(s) for the packages `devtools` and `ggplot2`. Why might a package have more than one vignette? In what ways is a vignette different from a README?
+  * Code: `usethis::use_vignette("zipfs", title = "Using zipfs")`
+  * Code: `knitr` to preview vignette
+  * Exercise: run `use_vignette("zipfs", title = "Using zipfs")` to create a template vignette. Modify the vignette to include a one-paragraph description of the purpose of `zipfs`, and an example of how to use the `zipfs` functions together to analyze a book. Run `knitr` to preview the vignette.
+
+* `styler` and `spelling`: helpful packages for consistent and accurate documentation and code
+
+  * Text: What style guides are, about the tidyverse style guide.
+  * Code: `styler::style_pkg()`
+  * Code: `spelling::spell_check_package()`
+  * Exercise: run `style_pkg()` to restyle the files in the `zipfs` package.
+  * Exercise: run `spell_check_package()` to check the spelling in the `zipfs` documentation files. Run `update_wordlist()` to add any special words to the spell-checker that you want to ignore.
 
 ## Final exercise
 
