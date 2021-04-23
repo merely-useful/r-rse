@@ -8,6 +8,14 @@
 - NEWS file
 - reprex
 
+## Learning objectives
+
+* Edit a project README and NEWS file to be welcoming to contributors and users
+* Develop a code of conduct and create CODE_OF_CONDUCT.md
+* Choose a license and create a LICENSE file
+* Develop contributing guidelines and create CONTRIBUTING.md
+* Create and manage GitHub Issues to track project bugs and improvements
+
 ## Outline of action steps
 
 This chapter is very description-heavy with minimal code.
@@ -29,7 +37,9 @@ This chapter is very description-heavy with minimal code.
   - Text: inclusivity and safety with a focus on package users and community contributors, the purpose of a Code of Conduct and what goes into one ([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-a-code-of-conduct/)).
   - Code: `usethis::use_code_of_conduct()`
   - Exercise: read the Code of Conduct file in the `zipfs` package and edit it to include a method of contact for reporting violations.
+
 - Licensing
+
   - Text: why do you need a license, what is the purpose of a license ([reference](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/sharing-your-work-in-the-open/))
   - Code: `usethis::use_NAME_license` i.e. `usethis::use_mit_license()`
   - Exercises:
