@@ -8,9 +8,9 @@
 
 ## Learning Objectives 
 
-* Acquaint with the devtools functionality needed to manage an R package infrastructure
-* Describe the CRAN checks' process and the different components
-* Understand and set up the workflow for an R package validation
+* Describe the functionality devtools provides to manage an R package infrastructure
+* Explain the CRAN checks' process and the different components
+* Implement the workflow to validate an R package locally
 * Deploy a GitHub Action that runs a continuous integration workflow
 
 ## Outline
