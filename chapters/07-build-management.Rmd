@@ -25,9 +25,12 @@
     * Text: Explain what is CRAN
         * I believe it isn't defined before in the book.
     * Text: Explain why CRAN needs "checks"
+    * Text: Explain the importance of passing a CRAN check even if the package is not available on CRAN
     * Text: Explain what does CRAN look in when performing a check
     * Text: Explain the output of a CRAN check
     * Code: `devtools::check()`
+    * Exercise: Present an error with CRAN check that has not been previously seen in the book and have the learners find the solution
+      * This will be expanded in detail once all of the chapters have been outlined
 
 * R package build workflow
 
@@ -43,6 +46,7 @@
     * Exercise: Deploy a sample GitHub Actions
       * Probably one that install R using the r-lib action is a good exercise
     * Code: `usethis::use_github_action_check_standard()`
+    * Text: Explain how to navigate the result of the GitHub Action and the logs window
 
 ## Final exercise
 
