@@ -22,6 +22,9 @@
   * Text: why document functions
   * Code: function documentation cycle. Add `roxygen` comments (with cursor in function definition, do `Code > Insert roxygen skeleton` in RStudio). Run `devtools::document()`.
   * Exercise: add `roxygen` comments to two functions in the `zipfs` package.
+  * Text: documenting tests
+  * Code: FIXME test documentation workflow
+  * Exercise: add and/or improve comments and documentation in a test file in the `zipfs` package.
 
 * The README
 
@@ -42,7 +45,7 @@
 
 * `styler` and `spelling`: helpful packages for consistent and accurate documentation and code
 
-  * Text: What style guides are, about the tidyverse style guide.
+  * Text: What style guides are, style guide choices (tidyverse, [Google's R style guide](https://google.github.io/styleguide/Rguide.html), others?)
   * Code: `styler::style_pkg()`
   * Code: `spelling::spell_check_package()`
   * Exercise: run `style_pkg()` to restyle the files in the `zipfs` package.
