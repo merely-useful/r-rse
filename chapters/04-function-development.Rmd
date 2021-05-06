@@ -9,7 +9,10 @@
 - Building functions up slowly, making small targeted functions that build up
   into a bigger more complex functions
 - Process control (if, stop)
-- Dependency management
+- Dependency management (better term? e.g. using `@importFrom` vs `::`)
+
+TODO: should this be here or later?
+
 - Function documentation (with roxygen2), part 1
 - To use `@examples` to help with creating function
 
@@ -32,6 +35,7 @@
   fill in the function constructor.  
   * Code: Use code from `extract_element()` and `book_meta()` on `dracula` as an example. 
   Convert repeated extracting of elements to `extract_element()`. Avoid pipe for now.
+    * Explicit vs implicit returns?
   * Exercise: Give updated chunk that uses `extract_element()`. Write 
   the `book_meta()` function.
 
@@ -75,30 +79,45 @@
   * Text: Mention other kinds of process control, give pointer to learn more.
   
 
-## Final exercise
+## Final exercise {#04-final-exercise}
 
-<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+TODO: INCOMPLETE, need to think about this more.
+
+Complete these tasks as part of the package for your first project assignment.
+The exact functions you should create will depend heavily on what your package
+will do. Get help and guidance from your instructor. Use our examples on the 
+`kenyaweather` package as further guidance.
+
+1. Create a new R script using `use_r("..")`
 
 1. Add a `FIXME()` function to your FIXME package
     
     The following code snippet produces ... FIXME.  
+    
     ```{r, eval = FALSE}
     # A line or two of R code that does something useful
     FIXME
     ```
-    Turn it into a function called `FIXME()` that takes arguments for `FIXME` and `FIXME` and include it in your FIXME package.
     
-    Insert a Roxygen Skeleton for this function, making sure to edit the title, description, argument descriptions, and example. Don't forget to run `document()` to produce the help page.
+    Turn it into a function called `FIXME()` that takes arguments for `FIXME`
+    and `FIXME` and include it in your FIXME package.
+    
+    Insert a Roxygen Skeleton for this function, making sure to edit the title,
+    description, argument descriptions, and example. Don't forget to run
+    `document()` to produce the help page.
 
 2. Add a `FIXME2()` function to your FIXME package
 
-    Add another function called `FIMXE2()`, that ... FIXME.
-    It should return an error if FIXME.
-    *This function is intentionlly given without a snippet of code so you can practice the function development workflow.*
+    Add another function called `FIMXE2()`, that ... FIXME. It should return an
+    error if FIXME. *This function is intentionlly given without a snippet of
+    code so you can practice the function development workflow.*
     
-    Insert a Roxygen Skeleton for this function, making sure to edit the title, description, argument descriptions, and example. Don't forget to run `document()` to produce the help page.
+    Insert a Roxygen Skeleton for this function, making sure to edit the title,
+    description, argument descriptions, and example. Don't forget to run
+    `document()` to produce the help page.
 
-You'll know you are done when after installing your package and starting a fresh R session:
+While you are completing these tasks, You'll know you are done when after
+installing your package and starting a fresh R session:
 
 * The following code runs without error and produces the right output
 
@@ -112,3 +131,5 @@ You'll know you are done when after installing your package and starting a fresh
     ```
     
 * `?FIXME()` and `?FIXME2()` bring up help pages that have at least a title, a description of each argument, and at least one example of usage.
+
+TODO: Add actions done to kenyaweather package here?

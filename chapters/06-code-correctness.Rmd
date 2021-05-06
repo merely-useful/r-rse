@@ -1,7 +1,10 @@
 # Checking correctness of code
 
+- Using basic debugging strategies ('breakpoints', simple `print()` or `stop()`
+calls, `debug()`, `browser()`)
 - Unit test (with testthat)
-- Using basic debugging strategies ('breakpoints', simple `print()` or `stop()` calls, `debug()`, `browser()`)
+    - While in R script, `use_test()` will create one automatically related to
+    the open script.
 - Code coverage (with covr)
 - With devtools
 
@@ -53,19 +56,26 @@
     * Code: `package_coverage()`, `usethis::use_github_action("test-coverage")`
     <!-- I think I remember we are heading towards GitHub actions over Travis, hence `use_github_action` not `use_coverage()`  -->
 
-## Final exercise
+## Final exercise {#06-final-exercise}
 
-1. Add tests for one function in your package.  You should include tests that:
+Complete these tasks as part of the package for your first project assignment.
+Refer to the project assignment TODO: Add ref to assignment here?
+for more details. As with the other final exercises,
+we will use the `kenyaweather` package as an example and reference.
+Don't forget to add and commit any changes you've made into the Git history
+after each task, and pushing to GitHub.
 
-    * confirm the type of the output,
-    * confirm the size of the output, 
-    * confirm the values in the output,
-    * confirm the correct error messages are received when bad input is given.
+1. Open one of your R scripts (if you have more than one) in the `R/` folder.
+    - In the R Console, type out `use_test()` to create a unit test for the script.
 
-    Confirm your tests run and pass with `test()`.    
+1. Create one test for each of your functions in your package. You should
+include tests that:
+    - confirm the type of the output
+    - confirm the size of the output
+    - confirm the values in the output (based on a controlled input)
+    - confirm the correct error messages are received when bad input is given
 
-3. Check your code coverage in your package with `package_coverage()`.  Add at least two tests to improve your code coverage.  
+1. Run `test()` in your R Console (or `Ctrl-Shift-T` while in RStudio).
 
-
-
-
+3. Check your code coverage in your package with `package_coverage()`.  Add at
+least two tests to improve your code coverage.
