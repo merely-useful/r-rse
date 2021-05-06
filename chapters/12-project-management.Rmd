@@ -15,6 +15,10 @@
 <!-- Example: [STEMMM Role Models -->
 <!-- roadmap](https://github.com/KirstieJane/STEMMRoleModels/issues/1). -->
 
+- use_github_labels(), browse_github_issues(), issue_reprex_needed(), and perhaps issue_close_community()
+- Give set of recommended labels?
+- Issue templates? (made by Joel: https://github.com/altair-viz/altair/issues/new/choose)
+
 ## Final exercise {#12-final-exercise}
 
 Complete these tasks as part of the package for your first project assignment.
@@ -35,8 +39,8 @@ of your project's tasks.
     - Create several new Issue Labels. GitHub provides a few good default ones.
     Add some new ones like FIXME: Add specific labels here, other than the ones
     that github makes.
-    - Add a link in your `CONTRIBUTING.md` to Issues with the label `good first
-    bug` so new contributors know where they can get started.
+    - Add a link in your `CONTRIBUTING.md` to Issues with the label `good-first-issue`
+    so new contributors know where they can get started.
     - In your roadmap, add links to relevant Issues for others (and yourself)
     to be able to quickly find and look over.
 

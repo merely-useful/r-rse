@@ -52,6 +52,7 @@ distribution in any arbitrary body of text.
 
     * Text: Where should your package live? What should you call your package?
     * Code: `usethis::create_package()` (maybe also `available::available()`?)
+        * Note about using `::` vs `library()`
     * Text: `DESCRIPTION` is structured text that describes package, 
     `R/` for R script files that define functions in the package. 
     * Exercise: Repeat steps, e.g. `usethis::create_package("zipfs")`, 

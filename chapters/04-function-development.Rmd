@@ -9,7 +9,7 @@
 - Building functions up slowly, making small targeted functions that build up
   into a bigger more complex functions
 - Process control (if, stop)
-- Dependency management
+- Dependency management (better term? e.g. using `@importFrom` vs `::`)
 
 TODO: should this be here or later?
 
@@ -35,6 +35,7 @@ TODO: should this be here or later?
   fill in the function constructor.  
   * Code: Use code from `extract_element()` and `book_meta()` on `dracula` as an example. 
   Convert repeated extracting of elements to `extract_element()`. Avoid pipe for now.
+    * Explicit vs implicit returns?
   * Exercise: Give updated chunk that uses `extract_element()`. Write 
   the `book_meta()` function.
 

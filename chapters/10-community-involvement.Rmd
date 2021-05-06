@@ -25,6 +25,7 @@ This chapter is very description-heavy with minimal code.
   - Code: `usethis::use_code_of_conduct()`
 - Licensing
   - Text: why do you need a license, what is the purpose of a license ([reference](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/sharing-your-work-in-the-open/))
+    - what happens when code is unlicensed. Copyrighted and not re-usable.
   - Code: `usethis::use_NAME_license` i.e. `usethis::use_mit_license()`
 - Contributing guidelines
   - Text: the purpose of Contributing guidelines and what they can contain ([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/)). Emphasize that the different sections are quite project-specific (i.e. your project might not use communication channels outside of GitHub).
