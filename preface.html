@@ -96,9 +96,17 @@ For researchers whose tasks include building software packages, this book will
 help train you to be a [research software engineer][rse]. Unlike courses aimed
 at computer scientists and professional software developers, this book uses data
 analysis as the motivating example and assumes that the learner’s ultimate goal
-is to answer questions rather than ship products.</p>
-<p>First and foremost, the main learning goal of this course is that you learn to
-<em>develop an R package</em>. More specifically, the <strong>learning objectives</strong> are to:</p>
+is to answer questions rather than develop commercial software products.</p>
+<p>TODO: Add more about linking why we should even write packages in the first place.</p>
+<p>The main goal of this course is that you learn to
+<em>develop an R package</em>.
+By the end of the course, you will have the skills and knowledge necessary to:
+develop well-built, well-documented, and re-usable R-packages;
+work effectively as part of a team or as a contributor; and optionally prepare
+your package to be submitted to CRAN.</p>
+<p>To support your learning experience,
+we have developed the following specific <strong>learning objectives</strong>
+that you will master during this course:</p>
 <ul>
 <li>Explain what an R package is, how it is structured, and how to set one up.</li>
 <li>List and describe some best (or good enough) practices in package
@@ -108,7 +116,7 @@ that adheres to the style guide.</li>
 <li>Describe why user-friendly and well-written documentation is crucial to
 building a usable package and some steps to achieve this type of
 documentation.</li>
-<li>Cover what CRAN is, what policies and quality-control steps it has for packages,
+<li>Describe what CRAN is, what policies and quality-control steps it has for packages,
 and how to prepare a package for submission to CRAN so that it passes these checks
 and requirements.</li>
 </ul>
@@ -121,13 +129,8 @@ coordinate the development of software, particularly for software that is
 complex or when working in a team.</li>
 <li>Outline (and optionally practice) how to work productively in a small team
 that is inclusive and welcoming.</li>
-<li>Learning why and how to design software and documentation
-involving community contributors.</li>
+<li>Explain why it is beneficial to involve community contributors when designing design software and documentation.</li>
 </ul>
-<p>By the end of the course, you will have the skills and knowledge necessary to:
-build your own packages that are well-built, well-documented, and re-usable;
-work effectively as part of a team or as a contributor; and, if relevant, prepare
-your package to be submitted to CRAN.</p>
 <p>TODO: Add graphic for overview? Something like <a href="https://moderndive.com/preface.html#fig:pipeline-figure" class="uri">https://moderndive.com/preface.html#fig:pipeline-figure</a>?</p>
 <div id="learner-personas" class="section level3">
 <h3>
@@ -159,6 +162,7 @@ data analysis; this guide will teach them how to build and run re-usable data
 analysis pipelines so that they can pass those skills on to their users.
 </dd>
 </dl>
+<p>TODO: Add undergrad persona.</p>
 </div>
 <div id="prerequisites" class="section level3">
 <h3>
@@ -166,7 +170,7 @@ analysis pipelines so that they can pass those skills on to their users.
 </h3>
 <p>Learners are expected to be able to:</p>
 <ul>
-<li>Write reusable functions to analyze tabular data using [R][r].</li>
+<li>Write functions to analyze tabular data using [R][r].</li>
 <li>Have a basic understanding of <a href="https://git-scm.com/">Git</a> and <a href="https://github.com/">GitHub</a>, and have at least
 used them for basic version control tasks.</li>
 <li>Create reproducible reports using [R Markdown][r-markdown].</li>
@@ -206,25 +210,26 @@ promotion because their field doesn’t value tool building, it doesn’t matter
 whether the package is well tested and easy to install: sooner or later
 (probably sooner) it will become [abandonware][abandonware].</li>
 </ul>
+<p>This book presents software development that emphasizes openness,
+reproducibility, and sustainability, because it supports both individual
+researchers and the entire research community.</p>
 </div>
 <div id="overview-of-the-packages-created-throughout-course" class="section level3">
 <h3>
 <span class="header-section-number">2.1.4</span> Overview of the packages created throughout course<a class="anchor" aria-label="anchor" href="#overview-of-the-packages-created-throughout-course"><i class="fas fa-link"></i></a>
 </h3>
-<p>Throughout the book, you will build several packages.</p>
+<p>Throughout the book, you will build at least two packages (maybe more depending on
+the course instructor).</p>
 <ul>
-<li>The main package used throughout the book is the Zipf’s Law package <code>zipfs</code>.
+<li>The main example package developed throughout the book is the Zipf’s Law package <code>zipfs</code>.
 This package is used for the code-alongs, the actual content, and most of the
 exercises. More details about the Zipf’s Law will be introduced in Chapter
 <a href="#package-setup"><strong>??</strong></a>.</li>
 <li>The example package for the first project assignment is the Weather in Kenya
 package <code>kenyaweather</code>. This package is used as a reference when you work on
 your package for the first project assignment.</li>
-<li>You will contribute to an existing package (that you or an instructor will
-choose) for the second project assignment.</li>
-<li>Optionally, you will create a package in a group for the third project assignment.</li>
 </ul>
-<p>Specific details about the project assignments are found in
+<p>Specific details about the project assignments are found in the
 Appendix <a href="#course-assignments"><strong>??</strong></a>). Two of the packages are completed and can be
 used as references (<code>zipfs</code> and <code>kenyaweather</code>).</p>
 </div>
@@ -245,13 +250,13 @@ Here is a draft outline to guide development.</p>
 <li>Syllabus
 <ul>
 <li>Overview of course</li>
-<li>Why to learn it and learning outcomes</li>
+<li>Course motivation and learning outcomes</li>
 <li>Intended learner (personas, assumptions and expectations etc)</li>
 </ul>
 </li>
 <li>Folder and file structure (RStudio R Projects)
 <ul>
-<li>File paths, very basics of the shell (in RStudio)</li>
+<li>File paths, basics of the shell (in RStudio)</li>
 <li>Working directory and how it is set with RStudio R Projects</li>
 <li>Making use of the fs package for filesystem management</li>
 </ul>
@@ -259,7 +264,7 @@ Here is a draft outline to guide development.</p>
 <li>Setting up an R package
 <ul>
 <li>Describing what a package is and when or why to make one</li>
-<li>Using devtools, usethis for development
+<li>Using devtools and usethis for development
 <ul>
 <li>e.g. <code>use_devtools()</code> and <code>use_usethis()</code>.</li>
 </ul>
@@ -273,21 +278,21 @@ be done in next chapter</li>
 </li>
 <li>Making and using datasets
 <ul>
-<li>Downloading zipf data at this point, using <code>usethis::use_data_raw()</code>, write the script to download the data and process into <code>data/</code> via <code>usethis::use_data()</code>.</li>
+<li>Write a script to download the zipf data and save to <code>data-raw/</code> using <code>usethis::use_data_raw()</code> and process into <code>data/</code> via <code>usethis::use_data()</code>.</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>Function development in a package environment
 <ul>
-<li>Process of creating non-function code, checking that it works, then
+<li>Creating non-function code, checking that it works, then
 converting it into a function
 <ul>
 <li>There are several workflows for this (create in vignette Rmd, make a dev/creating.R
 script as a development location, developing in the examples Roxygen
 section, “Untitled1.R”). Which to use?
 <ul>
-<li>Mostly <em>how workflow actually looks like</em>.</li>
+<li>Mostly <em>what a workflow actually looks like</em>.</li>
 </ul>
 </li>
 </ul>
@@ -298,7 +303,7 @@ into a bigger more complex functions</li>
 <li>Dependency management</li>
 <li>Function documentation (with roxygen2), part 1
 <ul>
-<li>To use <code>@examples</code> to help with creating function</li>
+<li>Using <code>@examples</code> to help with creating function documentation</li>
 </ul>
 </li>
 </ul>
@@ -519,7 +524,7 @@ and to the authors of <span class="citation">(Noble, <a href="references.html#re
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Research Software Engineering with R</strong>: Building software that makes research possible" was written by Madeleine Bonsma-Fisher, Kate Hertweck, Damien Irving, Luke Johnston, Joel Ostblom, Ian Flores Siaca, Charlotte Wickham, Greg Wilson. It was last built on 2021-05-03.</p>
+    <p>"<strong>Research Software Engineering with R</strong>: Building software that makes research possible" was written by Madeleine Bonsma-Fisher, Kate Hertweck, Damien Irving, Luke Johnston, Joel Ostblom, Ian Flores Siaca, Charlotte Wickham, Greg Wilson. It was last built on 2021-05-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
