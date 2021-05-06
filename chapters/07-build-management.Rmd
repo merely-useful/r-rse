@@ -6,6 +6,48 @@
 - Pre-push running test, build, and check
 - Continuous integration using GitHub Actions
 
+## Learning Objectives 
+
+* Describe the functionality devtools provides to manage an R package infrastructure
+* Explain the CRAN checks' process and the different components
+* Implement the workflow to validate an R package locally
+* Deploy a GitHub Action that runs a continuous integration workflow
+
+## Outline
+
+* `devtools`
+
+    * Text: First explain why you don't want to manage this manually
+    * Text: Then explain how `devtools` addresses those pain points
+
+* CRAN checks 
+
+    * Text: Explain what is CRAN
+        * I believe it isn't defined before in the book.
+    * Text: Explain why CRAN needs "checks"
+    * Text: Explain the importance of passing a CRAN check even if the package is not available on CRAN
+    * Text: Explain what does CRAN look in when performing a check
+    * Text: Explain the output of a CRAN check
+    * Code: `devtools::check()`
+    * Exercise: Present an error with CRAN check that has not been previously seen in the book and have the learners find the solution
+      * This will be expanded in detail once all of the chapters have been outlined
+
+* R package build workflow
+
+    * Text: Explain local functions and why to use `load_all()`
+    * Text: Talk about tests and their purpose in the build process
+    * Text: Explain the whole picture from document to load_all, tests and then check
+    * Code: `devtools::load_all()` and `devtools::check()`
+
+* Continuous Integration and GitHub Actions
+
+    * Text: Explain what is continuous integration
+    * Text: Explain GitHub Actions (https://github.com/features/actions)[https://github.com/features/actions]
+    * Exercise: Deploy a sample GitHub Actions
+      * Probably one that install R using the r-lib action is a good exercise
+    * Code: `usethis::use_github_action_check_standard()`
+    * Text: Explain how to navigate the result of the GitHub Action and the logs window
+
 ## Final exercise {#07-final-exercise}
 
 Complete these tasks as part of the package for your first project assignment.

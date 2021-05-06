@@ -30,7 +30,7 @@ This chapter is very description-heavy with minimal code.
 - Contributing guidelines
   - Text: the purpose of Contributing guidelines and what they can contain ([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/)). Emphasize that the different sections are quite project-specific (i.e. your project might not use communication channels outside of GitHub).
   - Code: `usethis::use_tidy_contributing()`
-- Project Governance
+- Project Governance (community focused)
   - Text: project longevity and sustainability, pathways to leadership. Possible areas to cover: [project maintenance](https://mozilla.github.io/open-leadership-training-series/articles/open-project-maintenance/open-project-maintenance/), contributor [personas and pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/), [leadership structure](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/understand-meaningful-participation-and-distributed-leadership/), [event planning and facilitation](https://mozilla.github.io/open-leadership-training-series/articles/running-awesome-community-events/event-planning-and-facilitation/).
 
 <!---
