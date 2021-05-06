@@ -5,10 +5,40 @@
 - Getting all resources and material organized
 - Defining lifecycle of your package and individual functions (with lifecycle)
 
+## Learning Objectives
+
+* Describe the functionality `pkgdown` provides to deploy a website for package documentation
+* Customize the website with pre-existing themes
+* Organize the website with vignettes, tutorials and custom pages
+* Explain a functions' lifecycle process and the tools to handle it in R
+
+## Outline
+
+* `pkgdown`
+
+  * Text: What is `pkgdown`?
+  * Text: Benefits of having documentation be code-generated
+  * Text: Benefits of having a public website with the package docs
+  * Exercise: Build and serve the website locally
+
+* Website Customization
+
+  * Text: Why does making a package website standout is useful
+  * Text: Where do the `pkgdown` themes come from?
+  * Exercise: Change the theme of the website to one different from the default
+  * Text: Organizing beyond themes
+      * Text: Transition to talking about sections, tutorials and vignettes
+
+* Functions' Lifecycle
+  
+  * Text: Explain what is the lifecycle of a function
+  * Text: Explain the different lifecycle stages
+    * Text: {experimental --> stable --> either deprecated or superseded}
+  * Exercise: Search for a superseded function in a tidyverse package
+    * We can specify which package later
+  * Text: Walkthrough of the process of deprecating a function
 
 ## Final exercise
-
-<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
 The purpose of this exercise is for the participant to go through a successful deployment of a customized `pkgdown` website and documenting their function's lifecycles.
 
