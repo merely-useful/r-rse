@@ -12,12 +12,9 @@ and filesystem terminology
   - `dir_map()`
   - `file_delete()`, `file_info()`, `file_move()`
 
+## Final exercise {#02-final-exercise}
 
-## Final exercise
-
-<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
-
-The exercises in this chapter check your understanding of foundational concepts represented here,
+The exercises in this chapter check your understanding of fundamental concepts represented here,
 but the tasks performed do not directly contribute to the project assignment.
 We'll learn ways in the next chapter to create the essential elements required for a package project,
 and begin working on your assignment.
@@ -29,7 +26,7 @@ and answer the following questions:
 
 2. Using your `practice_filesystem` project created in the previous exercise,
 write the commands you can use to perform the following tasks with functions from `fs`:
-  - list all of the files in your project
-  - create a new directory called `practice_files/` containing files named `example1.txt` and `example_script.R`.
-  - move `example1.txt` to your main project directory
-  - delete `practice_files/` and everything it contains
+  - List all of the files in your project.
+  - Create a new directory called `practice_files/` containing files named `example1.txt` and `example_script.R`.
+  - Move `example1.txt` to your main project directory.
+  - Delete `practice_files/` and everything it contains.
