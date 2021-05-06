@@ -30,8 +30,8 @@ jobs:
 
       - name: Run File Wrapper
         run: |
-        chapters <- dir('chapters', full.names = TRUE)
-        lapply(chapters, knitr::wrap_rmd, width = 80)
+          chapters <- dir('chapters', full.names = TRUE)
+          lapply(chapters, knitr::wrap_rmd, width = 80)
         shell: Rscript {0}
 
      - name: Clean folder
