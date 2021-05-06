@@ -39,8 +39,16 @@ is to answer questions rather than develop commercial software products.
 
 TODO: Add more about linking why we should even write packages in the first place.
 
-First and foremost, the main learning goal of this course is that you learn to
-*develop an R package*. More specifically, the **learning objectives** are to:
+The main goal of this course is that you learn to
+*develop an R package*.
+By the end of the course, you will have the skills and knowledge necessary to:
+develop well-built, well-documented, and re-usable R-packages;
+work effectively as part of a team or as a contributor; and optionally prepare
+your package to be submitted to CRAN.
+
+To support your learning experience, 
+we have developed the following specific **learning objectives**
+that you will master during this course:
 
 - Explain what an R package is, how it is structured, and how to set one up.
 - List and describe some best (or good enough) practices in package
@@ -50,7 +58,7 @@ that adheres to the style guide.
 - Describe why user-friendly and well-written documentation is crucial to
 building a usable package and some steps to achieve this type of
 documentation.
-- Cover what CRAN is, what policies and quality-control steps it has for packages,
+- Describe what CRAN is, what policies and quality-control steps it has for packages,
 and how to prepare a package for submission to CRAN so that it passes these checks
 and requirements.
 
@@ -63,13 +71,7 @@ coordinate the development of software, particularly for software that is
 complex or when working in a team.
 - Outline (and optionally practice) how to work productively in a small team
 that is inclusive and welcoming.
-- Learning why and how to design software and documentation
-involving community contributors.
-
-By the end of the course, you will have the skills and knowledge necessary to:
-build your own packages that are well-built, well-documented, and re-usable;
-work effectively as part of a team or as a contributor; and, if relevant, prepare
-your package to be submitted to CRAN. 
+- Explain why it is beneficial to involve community contributors when designing design software and documentation.
 
 TODO: Add graphic for overview? Something like https://moderndive.com/preface.html#fig:pipeline-figure?
 
@@ -106,7 +108,7 @@ TODO: Add undergrad persona.
 
 Learners are expected to be able to:
 
-- Write reusable functions to analyze tabular data using [R][r].
+- Write functions to analyze tabular data using [R][r].
 - Have a basic understanding of [Git][git] and [GitHub][github], and have at least
 used them for basic version control tasks.
 - Create reproducible reports using [R Markdown][r-markdown].
@@ -160,7 +162,7 @@ exercises. More details about the Zipf's Law will be introduced in Chapter
 package `kenyaweather`. This package is used as a reference when you work on
 your package for the first project assignment.
 
-Specific details about the project assignments are found in 
+Specific details about the project assignments are found in the
 Appendix \@ref(course-assignments)). Two of the packages are completed and can be
 used as references (`zipfs` and `kenyaweather`).
 
@@ -177,38 +179,38 @@ Here is a draft outline to guide development.
 
 1. Syllabus
     - Overview of course
-    - Why to learn it and learning outcomes
+    - Course motivation and learning outcomes
     - Intended learner (personas, assumptions and expectations etc)
 
 2. Folder and file structure (RStudio R Projects)
-    - File paths, very basics of the shell (in RStudio)
+    - File paths, basics of the shell (in RStudio)
     - Working directory and how it is set with RStudio R Projects
     - Making use of the fs package for filesystem management
     
 3. Setting up an R package
     - Describing what a package is and when or why to make one
-    - Using devtools, usethis for development
+    - Using devtools and usethis for development
         - e.g. `use_devtools()` and `use_usethis()`.
     - Developing functions
         - Basic explanation of what a function is and its components
         - Actual process of taking code and converting it into a function will
         be done in next chapter
     - Making and using datasets
-        - Downloading zipf data at this point, using `usethis::use_data_raw()`, write the script to download the data and process into `data/` via `usethis::use_data()`.
+        - Write a script to download the zipf data and save to `data-raw/` using `usethis::use_data_raw()` and process into `data/` via `usethis::use_data()`.
 
 4. Function development in a package environment
-    - Process of creating non-function code, checking that it works, then
+    - Creating non-function code, checking that it works, then
       converting it into a function
         - There are several workflows for this (create in vignette Rmd, make a dev/creating.R
         script as a development location, developing in the examples Roxygen
         section, "Untitled1.R"). Which to use?
-            - Mostly *how workflow actually looks like*.
+            - Mostly *what a workflow actually looks like*.
     - Building functions up slowly, making small targeted functions that build up
     into a bigger more complex functions
     - Process control (if-else, stop, return, switch)
     - Dependency management
     - Function documentation (with roxygen2), part 1
-        - To use `@examples` to help with creating function
+        - Using `@examples` to help with creating function documentation
 
 5. Version control: Using Git and GitHub as a sole user (part 1)
     - Using Git in RStudio (standard add-commit-history)
