@@ -1,29 +1,284 @@
-# Version control: Workflows around using GitHub (part 2) {#github-workflows}
+# Workflows when using GitHub {#github-workflows}
 
-- Make use of R builtin tools like the usethis pull request helpers
-  (and learning how to make use of this yourself)
-- E.g. with pr_* functions from usethis
-- Using this workflow as a team or as a contributor
+<!-- Brief summary of list of actions/code/concepts done -->
 
-## Final exercise
+- Exercises: Conceptual, how can people effectively collaborate on a project?
+    - Maybe get them to create a vignette article with their answers/thoughts? 
+    Articles that are ignored from package build. (we discussed this a bit
+    already, needs more discussion)
+- Branching/forks
+    - Text: what is it, power of it, features.
+- Pull Requests
+    - Exercises: Reading, comprehension, and conceptual understanding (non-coding)
+- Security:
+    - Text: why its important, how to do it.
+    - Code:
+        - usethis::git_sitrep()
+        - usethis::gh_token_help()
+        - usethis::create_github_token()
+    - Text: Save PAT in password manager (they should have this anyway, but this forces them)
+    - Code: 
+        - gitcreds::gitcreds_set(), everytime computer restarts, only saved for session
+    - Exercises: Conceptual understanding of PAT, tokens, and password managers (non-coding)
+    - Exercises: Setting up PAT, saving PAT, using gitcreds at start of session
+- usethis pr_* helpers
+    - Text: Why use these over GitHub interface
+- As contributor/sole developer/as team
+    - usethis::pr_init()
+        - Make changes to Contributing about using pr helpers
+    - usethis::pr_push()
+    - usethis::pr_view()
+    - usethis::pr_pause()
+    - Exercise: Make an edit on the PR changed files using GitHubs edit interface.
+    - Exercise: Create another PR for adding ...FIXME.
+    - usethis::pr_resume()
+    - usethis::pr_pull()
+    - usethis::pr_merge_main()
+    - usethis::pr_push()
+    - PR has been merged
+    - gert::git_branch_list() # Show list of created branches
+    - usethis::pr_finish()
+    - Exercise: Do the same process for the other PR you had created.
+    - gert::git_branch_list() # Show list of created branches
+    - usethis::pr_init()
+    - usethis::pr_forget()
+    - gert::git_branch_list() # Show list of created branches
+- As maintainer, reviewer, team lead. (Hard to do exercises for this... need to
+think how this part would be implemented/practiced.)
+    - usethis::pr_view()
+    - usethis::pr_fetch()
+    - usethis::pr_push()
+    - usethis::pr_merge_main()
+    - usethis::pr_view()
+    - Manually merge PR.
+    - usethis::pr_finish()
+    - Exercise: Conceptual, write out/describe how this process could improve
+    collaboration and teamwork.
 
-<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+## Learning objectives {#11-learning-objectives}
 
-Complete these tasks as part of the package for your first project assignment:
+- Learn what branching in Git is, about the concept behind it, and why it's so
+powerful as a software development tool.
+- Learn how to use branching in Git, as well as the related concept of forking
+and Pull Requests in GitHub, by making use of usethis' Pull Request helper
+functions.
+- Understand how the concepts and workflows shown could be applied in team
+or contributor settings and why they are powerful tools for collaboration and
+teamwork.
 
-1. Create a new Issue on your package's GitHub repository about fixing FIXME
-function.
+## Collaborating with Git
+
+### Exercise: Consider ways of collaborating and their effectiveness.
+
+TODO: Taken from PyRSE, needs modification.
+
+Chartreuse and Fuchsia are collaborating on a project.
+Describe what is in each of the four repositories involved after each of the steps below.
+
+1.  Chartreuse creates a repository containing a `README.md` file on GitHub
+    and clones it to their desktop.
+2.  Fuchsia forks that repository on GitHub
+    and clones their copy to their desktop.
+3.  Fuchsia adds a file `fuchsia.txt` to the `main` branch of their desktop repository
+    and pushes that change to their repository on GitHub.
+4.  Fuchsia creates a pull request from the `main` branch of their repository on GitHub
+    to the `main` branch of Chartreuse's repository on GitHub.
+5.  Chartreuse does *not* merge Fuchsia's PR.
+    Instead,
+    they add a file `chartreuse.txt` to the `main` branch of their desktop repository
+    and push that change to their repository on GitHub.
+6.  Fuchsia adds a remote to their desktop repository called `upstream`
+    that points at Chartreuse's repository on GitHub
+    and runs `git pull upstream main`,
+    then merges any changes or conflicts.
+7.  Fuchsia pushes from the `main` branch of their desktop repository
+    to the `main` branch of their GitHub repository.
+8.  Chartreuse merges Fuchsia's pull request.
+9.  Chartreuse runs `git pull origin main` on the desktop.
+
+### Branches and forks
+
+- when to use either
+
+- How to use them effectively
+    - How branches can help both solo and as a team
+    - When forks are good vs being contributor on a repo (write access)
+    
+## Collaborating with GitHub
+
+- What are PRs, how to use them (either non-fork or fork)
+    - Keeping things targeted (e.g. a PR should conceptually
+    fix or add similarly related things)
+    
+### Exercise: Reading and comprehension task?
+
+### Exercise: Do these situations warrant a branch or fork?
+
+Concept and thought, not code based.
+
+1. 
+2. 
+3. 
+
+### Exercise: Consider some situations that would benefit from using PRs
+
+Concept and thought, not code based.
+
+## Securing your GitHub
+
+Why this is important, etc.
+
+- usethis::git_sitrep()
+
+- usethis::gh_token_help()
+
+- usethis::create_github_token()
+
+- Save PAT in password manager (they should have this anyway, but this forces them)
+- gitcreds::gitcreds_set(), everytime computer restarts, only saved for session
+    - Exercises: Conceptual understanding of PAT, tokens, and password managers (non-coding)
+    - Exercises: Setting up PAT, saving PAT, using gitcreds at start of session
+
+## Simplified collaboration with usethis
+
+### Workflows for contributors on solo or team projects
+
+- usethis pr_* helpers
+- As contributor/sole developer/as team
+    - usethis::pr_init()
+        - Make changes to Contributing about using pr helpers
+    - usethis::pr_push()
+    - usethis::pr_view()
+    - usethis::pr_pause()
+    - Exercise: Make an edit on the PR changed files using GitHubs edit interface.
+    - Exercise: Create another PR for adding ...FIXME.
+    - usethis::pr_resume()
+    - usethis::pr_pull()
+    - usethis::pr_merge_main()
+    - usethis::pr_push()
+    - PR has been merged
+    - gert::git_branch_list() # Show list of created branches
+    - usethis::pr_finish()
+    - Exercise: Do the same process for the other PR you had created.
+
+## Removing a branch
+
+- gert::git_branch_list() # Show list of created branches
+- usethis::pr_init()
+- usethis::pr_forget()
+- gert::git_branch_list() # Show list of created branches
+
+### Exercise: Deleting a branch without merging
+
+TODO: Taken from PyRSE, needs more modifying.
+
+Create a branch called `experiment` with pr_init(). Create a new vignette
+called `experiment.Rmd` with use_article(). Add your name to the YAML header.
+Commit the changes and move back to main branch with pr_pause().
+
+1.  Run pr_forget()...
+
+### Workflows for project maintainers or team leads
+
+- As maintainer, reviewer, team lead. (Hard to do exercises for this... need to
+think how this part would be implemented/practiced.)
+    - usethis::pr_view()
+    - usethis::pr_fetch()
+    - usethis::pr_push()
+    - usethis::pr_merge_main()
+    - usethis::pr_view()
+    - Manually merge PR.
+    - usethis::pr_finish()
+    - Exercise: Conceptual, write out/describe how this process could improve
+    collaboration and teamwork.
+    
+```{r, eval=FALSE}
+# NOTE: This is some of the code used throughout the chapter, put in a format
+# that any changes to the project can be automatically added at final book build.
+library(usethis)
+
+# create_github_token()
+# gitcreds::
+# TODO: Talk about security?
+# gh_token_help()
+
+# TODO: Add to CONTRIBUTING guidelines about using usethis pr
+pr_init("contributing-update")
+
+# Not added to code, but added to text. Using this so package gets built exactly
+# as stated in content.
+# contributing_text <- readLines(here::here("CONTRIBUTING.md")) # Yea?
+contribute_pr_helpers_text <- "
+TODO: Add text about using usethis
+"
+# writeLines(contribute_pr_helpers_text, here::here("CONTRIBUTING.md"))
+
+# gert::git_add("CONTRIBUTING.md")
+# gert::git_commit("add to use usethis pr_ helpers in contributing")
+
+# pr_push()
+# Go into GitHub and merge PR (R function to do that? pr_fetch? git_merge then
+# git_push?)
+
+# pr_init("another-branch") # TODO: other changes?
+# pr_pause()
+# Someone reviews the PR and accepts it
+# pr_resume("another-branch")
+# 
+# pr_finish()
+```
+
+## Final exercise {#11-final-exercise}
+
+Complete these tasks as part of the package for your first project assignment.
+Refer to the project assignment TODO: Add ref to assignment here?
+for more details. As with the other final exercises,
+we will use the `kenyaweather` package as an example and reference.
+Don't forget to add and commit any changes you've made into the Git history
+after each task, and pushing to GitHub.
+
+TODO: Add guidelines about using usethis::pr_ helpers? or at least link to it?
+
+1. Create a new Issue on your package's GitHub repository about an idea for a
+function or to fix an existing function (you don't have to actually fix it).
 2. Using the `pr_*` helpers, create a new branch called `fixing-function` using
 `pr_init("fixing-function")`.
-3. Make the following changes to the FIXME function:
-    - FIXME
-4. Add and commit these changes.
+    - Make the following changes to the FIXME function:
+        - FIXME: Not really sure what to say here. Could indicate that instructor has more detailed instructions. OR maybe not. Let's come back to this.
+    - Add and commit these changes.
 5. Push the changes up to GitHub by using `pr_push()`.
-    - Create a new Pull Request based on the push.
+    - Create a new Pull Request based on the push in the newly opened up GitHub
+    page (this should open automatically with `pr_push()`).
     - Merge the newly created Pull Request.
 6. In your local Git repository, run `pr_finish()` to finish up.
 
 Repeat this process one more time by making changes to:
 
-- FIXME
+- FIXME: Adding to README maybe or one of the vignettes?
 
+```{r, eval=FALSE}
+# This is the actions done to the project package
+# 1. new issue
+# githubr::gh_new_issue ? or gh package?
+# new_number <- githubr::gh_issue_list ?
+
+# 2. 
+# pr_init("fixing-function")
+
+# 3. 
+# TODO: What to change?
+
+# 4.
+# git_add("R/TODO")
+# git_commit(str_c("update function to have TODO. Closes ", new_number))
+
+# 5.
+# pr_push()
+# pr_pause()
+# git_merge("fixing-function")
+# git_push() ?
+# pr_resume("fixing-function")
+# pr_finish()
+```
+
+### Exercises for second project assignment?
