@@ -1,37 +1,126 @@
-# Setting up an R package
+# Setting up an R package {#package-setup}
 
 - Describing what a package is and when or why to make one
+    - Use [available](https://github.com/r-lib/available) to make a name (naming is hard).
 - Using devtools, usethis for development
-- e.g. `use_devtools()` and `use_usethis()`.
+    - e.g. `use_devtools()` and `use_usethis()`.
 - Developing functions
 - Basic explanation of what a function is and its components
-- Actual process of taking code and converting it into a function will
-    be done in next chapter
 - Making and using datasets
 - Downloading zipf data at this point, using `usethis::use_data_raw()`, write the script to download the data and process into `data/` via `usethis::use_data()`.
 
+## Learning Objectives
 
+* Identify when to create an R package
+* Create a new R package using `usethis::create_package()`
+* Describe the purpose of the folders and files in a skeleton R package
+* Add data to an R package
+* Set global defaults to ease package development with devtools and usethis
 
+## About Zipf's Law
+
+We'll create a package (`zipfs`) to analyze a fascinating result in the field of
+quantitative linguistics. Zipf’s Law states that the second most common word in
+a body of text appears half as often as the most common, the third most common
+appears a third as often, and so on. To test whether Zipf’s Law holds for a
+collection of classic novels that are freely available from Project Gutenberg,
+we will write a software package that counts and analyzes the word frequency
+distribution in any arbitrary body of text.
+
+## Outline of action steps
+
+* Why create an R package? 
+
+    * Text: Whenever you want to use data or functions over more than one project.
+    * Text: Advantages over sharing code and/or data files:
+        * Easy for other people to obtain and install
+        * Built-in documentation of functions and data
+        * Incorporate package-level meta data: authors, version, etc.
+
+* What is an R package?
+
+    * Text: Files that follow the R package conventions. usethis and devtools, 
+    designed to help you do this.  
+    * Exercise: Install a simple package from GitHub.
+    Give some code that: loads package, 
+    calls `xxx()` and data `yyy`.  
+    Examine structure of GitHub repo.   
+    Can you find where is the `xxx()` defined?  `yyy`? 
+    Where is the name of the package? 
+    
+* Creating a package    
+
+    * Text: Where should your package live? What should you call your package?
+    * Code: `usethis::create_package()` (maybe also `available::available()`?)
+        * Note about using `::` vs `library()`
+    * Text: `DESCRIPTION` is structured text that describes package, 
+    `R/` for R script files that define functions in the package. 
+    * Exercise: Repeat steps, e.g. `usethis::create_package("zipfs")`, 
+    edit `DESCRIPTION` to have you as author.
+ 
+
+* Package development workflow
+    
+    * Text: As an example, add a function to this package. 
+    Here, function is provided, next chapter, talks about how you
+    write functions. 
+    * Code: `use_r()`
+    * Text: How do we load the function and check it works?
+    * Code: `devtools::load_all()`
+    * Exercise: Practice workflow. Make small edit to function, reload, 
+    rerun function.
+    * Text: `load_all()` emulates installing and loading, but only
+    for current session.  Sometimes you want to actually install and load.
+    * Code: `devtools::install()`, `library()`
+    
+* Adding data to a package
+
+    * Text: Data live in `data/` as `.rda` files.  
+    * Code: `usethis::use_data("FIXME")` Here with simplified data. Restart, `devtools::load_all()`, `FIXME`
+    * Text: Should document how data was created. 
+    Put raw data and scripts that end in `usethis::use_data()` in `data-raw/`
+    * Code: `use_data_raw()` 
+    * Exercise: Provide script for getting dracula text from Gutenberg. 
+    Add `dracula` to package.
+
+* R settings that help you as a developer
+    
+    * Text: `usethis::` `devtools::` get tiresome to type.  Setup to always load.
+    * Code: `usethis::use_devtools()` `usethis::use_usethis()`
+    * Text: When we restart R, want nothing in environment, no packages loaded, etc.
+    * Code: `use_blank_slate()`
+    * Text: Other configuration, e.g. to automatically populate `DESCRIPTION`:  https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences
+    
+    
 ## Final exercise
 
-<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+Complete these tasks as part of the package for your first project assignment.
+Refer to the project assignment for exact details on what you are required to
+create and on what the package should do. For this exercise, we will be using
+a package about weather in Kenya as an example and reference.
 
-1. Use `create_package()` to create a package called FIXME.  
+1. Decide on a simple but descriptive name for your new package. Use
+[available][pkg-available] to see if the name is taken.
 
-2. Edit the `DESCRIPTION` file to add:
+2. Use `create_package()` to create a new package. While you can create this
+package anywhere on your computer, for now we suggest either your `Desktop/` or
+maybe something like `Documents/r-pkgs/`.
 
-    * yourself as the author, and
-    * a one sentence description of the package.
+3. Open the `DESCRIPTION` file and update the file with:
+    * Yourself as the author in the `Authors@R:` field.
+    * A one sentence description of the package in the `Title:` field.
+    * Two or three sentence summary of the package in the `Description:` field.
 
-3. Add data to the package
-
-   The raw data and a script to clean the data are provided at: FIXME
-   
-   Following to steps in Section FIXME 
-   to make the FIXME data available as part of the package.
+4. Add some data to the package. Use `use_data_raw()` to create the `data-raw/`
+folder along with a script for cleaning the raw data. Then put the data in this
+newly created folder. Write in some simple data cleaning processes in the cleaning
+R script and follow the steps in Section FIXME to make the FIXME data available
+as part of the package.
  
 You'll know you are finished if:
 
-* Your package can be installed with `install()`. 
-* In a fresh R session, 
-    after running `library(FIXME)` you can access the data by name.
+* Your package can be installed with `install()` (or `Ctrl-Shift-B` to build it).
+* In a fresh R session, after running `library(FIXME)` you can access the data
+by its name.
+
+TODO: Add actions done to kenyaweather package here?

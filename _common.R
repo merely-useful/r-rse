@@ -30,3 +30,5 @@ insert_graphic <- function(file) {
     knitr::include_graphics(file)
   }
 }
+
+knitr::opts_chunk$set(eval = FALSE)

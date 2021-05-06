@@ -1,4 +1,4 @@
-# Involving the community:
+# Involving the community {#community-involvement}
 
 - Designing your package to be used by or contributed to from the community
   (refer to Mozilla Science Labs Open Leaders material)
@@ -9,47 +9,139 @@
 - NEWS file
 - reprex
 
+## Outline of action steps
+
+This chapter is very description-heavy with minimal code.
+
+- Creating a welcoming community with welcoming materials
+<!-- I grouped reprex and NEWS with the README because they seem related to the general welcoming presentation of a project, but they could go elsewhere. -->
+  - Text: making your project approachable with a welcoming README ([Mozilla reference](https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/write-a-great-project-readme/), [R packages reference](https://r-pkgs.org/release.html#readme)).
+  - Text: making your project easy to use and understand with reproducible examples. `reprex`: not just for bug reports!
+  - Code: use the `reprex` package to create a minimal reproducible example
+  - Text: using a NEWS file ([reference](https://r-pkgs.org/release.html#news))
+  - Code: `usethis::use_news_md()`
+- Code of Conduct
+  - Text: inclusivity, safety, the purpose of a Code of Conduct and what goes into one ([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-a-code-of-conduct/)).
+  - Code: `usethis::use_code_of_conduct()`
+- Licensing
+  - Text: why do you need a license, what is the purpose of a license ([reference](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/sharing-your-work-in-the-open/))
+    - what happens when code is unlicensed. Copyrighted and not re-usable.
+  - Code: `usethis::use_NAME_license` i.e. `usethis::use_mit_license()`
+- Contributing guidelines
+  - Text: the purpose of Contributing guidelines and what they can contain ([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/)). Emphasize that the different sections are quite project-specific (i.e. your project might not use communication channels outside of GitHub).
+  - Code: `usethis::use_tidy_contributing()`
+- Project Governance
+  - Text: project longevity and sustainability, pathways to leadership. Possible areas to cover: [project maintenance](https://mozilla.github.io/open-leadership-training-series/articles/open-project-maintenance/open-project-maintenance/), contributor [personas and pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/), [leadership structure](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/understand-meaningful-participation-and-distributed-leadership/), [event planning and facilitation](https://mozilla.github.io/open-leadership-training-series/articles/running-awesome-community-events/event-planning-and-facilitation/).
+
+<!---
+NOTE: This is potential content to use, if it fits.
+
+And some people still worry that if they make their data and code generally available,
+someone else will use it and publish a result they have come up with themselves.
+This is almost unheard of in practice,
+but that doesn't stop people using it as a scare tactic.
+Other people are afraid of looking foolish or incompetent by sharing code that might contain bugs.
+This isn't just [impostor syndrome][impostor-syndrome]:
+members of marginalized groups are frequently judged more harshly than others,
+so being wrong in public is much riskier for them.
+-->
 
 
-## Final exercise
+## Final exercise {#10-final-exercise}
 
-<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+Complete these tasks as part of the package for your first project assignment.
+Refer to the project assignment TODO: Add ref to assignment here?
+for more details. As with the other final exercises,
+we will use the `kenyaweather` package as an example and reference.
+Don't forget to add and commit any changes you've made into the Git history
+after each task, and pushing to GitHub. For more information and tips at any
+step, refer to the 
+[Mozilla Open Leadership Training Series resources](https://mozilla.github.io/open-leadership-training-series/articles/readme/)
 
-Complete these tasks for your package for the first project assignment. For more information and tips at any step, refer to the [Mozilla Open Leadership Training Series resources](https://mozilla.github.io/open-leadership-training-series/articles/readme/)
-
-1. Review your README
- - Write a one-paragraph description of your package using the [Up-Goer Five Text Editor](https://splasho.com/upgoer5/). (You don't need to use this in your actual README, but it is a fun exercise to see what words you think are common might not be!)
- - Review your README from the viewpoint of a new contributor to your project. Does your README clearly explain the purpose and function of your package without using jargon? Make any edits you like to make your README clear and welcoming.
+1. Review your project package's `README.Rmd`:
+    - Write a one-paragraph description of your package using the 
+    [Up-Goer Five Text Editor](https://splasho.com/upgoer5/). *Note*: You don't
+    need to use this in your actual README, but it is a fun and informative
+    exercise to see and understand what words you think are common, but might not be!
+    - Review your `README.Rmd` file by trying to place yourself with the
+    viewpoint of a new contributor to your project. Does your README clearly
+    explain the purpose and function of your package without using jargon? Make
+    as many additions, deletions, and revisions as you'd like until you feel
+    your README is clear and welcoming.
+    - After editing your `README.Rmd` file, make sure to knit the `README.md`
+    version so it gets properly displayed on GitHub.
  
-2. Create a Code of Conduct
-- Create a file in the top level of your package called CODE-OF-CONDUCT.md by running `usethis::use_code_of_conduct()`. This function automatically populates your code of conduct with the [Contributor Covenant](https://www.contributor-covenant.org/). You may keep or modify the template, or you may draft your own entirely. Make sure to attribute the source of any outside text you use or modify, and make sure the license of the text you use permits your use or modification. Here are some other example codes of conduct:
-    - [Citizen Code of Conduct](https://github.com/stumpsyn/policies/blob/master/citizen_code_of_conduct.md)
-    - [Django Code of Conduct](https://www.djangoproject.com/conduct/)
-- Include a link to your Code of Conduct in your README.
+2. Add a Code of Conduct to your package repository:
+    - Create a file in your package called `CODE_OF_CONDUCT.md` by running
+    `usethis::use_code_of_conduct()`. This function automatically populates your
+    Code of Conduct with the
+    [Contributor Covenant](https://www.contributor-covenant.org/). 
+    The newly created file will be in the `.github/` folder. 
+    You may keep or modify the template, or you may draft your own entirely.
+    Make sure to attribute the source of any outside text you use or modify, and
+    make sure the license of the text you use permits your use or modification.
+    Here are some other example codes of conduct:
+        - [Citizen Code of Conduct](https://github.com/stumpsyn/policies/blob/master/citizen_code_of_conduct.md)
+        - [Django Code of Conduct](https://www.djangoproject.com/conduct/)
+    - Include a link to your Code of Conduct in your `README.Rmd`. Knit the
+    file so it updates the `README.md` version.
  
-3. Create Contributing Guidelines
-- Create a file called CONTRIBUTING.md by running `usethis::use_tidy_contributing()`. This file will contain information for people interacting with your project about how they can use your package and/or how they can get involved. Here are some example Contributing Guidelines:
-    - [Atom](https://github.com/atom/atom/blob/master/CONTRIBUTING.md)
-    - [Data Carpentry Geospatial R lesson](https://github.com/datacarpentry/r-intro-geospatial/blob/master/CONTRIBUTING.md)
-    - [Tidyverse](https://www.tidyverse.org/contribute/)
-- The default CONTRIBUTING.md you created has a template for instructions for submitting changes or reporting a problem. Modify CONTRIBUTING.md to include the following:
-    - A welcome statement and brief description of your project
-    - A list of project-related resources, like links to your README, roadmap or other task list, etc. 
-    - A list of communication channels your project uses, if applicable (mailing lists, forums, chat clients, etc.)
-    - Instructions for how to submit changes or report a problem, specific to your project
-    - A description of how you recognize contributors
-    - Instructions on where to go for help: who to contact and how
-    - A link to your Code of Conduct
+3. Create a contributing guidelines file for your package repository:
+    - Create a file called `CONTRIBUTING.md` by running
+    `usethis::use_tidy_contributing()`. 
+    The newly created file will be in the `.github/` folder. 
+    This file will contain information for
+    people interacting with your project about how they can use your package
+    and/or how they can get involved. Review the newly created file and
+    revise it as necessary. For some examples of great Contributing
+    Guidelines, check out:
+        - [Atom](https://github.com/atom/atom/blob/master/CONTRIBUTING.md)
+        - [Data Carpentry Geospatial R lesson](https://github.com/datacarpentry/r-intro-geospatial/blob/master/CONTRIBUTING.md)
+        - [Tidyverse](https://www.tidyverse.org/contribute/)
+    - The default `.github/CONTRIBUTING.md` file you created has a template for
+    instructions for submitting changes or reporting a problem. Modify
+    the `CONTRIBUTING.md` file to include the following:
+        - A welcome statement and a brief description of your project.
+        - A list of project-related resources, like a link to your README.
+        - A list of communication channels your project uses, if applicable
+        (mailing lists, forums, chat clients, GitHub Issues, etc.)
+        TODO: The above might be more appropriate for the project management
+        section.
+        - Instructions for how to submit changes or report a problem, specific
+        to your project.
+        - A description of how you recognize contributors.
+        - Instructions on where to go for help: who to contact and how.
+        - A link to your Code of Conduct.
  
-4. Add a license 
-- Choose a license for your package. Visit [choosealicense.com](https://choosealicense.com/) and choose a license that makes sense for your project. This license will live in a file called LICENSE.md in the top level of your project. If you choose a common license, it's likely that you can create LICENSE.md by running `usethis::use_mit_license()` (for the MIT license) or another related `use_NAME_license` function.
+4. Add a license to your repository for terms of re-use of your package:
+    - Choose a license for your package. Visit
+    [choosealicense.com](https://choosealicense.com/) and choose a license that
+    makes sense for your project. This license will live in a file called
+    `LICENSE.md` in the top level folder of your project. If you choose a common
+    license, it's likely that you can create `LICENSE.md` by running
+    `usethis::use_mit_license()` (for the MIT License) or another related
+    `usethis::use_NAME_license()` function. Licensing is a complex thing
+    so for now, choose the MIT License.
 
-5. Project Governance
-- FIXME: this might be a good place to go through the [Personas and Pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/) exercise, then add something to CONTRIBUTING.md about what the leadership structure is, if any, and how to get there. 
+5. Project Governance:
+    - FIXME: this might be a good place to go through the 
+    [Personas and Pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/)
+    exercise, then add something to CONTRIBUTING.md about what the leadership
+    structure is, if any, and how to get there.
 
-6. Create a NEWS file
-- Create a file called NEWS.md in the top level of your project by running `usethis::use_news_md()`.
+TODO: Should this be so late? I know it feels like it fits well here, just putting this out there.
+6. Create a NEWS file to your repository about changes you make to it:
+    - Create a file called `NEWS.md` in the top level of your project by running
+    `usethis::use_news_md()`.
+    - Review the [Tidyverse NEWS style guide](https://style.tidyverse.org/news.html)
+    on best practices for writing in your NEWS file.
 
-7. Create a reprex
-- Use the `reprex` package to create a minimal reproducible example for one of the functions in your package.
-- If you like, add the reprex to one of your documentation files (i.e. README, CONTRIBUTING) as an example of how to use that function.
+7. Create a reprex to practice creating Reproducible Examples for debugging and
+getting help:
+    - Use the `reprex` package to create a minimal reproducible example for one
+    of the functions in your package.
+    - Add your process for using the reprex, and what you've learned from it,
+    into the `CONTRIBUTING.md` file, as an example of how to contribute
+    and use issues.
+
+### Exercises for second project assignment
