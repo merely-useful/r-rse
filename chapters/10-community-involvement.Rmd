@@ -11,9 +11,9 @@
 ## Learning objectives
 
 * Edit a project README and NEWS file to be welcoming to contributors and users
-* Develop a code of conduct and create CODE_OF_CONDUCT.md
-* Choose a license and create a LICENSE file
-* Develop contributing guidelines and create CONTRIBUTING.md
+* Understand the importance of having an explicit Code of Conduct and how to create one relevant to a project
+* Understand the purpose of licensing content, choose a license and create a LICENSE file
+* Understand the importance of contributing guidelines and how to develop them for a project
 * Create and manage GitHub Issues to track project bugs and improvements
 
 ## Outline of action steps
@@ -36,7 +36,7 @@ This chapter is very description-heavy with minimal code.
 
   - Text: inclusivity and safety with a focus on package users and community contributors, the purpose of a Code of Conduct and what goes into one ([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-a-code-of-conduct/)).
   - Code: `usethis::use_code_of_conduct()`
-  - Exercise: read the Code of Conduct file in the `zipfs` package and edit it to include a method of contact for reporting violations.
+  - Exercise: read the Code of Conduct file in the `zipfs` package and edit it to include a method of contact for reporting violations. Add details for how violations will be handled (for example, banning from project, blocking, etc.).
 
 - Licensing
 
@@ -150,18 +150,11 @@ step, refer to the
     `usethis::use_NAME_license()` function. Licensing is a complex thing
     so for now, choose the MIT License.
 
-5. Project Governance:
-    - FIXME: this might be a good place to go through the 
-    [Personas and Pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/)
-    exercise, then add something to CONTRIBUTING.md about what the leadership
-    structure is, if any, and how to get there.
-
 5. Project management
 - Create an [issue template](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository) for your project, providing guidelines for what you think might be the most common category of issue that contributors and users might submit.
 - Add a line to CONTRIBUTING.md requesting that new issues use the template if applicable.
 - FIXME: this might be a good place to go through the [Personas and Pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/) exercise, focusing on user and contributor personas, then add something to CONTRIBUTING.md about the target user of the package.
 
-TODO: Should this be so late? I know it feels like it fits well here, just putting this out there.
 6. Create a NEWS file to your repository about changes you make to it:
     - Create a file called `NEWS.md` in the top level of your project by running
     `usethis::use_news_md()`.
