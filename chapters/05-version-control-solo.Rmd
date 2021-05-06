@@ -12,22 +12,36 @@ Clearly identify which tasks are best accomplished by each interface.
   - adding and updating remotes
 - Setting up GitHub for R package (make use of `usethis`), pushing and pulling
 
-## Final exercise
+## Final exercise {#05-final-exercise}
 
-<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
+Complete these tasks as part of the package for your first project assignment.
+Refer to the project assignment for exact details on what you are required to
+create and on what the package should do. As with the other final exercises,
+we will use the `kenyaweather` package as an example and reference.
 
-1. For the project previously used for demonstration in this chapter,
+TODO: This question makes a change to zipfs, so this should be reflected in any automation we do to it.
+
+1. For the `zipfs` previously used for demonstration in this chapter,
 perform the following tasks:
-- initialize the repository
-- checkout a point in history
-- create a new branch
-- commit some new changes to the file
-- what will happen if you attempt to merge your branches? Merge and find out.
+    - Initialize the repository (`use_git()` in the R Console).
+    - Open up a Terminal and create a new branch called `new-feature` with `git`.
+    - Open up any file and make a minor change (e.g. add a word like "random").
+    In the RStudio Git Interface, add and commit those changes into the history.
+    - Go back to the main branch by using checkout with `git`. 
+    - Think about and consider what will happen if you attempt to merge your
+    branches? In the Terminal, merge the changes from the `new-feature` branch
+    into the `main` branch and find out.
 
-2. For your project assignment,
-perform the following tasks,
-noting the approach you used 
-(Git integration in RStudio, command-line interface, `usethis`):
-- initialize the repository
-- commit all relevant files (are there any you need to ignore?)
-- publish the repository to GitHub
+2. Go to your package for your first project assignment and perform the
+following tasks, noting the approach you used (Git integration in RStudio,
+command-line interface, `usethis`):
+    - Initialize the repository (`use_git()` in the R Console).
+    - In the RStudio Git Interface, add and commit all the relevant files that
+    you've worked on until this point. Are there any you need to ignore? 
+    TODO: Should we have this thing about ignore? At this point would there be anything?
+    - Connect your new Git repository to GitHub (`use_github()` in the R Console)
+    and push the changes up.
+    - Go to your newly created GitHub repository and confirm that your history 
+    has been uploaded to GitHub.
+
+TODO: Add actions done to kenyaweather package here?
