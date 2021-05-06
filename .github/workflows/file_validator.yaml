@@ -1,0 +1,49 @@
+on:
+  push:
+    branches:
+       - main
+       - master
+  pull_request:
+    branches:
+        - main
+        - master
+
+name: File Validator
+
+jobs:
+  file-validator:
+    name: File Validator
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@master
+
+      - name: Setup pandoc
+        uses: r-lib/actions/setup-pandoc@master
+
+      - name: Install RMarkdown
+        run: install.packages("rmarkdown")
+        shell: Rscript {0}
+
+      - name: Run File Wrapper
+        run: |
+        chapters <- dir('chapters', full.names = TRUE)
+        lapply(chapters, knitr::wrap_rmd, width = 80)
+        shell: Rscript {0}
+
+     - name: Clean folder
+       run: system("rm chapters/__**")
+       shell: Rscript {0}
+
+     - name: Push the new files to the repo
+       run: |
+          git config user.name github-actions-linter
+          git config user.email github-actions-linter@github.com
+          git add chapters/
+          git commit -m "GH ACTION - File linted"
+          git push -q
+
+
