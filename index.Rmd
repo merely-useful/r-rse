@@ -43,6 +43,11 @@ create software as part of your research cycle. For researchers who build
 software packages, this book will help prepare you for being a [research
 software engineer][rse].
 
+While we wrote this book largely because there is a need for it, we also
+wrote it because we want more people using the tools and skills we cover
+so that we have more people we can collaborate with and work with using this
+shared approached.
+
 The course material was created using [rmarkdown] to write the lessons,
 [bookdown] to create the book format, [GitHub] to host the [Git] 
 repository of the material, and [GitHub Actions] to create the website.
