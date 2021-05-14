@@ -24,6 +24,7 @@
   * Code: function documentation cycle. Add `roxygen` comments (with cursor in function definition, do `Code > Insert roxygen skeleton` in RStudio). Run `devtools::document()`.
   * Exercise: add `roxygen` comments to two functions in the `zipfs` package.
   * Text: documenting tests
+  * TODO: Decide if this is needed based on what is put into chapter 6.
   * Code: FIXME test documentation workflow
   * Exercise: add and/or improve comments and documentation in a test file in the `zipfs` package.
 
