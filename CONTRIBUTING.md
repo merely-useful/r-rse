@@ -61,6 +61,9 @@ taught overall while explicitly indicating areas that could be modified.
 As an example, final exercises are written in a way to emphasis building
 the kenyaweather package rather than letting the instructor decide.
 
+- While many of the content is targeted to a course setting, we refer to the
+content as "book" and not "course" to keep it more generic.
+
 ### Markdown-related
 
 - When referring to links, use `[text][label]`  and put the URL itself in
@@ -77,6 +80,13 @@ separate the entries with `;`, i.e. `[@Name1234;@Name5678]`.
     `dot-plot` and referred to with `fig:dot-plot`.
 
 - TODO: Write text about adding glossary entries.
+
+- Stick to a specific style for markdown code. When referring to:
+    - A folder name, use `foldername/` with the `/` at the end.
+    - R functions, use `function_name()` with the `()` at the end.
+    - R variables, use `variable_name`.
+    - File names, use `file-name`. Prefer `-` over `_` to distinguish between R
+    variables and files. File names will of course usually have a file extension.
 
 ### Graphical
 

@@ -43,10 +43,10 @@ create software as part of your research cycle. For researchers who build
 software packages, this book will help prepare you for being a [research
 software engineer][rse].
 
-The course material was created using [rmarkdown] to write the lessons,
+The book was created using [rmarkdown] to write the lessons,
 [bookdown] to create the book format, [GitHub] to host the [Git] 
 repository of the material, and [GitHub Actions] to create the website.
-The original source material for this course is found on the 
+The original source material for this book is found on the 
 [`r-rse`] GitHub repository. For those interested in contributing, read the
 [`README.md`](https://github.com/merely-useful/r-rse/blob/main/README.md)
 for more information.

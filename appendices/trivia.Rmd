@@ -1,7 +1,7 @@
 # Trivia
 
 <!-- Things to add that might be interesting or cool bits of facts or thoughts, but  -->
-<!-- that don't fit exactly into the overall course. -->
+<!-- that don't fit exactly into the overall book. -->
 
 ## Why isn't all of this already normal?
 
@@ -17,9 +17,9 @@ the effort you put in may not translate into job security or decent pay.
   - R packages: usethis, devtools, pkgdown, testthat, styler, rmarkdown
   - Online books: [R Packages](https://r-pkgs.org/) 
     - We use the R Packages book as a reference
-    - What makes this course different
+    - What makes this book different
         - Go over the "Whole Game" chapter of the R Packages book (https://r-pkgs.org/whole-game.html)
-        to give an idea of what it all looks like in the end of this course
+        to give an idea of what it all looks like in the end of this book
 
 ## Other package uses
 
