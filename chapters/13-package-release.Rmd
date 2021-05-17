@@ -38,7 +38,7 @@ TODO: I'm hesitant about this one. Seems like its a bit of work to install, its 
 1(b). Run the GitHub Actions for the package, locally (optional)
 > https://github.com/nektos/act
 
-TODO: This one requires installing Docker and I think that's outside the scope of this course.
+TODO: This one requires installing Docker and I think that's outside the scope of this book.
 1(c). Run the rhub check locally (optional)
 > https://r-hub.github.io/rhub/articles/local-debugging.html
 
