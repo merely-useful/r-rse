@@ -61,7 +61,7 @@ taught overall while explicitly indicating areas that could be modified.
 As an example, final exercises are written in a way to emphasis building
 the kenyaweather package rather than letting the instructor decide.
 
-- While many of the content is targeted to a course setting, we refer to the
+- While much of the content is targeted to a course setting, we refer to the
 content as "book" and not "course" to keep it more generic.
 
 ### Markdown-related
