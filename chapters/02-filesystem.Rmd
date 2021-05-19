@@ -1,16 +1,137 @@
-# Folder and file structure (RStudio R Projects)
+# Folder and file structure for R projects
 
-- Very basics of the shell (in RStudio),
+* Very basics of the shell (in RStudio),
 and filesystem terminology
-  - `cd`, `ls`, flags
-  - recursive
-  - paths: home and root
-- Working directory and how it is set with RStudio R Projects
-- Making use of the `fs` package for filesystem management
-  - similar functions in base R and why `fs` is preferred
-  - `dir_ls()`, `dir_tree()`
-  - `dir_map()`
-  - `file_delete()`, `file_info()`, `file_move()`
+  * `cd`, `ls`, flags
+  * recursive
+  * paths: home and root
+* Working directory and how it is set with RStudio R Projects
+* Making use of the `fs` package for filesystem management
+  * similar functions in base R and why `fs` is preferred
+  * `dir_ls()`, `dir_tree()`
+  * `dir_map()`
+  * `file_delete()`, `file_info()`, `file_move()`
+
+## Learning Objectives
+
+* access the shell through RStudio terminal to execute basic Unix commands
+* interpret paths as locations within folders
+* create RStudio projects and identify the working directory
+* apply functions from the `fs` package for filesystem management
+
+## Laying the foundation
+
+* text: This chapter serves two purposes:
+  * confirm everyone has the same baseline knowledge
+  * introduce foundational skills on which we'll build in subsequent chapters
+
+* text (and image?): referencing most recognizable panes of RStudio interface and their default locations
+  * Console: left side, where code is executed
+  * Environment: top right side, lists names of defined objects and information about them
+  * Files: lower right side, browser for navigating directories and files (other tabs in this pane include Plots, Packages, and Help)
+
+## The RStudio terminal
+
+* text (and image?): the RStudio terminal is a way to access the Unix shell from within RStudio. 
+  * Other methods of interacting with the shell include Terminal (Mac OSX), or Windows Subsystem for Linux (WSL) or Git-Bash (also Windows).
+  * RStudio terminal accesses these other methods via the RStudio interface: available via separate tab in Console
+  * Reference RStudio support materials?
+
+* text: why are we learning about the shell?
+  * some version control tasks can only be accomplished on the command line
+  * remote computing requires a remote login
+  * demonstrates and reinforces the importance of directory structure and project organization
+* text: accessing the terminal interface in RStudio
+  * locate tab in console window
+  * explain command prompt, and difference between bash and zsh (latter maybe not necessary given commands executed here?)
+
+## Paths and running commands in the Unix shell and understanding paths
+
+* text: basic commands in the Unix shell
+  * there are many commands that perform many different operations
+  * in this chapter we're focusing on commands used for navigating folders and directories
+* code: `pwd` as first command
+* text: interpret output from `pwd`
+  * differing output from Mac and Windows
+  * define working directory
+
+* code: `ls` to show what is in current (working) directory
+* text: describe output from `ls`
+* code: `ls -a` adding an option to show hidden files
+* text: identify differences between this output and earlier output
+  * `.` prefacing a file name means the file is hidden
+  * `.` and `..` as shortcuts to folders (current and parent file, respectively)
+  * define option/flag as way to modify how the command is executed
+* code: `ls Desktop`: include a directory as an argument to show contents of a different directory
+
+* code: `cd Desktop` to change directory, then `pwd` and `ls` to inspect what has happened
+* text: working directory does not necessarily match the file browser in lower right pane
+* text: changing the working directory can make it easier to reference files and directories 
+
+* text: paths represent a location in your computer, and are comprised of directory names separated by slashes (or backslashes?)
+  * absolute paths
+  * relative paths
+  * `~` as home directory
+
+## Creating a project
+
+* text (image?): one of the challenges of software engineering is keeping our code and associated files organized
+  * we use projects to make these tasks easier
+  * if you are looking at RStudio with no project open, you'll see the working directory listed at the top of the Console as `~/` (or Windows equivalent)
+
+* text (image): create a new project
+  * File -> New Project -> New Directory -> New Project
+  * Directory name: `sassafras`
+  * Create project as subdirectory of: `~/Desktop` (or the equivalent on a Windows machine?); may need to use Browse button
+  * Click "Create Project"
+
+* text: what happens after creating a project?
+  * screen refreshes and path to working directory changes (ends in name of project you just created)
+* code: `pwd` and `ls -a` in Terminal to confirm working directory and show files in project
+* text: interpreting output:
+  * if creating a new project, creates a folder in the specified location that includes hidden files containing information about your project
+  * RStudio references that information to make it easier for us to focus on writing code (includes working directory and our preferences)
+
+* text: why aren't we creating a project to use in later chapters?
+  * while creating your project, you may have noticed the option to create a package, as these are more specialized, structured types of projects
+  * we won't be working with RStudio projects in subsequent chapters, but they demonstrate a few important principles that will help you understand how and why we perform certain actions later
+
+## Managing files and directories with `fs`
+
+* text: introduce {fs} as the recommended approach for working with the filesystem (files, directories, and paths)
+  * could use shell, but sometimes commands for common tasks are complex, and it's inconvenient to move back and forth between your R Console and shell
+  * could use same functions in base R includes, 
+  * {fs} combines the best features of both shell and base R filesystem management, creating a standardized interface for interacting with your files and directories with intuitive names for the functions involved
+* text: {fs} provides additional advantages when creating R packages:
+  * vectorization
+  * predictable return values
+  * explicit failure
+  * doesn't rely on native system encoding (makes everything UTF-8)
+
+* text: we'll look at some of the most common functions from {fs} relevant to development of a data analysis package:
+  * identifying and locating data files
+  * saving intermediate and final output files
+* text: {fs} functions have three different categories, prefaced with:
+  * `dir_` operate on directories
+  * `file_ ` operate on files
+  * `path_` operate on paths
+  * while covering all useful functions is outside the scope of thsi chapter, we'll demonstrate a few to help you understand their breadth of applications
+
+* code: `dir_ls()` to list files in current directory
+  * as with Unix commands, providing no argument defaults to the current working directory
+* code: `dir_ls("Desktop")`: indicate a different directory by including the path as an argument 
+  * don't forget to enclose the path inside quotation marks
+  * can be relative or absolute path
+  * useful when inspecting what files have been created from a function you've run in R
+* code: `dir_tree()` as a different way of listing files and directories
+  * output is formatted differently
+  * recursive: shows files and subdirectories in the specified directory, then all files and subdirectories in those subdirectories, until there are no directories to list
+  * note there is an argument to make `dir_ls` recursive, too!
+  * useful if you need to inspect output but aren't quite sure where it has been saved (run a tree of the entire project)
+* code: `file_copy(path, new_path)` to duplicate a file
+* code: `file_info()` to show details like size, permissions, and date modified for a file
+* code: `file_delete()` to remove files that are no longer needed
+* text: even if these functions don't appear in your final package, they are very useful while writing and debugging your code
 
 ## Final exercise {#02-final-exercise}
 
@@ -21,12 +142,12 @@ and begin working on your assignment.
 
 1. Create a new RStudio project called `practice_filesystem`,
 and answer the following questions:
-  - What is the absolute path to your project directory?
-  - If you close RStudio, how can you ensure your working directory is your project directory when you next open the application?
+  * What is the absolute path to your project directory?
+  * If you close RStudio, how can you ensure your working directory is your project directory when you next open the application?
 
 2. Using your `practice_filesystem` project created in the previous exercise,
 write the commands you can use to perform the following tasks with functions from `fs`:
-  - List all of the files in your project.
-  - Create a new directory called `practice_files/` containing files named `example1.txt` and `example_script.R`.
-  - Move `example1.txt` to your main project directory.
-  - Delete `practice_files/` and everything it contains.
+  * List all of the files in your project.
+  * Create a new directory called `practice_files/` containing files named `example1.txt` and `example_script.R`.
+  * Move `example1.txt` to your main project directory.
+  * Delete `practice_files/` and everything it contains.
