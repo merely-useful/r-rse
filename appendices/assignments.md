@@ -1,4 +1,4 @@
-# Course Assignments
+# Assignments
 
 ## For learners
 
@@ -7,14 +7,14 @@ To help you get there, we provide "assignments" ---
 projects we expect you to complete as you move through the book.
 You would largely work on these assignments outside of class time.
 Each project assignment has several milestones you would need to complete
-throughout the course, usually due shortly after encountering them during
-the course. The project assignments are to:
+throughout the book, usually due shortly after encountering them in the book.
+The project assignments are to:
 
 1. Create a small and simple package on your own.
 2. Make small and simple improvements to a package on GitHub.
 3. Create a slightly larger, team-based package that you would complete in a
 group of 2-3 other learners. This last assignment is *optional* and depends on
-the specific context of the course.
+the specific context of the course this book will be used in.
 
 Each project assignment is described in more detail below. In addition
 to the descriptions, included throughout this section are notes targeted to
@@ -24,7 +24,7 @@ those learners who are working and learning this book on their own.
 
 The first assignment is to create a small, simple package. The *learning
 objective* for this project is to practice and reinforce the skills 
-and knowledge you've learned during the course and to start building your
+and knowledge you've learned throughout the book and to start building your
 confidence in package development that will help for the later assignments.
 
 The project assignment is recommended to be **due** immediately after the
@@ -58,7 +58,7 @@ For an instructor led course, your instructor will decide the exact
 details of what is required to complete this assignment and what topic
 or problems the package should focus on.
 
-> For the *self-directed learners* who are doing this course on their
+> For the *self-directed learners* who are going through this book on their
 own, the assignment is to create a package that creates some custom
 summaries of the climate, either local, regional, national, or global.
 These summaries could include minimum and maximum historical
@@ -126,7 +126,7 @@ and \@ref(team-package-development).
 
 TODO: Can fill this out more as we work on book
 
-The expectations for completing the project assignments change as the course 
+The expectations for completing the project assignments change as the content 
 progresses.
 
 - After the first Git lesson (REF), project should have frequent and consistent
@@ -140,7 +140,7 @@ finishing the chapter.
 Making an interesting project assignment can be quite difficult, so this section
 gives some suggestions and guidance on what the specific project assignment should be.
 The specific type and number of assignments are of course ultimately decided by
-the instructor of the course, but at the least, this course is designed with
+the instructor of the course, but at the least, this book was designed with
 two main project assignments (first and second) in mind, as described above. While
 the specific details of the assignments are completed by the instructor,
 this section contains some general advice and guidelines. This advice can be used
@@ -160,9 +160,9 @@ from a local city, a specific time period, or different aspects of the weather
 be more motivating for the learners to work on if the project does include data. 
 R is a language predominantly used by researchers and data scientists
 for doing data analysis, visualization, and related reporting. Given this,
-learners taking this course are probably already familiar with these tasks and
-would benefit more from the course if they see and use an application they are
-familiar with.
+learners using this book (for a course or otherwise) are probably already
+familiar with these tasks and would benefit more if they see and use an
+application they are familiar with.
 
 TODO: Add some examples that instructors can based off of and deviate if needed.
 TODO: update or revise this list below.

@@ -11,7 +11,7 @@ questions. This book covers the fundamentals of creating software as part of
 your research cycle whether you work alone or as part of a team. We wrote this
 book with three audiences in mind:
 
-1. **Learners in a class setting** who would be taking this course in a more
+1. **Learners in a class setting** who would be using this book in a more
 formal class or workshop setting that is lead by an instructor or instructors.
 Much of the book is written with this reader in mind.
 2. **Independent learners** who would be going through the material and learning
@@ -32,23 +32,23 @@ create programs that are hundreds of lines long and who want to be more
 productive and have more confidence in their results, this book provides a
 pragmatic, tools-based introduction to research software engineering. 
 For researchers whose tasks include building software packages, this book will
-help train you to be a [research software engineer][rse]. Unlike courses aimed
+help train you to be a [research software engineer][rse]. Unlike material aimed
 at computer scientists and professional software developers, this book uses data
 analysis as the motivating example and assumes that the learner's ultimate goal
 is to answer questions rather than develop commercial software products.
 
 TODO: Add more about linking why we should even write packages in the first place.
 
-The main goal of this course is that you learn to
+The main goal of this book is that you learn to
 *develop an R package*.
-By the end of the course, you will have the skills and knowledge necessary to:
+By the end of the book, you will have the skills and knowledge necessary to:
 develop well-built, well-documented, and re-usable R-packages;
 work effectively as part of a team or as a contributor; and optionally prepare
 your package to be submitted to CRAN.
 
 To support your learning experience, 
 we have developed the following specific **learning objectives**
-that you will master during this course:
+that you will master from this book:
 
 - Explain what an R package is, how it is structured, and how to set one up.
 - List and describe some best (or good enough) practices in package
@@ -62,7 +62,7 @@ documentation.
 and how to prepare a package for submission to CRAN so that it passes these checks
 and requirements.
 
-Aside from the technical aspects of building an R package, the course
+Aside from the technical aspects of building an R package, the book
 will also cover topics that enhance and improve the process of package development.
 These learning objectives are to:
 
@@ -75,7 +75,7 @@ that is inclusive and welcoming.
 
 TODO: Add graphic for overview? Something like https://moderndive.com/preface.html#fig:pipeline-figure?
 
-### Who is this course for? {#learner-personas}
+### Who is this book for? {#learner-personas}
 
 The following personas are examples of the types of people that are our target audience.
 
@@ -149,10 +149,10 @@ This book presents software development that emphasizes openness,
 reproducibility, and sustainability, because it supports both individual
 researchers and the entire research community.
 
-### Overview of the packages created throughout course
+### Overview of the packages created
 
 Throughout the book, you will build at least two packages (maybe more depending on
-the course instructor). 
+the instructor). 
 
 - The main example package developed throughout the book is the Zipf's Law package `zipfs`.
 This package is used for the code-alongs, the actual content, and most of the
@@ -163,7 +163,7 @@ package `kenyaweather`. This package is used as a reference when you work on
 your package for the first project assignment.
 
 Specific details about the project assignments are found in the
-Appendix \@ref(course-assignments)). Two of the packages are completed and can be
+Appendix \@ref(assignments)). Two of the packages are completed and can be
 used as references (`zipfs` and `kenyaweather`).
 
 ### For the self-directed learner
@@ -318,7 +318,7 @@ More details for instructors can be found in Appendix TODO: Add ref label.
 
 All of this material can be freely re-used under the terms of the
 [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
-and the course code is licensed under a 
+and the book code is licensed under a 
 [MIT License](https://github.com/merely-useful/r-rse/blob/main/LICENSE-MIT.md),
 so the material can be used, re-used, and modified, 
 as long as there is attribution to this source.
