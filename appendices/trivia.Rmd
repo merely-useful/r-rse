@@ -1,0 +1,28 @@
+# Trivia
+
+<!-- Things to add that might be interesting or cool bits of facts or thoughts, but  -->
+<!-- that don't fit exactly into the overall book. -->
+
+## Why isn't all of this already normal?
+
+Nobody argues that research should be irreproducible or unsustainable,
+but "not against it" and actively supporting it are very different things.
+Academia doesn't yet know how to reward people for writing useful software,
+so while you may be thanked,
+the effort you put in may not translate into job security or decent pay.
+
+## Key resources used
+
+- Key resources to use for this:
+  - R packages: usethis, devtools, pkgdown, testthat, styler, rmarkdown
+  - Online books: [R Packages](https://r-pkgs.org/) 
+    - We use the R Packages book as a reference
+    - What makes this book different
+        - Go over the "Whole Game" chapter of the R Packages book (https://r-pkgs.org/whole-game.html)
+        to give an idea of what it all looks like in the end of this book
+
+## Other package uses
+
+- Other uses of packages
+    - RStudio addins, snippets, rmarkdown templates, templates
+    - rstudioapi

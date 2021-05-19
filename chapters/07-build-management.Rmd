@@ -8,9 +8,9 @@
 
 ## Learning Objectives 
 
-* Acquaint with the devtools functionality needed to manage an R package infrastructure
-* Describe the CRAN checks' process and the different components
-* Understand and set up the workflow for an R package validation
+* Describe the functionality devtools provides to manage an R package infrastructure
+* Explain the CRAN checks' process and the different components
+* Implement the workflow to validate an R package locally
 * Deploy a GitHub Action that runs a continuous integration workflow
 
 ## Outline
@@ -25,9 +25,12 @@
     * Text: Explain what is CRAN
         * I believe it isn't defined before in the book.
     * Text: Explain why CRAN needs "checks"
+    * Text: Explain the importance of passing a CRAN check even if the package is not available on CRAN
     * Text: Explain what does CRAN look in when performing a check
     * Text: Explain the output of a CRAN check
     * Code: `devtools::check()`
+    * Exercise: Present an error with CRAN check that has not been previously seen in the book and have the learners find the solution
+      * This will be expanded in detail once all of the chapters have been outlined
 
 * R package build workflow
 
@@ -43,32 +46,35 @@
     * Exercise: Deploy a sample GitHub Actions
       * Probably one that install R using the r-lib action is a good exercise
     * Code: `usethis::use_github_action_check_standard()`
+    * Text: Explain how to navigate the result of the GitHub Action and the logs window
 
-## Final exercise
+## Final exercise {#07-final-exercise}
 
-The purpose of this exercise is for the participant to go through a cycle of iteration of:
+Complete these tasks as part of the package for your first project assignment.
+Refer to the project assignment TODO: Add ref to assignment here?
+for more details. As with the other final exercises,
+we will use the `kenyaweather` package as an example and reference.
+Don't forget to add and commit any changes you've made into the Git history
+after each task, and pushing to GitHub.
 
-- 1) checking if their package succeeds with R CMD
-- 2) adding a function and the related steps
-- 3) check if the package succeeds R CMD with the new additions
-- 4) deploy a GitHub Action that performs the R CMD check every time they push to GitHub. 
-
-The individual steps look like this:
-
-<!-- COMMENT: Include check() after each step? -->
-
-1. Check the package in its current state. Fix any notes, warnings, or errors.
-  - `devtools::check()`
-2. Add a function called `FIXME`
-  - `usethis::use_r("FIXME")`
-3. Add and build documentation for the `FIXME` function.
-  - `devtools::document()`
-4. Load all the functions and see if the `FIXME` function works.
-  - `devtools::load_all()` 
-5. Write and execute tests for the `FIXME` function.
-  - `usethis::use_test("FIXME")`
-  - `devtoools::test()`
-6. Check that the package builds with the new additions
-  - `devtools::check()`
-7. Deploy a GitHub action to perform a standard R CMD check
-  - `usethis::use_github_action_check_standard()`
+1. In your project package, check the package by running `check()` (with
+`Ctrl-Shift-E` in RStudio). Do you have any notes, warnings, or errors from the
+check?
+2. Based on the check output, try to fix as many of the notes, warnings, and/or 
+errors as possible. Usually `check()` provides informative enough messages that
+help guide you to fixing the problems, but not always. Try as best you can.
+3. Add a new function to you package by using `use_r()` that does TODO: Add something here?
+4. Add roxygen2 documentation for the new function and then run `document()` 
+(type `Ctrl-Shift-D` in RStudio).
+TODO: This depends on if roxygen is talked about before or after this.
+5. Load the function with `load_all()` (`Ctrl-Shift-L`) and see if the function works.
+6. Create a new test for the function with `use_test()` and write a basic unit test
+testing that the function produces the right output type (e.g. a data frame or vector).
+Then run `test()` (`Ctrl-Shift-T`). Fix any errors or warnings that come up and
+test again until you get no more errors or warnings.
+7. Do another `check()` (`Ctrl-Shift-E`) and try to fix any notes, warnings, or
+errors.
+8. Set up your Git repository to use a GitHub Action that runs `check()` on
+GitHub. Add this setup with `usethis::use_github_action_check_standard()`. Add
+and commit this file, then push your changes up to GitHub. Go to the projects 
+GitHub repository and check the Actions you just added.

@@ -75,3 +75,58 @@ D. Defining lifecycle of your package and individual functions (with lifecycle)
 > Modify the functions Roxygen annotations; `@description \\`r lifecycle::badge("experimental")\\``
 
 8. Commit the changes and push up to GitHub. Confirm that the package website has been built.
+
+## Final exercise {#09-final-exercise}
+
+Complete these tasks as part of the package for your first project assignment.
+Refer to the project assignment TODO: Add ref to assignment here?
+for more details. As with the other final exercises,
+we will use the `kenyaweather` package as an example and reference.
+Don't forget to add and commit any changes you've made into the Git history
+after each task, and pushing to GitHub.
+
+1. Add a `pkgdown` website infrastructure to your package by running 
+`usethis::use_pkgdown()` in the R Console.
+    - Test that the site can build locally (on your own computer) by running 
+    `pkgdown::build_site()`.
+
+2. Search through the potential themes and select which one you'd like for your
+package website. Set your selected theme by adding the below in the
+`_pkgdown.yml`, replacing the `THEMENAME` with the theme you chose.
+
+
+    ```yaml
+    template:
+      params:
+        bootswatch: THEMENAME
+    ```
+
+3. Customize your website title and description for the homepage by adding
+the below to your `_pkgdown.yml` file.
+
+    ```yaml
+    home:
+        title: TITLE
+        description: >
+            DESCRIPTION
+    ```
+
+4. Organize your package functions into sections in the reference section of
+the `_pkgdown.yml` file by using the `pkgdown::template_reference()` function as
+the starting point.
+
+5. Given your package is still in development, indicate that it is
+"experimental" by using the lifecycle package:
+    - Setup lifecycle with `use_lifecycle()`.
+    - Add the badge to your README with `use_lifecycle_badge("experimental")`.
+    - In each of your R functions, include the experimental lifecycle badge
+    in the Roxygen documentation right below the function title.
+    
+        ```r
+        #' `r lifecycle::badge("experimental")`
+        ```
+
+6. Configure your repository to use GitHub Actions by adding the appropriate
+action with `usethis::use_github_action("pkgdown")`. Commit all the new
+changes and push up to GitHub. Check that the Actions have been started
+and confirm that the website has been built.

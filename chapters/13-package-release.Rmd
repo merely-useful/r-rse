@@ -2,57 +2,50 @@
 
 - Check builds on other systems (with rhub)
 - Etiquette for using (mostly free) servers and external build systems like GitHub Actions and rhub (e.g. do not overuse them)
-- Managing your versions, git tagging
+- Managing your versions, git tagging, DOI?
+- ORCID here?
 
-
-
-## Final exercise
-
-<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
-
-The purpose of this exercise is for the participant to go through an iteration of doing an R CMD check of the package in remote systems, understanding how to use these systems and lastly practice how to tag git commits to track versions.
-
-A. Check builds on other systems (with rhub)
-<!--> https://r-hub.github.io/rhub/articles/rhub.html-->
-
+TODO: This could be a core exercise instead
 1. Validate email with rhub
 > `rhub::validate_email("youremail@email.com")`
 
-2. Run a package check against the directory
-> `rhub::check()`
-
-3. Run a package check against the tarball
-> `devtools::build()`
-> `rhub::check(<tarball>)`
-
-4. Run a package check against a specific OS
-> `rhub::check(<OS>)`
-
-5. Browse previous checks
-> `rhub::list_package_checks()`
-
-B. Etiquette for using (mostly free) servers and external build systems like GitHub Actions and rhub (e.g. do not overuse them)
-
+TODO: This question would be better suited as a core exercise, not in the final exercise
 1. Read the usage limits on GitHub Actions and rhub
 > - https://docs.github.com/en/actions/reference/usage-limits-billing-and-administration
 > - https://docs.r-hub.io/#regularly
 TODO: Add a question to assess whether they've read it?
 
+## Final exercise
+
+Complete these tasks as part of the package for your first project assignment.
+Refer to the project assignment TODO: Add ref to assignment here?
+for more details. As with the other final exercises,
+we will use the `kenyaweather` package as an example and reference.
+Don't forget to add and commit any changes you've made into the Git history
+after each task, and pushing to GitHub. Make use of the usethis `pr_*` workflow
+described in Chapter \@ref(github-workflows).
+
+1. Run a package check with `rhub::check()` against an OS different from your
+own. For instance, if you use Windows, run a check on Mac OS or Linux.
+    - For Mac checks, use `rhub::check_on_macos()`.
+    - For Linux checks, use `rhub::check_on_linux()`.
+    - For Windows checks, use `rhub::check_on_windows()`.
+
+TODO: Add task about checking results from within R? (eg. get_check())
+2. Browse your previous checks with `rhub::list_package_checks()`.
+
+TODO: I'm hesitant about this one. Seems like its a bit of work to install, its a third-party app and might change. 
 1(b). Run the GitHub Actions for the package, locally (optional)
 > https://github.com/nektos/act
 
+TODO: This one requires installing Docker and I think that's outside the scope of this book.
 1(c). Run the rhub check locally (optional)
 > https://r-hub.github.io/rhub/articles/local-debugging.html
 
-C. Managing your versions, git tagging
+3. Upgrade your R package minor version number with
+`usethis::use_version("minor")`.
 
-1. Upgrade version in the R package
-> In the DESCRIPTION file, use `usethis::use_version()` to modify the minor version number
-
-2. Build your package and commit
-> `devtools::build()`
-> `git commit`
-
+TODO: Need to think about another way to do this, maybe instead with the gert package?
 3. Tag your commit (version # is flexible)
 > `git tag -a v1.0 -m "Version Tag 1.0"`
 TODO: Use use_release_issue() as well?
