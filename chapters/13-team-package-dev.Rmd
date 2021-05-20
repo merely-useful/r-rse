@@ -12,6 +12,13 @@ environment
 
 ## Overview (remove this header later)
 
+In earlier chapters (e.g.,\@ref(community-involvement)),
+we discussed how to set up your project to encourage other people to use your work,
+and potentially make small contributions to your code.
+In this chapter,
+we'll cover the next big step in project development:
+using tools and creating infrastructure that will allow you to plan and work with a team of developers.
+
 - Making use of GitHub Organizations/Teams, member roles
     - Text: 
         - Centralize team activity, more settings to control how team members
