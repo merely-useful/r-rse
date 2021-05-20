@@ -43,7 +43,7 @@ and filesystem terminology
   * demonstrates and reinforces the importance of directory structure and project organization
 * text: accessing the terminal interface in RStudio
   * locate tab in console window
-  * explain command prompt, and difference between bash and zsh (latter maybe not necessary given commands executed here?)
+  * explain command prompt: bash default ends in `$`; some Macs may be running zsh and end in `%`, but this won't affect any commands in this book
 
 ## Paths and running commands in the Unix shell and understanding paths
 
@@ -92,7 +92,7 @@ and filesystem terminology
   * if creating a new project, creates a folder in the specified location that includes hidden files containing information about your project
   * RStudio references that information to make it easier for us to focus on writing code (includes working directory and our preferences)
 
-* text: why aren't we creating a project to use in later chapters?
+* text: why aren't we creating a project to use in later chapters? Here we use a project to get warmed up in a low-stakes way.
   * while creating your project, you may have noticed the option to create a package, as these are more specialized, structured types of projects
   * we won't be working with RStudio projects in subsequent chapters, but they demonstrate a few important principles that will help you understand how and why we perform certain actions later
 
@@ -119,6 +119,7 @@ and filesystem terminology
 
 * code: `dir_ls()` to list files in current directory
   * as with Unix commands, providing no argument defaults to the current working directory
+  * if your working directory is `sassafras`, you'll only have one file shown here (`sassafras.Rproj`)
 * code: `dir_ls("Desktop")`: indicate a different directory by including the path as an argument 
   * don't forget to enclose the path inside quotation marks
   * can be relative or absolute path
