@@ -59,6 +59,15 @@ This chapter is very description-heavy with minimal code.
   - Exercise: create an issue template for reporting bugs in the `zipfs` package.
   - Exercise: create an issue describing a possible new feature or enhancement for the `zipfs` package.
   - Text: project maintenance, longevity and sustainability. Possible areas to cover: [project maintenance](https://mozilla.github.io/open-leadership-training-series/articles/open-project-maintenance/open-project-maintenance/), contributor [personas and pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/), [leadership structure](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/understand-meaningful-participation-and-distributed-leadership/), [event planning and facilitation](https://mozilla.github.io/open-leadership-training-series/articles/running-awesome-community-events/event-planning-and-facilitation/).
+  
+- Project management with GitHub Issues (moved from chapter 12)
+  - Text: Beyond bugs: how GitHub issues can help you keep track of tasks and communicate with your community ([reference](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/project-set-up-for-collaboration-with-github/#project-structure-and-organization)). How to label issues and link issues to other parts of your project.
+  - Exercise: create at least three issue labels for the `zipfs` repository. Label the existing issues so that each has at least one label.
+
+Also moved from chapter 12:
+- use_github_labels(), browse_github_issues(), issue_reprex_needed(), and perhaps issue_close_community()
+- Give set of recommended labels?
+- Issue templates? (made by Joel: https://github.com/altair-viz/altair/issues/new/choose)
 
 <!---
 NOTE: This is potential content to use, if it fits.
