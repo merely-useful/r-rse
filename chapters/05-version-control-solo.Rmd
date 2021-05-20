@@ -12,6 +12,45 @@ Clearly identify which tasks are best accomplished by each interface.
   - adding and updating remotes
 - Setting up GitHub for R package (make use of `usethis`), pushing and pulling
 
+## Learning objectives
+
+* understand why to use version control, specifically Git
+* differentiate two methods for working with Git: RStudio integration and using shell commands in Terminal
+* apply the add-stage-commit process as the Git workflow for tracking changes
+* view and work with commit history
+* create branches
+* publish repositories to GitHub and work between remote and local versions
+
+## Overview
+
+## Git integration in RStudio
+
+### Setting up Git in RStudio
+
+* accessing Git through Global options
+* `usethis::use_git` to initialize repository
+* orientation to main buttons
+
+### Tracking changes in RStudio
+
+### Viewing history in RStudio
+
+## Git in Terminal
+
+### Tracking changes and viewing history in Terminal
+
+### Creating branches in Terminal
+
+### Exploring history in Terminal
+
+## Working with remote repositories
+
+* `usethis::git_remotes`
+* `usethis::use_git_remote()`
+* pushing
+* pulling
+* mention command line activities?
+
 ## Final exercise {#05-final-exercise}
 
 Complete these tasks as part of the package for your first project assignment.
