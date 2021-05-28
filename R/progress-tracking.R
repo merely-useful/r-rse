@@ -2,6 +2,9 @@ library(tidyverse)
 chapters <- fs::dir_ls("chapters/", glob = "*.Rmd")
 # appendix <- fs::dir_ls("appendices")
 
+
+# Milestone and progress tracking -----------------------------------------
+
 "## Chapter and appendix assignment
 
 | Chapter/appendix | Assigned to |
@@ -42,3 +45,28 @@ This depends heavily on the chapter, but a good aim for number of exercises woul
     append(glue::glue("- [ ] {chapters}")) %>%
     paste0(collapse = "\n") %>%
     clipr::write_clip()
+
+"
+## Add content and create rough draft of each chapter (item 7 in #1)
+
+Build up and finish writing the exercises and add the text and code-along content that are related to them.
+
+As content and exercises are added, please refer to #96 for more details on how to format and structure the chapters.
+" %>%
+    append(glue::glue("- [ ] {chapters}")) %>%
+    paste0(collapse = "\n") %>%
+    clipr::write_clip()
+
+
+# Review phase tracking ---------------------------------------------------
+
+library(lubridate)
+library(stringr)
+
+start_date <- ymd("2021-06-03")
+meeting_dates <- seq(start_date, start_date + months(4), by = "2 weeks")[c(-4, -9)]
+chapters[c(-1, -14)] %>% str_spl
+
+"| Date | Chapters to review and discuss |
+|----|----|" %>%
+    append(glue::glue("| {meeting_dates} | {} |"))
