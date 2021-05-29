@@ -7,8 +7,8 @@
 
 ## Learning Objectives
 
-- Describe the importance of using a build system for validating softwate
-- Identify ethical guidelines when using build systems like RHub
+- Describe the importance of using a build system for validating software and how to apply it
+- Understand and implement ethical guidelines when using build systems like RHub
 - Prepare a package version release on GitHub
 - Manage current package versions and devise future ones
 
