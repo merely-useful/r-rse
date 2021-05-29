@@ -7,7 +7,7 @@
 
 ## Learning Objectives
 
-* Describe the functionality `pkgdown` provides to deploy a website for package documentation
+* Describe the functionality `pkgdown` provides to deploy a website for package documentation and then learn to use pkgdown to deploy a website
 * Customize the website with pre-existing themes
 * Organize the website with vignettes, tutorials and custom pages
 * Explain a functions' lifecycle process and the tools to handle it in R
