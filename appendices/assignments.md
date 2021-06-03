@@ -18,7 +18,7 @@ the specific context of the course this book will be used in.
 
 Each project assignment is described in more detail below. In addition
 to the descriptions, included throughout this section are notes targeted to
-those learners who are working and learning this book on their own.
+those learners who are working through and learning from this book on their own.
 
 ### First project: Create a package on your own
 
@@ -35,7 +35,7 @@ milestones to ensure you are making progress on your assignment.
 
 An *acceptable* package for completing the assignment would have at a *minimum*:
 
-- Two-three functions.
+- Two to three functions.
 - (Optional) a dataset with associated roxygen documentation and an R script that
 generated, extracted, and/or processed the dataset.
 - A unit test for each function.
@@ -79,13 +79,13 @@ for how the final exercise should or could be done.
 The second assignment is to contribute to an existing package. The *learning
 objective* for this project is to practice and reinforce the skills 
 and knowledge that you've learned on community involvement and of the
-importance that documentation has in involving the community.
+importance that documentation has on involving the community.
 Completing this assignment will make it easier to finish the first
-assignment. The project assignment is recommended to started after
+assignment. The project assignment is recommended to be started after
 Chapter \@ref(community-involvement) and be **due**
 immediately after the Chapter \@ref(github-workflows).
 Like with the first project, at the end of Chapters 
-\@ref(community-involvement) and \@ref(github-workflows) there are some final
+\@ref(community-involvement) and \@ref(github-workflows) are some final
 exercises with tasks to help guide you in completing this second project
 assignment.
 
@@ -96,7 +96,7 @@ assignment.
     3. If a *self-directed learner*, see the instructions below.
 2. Improve the package to better fit with best practices based on what you've learned.
     - You don't need to update everything in the package, only a few things that
-    you capable of and related to what you've learned so far.
+    you are capable of and related to what you've learned so far.
     - You can optionally submit a Pull Request of the changes, but this depends
     on whether the maintainer is open to Pull Requests. If you want to submit a
     Pull Request, check if an issue already exists for improving something
@@ -110,7 +110,7 @@ TODO: include instructions on how to find packages to contribute to.
 ### Third project: Creating a package as a team
 
 This assignment is *optional* as it depends on multiple factors like class size,
-duration of course, or virtual vs in-person settings. This would be the third
+duration of the course, or virtual vs in-person settings. This would be the third
 and final deliverable for the course. There are no final exercises in each
 chapter that learners need to complete related to this assignment. Exercises and
 the structure of the group work would be determined by the instructor. This
@@ -119,7 +119,7 @@ assignment would best be due sometime after the team-work lesson
 
 - Using the same process as was done with the first project assignment,
 complete a package as a team, using the tools taught in
-Chapters \@ref(community-involvement), \@ref(github-workflows), \@ref(project-management),
+Chapters \@ref(community-involvement), \@ref(github-workflows),
 and \@ref(team-package-development).
 
 ### Rubric and expectations of the learner
