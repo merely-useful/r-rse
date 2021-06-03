@@ -12,7 +12,7 @@ your research cycle whether you work alone or as part of a team. We wrote this
 book with three audiences in mind:
 
 1. **Learners in a class setting** who would be using this book in a more
-formal class or workshop setting that is lead by an instructor or instructors.
+formal class or workshop setting, lead by an instructor or instructors.
 Much of the book is written with this reader in mind.
 2. **Independent learners** who would be going through the material and learning
 on their own. An independent learner can for the most part follow the book as if
@@ -21,11 +21,12 @@ highlight and describe where necessary.
 3. **Instructors** who would use this book as the basis for a course or workshop
 of their own. Throughout the book there are sections dedicated to this reader
 that give information or instructions on how to use or modify the material for
-the instructor's specific context.
+the instructor's specific context. See Appendix \@ref(for-instructors) for more
+detail about how to use this book for teaching.
 
 ## Introduction for learners
 
-This primary aim of this book is to teach you the tools, skills, and knowledge
+The primary aim of this book is to teach you the tools, skills, and knowledge
 necessary to making research software that is open, reproducible, and
 sustainable. For researchers and data scientists who can write functions to
 create programs that are hundreds of lines long and who want to be more
