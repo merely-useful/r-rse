@@ -1,3 +1,33 @@
+# Instructions to instructors {#for-instructors}
+
+The instructional design of the learning material contained in this
+book revolves around three key concepts:
+
+1. *Participatory live-coding* lessons, where participants join with
+instructors to write and troubleshoot code step-by-step. We believe
+that this method encourages participants to actively engage with the
+material, to build muscle memory through typing, and to learn how to
+handle mistakes, rather than passively observing content.
+ [@Brow2018; @Wils2018]
+2. *In-class and out-of-class exercises* that include independent
+reading of assigned material and hands-on, practical work.
+The hands-on exercises are interspersed throughout the live-coding
+sessions to complement and reinforce the content as well
+as give learners the opportunity to work through the code and problems
+at their own pace. Reading activities are used to build concept-heavy
+knowledge.
+3. *Project- and problem-based assignments* that include both independent
+and group-based work. For the project assignments, learners reinforce
+what they learned through a new problem and challenge. The independent
+work prepares them for the optional group-based work, where
+they can practice team-based skills like communication, project management,
+and running meetings.
+
+## Instructor persona
+
+TODO: Fill in.
+
+## Brainstorming
 
 - **Teaching/learning activities**:
     - In class portion: 
