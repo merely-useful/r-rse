@@ -38,10 +38,12 @@ at computer scientists and professional software developers, this book uses data
 analysis as the motivating example and assumes that the learner's ultimate goal
 is to answer questions rather than develop commercial software products.
 
-TODO: Add more about linking why we should even write packages in the first place.
-
-The main goal of this book is that you learn to
-*develop an R package*.
+Science is a process that depends on scientific results that are accurate,
+precise, replicable, and reproducible. Developing software packages for research
+purposes is an important way in our modern research environment to ensuring that
+the analyses that produce our results are exactly that: accurate, precise,
+replicable, and reproducible. Given this, the main learning goal of this book is
+that you learn to *develop an R package*.
 By the end of the book, you will have the skills and knowledge necessary to:
 develop well-built, well-documented, and re-usable R-packages;
 work effectively as part of a team or as a contributor; and optionally prepare
