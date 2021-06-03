@@ -1,6 +1,10 @@
 library(tidyverse)
+library(lubridate)
+
 chapters <- fs::dir_ls("chapters/", glob = "*.Rmd")
-# appendix <- fs::dir_ls("appendices")
+assignment <- fs::dir_ls("appendices", regexp = "assignments")
+
+# Milestone and progress tracking -----------------------------------------
 
 "## Chapter and appendix assignment
 
@@ -40,5 +44,38 @@ Write out some core and supplemental exercises that build up or add to the examp
 This depends heavily on the chapter, but a good aim for number of exercises would be between 6-12.
 " %>%
     append(glue::glue("- [ ] {chapters}")) %>%
+    paste0(collapse = "\n") %>%
+    clipr::write_clip()
+
+"
+## Add content and create rough draft of each chapter (item 7 in #1)
+
+Build up and finish writing the exercises and add the text and code-along content that are related to them.
+
+As content and exercises are added, please refer to #96 for more details on how to format and structure the chapters.
+" %>%
+    append(glue::glue("- [ ] {chapters}")) %>%
+    paste0(collapse = "\n") %>%
+    clipr::write_clip()
+
+# Review phase tracking ---------------------------------------------------
+
+odd_chapters <- function(chapters, odd = TRUE) {
+    selection <- 0
+    if (!odd)
+        selection <- 1
+    chapters[seq_along(chapters) %% 2 == selection]
+}
+
+start_date <- ymd("2021-06-03")
+meeting_dates <- seq(start_date, start_date + months(4), by = "2 weeks")[c(-4, -9)]
+chapters_to_review <- c(chapters[1], assignment, chapters[c(-1, -14)])
+
+even_chpt <- odd_chapters(chapters_to_review, FALSE)
+odd_chpt <- odd_chapters(chapters_to_review)
+
+"| Date | Chapters to review and discuss |
+|----|----|" %>%
+    append(glue::glue("| {meeting_dates} | {even_chpt}, {odd_chpt} |")) %>%
     paste0(collapse = "\n") %>%
     clipr::write_clip()
