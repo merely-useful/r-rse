@@ -105,7 +105,20 @@ applications they are being asked to support have shifted from fluid dynamics to
 data analysis; this guide will teach them how to build and run re-usable data
 analysis pipelines so that they can pass those skills on to their users.
 
-TODO: Add undergrad persona.
+NAME
+: Learned about statistics and programming during high school and decided to 
+enroll into an undergraduate Data Science program. PRONOUN hopes to have a career
+working on open source projects and doing research software engineering for a
+research institution. One of PRONOUN's courses uses this book so PRONOUN will be
+working through the material during the course and will use it as reference
+afterwards.
+
+NAME
+: Has been doing a graduate PhD degree that involves largely doing quantitative
+research. While doing PRONOUN's projects, PRONOUN realizes that learning and creating
+R packages would greatly help PRONOUN's work as well as others in the group. 
+PRONOUNS enrolled in a course at the university that uses this book so will work
+through this book.
 
 ### Prerequisites
 
