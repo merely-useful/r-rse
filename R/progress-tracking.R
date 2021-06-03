@@ -1,7 +1,8 @@
 library(tidyverse)
-chapters <- fs::dir_ls("chapters/", glob = "*.Rmd")
-# appendix <- fs::dir_ls("appendices")
+library(lubridate)
 
+chapters <- fs::dir_ls("chapters/", glob = "*.Rmd")
+assignment <- fs::dir_ls("appendices", regexp = "assignments")
 
 # Milestone and progress tracking -----------------------------------------
 
@@ -57,16 +58,24 @@ As content and exercises are added, please refer to #96 for more details on how 
     paste0(collapse = "\n") %>%
     clipr::write_clip()
 
-
 # Review phase tracking ---------------------------------------------------
 
-library(lubridate)
-library(stringr)
+odd_chapters <- function(chapters, odd = TRUE) {
+    selection <- 0
+    if (!odd)
+        selection <- 1
+    chapters[seq_along(chapters) %% 2 == selection]
+}
 
 start_date <- ymd("2021-06-03")
 meeting_dates <- seq(start_date, start_date + months(4), by = "2 weeks")[c(-4, -9)]
-chapters[c(-1, -14)] %>% str_spl
+chapters_to_review <- c(chapters[1], assignment, chapters[c(-1, -14)])
+
+even_chpt <- odd_chapters(chapters_to_review, FALSE)
+odd_chpt <- odd_chapters(chapters_to_review)
 
 "| Date | Chapters to review and discuss |
 |----|----|" %>%
-    append(glue::glue("| {meeting_dates} | {} |"))
+    append(glue::glue("| {meeting_dates} | {even_chpt}, {odd_chpt} |")) %>%
+    paste0(collapse = "\n") %>%
+    clipr::write_clip()

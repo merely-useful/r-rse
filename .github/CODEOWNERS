@@ -14,6 +14,5 @@ chapters/08-documentation.Rmd @mbonsma @ian-flores
 chapters/09-package-website.Rmd @ian-flores @cwickham
 chapters/10-community-involvement.Rmd @mbonsma @k8hertweck
 chapters/11-version-control-workflow.Rmd @lwjohnst86 @ian-flores
-chapters/12-project-management.Rmd @mbonsma @k8hertweck
-chapters/13-package-release.Rmd @ian-flores @cwickham
-chapters/14-team-package-dev.Rmd @lwjohnst86 @joelostblom
+chapters/12-package-release.Rmd @ian-flores @cwickham
+chapters/13-team-package-dev.Rmd @lwjohnst86 @joelostblom

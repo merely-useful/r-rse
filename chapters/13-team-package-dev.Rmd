@@ -4,13 +4,20 @@
 
 ## Learning objectives
 
-- To learn about and apply tools within GitHub for improving team work and
-coordination on developing an R package in a team-based environment.
-- To understand how explicitly stating culture and standards for behaving and
-interacting with those in your team can help build a healthy and productive team
-environment.
+- Apply tools within GitHub for improving team work and
+coordinating development of an R package
+- Explicitly communicate culture and standards for
+interacting with your team to build a healthy and productive working
+environment
 
 ## Overview (remove this header later)
+
+In earlier chapters (e.g.,\@ref(community-involvement)),
+we discussed how to set up your project to encourage other people to use your work,
+and potentially make small contributions to your code.
+In this chapter,
+we'll cover the next big step in project development:
+using tools and creating infrastructure that will allow you to plan and work with a team of developers.
 
 - Making use of GitHub Organizations/Teams, member roles
     - Text: 
@@ -97,6 +104,36 @@ culture and standards
     (e.g. R code vs vignettes). Using this concept can help streamline and automate
     other tasks.
 
+Moved from chapter 12:
+- Planning and managing your project's goals
+  - Text: [Roadmaps](https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/start-your-project-roadmap/), GitHub Projects, and Milestones are all ways to keep track of the big-picture goals and progress of your project on GitHub.
+  - Exercise: create a roadmap for the `zipfs` project, either as an issue or as a file called ROADMAP.md.
+  - Exercise: create several new issues for the `zipfs` project using the roadmap as inspiration. Add labels to these issues.
+  - Exercise: look at some examples of packages that use GitHub milestones and GitHub Projects. Are there situations in which one project management approach is better than the other?
+    - Milestone examples:
+        - [ggplot2](https://github.com/tidyverse/ggplot2/milestones)
+	      - FIXME: more examples?
+    - Project examples:
+        - [bootstrap](https://github.com/twbs/bootstrap/projects)
+	      - FIXME: more examples?
+  - Exercise: create a GitHub Project for the `zipfs` repo containing the columns "To do", "In progress", and "Done".
+  - Exercise: create a milestone using the roadmap as inspiration. Assign at least two issues to the milestone.
+  - Exercise: in the `zipfs` roadmap, add links to the issues you created based on the roadmap and a link to the milestone.
+
+[project-roadmap]: https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/start-your-project-roadmap/
+
+(moved from chapter 12 exercises) Look at some examples of packages that use GitHub Milestones and GitHub Projects. Are there situations in which one project management approach is better than the other? Which do you prefer, or which do you feel suits your project better?
+    - Milestone examples:
+        - [ggplot2](https://github.com/tidyverse/ggplot2/milestones)
+	- FIXME: more examples?
+    - Project examples:
+        - [bootstrap](https://github.com/twbs/bootstrap/projects)
+	- FIXME: more examples?
+
+<!-- TODO: This is better here, not in the final exercise. -->
+<!-- Example: [STEMMM Role Models -->
+<!-- roadmap](https://github.com/KirstieJane/STEMMRoleModels/issues/1). -->
+
 <!--
 TODO: revise this text when adding the actual content.
 A team work contract communicates specifically **how** the core group of people who are working together
@@ -161,6 +198,25 @@ some general guidelines on:
 4. In your GitHub package (user?) repository settings, create a PAT for working with...
 TODO: This item might already be done for setting up GitHub actions.
 ...by using `usethis::create_github_token()`.
+
+Moved from chapter 12:
+1. Create a [roadmap][project-roadmap] for your project describing short-term,
+medium-term, and long-term project goals. For now keep these goals about completing
+the first project assignment. This can be a GitHub issue or a file called
+`ROADMAP.md`. TODO: We should decide on one, to restrict learners choice.
+
+2. Using your roadmap as inspiration for todo items, create new Issues for a few
+of your project's tasks.
+    - Create several new Issue Labels. GitHub provides a few good default ones.
+    Add some new ones like FIXME: Add specific labels here, other than the ones
+    that github makes.
+    - Add a link in your `CONTRIBUTING.md` to Issues with the label `good-first-issue`
+    so new contributors know where they can get started.
+    - In your roadmap, add links to relevant Issues for others (and yourself)
+    to be able to quickly find and look over.
+
+1. Depending on whether you prefer Milestones or Projects, create one for your
+project for finishing this first project assignment. 
 
 ### For the third project assignment
 
