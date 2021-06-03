@@ -103,6 +103,10 @@ All text and images:
   * `git branch -d new_idea`
 * text: note working with branches in rstudio tab
 
+Exercise
+
+Discuss more about branches in git workflows chapter
+
 ## Working with remote repositories
 
 * text: remote vs local repositories
@@ -111,6 +115,8 @@ All text and images:
   * `usethis::use_github`
   * `usethis::git_remotes`
 * text: summarize process above
+
+Exercise
 
 * text: pushing (define)
 * make change to file
