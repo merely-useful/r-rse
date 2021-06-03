@@ -33,7 +33,8 @@ Making an interesting project assignment can be quite difficult, so this section
 gives some suggestions and guidance on what the specific project assignment should be.
 The specific type and number of assignments are of course ultimately decided by
 the instructor of the course, but at the least, this book was designed with
-two main project assignments (first and second) in mind, as described above. While
+two main project assignments (first and second) in mind, as described in Appendix 
+\@ref(assignments). While
 the specific details of the assignments are completed by the instructor,
 this section contains some general advice and guidelines. This advice can be used
 for all three project assignments but is largely specific to the **first project
