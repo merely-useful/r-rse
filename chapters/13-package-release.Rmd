@@ -5,15 +5,35 @@
 - Managing your versions, git tagging, DOI?
 - ORCID here?
 
-TODO: This could be a core exercise instead
-1. Validate email with rhub
-> `rhub::validate_email("youremail@email.com")`
+## Learning Objectives
 
-TODO: This question would be better suited as a core exercise, not in the final exercise
-1. Read the usage limits on GitHub Actions and rhub
-> - https://docs.github.com/en/actions/reference/usage-limits-billing-and-administration
-> - https://docs.r-hub.io/#regularly
-TODO: Add a question to assess whether they've read it?
+- Describe the importance of using a build system for validating software and how to apply it
+- Understand and implement ethical guidelines when using build systems like RHub
+- Prepare a package version release on GitHub
+- Manage current package versions and devise future ones
+
+## Outline
+
+* RHub
+    * Text: What is `rhub`?
+    * Text: Talk about why it is important to check in multiple environments
+        * Text: Cover dependencies, file management, build processes
+    * Exercise: Create an account in RHub and validate your email
+        * `rhub::validate_email("youremail@email.com")`
+    * Text: Talk about behaviour when using RHub and other build systems
+        Exercise: Read https://docs.r-hub.io/ and answer "Can you use RHub to continously build and deploy your package?"
+
+* GitHub Release Process
+    * Text: Talk about Git tagging
+    * Text: Talk about GitHub releases
+    * Code: use_github_release(), use_release_issue()
+    * Exercise: Perform a GitHub release of the core package
+
+* Version management
+    * Text: When should I upgrade the package version?
+    * Code: use_version(), use_dev_version()
+    * Text: When should I do a patch release of the package?
+    * Exercise: Identify a patch release in a tidyverse package
 
 ## Final exercise
 
