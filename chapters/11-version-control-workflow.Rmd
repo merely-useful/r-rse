@@ -57,14 +57,10 @@ think how this part would be implemented/practiced.)
 
 ## Learning objectives {#11-learning-objectives}
 
-- Learn what branching in Git is, about the concept behind it, and why it's so
-powerful as a software development tool.
-- Learn how to use branching in Git, as well as the related concept of forking
-and Pull Requests in GitHub, by making use of usethis' Pull Request helper
-functions.
-- Understand how the concepts and workflows shown could be applied in team
-or contributor settings and why they are powerful tools for collaboration and
-teamwork.
+- apply concepts from basic Git workflows to working collaboratively with GitHub
+- differentiate forking from branching and identify appropriate times to use each 
+- submit pull requests in GitHub using helper functions in `usethis`
+- manage pull requests as a maintainer or team lead of a project
 
 ## Collaborating with Git
 
@@ -98,9 +94,10 @@ Describe what is in each of the four repositories involved after each of the ste
 
 ### Branches and forks
 
-- when to use either
+- review branching from solo git chapter
+- introduce forks and relate to branching
 
-- How to use them effectively
+- How to use each effectively
     - How branches can help both solo and as a team
     - When forks are good vs being contributor on a repo (write access)
     
