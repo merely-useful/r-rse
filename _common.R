@@ -32,3 +32,6 @@ insert_graphic <- function(file) {
 }
 
 knitr::opts_chunk$set(eval = FALSE)
+
+# So all chapters have access to these packages
+library(usethis)
