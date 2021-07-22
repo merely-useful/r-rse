@@ -1,17 +1,202 @@
-# Workflows when using GitHub {#github-workflows}
+# Collaborating by using GitHub {#github-collaboration}
 
 <!-- Brief summary of list of actions/code/concepts done -->
 
-- Exercises: Conceptual, how can people effectively collaborate on a project?
-    - Maybe get them to create a vignette article with their answers/thoughts? 
-    Articles that are ignored from package build. (we discussed this a bit
-    already, needs more discussion)
-- Branching/forks
-    - Text: what is it, power of it, features.
-- Pull Requests
-    - Exercises: Reading, comprehension, and conceptual understanding (non-coding)
+```{r setup}
+library(usethis)
+```
+
+## Learning objectives {#11-learning-objectives}
+
+- Apply concepts from basic Git workflows to working collaboratively using GitHub
+- Differentiate forking and branching and identify situations when to use either
+- Use helper functions in the usethis package to submit pull requests in GitHub
+- Manage pull requests as a maintainer or team lead of a project
+
+## Collaborating with Git and GitHub
+
+### Exercise: Ways to collaborate
+
+Before we get into this section, let's do an exercise to start thinking about 
+the different ways people have come up with so that they can collaborate together.
+They range from writing files and emailing them around to using Google Drive or 
+similar services.
+
+1. Take some time to think about and write down the different ways you have
+collaborated with others on a project or task. Then think about the ways that
+you've heard or seen other people collaborate together.
+1. Of the different approaches to collaboration that you've written down,
+which of them do you feel are more effective in terms of time management,
+effort, ease of use, and that best fit the needs for the project they were used it?
+Would any of these methods work well when building an R package as a team?
+1. Take some time and brainstorm some approaches to collaborating that you would
+feel would help make an R package with others?
+
+<!-- TODO: Have them write this down in a vignette? -->
+
+### Forks, branches, and pull requests, oh my!
+
+<!-- TODO: Have silly or serious headings? :P -->
+
+In this chapter we are going to cover a collaborative workflow that is commonly
+used among software engineers and R package developers.
+In Chapter \@ref(git-solo), we covered Git branches and remotes. We'll quickly
+review these concepts again because they play a key role in this workflow.
+
+- **Branches**: At a basic level, a Git branch is a label that points to a specific
+commit in the Git repository. Working in a branch allows you to modify files
+without modifying the same files in other branches, because you are essentially
+working in a "parallel" set of files. When you want the changes made in the
+branch to be put into the main branch (which is also often called "main"),
+you would do this by merging the branches together. In team settings, working on
+branches lets you make changes to files without impacting your other team
+members work. When your changes to files are finished, you can then merge your
+changes into the main branch so your other team members have those changes too.
+Branches are heavily used in team-based settings in software and R
+package projects.
+- **Remotes**: A remote is a copy of the repository that is stored in a separate
+location for your local repository. The most commonly used remotes are on Git
+repository hosting services like GitHub, GitLab, and others like them.
+
+The collaborative workflow includes two new terms and concepts: *forks* and
+*pull requests*.
+
+- **Forks**: A fork is a copy of an original repository on GitHub that is also
+stored on GitHub. So both the original and fork are on GitHub.
+- **Pull requests**: A pull request is a tool in GitHub that lets contributors
+make changes in a fork or branch and then request that those changes get merged
+into the main repository by the maintainer. Pull requests can come from forks
+or from separate branches from within the repository. They let maintainers and
+contributors review, discussion, request further changes, and approve the
+changes for being merged into the main branch. Think of pull requests like peer
+review of scientific work or collaborators reviewing a scientific report.
+
+Learning to effectively use these tools and concepts can make collaborating with 
+others much easier and makes it easier to contribute to other projects.
+You can even use this workflow as a solo developer. So what is this workflow?
+Figure TODO: REF and TODO: REF show the basic overview for workflows
+not using or using a fork-based approach. For non-forked-based workflows, the
+steps are to:
+
+1. Create a new branch.
+1. Make some edits to files and commit to the branch.
+1. When the changes are done and ready, submit a pull request for the new branch
+to be merged into the main branch.
+1. Pull request gets either accepts and merged or changes are requested, which
+require going back up to step 2.
+1. After pull request gets accepted and merged, the main branch now has the updated
+changes and the new branch can now be deleted.
+1. Process can repeat multiple times, in parallel or in sequence depending on the
+size of the team.
+
+TODO: Diagram needs to be fixed here, this is basic skeleton
+
+```{r fig-git-collaborative-workflow-no-forks, eval=FALSE}
+DiagrammeR::grViz("digraph {
+repo -> new_branch -> pr -> accepted -> repo
+}")
+```
+
+For fork-based workflows, the steps are to:
+
+1. Create a fork of the main repository (if it hasn't been forked already).
+1. Optionally but strongly recommended, create a new branch in the forked repository.
+1. Make edits and changes to the files and commit to the branch.
+1. When ready, submit a pull request. Changes may be requested, which require going
+back to step 3.
+1. If the pull request gets accepted and merged, the main branch in the main
+repository is now updated and the new branch in the forked repository can be
+deleted.
+1. The forked repository now needs to be synchronized with the main repository.
+
+```{r fig-git-collaborative-workflow-forks, eval=FALSE}
+DiagrammeR::grViz("digraph {
+sami_repo -> amira_fork -> amira_new_branch -> pr_to_sami_repo -> 
+    pr_accepted -> sami_repo -> synch -> amira_fork
+}")
+```
+
+The main differences between using a non-forked-based approach compared to a
+forked-based approach is determined by whether you have access to modify ("write
+permissions") the main repository. Usually if you are in a team, you have
+permissions to modify and save ("write") changes to the main repository,
+so in that case you would use a non-forked-based approach.
+
+Let's show some examples of how you'd use this workflow based on a few scenarios.
+
+1. **As a solo developer**: In this scenario, you would probably be least
+likely to use this workflow since you can easily work with Git without ever making
+a branch. However, sometimes you might want to experiment with code or text
+and don't want to modify the main branch. Here you'd use the *non-fork-based workflow*.
+1. **As a solo developer with some outside contributors**: If you are working on
+an open source R package and people are occasionally contributing to your package,
+as the maintainer and developer you would be dealing with other peoples pull
+requests rather than you doing them yourself. If your package becomes very popular,
+you might start using the *non-fork-based workflow* in order to reduce the chance
+that you make a change to the main branch of the package that might affect
+others who are using it.
+1. **As a contributor but not part of a team**: If you contribute occasionally to
+an R package, you would use the *fork-based workflow*. You would fork the package's
+repository, make edits in new branches, and submit pull requests so your changes
+get incorporated back into the package. This particular scenario is by far the most
+commonly occurring in the open source R package world, since most packages are
+maintained by one or many a few other people.
+1. **As a member of a team**: If you have write permissions to the repository
+and are part of a team working on that repository, you would use the *non-fork-based
+workflow*. You'd make changes to files by first making a branch and when you are
+ready, you would submit the changes as a pull request so other team members
+can review your changes.
+
+One question that then comes up is how to use the branches. Do you do all your
+changes there and make pull requests to the main branch occasionally?
+Do you make a branch, do a pull request, and delete it right after? What changes
+do you make in the new branch? These and many more are great questions to ask
+and are also difficult to answer. They depend on context, on the team, on the 
+package you are making, what your aims are for the package, and so on.
+However, there are a few tips to give:
+
+1. Make small, focused changes that relate to a bug or specific goal (e.g.
+updating documentation to reflect a spelling change) when making
+new branches and submitting pull requests. The less you change, the easier it is
+for the maintainer or your team members to review and accept.
+1. If you are making big changes, its best to keep the changes related to a concept
+or goal so that reviewing it is at least easier to conceptually follow.
+1. Make changes related to a specific Issue and write in the Issue that you are
+working on it.
+
+### Exercise: Reading and comprehension task?
+
+<!-- For pull requests, branches, and/or remotes? -->
+
+### Exercise: Do these situations warrant a branch or fork?
+
+Concept and thought, not code based.
+
+1. 
+2. 
+3. 
+
+### Exercise: Consider some situations that would benefit from using PRs
+
+Concept and thought, not code based.
+
+## Securing your GitHub
+
+<!-- This section won't be a code along, maybe reading activity? -->
+
 - Security:
-    - Text: why its important, how to do it.
+Why this is important, etc.
+
+
+```{r cs-git-sitrep}
+usethis::git_sitrep()
+usethis::gh_token_help()
+```
+
+```{r ce-LABEL-NAME}
+# TODO: need code to change working directory/project with local user name and run git_sitrep
+```
+
     - Code:
         - usethis::git_sitrep()
         - usethis::gh_token_help()
@@ -19,8 +204,40 @@
     - Text: Save PAT in password manager (they should have this anyway, but this forces them)
     - Code: 
         - gitcreds::gitcreds_set(), everytime computer restarts, only saved for session
-    - Exercises: Conceptual understanding of PAT, tokens, and password managers (non-coding)
-    - Exercises: Setting up PAT, saving PAT, using gitcreds at start of session
+
+
+- usethis::git_sitrep()
+
+- usethis::gh_token_help()
+
+- usethis::create_github_token()
+
+- Save PAT in password manager (they should have this anyway, but this forces them)
+
+- gitcreds::gitcreds_set(), everytime computer restarts, only saved for session
+
+### Exercises: Conceptual understanding of PAT, tokens, and password managers (non-coding)
+
+### Exercises: Setting up PAT, saving PAT, using gitcreds at start of session
+
+```{r es-LABEL-NAME}
+# Code for exercise and shown to learner
+```
+
+```{r ee-LABEL-NAME}
+# If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
+```
+
+```{r sol-LABEL-NAME}
+# Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
+```
+
+
+## Simplified collaboration with usethis
+
+
+### Workflows for contributors on solo or team projects
+
 - usethis pr_* helpers
     - Text: Why use these over GitHub interface
 - As contributor/sole developer/as team
@@ -43,120 +260,6 @@
     - usethis::pr_init()
     - usethis::pr_forget()
     - gert::git_branch_list() # Show list of created branches
-- As maintainer, reviewer, team lead. (Hard to do exercises for this... need to
-think how this part would be implemented/practiced.)
-    - usethis::pr_view()
-    - usethis::pr_fetch()
-    - usethis::pr_push()
-    - usethis::pr_merge_main()
-    - usethis::pr_view()
-    - Manually merge PR.
-    - usethis::pr_finish()
-    - Exercise: Conceptual, write out/describe how this process could improve
-    collaboration and teamwork.
-
-## Learning objectives {#11-learning-objectives}
-
-- apply concepts from basic Git workflows to working collaboratively with GitHub
-- differentiate forking from branching and identify appropriate times to use each 
-- submit pull requests in GitHub using helper functions in `usethis`
-- manage pull requests as a maintainer or team lead of a project
-
-## Collaborating with Git
-
-### Exercise: Consider ways of collaborating and their effectiveness.
-
-TODO: Taken from PyRSE, needs modification.
-
-Chartreuse and Fuchsia are collaborating on a project.
-Describe what is in each of the four repositories involved after each of the steps below.
-
-1.  Chartreuse creates a repository containing a `README.md` file on GitHub
-    and clones it to their desktop.
-2.  Fuchsia forks that repository on GitHub
-    and clones their copy to their desktop.
-3.  Fuchsia adds a file `fuchsia.txt` to the `main` branch of their desktop repository
-    and pushes that change to their repository on GitHub.
-4.  Fuchsia creates a pull request from the `main` branch of their repository on GitHub
-    to the `main` branch of Chartreuse's repository on GitHub.
-5.  Chartreuse does *not* merge Fuchsia's PR.
-    Instead,
-    they add a file `chartreuse.txt` to the `main` branch of their desktop repository
-    and push that change to their repository on GitHub.
-6.  Fuchsia adds a remote to their desktop repository called `upstream`
-    that points at Chartreuse's repository on GitHub
-    and runs `git pull upstream main`,
-    then merges any changes or conflicts.
-7.  Fuchsia pushes from the `main` branch of their desktop repository
-    to the `main` branch of their GitHub repository.
-8.  Chartreuse merges Fuchsia's pull request.
-9.  Chartreuse runs `git pull origin main` on the desktop.
-
-### Branches and forks
-
-- review branching from solo git chapter
-- introduce forks and relate to branching
-
-- How to use each effectively
-    - How branches can help both solo and as a team
-    - When forks are good vs being contributor on a repo (write access)
-    
-## Collaborating with GitHub
-
-- What are PRs, how to use them (either non-fork or fork)
-    - Keeping things targeted (e.g. a PR should conceptually
-    fix or add similarly related things)
-    
-### Exercise: Reading and comprehension task?
-
-### Exercise: Do these situations warrant a branch or fork?
-
-Concept and thought, not code based.
-
-1. 
-2. 
-3. 
-
-### Exercise: Consider some situations that would benefit from using PRs
-
-Concept and thought, not code based.
-
-## Securing your GitHub
-
-Why this is important, etc.
-
-- usethis::git_sitrep()
-
-- usethis::gh_token_help()
-
-- usethis::create_github_token()
-
-- Save PAT in password manager (they should have this anyway, but this forces them)
-- gitcreds::gitcreds_set(), everytime computer restarts, only saved for session
-    - Exercises: Conceptual understanding of PAT, tokens, and password managers (non-coding)
-    - Exercises: Setting up PAT, saving PAT, using gitcreds at start of session
-
-## Simplified collaboration with usethis
-
-### Workflows for contributors on solo or team projects
-
-- usethis pr_* helpers
-- As contributor/sole developer/as team
-    - usethis::pr_init()
-        - Make changes to Contributing about using pr helpers
-    - usethis::pr_push()
-    - usethis::pr_view()
-    - usethis::pr_pause()
-    - Exercise: Make an edit on the PR changed files using GitHubs edit interface.
-    - Exercise: Create another PR for adding ...FIXME.
-    - usethis::pr_resume()
-    - usethis::pr_pull()
-    - usethis::pr_merge_main()
-    - usethis::pr_push()
-    - PR has been merged
-    - gert::git_branch_list() # Show list of created branches
-    - usethis::pr_finish()
-    - Exercise: Do the same process for the other PR you had created.
 
 ## Removing a branch
 
@@ -188,7 +291,7 @@ think how this part would be implemented/practiced.)
     - usethis::pr_finish()
     - Exercise: Conceptual, write out/describe how this process could improve
     collaboration and teamwork.
-    
+
 ```{r, eval=FALSE}
 # NOTE: This is some of the code used throughout the chapter, put in a format
 # that any changes to the project can be automatically added at final book build.
@@ -279,3 +382,4 @@ Repeat this process one more time by making changes to:
 ```
 
 ### Exercises for second project assignment?
+
