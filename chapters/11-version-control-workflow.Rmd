@@ -122,7 +122,25 @@ permissions") the main repository. Usually if you are in a team, you have
 permissions to modify and save ("write") changes to the main repository,
 so in that case you would use a non-forked-based approach.
 
-Let's show some examples of how you'd use this workflow based on a few scenarios.
+One challenge that often comes up is knowing how and when to use the branches.
+Do you do all your changes there and make pull requests to the main branch
+occasionally? Do you make a branch, do a pull request, and delete it right
+after? What changes do you make in the new branch? These and many more are great
+questions to ask and are also difficult to answer. They depend on context, on
+the team, on the package you are making, what your aims are for the package, and
+so on. However, there are a few tips to give:
+
+1. Make small, focused changes that relate to a bug or specific goal (e.g.
+updating documentation to reflect a spelling change) when making
+new branches and submitting pull requests. The less you change, the easier it is
+for the maintainer or your team members to review and accept.
+1. If you are making big changes, its best to keep the changes related to a concept
+or goal so that reviewing it is at least easier to conceptually follow.
+1. Make changes related to a specific Issue and write in the Issue that you are
+working on it.
+
+Let's show some examples of how you'd use the fork and non-fork based workflows
+based on a few scenarios.
 
 1. **As a solo developer**: In this scenario, you would probably be least
 likely to use this workflow since you can easily work with Git without ever making
@@ -147,22 +165,7 @@ workflow*. You'd make changes to files by first making a branch and when you are
 ready, you would submit the changes as a pull request so other team members
 can review your changes.
 
-One question that then comes up is how to use the branches. Do you do all your
-changes there and make pull requests to the main branch occasionally?
-Do you make a branch, do a pull request, and delete it right after? What changes
-do you make in the new branch? These and many more are great questions to ask
-and are also difficult to answer. They depend on context, on the team, on the 
-package you are making, what your aims are for the package, and so on.
-However, there are a few tips to give:
-
-1. Make small, focused changes that relate to a bug or specific goal (e.g.
-updating documentation to reflect a spelling change) when making
-new branches and submitting pull requests. The less you change, the easier it is
-for the maintainer or your team members to review and accept.
-1. If you are making big changes, its best to keep the changes related to a concept
-or goal so that reviewing it is at least easier to conceptually follow.
-1. Make changes related to a specific Issue and write in the Issue that you are
-working on it.
+For the rest of this chapter we'll largely focus around the third and fourth scenarios.
 
 ### Exercise: Reading and comprehension task?
 
@@ -184,6 +187,8 @@ Concept and thought, not code based.
 
 <!-- This section won't be a code along, maybe reading activity? -->
 
+When 
+
 - Security:
 Why this is important, etc.
 
@@ -193,18 +198,17 @@ usethis::git_sitrep()
 usethis::gh_token_help()
 ```
 
-```{r ce-LABEL-NAME}
+```{r ce-LABEL-NAME, eval=FALSE}
 # TODO: need code to change working directory/project with local user name and run git_sitrep
+# But this doesn't work because of sitrep uses global, not local..
+withr::with_dir(tempdir(),
+{
+    fs::file_create(".here")
+    gert::git_init()
+    gert::git_config_set("user.name", "Amira")
+    fs::dir_ls(".", recurse = TRUE)
+})
 ```
-
-    - Code:
-        - usethis::git_sitrep()
-        - usethis::gh_token_help()
-        - usethis::create_github_token()
-    - Text: Save PAT in password manager (they should have this anyway, but this forces them)
-    - Code: 
-        - gitcreds::gitcreds_set(), everytime computer restarts, only saved for session
-
 
 - usethis::git_sitrep()
 
