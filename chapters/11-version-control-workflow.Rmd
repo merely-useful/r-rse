@@ -266,7 +266,6 @@ withr::with_dir(tempdir(),
 # Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
 ```
 
-
 ## Simplified collaboration with usethis
 
 
@@ -361,6 +360,10 @@ TODO: Add text about using usethis
 # 
 # pr_finish()
 ```
+
+## Chapter summary
+
+
 
 ## Final exercise {#11-final-exercise}
 
