@@ -171,13 +171,25 @@ For the rest of this chapter we'll largely focus around the third and fourth sce
 
 <!-- For pull requests, branches, and/or remotes? -->
 
-### Exercise: Do these situations warrant a branch or fork?
+### Exercise: What workflow do these situations need?
 
-Concept and thought, not code based.
+Consider these situations and think about the workflow you'd use for each of them.
 
-1. 
-2. 
-3. 
+1. You are in a class where one of the assignments is a group-based assignment
+to make a software package. Which of the above workflows would be the best
+approach to use to complete a project as a team? Can you think of other
+approaches that might work just as well? What are some strengths and weaknesses
+to each approach?
+2. You are doing a MSc research project and you are mostly the only one who
+works on the project. The other collaborators mainly provide intellectual
+feedback and comments. What type of workflow would you use? Why? What other
+workflows can you think of that might also work?
+2. A friend learns that you are creating an R package in your free time and
+wants to contribute. What would you tell your friend to do in order to
+contribute? Which approach would work best for you, considering they may likely
+work on your project occasionally and may only contribute a little bit?
+3. While browsing a website for an R package, you find a few typos and decide to
+fix it for them. Which of the above approaches would you use?
 
 ### Exercise: Consider some situations that would benefit from using PRs
 
@@ -186,6 +198,8 @@ Concept and thought, not code based.
 ## Securing your GitHub
 
 <!-- This section won't be a code along, maybe reading activity? -->
+
+TODO: This section might be moved up to the solo section, since that is when Git
 
 When 
 
