@@ -197,22 +197,47 @@ Concept and thought, not code based.
 
 <!-- This section won't be a code along, maybe reading activity? -->
 
-TODO: This section might be moved up to the solo section, since that is when Git
+TODO: This section might be moved up to the solo section, since that is when GitHub is first used
 
-When 
+Any interaction with the Internet carries some risk to malicious activities and
+threats. This is no different when using GitHub. Considering that most if not
+all of your Git repositories will (now or eventually) be on GitHub, keep them
+secured is a vital step when working online. Not only is it something that
+should be done, but many usethis functions require these security features to be
+set up in order to work. Thankfully making your GitHub account secure is a
+fairly straightforward task and is made easier by the usethis functions
+`gh_token_help()` and `create_github_token()`.
+The usethis package website also has a really [well written guide][usethis-git-credentials] on setting it up.
+Their (and our) basic recommendation is to:
 
-- Security:
-Why this is important, etc.
+- Use HTTPS with your GitHub TODO: explain this a bit more (e.g. vs SSH)
+- Turn on two-factor authentication (2FA)
+- Use personal access tokens (PAT) when interacting with your GitHub remote
+repositories while outside of the GitHub website (e.g. when using R or usethis)
+- Use a password manager to save the PAT for later use
+- Use packages like gitcreds to let usethis access the PAT and interact with
+your GitHub repositories
+- Don't save your PAT in plain text files like `.Renviron` (which is/was often done)
 
+[usethis-git-credentials]: https://usethis.r-lib.org/articles/articles/git-credentials.html
+
+Next we provide some context and a rationale for these recommendations. In the following section, we explain how to actually implement this.
 
 ```{r cs-git-sitrep}
 usethis::git_sitrep()
 usethis::gh_token_help()
 ```
 
+```{r}
+gitcreds::gitcreds_set()
+```
+
+
 ```{r ce-LABEL-NAME, eval=FALSE}
 # TODO: need code to change working directory/project with local user name and run git_sitrep
 # But this doesn't work because of sitrep uses global, not local..
+# A workaround is to set the global user to be Amira in the GH Actions (e.g. `with:`)
+# https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#inputs
 withr::with_dir(tempdir(),
 {
     fs::file_create(".here")
@@ -222,14 +247,7 @@ withr::with_dir(tempdir(),
 })
 ```
 
-- usethis::git_sitrep()
-
-- usethis::gh_token_help()
-
 - usethis::create_github_token()
-
-- Save PAT in password manager (they should have this anyway, but this forces them)
-
 - gitcreds::gitcreds_set(), everytime computer restarts, only saved for session
 
 ### Exercises: Conceptual understanding of PAT, tokens, and password managers (non-coding)
