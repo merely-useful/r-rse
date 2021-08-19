@@ -1,7 +1,5 @@
 # Collaborating by using GitHub {#github-collaboration}
 
-<!-- Brief summary of list of actions/code/concepts done -->
-
 ```{r setup}
 library(usethis)
 ```
@@ -11,7 +9,7 @@ library(usethis)
 - Apply concepts from basic Git workflows to working collaboratively using GitHub
 - Differentiate forking and branching and identify situations when to use either
 - Use helper functions in the usethis package to submit pull requests in GitHub
-- Manage pull requests as a maintainer or team lead of a project
+- Manage pull requests as a maintainer or lead of a project
 
 ## Collaborating with Git and GitHub
 
