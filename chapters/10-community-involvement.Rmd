@@ -11,9 +11,12 @@
 ## Learning objectives
 
 * Edit a project README and NEWS file to be welcoming to contributors and users
-* Understand the importance of having an explicit Code of Conduct and how to create one relevant to a project
-* Understand the purpose of licensing content, choose a license and create a LICENSE file
-* Understand the importance of contributing guidelines and how to develop them for a project
+* Understand the importance of having an explicit Code of Conduct and how to
+create one relevant to a project
+* Understand the purpose of licensing content, choose a license and create a
+LICENSE file
+* Understand the importance of contributing guidelines and how to develop them
+for a project
 * Create and manage GitHub Issues to track project bugs and improvements
 
 ## Outline of action steps
@@ -28,51 +31,100 @@ This chapter covers the basic information users expect to find if they would lik
 and perhaps even potentially contribute, to your project. 
 
 - Creating a welcoming community with welcoming materials
-<!-- I grouped reprex and NEWS with the README because they seem related to the general welcoming presentation of a project, but they could go elsewhere. -->
+<!-- I grouped reprex and NEWS with the README because they seem related to the
+general welcoming presentation of a project, but they could go elsewhere. -->
 
-  - Text: making your project approachable with a welcoming README ([Mozilla reference](https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/write-a-great-project-readme/), [R packages reference](https://r-pkgs.org/release.html#readme)).
-  - Exercise: write a one-paragraph description of the `zipfs` package using the [Up-Goer Five Text Editor](https://splasho.com/upgoer5/).
-  - Text: making your project easy to use and understand with reproducible examples. `reprex`: not just for bug reports!
-  - Code: use the `reprex` package to create a minimal reproducible example for a function in the `zipfs` package.
-  - Exercise: use `reprex` to create a minimal reproducible example for the `book-meta` function in the `zipfs` package (or another function not described in the code section).
-  - Text: using a NEWS file ([reference](https://r-pkgs.org/release.html#news)). How and when to update the NEWS file.
+  - Text: making your project approachable with a welcoming README ([Mozilla reference](
+https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/write-a-great-project-readme/), 
+[R packages reference](https://r-pkgs.org/release.html#readme)).
+  - Exercise: write a one-paragraph description of the `zipfs` package using
+the [Up-Goer Five Text Editor](https://splasho.com/upgoer5/).
+  - Text: making your project easy to use and understand with reproducible
+examples. `reprex`: not just for bug reports!
+  - Code: use the `reprex` package to create a minimal reproducible example for
+a function in the `zipfs` package.
+  - Exercise: use `reprex` to create a minimal reproducible example for the
+`book-meta` function in the `zipfs` package (or another function not described in the code section).
+  - Text: using a NEWS file ([reference](https://r-pkgs.org/release.html#news)).
+How and when to update the NEWS file.
   - Code: `usethis::use_news_md()`
-  - Exercise: make an edit to `NEWS.md` in the `zipfs` package describing the most recent change that was make to the structure or code of `zipfs` (FIXME: we can be more specific here, like referring to a change made in the previous chapter.)
+  - Exercise: make an edit to `NEWS.md` in the `zipfs` package describing the
+most recent change that was make to the structure or code of `zipfs` (FIXME: we
+can be more specific here, like referring to a change made in the previous chapter.)
 
 - Contributing guidelines
 
-  - Text: the purpose of Contributing guidelines and what they can contain ([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/)). Emphasize that the different sections are quite project-specific (i.e. your project might not use communication channels outside of GitHub).
+  - Text: the purpose of Contributing guidelines and what they can contain
+([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/)). 
+Emphasize that the different sections are quite project-specific (i.e. your
+project might not use communication channels outside of GitHub).
   - Code: `usethis::use_tidy_contributing()`
-  - Exercise: choose two open source products that you have used and find their contributing guidelines. Do they contain any sections that aren't in the default Tidy Contributing Guidelines that you think are useful?
-  - Text: In a basic sense, contribution guidelines help other people understand how to interact with your project. We'll talk more in a later chapter (\@ref(team-package-development)) about how to develop contributing guidelines for working with a team of developers.
+  - Exercise: choose two open source products that you have used and find their
+contributing guidelines. Do they contain any sections that aren't in the
+default Tidy Contributing Guidelines that you think are useful?
+  - Text: In a basic sense, contribution guidelines help other people
+understand how to interact with your project. We'll talk more in a later chapter
+ (\@ref(team-package-development)) about how to develop contributing guidelines
+for working with a team of developers.
 
 - Code of Conduct
 
-  - Text: inclusivity and safety with a focus on package users and community contributors, the purpose of a Code of Conduct and what goes into one ([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-a-code-of-conduct/)).
+  - Text: inclusivity and safety with a focus on package users and community
+contributors, the purpose of a Code of Conduct and what goes into one 
+([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-a-code-of-conduct/)).
   - Code: `usethis::use_code_of_conduct()`
-  - Exercise: read the Code of Conduct file in the `zipfs` package and edit it to include a method of contact for reporting violations. Add details for how violations will be handled (for example, banning from project, blocking, etc.).
-  - Optional exercise for a group assignment: discuss as a group what your expectations are for working together (things like communication channels, communication expectations, timeliness, meeting preparedness, meeting ettiquette, etc.) 
-    - Text followup: While your code of conduct list in this exercise may include many things that are specific to your group, the code of conduct templates that are widely used (such as the tidyverse default) have been tested across many environments and for many different people. We recommend that you add to your code of conduct as needed to suit your situation, but that you keep the standard components to create the most welcoming and safe environment possible. 
+  - Exercise: read the Code of Conduct file in the `zipfs` package and edit it
+to include a method of contact for reporting violations. Add details for how
+violations will be handled (for example, banning from project, blocking, etc.).
+  - Optional exercise for a group assignment: discuss as a group what your
+expectations are for working together (things like communication channels,
+communication expectations, timeliness, meeting preparedness, meeting ettiquette,
+etc.) 
+    - Text followup: While your code of conduct list in this exercise may
+include things that are specific to your group, the code of conduct templates
+that are widely used (such as the tidyverse default) have been tested across
+many environments and for many different people. We recommend that you add to
+your code of conduct as needed to suit your situation, but that you keep the
+standard components to create the most welcoming and safe environment possible. 
 
 - Licensing
 
-  - Text: why do you need a license, what is the purpose of a license ([reference](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/sharing-your-work-in-the-open/))
+  - Text: why do you need a license, what is the purpose of a license 
+([reference](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/sharing-your-work-in-the-open/))
     - what happens when code is unlicensed. Copyrighted and not re-usable.
   - Code: `usethis::use_NAME_license` i.e. `usethis::use_mit_license()`
   - Exercises:
-      - Explore [choosealicense.com](https://choosealicense.com/) and read about the different types of open source licenses.
-      - Choose two open source products that you have used (for example [Firefox](https://www.mozilla.org/en-US/MPL/), [Atom](https://github.com/atom/atom/blob/master/LICENSE.md), or [Wordpress](https://wordpress.org/about/license/)). Find and read the license for each product.
+      - Explore [choosealicense.com](https://choosealicense.com/) and read
+about the different types of open source licenses.
+      - Choose two open source products that you have used (for example
+[Firefox](https://www.mozilla.org/en-US/MPL/), 
+[Atom](https://github.com/atom/atom/blob/master/LICENSE.md), or 
+[Wordpress](https://wordpress.org/about/license/)). Find and read the license
+for each product.
 
 - Project management for a user-friendly package
 
-  - Text: creating, using, and managing GitHub Issues to maintain your project. GitHub Issues provides a way to log bugs and project improvement suggestions from you, collaborators, and your user community. Creating [issue templates](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository) for bugs and feature requests.
+  - Text: creating, using, and managing GitHub Issues to maintain your project.
+GitHub Issues provides a way to log bugs and project improvement suggestions
+from you, collaborators, and your user community. Creating [issue templates](
+https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository) for bugs and feature requests.
   - Exercise: create an issue template for reporting bugs in the `zipfs` package.
-  - Exercise: create an issue describing a possible new feature or enhancement for the `zipfs` package.
-  - Text: project maintenance, longevity and sustainability. Possible areas to cover: [project maintenance](https://mozilla.github.io/open-leadership-training-series/articles/open-project-maintenance/open-project-maintenance/), contributor [personas and pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/), [leadership structure](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/understand-meaningful-participation-and-distributed-leadership/), [event planning and facilitation](https://mozilla.github.io/open-leadership-training-series/articles/running-awesome-community-events/event-planning-and-facilitation/).
+  - Exercise: create an issue describing a possible new feature or enhancement
+for the `zipfs` package.
+  - Text: project maintenance, longevity and sustainability. Possible areas to
+cover: [project maintenance](
+https://mozilla.github.io/open-leadership-training-series/articles/open-project-maintenance/open-project-maintenance/),
+contributor [personas and pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/),
+[leadership structure](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/understand-meaningful-participation-and-distributed-leadership/),
+[event planning and facilitation](https://mozilla.github.io/open-leadership-training-series/articles/running-awesome-community-events/event-planning-and-facilitation/).
   
 - Tracking tasks with GitHub Issues (moved from chapter 12)
-  - Text: Beyond bugs: how GitHub issues can help you keep track of tasks and communicate with your community ([reference](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/project-set-up-for-collaboration-with-github/#project-structure-and-organization)). How to label issues and link issues to other parts of your project.
-  - Exercise: create at least three issue labels for the `zipfs` repository. Label the existing issues so that each has at least one label.
+  - Text: Beyond bugs: how GitHub issues can help you keep track of tasks and
+communicate with your community ([reference](
+https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/project-set-up-for-collaboration-with-github/#project-structure-and-organization)). 
+How to label issues and link issues to other parts of your project.
+  - Exercise: create at least three issue labels for the `zipfs` repository.
+Label the existing issues so that each has at least one label.
   - We'll discuss using labels for project management in \@ref(team-package-development)
 
 Also moved from chapter 12:
@@ -174,9 +226,15 @@ step, refer to the
     so for now, choose the MIT License.
 
 5. Project management
-- Create an [issue template](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository) for your project, providing guidelines for what you think might be the most common category of issue that contributors and users might submit.
-- Add a line to CONTRIBUTING.md requesting that new issues use the template if applicable.
-- FIXME: this might be a good place to go through the [Personas and Pathways](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/) exercise, focusing on user and contributor personas, then add something to CONTRIBUTING.md about the target user of the package.
+- Create an [issue template](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository) 
+for your project, providing guidelines for what you think might be the most
+common category of issue that contributors and users might submit.
+- Add a line to CONTRIBUTING.md requesting that new issues use the template if
+applicable.
+- FIXME: this might be a good place to go through the [Personas and Pathways](
+https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/bring-on-contributors-using-personas-and-pathways/) 
+exercise, focusing on user and contributor personas, then add something to
+CONTRIBUTING.md about the target user of the package.
 
 6. Create a NEWS file to your repository about changes you make to it:
     - Create a file called `NEWS.md` in the top level of your project by running
