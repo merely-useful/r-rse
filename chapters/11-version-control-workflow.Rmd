@@ -32,7 +32,7 @@ feel would help make an R package with others?
 
 <!-- TODO: Have them write this down in a vignette? -->
 
-### Forks, branches, and pull requests, oh my!
+### Forks, branches, and pull requests on GitHub {#workflows-explained}
 
 <!-- TODO: Have silly or serious headings? :P -->
 
@@ -232,12 +232,12 @@ usethis::gh_token_help()
 gitcreds::gitcreds_set()
 ```
 
-
 ```{r ce-LABEL-NAME, eval=FALSE}
 # TODO: need code to change working directory/project with local user name and run git_sitrep
 # But this doesn't work because of sitrep uses global, not local..
 # A workaround is to set the global user to be Amira in the GH Actions (e.g. `with:`)
 # https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#inputs
+# TODO: Add code that detects if running on GitHub Actions, maybe an environment variable?
 withr::with_dir(tempdir(),
 {
     fs::file_create(".here")
@@ -268,11 +268,47 @@ withr::with_dir(tempdir(),
 
 ## Simplified collaboration with usethis
 
+Collaborating through GitHub with forks, branches, and pull requests is
+generally pretty easy when you've learned how to do use them. But even then, 
+sometimes it can be a bit tedious having to click through all the clicks
+to either submit a new pull request or to review, accept, and merge changes.
+Thankfully, the usethis package has several helper functions specifically
+designed to work with pull requests and collaborating through GitHub.
+These functions all start with `pr_`, which stands for Pull Request.
 
-### Workflows for contributors on solo or team projects
+What is the advantage of using the usethis PR helpers over using the GitHub 
+interface? Once you learn to use these helpers, the biggest advantage is that
+you will be faster at contributing to a project or dealing with contributions
+since you won't have to leave RStudio. And, since the usethis functions are well
+documented, you can read the help documents to remind yourself what to do and
+how they work.
 
-- usethis pr_* helpers
-    - Text: Why use these over GitHub interface
+In Section \@ref(workflows-explained), we covered the different scenarios you'd
+likely encounter while developing R packages and the accompanying workflows
+you'd use. The usethis PR helpers are largely designed to help with scenarios
+that involve either contributors to your project, you contributing to someone
+else's project, or working within a team setting. You can also use these helpers
+as a solo developer, but they are designed specifically for multi-person
+contributing.
+
+There are two roles that can be taken 
+The usethis PR helper functions can be broadly grouped into several categories:
+
+- Starting a contributing and submitting a pull request:
+    - `pr_init()`
+    - `pr_push()`
+    - `pr_pause()`
+- Receiving comments
+- `pr_resume()`
+- `pr_view()`
+- `pr_merge_main()`
+- `pr_pull()`
+
+- `pr_finish()`
+- `pr_forget()`
+
+- `pr_fetch()`
+
 - As contributor/sole developer/as team
     - usethis::pr_init()
         - Make changes to Contributing about using pr helpers
@@ -294,7 +330,7 @@ withr::with_dir(tempdir(),
     - usethis::pr_forget()
     - gert::git_branch_list() # Show list of created branches
 
-## Removing a branch
+**Removing a branch**
 
 - gert::git_branch_list() # Show list of created branches
 - usethis::pr_init()
