@@ -13,7 +13,7 @@ library(usethis)
 
 ## Collaborating with Git and GitHub
 
-### Exercise: Ways to collaborate
+### Exercise: Consider ways to collaborate
 
 Before we get into this section, let's do an exercise to start thinking about 
 the different ways people have come up with so that they can collaborate together.
@@ -182,11 +182,11 @@ to each approach?
 works on the project. The other collaborators mainly provide intellectual
 feedback and comments. What type of workflow would you use? Why? What other
 workflows can you think of that might also work?
-2. A friend learns that you are creating an R package in your free time and
+3. A friend learns that you are creating an R package in your free time and
 wants to contribute. What would you tell your friend to do in order to
 contribute? Which approach would work best for you, considering they may likely
 work on your project occasionally and may only contribute a little bit?
-3. While browsing a website for an R package, you find a few typos and decide to
+4. While browsing a website for an R package, you find a few typos and decide to
 fix it for them. Which of the above approaches would you use?
 
 ### Exercise: Consider some situations that would benefit from using PRs
@@ -197,7 +197,7 @@ Concept and thought, not code based.
 
 <!-- This section won't be a code along, maybe reading activity? -->
 
-TODO: This section might be moved up to the solo section, since that is when GitHub is first used
+TODO: This section might be moved up to the solo section, since that is when GitHub is first used... or moved to appendix... Not sure how much I like that idea tho.
 
 Any interaction with the Internet carries some risk to malicious activities and
 threats. This is no different when using GitHub. Considering that most if not
@@ -207,7 +207,8 @@ should be done, but many usethis functions require these security features to be
 set up in order to work. Thankfully making your GitHub account secure is a
 fairly straightforward task and is made easier by the usethis functions
 `gh_token_help()` and `create_github_token()`.
-The usethis package website also has a really [well written guide][usethis-git-credentials] on setting it up.
+The usethis package website also has a really 
+[well written guide][usethis-git-credentials] on setting it up.
 Their (and our) basic recommendation is to:
 
 - Use HTTPS with your GitHub TODO: explain this a bit more (e.g. vs SSH)
@@ -221,18 +222,13 @@ your GitHub repositories
 
 [usethis-git-credentials]: https://usethis.r-lib.org/articles/articles/git-credentials.html
 
-Next we provide some context and a rationale for these recommendations. In the following section, we explain how to actually implement this.
+Next we provide some context and a rationale for these recommendations. In the
+following section, we explain how to actually implement this. 
+As you go through an set up everything, get comfortable using the helper function
+`git_sitrep()`, which will run some checks and give some advice when it finds
+potential problems. Test it out right now in the console:
 
-```{r cs-git-sitrep}
-usethis::git_sitrep()
-usethis::gh_token_help()
-```
-
-```{r}
-gitcreds::gitcreds_set()
-```
-
-```{r ce-LABEL-NAME, eval=FALSE}
+```{r ce-set-git-config-to-amira, eval=FALSE}
 # TODO: need code to change working directory/project with local user name and run git_sitrep
 # But this doesn't work because of sitrep uses global, not local..
 # A workaround is to set the global user to be Amira in the GH Actions (e.g. `with:`)
@@ -247,8 +243,46 @@ withr::with_dir(tempdir(),
 })
 ```
 
-- usethis::create_github_token()
-- gitcreds::gitcreds_set(), everytime computer restarts, only saved for session
+```{r cs-git-sitrep, eval=FALSE}
+# TODO: Find a way to output into the book? Or copy and paste?
+usethis::git_sitrep()
+```
+
+It outputs quite a bit of text that you can use when you encounter problems and
+you aren't sure how to diagnose the problem. The second helper function is
+`gh_token_help()`
+
+```{r cs-gh-token-help}
+gh_token_help()
+```
+
+This output tells you if you have a GitHub token already and what to do
+to either create a new one (using `create_github_token()`) or how to access
+an already existing one `gitcreds::gitcreds_set()`. 
+For now, we will create a new one just in case one hasn't been created yet.
+
+```{r cs-create-token, eval=FALSE}
+create_github_token()
+```
+
+This function sends us to the GitHub "Generate new token" webpage with all the
+necessary settings checked. All you need to do is click the green button at the
+bottom called "Generate token" and you'll have a very long string generated
+for you. **Save this token in your password manager**. This is the token you 
+will use every time you open up RStudio and interact with GitHub through R.
+You do **not** need to create a new token for each R project or package you
+make, you only need to create one after your current token expires 
+(typically every couple of months), if you've forgotten the token or lost it,
+or if you've changed to a new computer.
+In order for R recognize the token, you need to run the below code in the Console:
+
+```{r cs-gitcreds-set, eval=FALSE}
+gitcreds::gitcreds_set()
+```
+
+And then copy and paste your token into the prompt in the Console. The `gitcreds`
+package typically saves this token for the day (it caches the token), but after
+restarting you will need to run the action again. 
 
 ### Exercises: Conceptual understanding of PAT, tokens, and password managers (non-coding)
 
