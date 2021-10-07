@@ -213,8 +213,9 @@ Their (and our) basic recommendation is to:
 
 - Use HTTPS with your GitHub TODO: explain this a bit more (e.g. vs SSH)
 - Turn on two-factor authentication (2FA)
-- Use personal access tokens (PAT) when interacting with your GitHub remote
-repositories while outside of the GitHub website (e.g. when using R or usethis)
+- Use personal access tokens (PAT, or simply called a "token") when interacting
+with your GitHub remote repositories while outside of the GitHub website (e.g.
+when using R or usethis)
 - Use a password manager to save the PAT for later use
 - Use packages like gitcreds to let usethis access the PAT and interact with
 your GitHub repositories
@@ -284,21 +285,7 @@ And then copy and paste your token into the prompt in the Console. The `gitcreds
 package typically saves this token for the day (it caches the token), but after
 restarting you will need to run the action again. 
 
-### Exercises: Conceptual understanding of PAT, tokens, and password managers (non-coding)
-
-### Exercises: Setting up PAT, saving PAT, using gitcreds at start of session
-
-```{r es-LABEL-NAME}
-# Code for exercise and shown to learner
-```
-
-```{r ee-LABEL-NAME}
-# If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
-```
-
-```{r sol-LABEL-NAME}
-# Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
-```
+### Exercises: Conceptual understanding of PAT and password managers (non-coding)
 
 ## Simplified collaboration with usethis
 
