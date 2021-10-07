@@ -317,9 +317,7 @@ More details for instructors can be found in Appendix TODO: Add ref label.
 ## Re-use and licensing {#licensing}
 
 All of this material can be freely re-used under the terms of the
-[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/)
-and the book code is licensed under a 
-[MIT License](https://github.com/merely-useful/r-rse/blob/main/LICENSE-MIT.md),
+[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/),
 so the material can be used, re-used, and modified, 
 as long as there is attribution to this source.
 
