@@ -312,21 +312,47 @@ else's project, or working within a team setting. You can also use these helpers
 as a solo developer, but they are designed specifically for multi-person
 contributing.
 
-There are two roles that can be taken 
-The usethis PR helper functions can be broadly grouped into several categories:
+There are two roles that can be taken in these scenarios: The contributor and
+the maintainer. If you are working solo, you would be the maintainer, but you'd
+likely not use these helper functions if you work *entirely* solo and never
+contribute at all to other R projects. Being a contributor would be when you
+modify content on the repository in some way through pull requests. Being a
+maintainer would be to review contributions from others in the pull requests.
+
+In general, the usethis PR helper functions can be grouped into a few
+categories based on your role. As a **contributor** they would be:
 
 - Starting a contributing and submitting a pull request:
-    - `pr_init()`
+    - `create_from_github()`: This is only done when you start contributing to
+    a package that is not yours nor is your teams. For instance, if you see a
+    typo or bug in a package and want to fix it yourself, you'd first start by
+    forking and cloning (downloading) the R package to your computer.
+    - `pr_init()`: Start a new Git branch in the package repository on your computer,
+    while in the RStudio R Project.
+    - `pr_push()`: After making edits and committing them to the Git branch,
+    you would start a GitHub pull request with this function.
+    - `pr_pause()`: Usually pull requests are reviewed after several days (or
+    weeks or months), so in the meantime you might want to stop working on the
+    branch and move back to the main branch. This function will pause your work
+    on the branch and move back to the main branch.
+- Receiving comments or edits and making subsequent changes based on the comments:
+    - `pr_view()`: While in RStudio, if you want to jump to the GitHub pull request
+    webpage to view the comments made to your changes, you can quickly do that with
+    this function.
+    - `pr_resume()`: Since you likely used `pr_pause()` after submitting your
+    pull request, you need to get back to the branch in order to start making
+    more changes or addressing the comments from the pull request by using
+    this function.
+    - `pr_merge_main()`: Depending on how often others contribute to the repository,
+    you might need to update your branch with changes that have happened in the main
+    branch of the repository. This function checks if your branch has any differences
+    with the branch on the computer
+    happened in the
+    - `pr_pull()`
     - `pr_push()`
-    - `pr_pause()`
-- Receiving comments
-- `pr_resume()`
-- `pr_view()`
-- `pr_merge_main()`
-- `pr_pull()`
-
-- `pr_finish()`
-- `pr_forget()`
+- Having the pull request accepted and merged or to be rejected and closed:
+    - `pr_finish()`
+    - `pr_forget()`
 
 - `pr_fetch()`
 
