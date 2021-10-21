@@ -328,11 +328,26 @@ In order for R recognize the token, you need to run the below code in the Consol
 gitcreds::gitcreds_set()
 ```
 
-And then copy and paste your token into the prompt in the Console. The `gitcreds`
+And then copy and paste your token into the prompt in the Console. The gitcreds
 package typically saves this token for the day (it caches the token), but after
 restarting you will need to run the action again. 
 
-### Exercises: Conceptual understanding of PAT and password managers (non-coding)
+### Exercises: Consider your own computer security practices
+
+TODO: Thoughts on these ones? Might be a bit provocative :P
+
+Take some time to think about these questions and self-reflect on them.
+
+1. Do you use a password manager? Why or why not? If not, what is it that is
+holding you back from starting to use one?
+1. Why might it be important to have more security when working on a project
+as part of a team? What might happen if your GitHub account or repository was
+hacked because you have poor security practices?
+1. How might using a PAT make it easier for you to fix a security issue?
+If you didn't use a PAT when you remotely (e.g. through RStudio) access your
+GitHub repositories and instead used your GitHub password, what is the danger
+if someone was able to gain access to your password? Why would using a PAT make
+less dangerous if someone gained access to it instead of your password?
 
 ## Simplified collaboration with usethis
 
