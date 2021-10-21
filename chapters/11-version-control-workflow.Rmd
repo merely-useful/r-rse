@@ -16,7 +16,7 @@ requests in GitHub
 
 ## Collaborating with Git and GitHub
 
-### Exercise: Consider ways to collaborate
+### Exercise: Consider ways to collaborate {#ex-ways-to-collaborate}
 
 Before we get into this section, let's do an exercise to start thinking about 
 the different ways people have come up with so that they can collaborate together.
@@ -168,7 +168,7 @@ can review your changes.
 
 For the rest of this chapter we'll largely focus around the third and fourth scenarios.
 
-### Exercise: Reading and comprehension task?
+### Exercise: Test your knowledge of pull requests and remotes {#ex-mcq-pr-remotes}
 
 <!-- For pull requests, branches, and/or remotes? -->
 
@@ -178,7 +178,7 @@ Consider these questions and select the most appropriate answer:
 in the code. Most often, you would submit a pull request when you have:
     a. Fixed the bugs.
     b. Made the first Git commit.
-    c. Finished your work day.
+    c. Finished work for the day.
 2. You are reviewing some changes on your team's GitHub repository and make
 edits to some files directly from GitHub. Later, you open RStudio and continue
 writing code for your team's package. In the first case you are ___ and in the
