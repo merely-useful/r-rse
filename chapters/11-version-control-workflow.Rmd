@@ -262,6 +262,8 @@ if someone got access to your computer either remotely or physically, they would
 be able to easily see your PAT and use it. Passwords or any token should not
 be stored in plain text files.
 
+TODO: gitcreds might be phased out in favor of credientials (https://docs.ropensci.org/credentials/reference/set_github_pat.html) as explained here: https://usethis.r-lib.org/articles/articles/git-credentials.html#ongoing-pat-maintenance
+
 [pkg-gitcreds]: https://gitcreds.r-lib.org/
 [usethis-git-credentials]: https://usethis.r-lib.org/articles/articles/git-credentials.html
 
