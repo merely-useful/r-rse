@@ -386,16 +386,17 @@ maintainer would be to review contributions from others in the pull requests.
 ### Workflow as a contributor
 
 In general, the usethis PR helper functions can be grouped into a few categories
-based on your role. Listed below are the categories and related helper functions
-you would use as a **contributor**. This list of helper functions might
-feel overwhelming, but we will cover them slowly and, as with Git commands, you'll
-get plenty of practice using them especially in your team project.
+or "phases" of the workflow based on your role as a **contributor**, which are
+listed below. This list of helper functions might feel overwhelming, but we will
+cover them slowly and, as with Git commands, you'll get plenty of practice using
+them especially in your team project.
 
-- Starting a contributing and submitting a pull request:
+1. Starting a contributing and submitting a pull request:
     - `create_from_github()`: This is only done when you start contributing to
     a package that is not yours nor is your teams. For instance, if you see a
     typo or bug in a package and want to fix it yourself, you'd first start by
-    forking and cloning (downloading) the R package to your computer.
+    forking and cloning (downloading) the R package to your computer. For this
+    book we won't use it, since we already have a package we are developing.
     - `pr_init()`: Start a new Git branch in the package repository on your
     computer, while in the RStudio R Project.
     - `pr_push()`: After making edits and committing them to the Git branch,
