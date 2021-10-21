@@ -13,7 +13,7 @@ library(usethis)
 
 ## Collaborating with Git and GitHub
 
-### Exercise: Ways to collaborate
+### Exercise: Consider ways to collaborate
 
 Before we get into this section, let's do an exercise to start thinking about 
 the different ways people have come up with so that they can collaborate together.
@@ -182,11 +182,11 @@ to each approach?
 works on the project. The other collaborators mainly provide intellectual
 feedback and comments. What type of workflow would you use? Why? What other
 workflows can you think of that might also work?
-2. A friend learns that you are creating an R package in your free time and
+3. A friend learns that you are creating an R package in your free time and
 wants to contribute. What would you tell your friend to do in order to
 contribute? Which approach would work best for you, considering they may likely
 work on your project occasionally and may only contribute a little bit?
-3. While browsing a website for an R package, you find a few typos and decide to
+4. While browsing a website for an R package, you find a few typos and decide to
 fix it for them. Which of the above approaches would you use?
 
 ### Exercise: Consider some situations that would benefit from using PRs
@@ -197,7 +197,7 @@ Concept and thought, not code based.
 
 <!-- This section won't be a code along, maybe reading activity? -->
 
-TODO: This section might be moved up to the solo section, since that is when GitHub is first used
+TODO: This section might be moved up to the solo section, since that is when GitHub is first used... or moved to appendix... Not sure how much I like that idea tho.
 
 Any interaction with the Internet carries some risk to malicious activities and
 threats. This is no different when using GitHub. Considering that most if not
@@ -207,13 +207,15 @@ should be done, but many usethis functions require these security features to be
 set up in order to work. Thankfully making your GitHub account secure is a
 fairly straightforward task and is made easier by the usethis functions
 `gh_token_help()` and `create_github_token()`.
-The usethis package website also has a really [well written guide][usethis-git-credentials] on setting it up.
+The usethis package website also has a really 
+[well written guide][usethis-git-credentials] on setting it up.
 Their (and our) basic recommendation is to:
 
 - Use HTTPS with your GitHub TODO: explain this a bit more (e.g. vs SSH)
 - Turn on two-factor authentication (2FA)
-- Use personal access tokens (PAT) when interacting with your GitHub remote
-repositories while outside of the GitHub website (e.g. when using R or usethis)
+- Use personal access tokens (PAT, or simply called a "token") when interacting
+with your GitHub remote repositories while outside of the GitHub website (e.g.
+when using R or usethis)
 - Use a password manager to save the PAT for later use
 - Use packages like gitcreds to let usethis access the PAT and interact with
 your GitHub repositories
@@ -221,18 +223,13 @@ your GitHub repositories
 
 [usethis-git-credentials]: https://usethis.r-lib.org/articles/articles/git-credentials.html
 
-Next we provide some context and a rationale for these recommendations. In the following section, we explain how to actually implement this.
+Next we provide some context and a rationale for these recommendations. In the
+following section, we explain how to actually implement this. 
+As you go through an set up everything, get comfortable using the helper function
+`git_sitrep()`, which will run some checks and give some advice when it finds
+potential problems. Test it out right now in the console:
 
-```{r cs-git-sitrep}
-usethis::git_sitrep()
-usethis::gh_token_help()
-```
-
-```{r}
-gitcreds::gitcreds_set()
-```
-
-```{r ce-LABEL-NAME, eval=FALSE}
+```{r ce-set-git-config-to-amira, eval=FALSE}
 # TODO: need code to change working directory/project with local user name and run git_sitrep
 # But this doesn't work because of sitrep uses global, not local..
 # A workaround is to set the global user to be Amira in the GH Actions (e.g. `with:`)
@@ -247,24 +244,48 @@ withr::with_dir(tempdir(),
 })
 ```
 
-- usethis::create_github_token()
-- gitcreds::gitcreds_set(), everytime computer restarts, only saved for session
-
-### Exercises: Conceptual understanding of PAT, tokens, and password managers (non-coding)
-
-### Exercises: Setting up PAT, saving PAT, using gitcreds at start of session
-
-```{r es-LABEL-NAME}
-# Code for exercise and shown to learner
+```{r cs-git-sitrep, eval=FALSE}
+# TODO: Find a way to output into the book? Or copy and paste?
+usethis::git_sitrep()
 ```
 
-```{r ee-LABEL-NAME}
-# If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
+It outputs quite a bit of text that you can use when you encounter problems and
+you aren't sure how to diagnose the problem. The second helper function is
+`gh_token_help()`
+
+```{r cs-gh-token-help}
+gh_token_help()
 ```
 
-```{r sol-LABEL-NAME}
-# Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
+This output tells you if you have a GitHub token already and what to do
+to either create a new one (using `create_github_token()`) or how to access
+an already existing one `gitcreds::gitcreds_set()`. 
+For now, we will create a new one just in case one hasn't been created yet.
+
+```{r cs-create-token, eval=FALSE}
+create_github_token()
 ```
+
+This function sends us to the GitHub "Generate new token" webpage with all the
+necessary settings checked. All you need to do is click the green button at the
+bottom called "Generate token" and you'll have a very long string generated
+for you. **Save this token in your password manager**. This is the token you 
+will use every time you open up RStudio and interact with GitHub through R.
+You do **not** need to create a new token for each R project or package you
+make, you only need to create one after your current token expires 
+(typically every couple of months), if you've forgotten the token or lost it,
+or if you've changed to a new computer.
+In order for R recognize the token, you need to run the below code in the Console:
+
+```{r cs-gitcreds-set, eval=FALSE}
+gitcreds::gitcreds_set()
+```
+
+And then copy and paste your token into the prompt in the Console. The `gitcreds`
+package typically saves this token for the day (it caches the token), but after
+restarting you will need to run the action again. 
+
+### Exercises: Conceptual understanding of PAT and password managers (non-coding)
 
 ## Simplified collaboration with usethis
 
@@ -291,21 +312,47 @@ else's project, or working within a team setting. You can also use these helpers
 as a solo developer, but they are designed specifically for multi-person
 contributing.
 
-There are two roles that can be taken 
-The usethis PR helper functions can be broadly grouped into several categories:
+There are two roles that can be taken in these scenarios: The contributor and
+the maintainer. If you are working solo, you would be the maintainer, but you'd
+likely not use these helper functions if you work *entirely* solo and never
+contribute at all to other R projects. Being a contributor would be when you
+modify content on the repository in some way through pull requests. Being a
+maintainer would be to review contributions from others in the pull requests.
+
+In general, the usethis PR helper functions can be grouped into a few
+categories based on your role. As a **contributor** they would be:
 
 - Starting a contributing and submitting a pull request:
-    - `pr_init()`
+    - `create_from_github()`: This is only done when you start contributing to
+    a package that is not yours nor is your teams. For instance, if you see a
+    typo or bug in a package and want to fix it yourself, you'd first start by
+    forking and cloning (downloading) the R package to your computer.
+    - `pr_init()`: Start a new Git branch in the package repository on your computer,
+    while in the RStudio R Project.
+    - `pr_push()`: After making edits and committing them to the Git branch,
+    you would start a GitHub pull request with this function.
+    - `pr_pause()`: Usually pull requests are reviewed after several days (or
+    weeks or months), so in the meantime you might want to stop working on the
+    branch and move back to the main branch. This function will pause your work
+    on the branch and move back to the main branch.
+- Receiving comments or edits and making subsequent changes based on the comments:
+    - `pr_view()`: While in RStudio, if you want to jump to the GitHub pull request
+    webpage to view the comments made to your changes, you can quickly do that with
+    this function.
+    - `pr_resume()`: Since you likely used `pr_pause()` after submitting your
+    pull request, you need to get back to the branch in order to start making
+    more changes or addressing the comments from the pull request by using
+    this function.
+    - `pr_merge_main()`: Depending on how often others contribute to the repository,
+    you might need to update your branch with changes that have happened in the main
+    branch of the repository. This function checks if your branch has any differences
+    with the branch on the computer
+    happened in the
+    - `pr_pull()`
     - `pr_push()`
-    - `pr_pause()`
-- Receiving comments
-- `pr_resume()`
-- `pr_view()`
-- `pr_merge_main()`
-- `pr_pull()`
-
-- `pr_finish()`
-- `pr_forget()`
+- Having the pull request accepted and merged or to be rejected and closed:
+    - `pr_finish()`
+    - `pr_forget()`
 
 - `pr_fetch()`
 
