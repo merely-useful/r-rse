@@ -8,7 +8,10 @@ library(usethis)
 
 - Apply concepts from basic Git workflows to working collaboratively using GitHub
 - Differentiate forking and branching and identify situations when to use either
-- Use helper functions in the usethis package to submit pull requests in GitHub
+- Understand the use and role of branches and pull requests in collaborating
+on a project
+- Use helper functions in the usethis package to manage branches and submit pull
+requests in GitHub
 - Manage pull requests as a maintainer or lead of a project
 
 ## Collaborating with Git and GitHub
