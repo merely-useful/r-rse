@@ -216,10 +216,6 @@ work on your project occasionally and may only contribute a little bit?
 4. While browsing a website for an R package, you find a few typos and decide to
 fix it for them. Which of the above approaches would you use?
 
-### Exercise: Consider some situations that would benefit from using PRs
-
-Concept and thought, not code based.
-
 ## Securing your GitHub
 
 <!-- This section won't be a code along, maybe reading activity? -->
