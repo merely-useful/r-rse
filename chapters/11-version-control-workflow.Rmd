@@ -474,6 +474,7 @@ think how this part would be implemented/practiced.)
     - usethis::pr_finish()
     - Exercise: Conceptual, write out/describe how this process could improve
     collaboration and teamwork.
+- `pr_fetch()`
 
 ```{r, eval=FALSE}
 # NOTE: This is some of the code used throughout the chapter, put in a format
