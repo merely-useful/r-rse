@@ -410,22 +410,90 @@ get plenty of practice using them especially in your team project.
     pull request, you need to get back to the branch in order to start making
     more changes or addressing the comments from the pull request by using
     this function.
-    - `pr_merge_main()`: Depending on how often others contribute to the repository,
-    you might need to update your branch with changes that have happened in the main
-    branch of the repository. This function checks if your branch has any differences
-    with the branch on the computer
-    happened in the
-    - `pr_pull()`
-    - `pr_push()`
+    - `pr_merge_main()`: Depending on how often others contribute to the
+    repository, you might need to update your branch with changes that have
+    happened in the main branch of the repository. This function checks if your
+    branch has any differences with the main branch on the computer and on the
+    remote GitHub repository, and if there are differences it will merge in those
+    changes into your current branch.
+    - `pr_pull()`: If changes have been made on your PR branch on the remote 
+    GitHub repository, you will need to update your local branch by pulling
+    from the remote branch. This function does that for you, by checking if
+    anything has changed on the remote branch and then will pull and merge those
+    changes into your local branch.
+    - `pr_push()`: Already described above, you would use it again after making
+    changes based on the feedback you get.
 - Having the pull request accepted and merged or to be rejected and closed:
-    - `pr_finish()`
-    - `pr_forget()`
+    - `pr_finish()`: If the PR has been accepted and merged, use this function
+    to switch to the main branch, pull and merge the new changes on the remote
+    main branch into the local main branch, and then deletes your local PR branch.
+    - `pr_forget()`: If the PR was rejected and you don't need to work on your
+    branch anymore, this function will switch back to the main branch and
+    delete the PR branch for you.
 
-- `pr_fetch()`
+Now that we've introduced the `pr_*` functions, it is time to use them.
+To test out the functions, we will make some minor modifications to the 
+`CONTRIBUTING.md` file.
+TODO: Fix path of contributing file, might be in .github/
+While in the zipfs package R Project in RStudio, type in the Console:
 
+```{r cs-first-pr-init}
+pr_init("contributing-using-usethis")
+```
+
+This creates a new Git branch called `contributing-using-usethis`. We gave the
+new branch this name because we want add some documentation on using the usethis
+package to contribute to the package, and it is important that even branch names
+be descriptive as well.
+
+Next, open up the `CONTRIBUTING.md` file, go to the bottom of the file and add 
+these lines of text to it:
+
+```{r ce-usethis-pr-to-contributing, include=FALSE}
+pr_text_to_add_to_contributing <- "
+### Contributing using the usethis helpers
+\n
+We use the usethis pull request helpers to work on this package.
+Check out the [usethis article](https://usethis.r-lib.org/articles/articles/pr-functions.html)
+on how to use these helper functions.
+"
+
+insert_into_book_contributing_pr_text <- glue::glue(
+    "```text",
+    "{pr_text_to_add_to_contributing}",
+    "```"
+)
+# TODO: Update to add to the contributing file
+# readr::write_lines(
+#     x = pr_text_to_add_to_contributing,
+#     path = contributing_file_path, 
+#     append = TRUE
+# )
+```
+
+TODO: Confirm this works as intended
+
+`r insert_into_book_contributing_pr_text`
+
+```{r ce-commit-contributing-addition, include=FALSE}
+commit_msg <- "Update contributing doc with info about PR helpers."
+
+# git_add(contributing_file)
+# git_commit(commit_msg)
+```
+
+After adding this text to the `CONTRIBUTING.md` file,
+open the RStudio Git Interface and add then commit the changes you made to the
+file. Write a message like "`r commit_msg`". After you've done that,
+in the Console run the `pr_push()` helper function:
+
+```{r cs-first-pr-push}
+pr_push()
+```
+
+This opens up the GitHub website with the newly started pull request. To finish
+the pull request submission, you need to click
 - As contributor/sole developer/as team
-    - usethis::pr_init()
-        - Make changes to Contributing about using pr helpers
     - usethis::pr_push()
     - usethis::pr_view()
     - usethis::pr_pause()
