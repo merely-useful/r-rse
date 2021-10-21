@@ -234,17 +234,41 @@ The usethis package website also has a really
 [well written guide][usethis-git-credentials] on setting it up.
 Their (and our) basic recommendation is to:
 
-- Use HTTPS with your GitHub TODO: explain this a bit more (e.g. vs SSH)
-- Turn on two-factor authentication (2FA)
+- Use HTTPS with your GitHub TODO: explain this a bit more (e.g. vs SSH).
+- Turn on two-factor authentication (2FA), which is a way of verifying
+("authenticating") that it is you who is using your GitHub account. 2FA
+is when you provide your password as well as a randomly generated, time-limited
+code usually given by an authenticator app on your phone. Since only you 
+(usually) have access to your phone and would know if it was stolen, enabling
+2FA is a powerful way of immediately improving the security of your GitHub.
 - Use personal access tokens (PAT, or simply called a "token") when interacting
 with your GitHub remote repositories while outside of the GitHub website (e.g.
-when using R or usethis)
-- Use a password manager to save the PAT for later use
-- Use packages like gitcreds to let usethis access the PAT and interact with
-your GitHub repositories
-- Don't save your PAT in plain text files like `.Renviron` (which is/was often done)
+when using R or usethis). PAT's are like temporary passwords that provide limited
+access to your GitHub account, like being able to read or write to your GitHub
+repositories, but not being able to delete them. They are useful because you can
+easily delete the PAT if you feel someone got access to it and prevent it from
+being used, unlike your own password which you would have to manually change
+if it was stolen.
+- Use a password manager to save the PAT for later use. Using password managers
+is basically a requirement for having secure online accounts, because they can 
+generate random and long passwords that you don't have to remember.
+- Use packages like [gitcreds][pkg-gitcreds] to give usethis access to the PAT
+and to interact with your GitHub repositories. You normally would have to
+use gitcreds every time you restart your computer or after a certain period of
+time.
+- Don't save your PAT in plain text files like `.Renviron` (which is/was often
+done). Plain text files can be read by anyone, meaning there is a chance that
+if someone got access to your computer either remotely or physically, they would
+be able to easily see your PAT and use it. Passwords or any token should not
+be stored in plain text files.
 
+[pkg-gitcreds]: https://gitcreds.r-lib.org/
 [usethis-git-credentials]: https://usethis.r-lib.org/articles/articles/git-credentials.html
+
+These are some of the many ways of securing your GitHub and repositories. In
+Chapter \ref(team-package-dev) we will cover more ways that you can improve
+security of your GitHub repositories, especially within a team setting.
+For now, we will expand more on these recommendations and define these new terms. Firstly, 2FA is 
 
 Next we provide some context and a rationale for these recommendations. In the
 following section, we explain how to actually implement this. 
