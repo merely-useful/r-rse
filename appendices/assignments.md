@@ -18,7 +18,7 @@ the specific context of the course this book will be used in.
 
 Each project assignment is described in more detail below. In addition
 to the descriptions, included throughout this section are notes targeted to
-those learners who are working and learning this book on their own.
+those learners who are working through and learning from this book on their own.
 
 ### First project: Create a package on your own
 
@@ -35,7 +35,7 @@ milestones to ensure you are making progress on your assignment.
 
 An *acceptable* package for completing the assignment would have at a *minimum*:
 
-- Two-three functions.
+- Two to three functions.
 - (Optional) a dataset with associated roxygen documentation and an R script that
 generated, extracted, and/or processed the dataset.
 - A unit test for each function.
@@ -79,13 +79,13 @@ for how the final exercise should or could be done.
 The second assignment is to contribute to an existing package. The *learning
 objective* for this project is to practice and reinforce the skills 
 and knowledge that you've learned on community involvement and of the
-importance that documentation has in involving the community.
+importance that documentation has for involving the community.
 Completing this assignment will make it easier to finish the first
-assignment. The project assignment is recommended to started after
+assignment. The project assignment is recommended to be started after
 Chapter \@ref(community-involvement) and be **due**
 immediately after the Chapter \@ref(github-workflows).
 Like with the first project, at the end of Chapters 
-\@ref(community-involvement) and \@ref(github-workflows) there are some final
+\@ref(community-involvement) and \@ref(github-workflows) are some final
 exercises with tasks to help guide you in completing this second project
 assignment.
 
@@ -96,7 +96,7 @@ assignment.
     3. If a *self-directed learner*, see the instructions below.
 2. Improve the package to better fit with best practices based on what you've learned.
     - You don't need to update everything in the package, only a few things that
-    you capable of and related to what you've learned so far.
+    you are capable of and related to what you've learned so far.
     - You can optionally submit a Pull Request of the changes, but this depends
     on whether the maintainer is open to Pull Requests. If you want to submit a
     Pull Request, check if an issue already exists for improving something
@@ -110,7 +110,7 @@ TODO: include instructions on how to find packages to contribute to.
 ### Third project: Creating a package as a team
 
 This assignment is *optional* as it depends on multiple factors like class size,
-duration of course, or virtual vs in-person settings. This would be the third
+duration of the course, or virtual vs in-person settings. This would be the third
 and final deliverable for the course. There are no final exercises in each
 chapter that learners need to complete related to this assignment. Exercises and
 the structure of the group work would be determined by the instructor. This
@@ -119,7 +119,7 @@ assignment would best be due sometime after the team-work lesson
 
 - Using the same process as was done with the first project assignment,
 complete a package as a team, using the tools taught in
-Chapters \@ref(community-involvement), \@ref(github-workflows), \@ref(project-management),
+Chapters \@ref(community-involvement), \@ref(github-workflows),
 and \@ref(team-package-development).
 
 ### Rubric and expectations of the learner
@@ -134,92 +134,3 @@ commits and, after the GitHub lesson (REF), pushes to GitHub.
 The GitHub history will be checked to confirm this happens.
 - Tasks in the final chapter exercises should be completed shortly after
 finishing the chapter.
-
-## For instructors
-
-Making an interesting project assignment can be quite difficult, so this section
-gives some suggestions and guidance on what the specific project assignment should be.
-The specific type and number of assignments are of course ultimately decided by
-the instructor of the course, but at the least, this book was designed with
-two main project assignments (first and second) in mind, as described above. While
-the specific details of the assignments are completed by the instructor,
-this section contains some general advice and guidelines. This advice can be used
-for all three project assignments but is largely specific to the **first project
-assignment**.
-
-- Package problems are always better if they are targeted to the background 
-knowledge of the instructor and the learners. Field-specific and class
-context-dependent problems will more likely be remembered and learned than other
-problems.
-- In the final exercises, we provide a suggested package of being about weather
-summaries, as described above. As the instructor, one way to tailor the first
-project assignment for your class is to modify this example to focus on weather
-from a local city, a specific time period, or different aspects of the weather
-(e.g. temperature only).
-- While the project package does not necessarily need to involve data, it might
-be more motivating for the learners to work on if the project does include data. 
-R is a language predominantly used by researchers and data scientists
-for doing data analysis, visualization, and related reporting. Given this,
-learners using this book (for a course or otherwise) are probably already
-familiar with these tasks and would benefit more if they see and use an
-application they are familiar with.
-
-TODO: Add some examples that instructors can based off of and deviate if needed.
-TODO: update or revise this list below.
-TODO: Add instructions about how students will name their new package (ch3 final exercise.)
-
-Here are some example datasets that could form the basis for the project packages:
-
-- [NYC Dog Licensing dataset](https://data.cityofnewyork.us/Health/NYC-Dog-Licensing-Dataset/nu7n-tubp)
-- [Statistics Canada](https://www150.statcan.gc.ca/n1/en/type/data)
-- The openly licensed [Airbnb data](http://insideairbnb.com/get-the-data.html)
-- [Atmospheric CO~2~](https://scrippsco2.ucsd.edu/data/atmospheric_co2/index.html)
-- [fivethirty eight article about visits to national parks](https://fivethirtyeight.com/features/the-national-parks-have-never-been-more-popular/)
-- (For advanced users) [Denmark Statistics](https://www.statbank.dk/statbank5a/default.asp?w=1920) 
-(through the R package [dkstat](https://github.com/rOpenGov/dkstat) or the 
-[StatBank API](https://www.dst.dk/en/Statistik/brug-statistikken/muligheder-i-statistikbanken/api))
-
-Other potential examples to use for non-dataset-based project packages include:
-
-- A simple package for working with missing values. Functions within it could
-include simpler versions of other functions like `naniar::count_missing()`,
-`tidyr::replace_na()`, or `dplyr::na_if()`. The data to work with could be
-anything that has missing values (or should have missing values), primarily to use
-as a way to build and demonstrate the functions.
-
-- Simple simulations like cellular automata in [Nature of Code](https://natureofcode.com/). The
-package might have a function for plotting a vector of zeros and one, functions
-for evolving such a vector, and functions that the control evolution.
-
-- (Advanced users) A package for "branded" analysis, for instance where the data
-might be corporate/team/school colors and functions that might include a custom
-ggplot2 theme for them.
-
-### Second assignment
-
-TODO: Expand on this about whether instructors should have this or not.
-
-The learners should either be given a list of some potential packages to improve
-or be given detailed instructions on how to find potential packages. If you want
-to provide a list of possible packages, here is some instructions on how to find
-these packages to give the learners:
-
-TODO: Include instructions here, eg what search terms to use in GitHub etc and how to find packages.
-TODO: Include some example packages to try to base off of.
-
-- CRAN Views FIXME: expand on this.
-
-### Third assignment
-
-TODO: Expand on this that it is optional.
-
-The specific problem or package that groups will create depends heavily on their
-background knowledge and skills, as well as that of the instructor. To make the 
-most of learning and progress, groups should preferably be given a set of pre-existing
-problems that a package could solve. This problem can be an already-solved problem;
-in fact, given learners a solved problem will make it easier for them to practice
-the skills and tools of research software engineering, rather than the domain
-specific knowledge and skills that might be required for solving an as-yet-solved
-problem.
-
-TODO: Fill in with more advice for this project assignment.
