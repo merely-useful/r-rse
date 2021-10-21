@@ -461,7 +461,7 @@ Commit the changes and move back to main branch with pr_pause().
 
 1.  Run pr_forget()...
 
-### Workflows for project maintainers or team leads
+### Workflow as a project maintainer or team lead
 
 - As maintainer, reviewer, team lead. (Hard to do exercises for this... need to
 think how this part would be implemented/practiced.)
