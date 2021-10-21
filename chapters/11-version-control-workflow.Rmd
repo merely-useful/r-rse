@@ -505,42 +505,94 @@ pr_push()
 ```
 
 This opens up the GitHub website with the newly started pull request. To finish
-the pull request submission, you need to click
+the pull request submission, you need to continue on by clicking the green 
+"Create pull request".
+TODO: There is probably more to click.
+Your PR is now complete and ready to be reviewed.
+If this was on a real project, you'd have to wait for feedback on your PR. 
+While you wait, you can pause your work on the PR by using:
+
+```{r cs-first-pr-pause}
+pr_pause()
+```
+
+This function switches from your PR branch to the main branch. Since you are the
+only one working on this package, to mimic someone providing feedback or making
+some edits, you will do that yourself instead. In GitHub, go to the pull request
+you just submitted and click the "Files changed" tab. Scroll to the changed 
+CONTRIBUTING file and click the three dots menu on the right side to then select 
+the "Edit file". Make a
+
+TODO: Add pics? Or the use icons to mimic the tab? Might be easier to update if 
+GitHub changes it.
+TODO: Make a video associated with this book and link to it here? (or only link to it for PDF version?)
+
 - As contributor/sole developer/as team
     - usethis::pr_push()
     - usethis::pr_view()
     - usethis::pr_pause()
-    - Exercise: Make an edit on the PR changed files using GitHubs edit interface.
-    - Exercise: Create another PR for adding ...FIXME.
     - usethis::pr_resume()
     - usethis::pr_pull()
     - usethis::pr_merge_main()
     - usethis::pr_push()
+    - Exercise: Make an edit on the PR changed files using GitHubs edit interface.
+    - Exercise: Create another PR for adding ...FIXME.
     - PR has been merged
     - gert::git_branch_list() # Show list of created branches
     - usethis::pr_finish()
     - Exercise: Do the same process for the other PR you had created.
-    - gert::git_branch_list() # Show list of created branches
-    - usethis::pr_init()
-    - usethis::pr_forget()
-    - gert::git_branch_list() # Show list of created branches
 
 **Removing a branch**
 
-- gert::git_branch_list() # Show list of created branches
-- usethis::pr_init()
-- usethis::pr_forget()
-- gert::git_branch_list() # Show list of created branches
+It might occasionally happen where you've created a new branch to make a PR
+of a change or have already submitted a PR and realize the change either was
+already done in a different file or is not needed anymore. In this case, you
+need to get rid of the change made on your computer by using the `pr_forget()`
+function. Let's create a new PR branch:
 
-### Exercise: Deleting a branch without merging
+```{r cs-init-to-forget}
+pr_init("changes-not-needed")
+```
 
-TODO: Taken from PyRSE, needs more modifying.
+We can check that the branch was created with:
 
-Create a branch called `experiment` with pr_init(). Create a new vignette
-called `experiment.Rmd` with use_article(). Add your name to the YAML header.
-Commit the changes and move back to main branch with pr_pause().
+```{r cs-branch-to-forget-created}
+gert::git_branch_list()$name
+```
 
-1.  Run pr_forget()...
+Then we run `pr_forget()` to remove the branch and switch over to the main
+branch:
+
+```{r cs-forget-branch}
+pr_forget()
+```
+
+We can confirm the branch was deleted by running:
+
+```{r}
+gert::git_branch_list()$name
+```
+
+### Exercise: "Forgetting" a branch that has some changes {ex-pr-forget}
+
+Complete these steps to practice being familiar and comfortable with removing
+unneeded branches and changes.
+
+1. Create a branch called `experiment` with `pr_init()`. 
+2. Create a new article vignette called `experiment.Rmd` by using `use_article()`. 
+3. Add your name to author field of the YAML header of the file and save the file.
+4. Using Git, commit the changes you've made.
+5. Lastly, remove the changes by running `pr_forget()`.
+
+```{r sol-deleting-unneeded-pr-branch, echo=TRUE}
+pr_init("experiment")
+use_article("experiment")
+# TODO: Add author changes?
+git_add("vignettes/articles/experiment.Rmd")
+git_commit("Add experiment article vignette")
+pr_forget()
+```
+
 
 ### Workflow as a project maintainer or team lead
 
