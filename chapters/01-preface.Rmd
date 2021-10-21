@@ -40,7 +40,7 @@ is to answer questions rather than develop commercial software products.
 
 Science is a process that depends on scientific results that are accurate,
 precise, replicable, and reproducible. Developing software packages for research
-purposes is an important way in our modern research environment to ensuring that
+purposes is an important way in our modern research environment to ensure that
 the analyses that produce our results are exactly that: accurate, precise,
 replicable, and reproducible. Given this, the main learning goal of this book is
 that you learn to *develop an R package*.
@@ -105,7 +105,7 @@ applications they are being asked to support have shifted from fluid dynamics to
 data analysis; this guide will teach them how to build and run re-usable data
 analysis pipelines so that they can pass those skills on to their users.
 
-NAME
+Ali
 : Learned about statistics and programming during high school and decided to 
 enroll into an undergraduate Data Science program. PRONOUN hopes to have a career
 working on open source projects and doing research software engineering for a
@@ -113,10 +113,11 @@ research institution. One of PRONOUN's courses uses this book so PRONOUN will be
 working through the material during the course and will use it as reference
 afterwards.
 
-NAME
-: Has been doing a graduate PhD degree that involves largely doing quantitative
+Luis
+: Has been doing a graduate degree that involves largely doing quantitative
 research. While doing PRONOUN's projects, PRONOUN realizes that learning and creating
 R packages would greatly help PRONOUN's work as well as others in the group. 
+However, PRONOUN has not had any formal courses in computer programming.
 PRONOUNS enrolled in a course at the university that uses this book so will work
 through this book.
 

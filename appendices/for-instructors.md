@@ -4,8 +4,8 @@ The instructional design of the learning material contained in this
 book revolves around three key concepts:
 
 1. *Participatory live-coding* lessons, where participants join with
-instructors to write and troubleshoot code step-by-step. We believe
-that this method encourages participants to actively engage with the
+instructors to write and troubleshoot code step-by-step. 
+This method encourages participants to actively engage with the
 material, to build muscle memory through typing, and to learn how to
 handle mistakes, rather than passively observing content.
  [@Brow2018; @Wils2018]
@@ -44,7 +44,7 @@ assignment**.
 knowledge of the instructor and the learners. Field-specific and class
 context-dependent problems will more likely be remembered and learned than other
 problems.
-- In the final exercises, we provide a suggested package of being about weather
+- In the final exercises, we provide a suggested package about weather
 summaries, as described above. As the instructor, one way to tailor the first
 project assignment for your class is to modify this example to focus on weather
 from a local city, a specific time period, or different aspects of the weather

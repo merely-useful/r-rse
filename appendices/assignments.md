@@ -79,7 +79,7 @@ for how the final exercise should or could be done.
 The second assignment is to contribute to an existing package. The *learning
 objective* for this project is to practice and reinforce the skills 
 and knowledge that you've learned on community involvement and of the
-importance that documentation has on involving the community.
+importance that documentation has for involving the community.
 Completing this assignment will make it easier to finish the first
 assignment. The project assignment is recommended to be started after
 Chapter \@ref(community-involvement) and be **due**
