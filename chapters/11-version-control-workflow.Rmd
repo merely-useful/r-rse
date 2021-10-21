@@ -172,6 +172,30 @@ For the rest of this chapter we'll largely focus around the third and fourth sce
 
 <!-- For pull requests, branches, and/or remotes? -->
 
+Consider these questions and select the most appropriate answer:
+
+1. You are working on your team's package and create a branch to fix some bugs
+in the code. Most often, you would submit a pull request when you have:
+    a. Fixed the bugs.
+    b. Made the first Git commit.
+    c. Finished your work day.
+2. You are reviewing some changes on your team's GitHub repository and make
+edits to some files directly from GitHub. Later, you open RStudio and continue
+writing code for your team's package. In the first case you are ___ and in the
+second case you are ___. Can you explain what the difference is?
+    a. 1) Working on the **remote** git repository and 2) working on the
+    **local** git repository.
+    b. 1) Working on the **local** git repository and 2) working on the
+    **remote** git repository.
+
+```{r sol-understand-branches-pr-forks, eval=FALSE}
+# Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
+
+# 1. Answer really is that it depends, but in general it is a), after you
+# addressed the problem/bug.
+# 2. Answer is a), since GitHub is on a server and is not on your computer.
+```
+
 ### Exercise: What workflow do these situations need?
 
 Consider these situations and think about the workflow you'd use for each of them.
