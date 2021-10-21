@@ -447,7 +447,17 @@ pr_init("contributing-using-usethis")
 This creates a new Git branch called `contributing-using-usethis`. We gave the
 new branch this name because we want add some documentation on using the usethis
 package to contribute to the package, and it is important that even branch names
-be descriptive as well.
+be descriptive as well. We can confirm that this branch was created by using
+the [gert][pkg-gert] package to list branches by typing in the Console:
+
+[pkg-gert]: https://docs.ropensci.org/gert/index.html
+
+```{r cs-show-created-branches}
+gert::git_branch_list()$name
+```
+
+This function returns a tibble (data frame) with the `name` column listing
+the names of the branches. As we see, it shows the branch we just created.
 
 Next, open up the `CONTRIBUTING.md` file, go to the bottom of the file and add 
 these lines of text to it:
