@@ -1,43 +1,78 @@
 # Involving the community {#community-involvement}
 
-- Designing your package to be used by or contributed to from the community
-- Contributing guidelines
-- Being inclusive (code of conduct)
-- Licensing
-- Project management for a user-friendly package
-- NEWS file
-- reprex
+## Learning objectives {#10-learning-objectives}
 
-## Learning objectives
-
-* Edit a project README and NEWS file to be welcoming to contributors and users
-* Understand the importance of having an explicit Code of Conduct and how to
+- Edit a project README and NEWS file to be welcoming to contributors and users
+- Understand the importance of having an explicit Code of Conduct and how to
 create one relevant to a project
-* Understand the purpose of licensing content, choose a license and create a
+- Understand the purpose of licensing content, choose a license and create a
 LICENSE file
-* Understand the importance of contributing guidelines and how to develop them
+- Understand the importance of contributing guidelines and how to develop them
 for a project
-* Create and manage GitHub Issues to track project bugs and improvements
+- Create and manage GitHub Issues to track project bugs and improvements
 
-## Outline of action steps
+## Creating a welcoming community with welcoming materials {#welcoming-materials}
 
-This chapter is very description-heavy with minimal code.
-
-Framing this chapter: 
-Now that your project is taking shape,
+Now that your project is taking shape
 and you even have a website to share information about it,
-you should help other people understand how to interact with your project.
-This chapter covers the basic information users expect to find if they would like to use, 
-and perhaps even potentially contribute, to your project. 
+there are things you can do to help other people understand
+how to interact with your project.
+This chapter covers the information users expect to find if they would like to use 
+and perhaps contribute to your project. 
 
-- Creating a welcoming community with welcoming materials
-<!-- I grouped reprex and NEWS with the README because they seem related to the
-general welcoming presentation of a project, but they could go elsewhere. -->
+### Creating a welcoming README {#readme}
 
-  - Text: making your project approachable with a welcoming README ([Mozilla reference](
-https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/write-a-great-project-readme/), 
-[R packages reference](https://r-pkgs.org/release.html#readme)).
-  - Exercise: write a one-paragraph description of the `zipfs` package using
+The README is the first part of your project that new users and contributors see,
+and by making it clear and welcoming, you make it possible for people from
+many different fields or levels of experience to understand what you're doing and why.
+
+You created a README in Chapter 5, and in Chapter 8 you filled out the
+basic building blocks of a README: a description of your project, instructions
+for installing and using your project, and some examples. 
+Now you will return to your README and assess it from the perspective of a new
+user or contributor. Is it welcoming? Is it easy to understand? Does it have
+all the information needed to use or contribute to your project?
+
+We recommend paying special attention to the following components
+to make your README clear and welcoming.
+For an example, check out the [README from the STEMM Role Models project](https://github.com/KirstieJane/STEMMRoleModels#stemm-role-models-app).
+
+- A great way to start a welcoming README is with a statement of welcome! You
+can introduce yourself, welcome people to your project, and say that you're
+excited they came.
+
+- Write your project description to answer the following questions in a way that is
+understandable to a wide range of people. Avoid using jargon, and if you
+do use terms or concepts that are field-specific, define them.
+    - What is this project about?
+    - Who is this project for?
+    - Why does this project exist?
+    - What makes your project unique or exciting?
+
+- Describe how to use your project with simple examples. More on this in the
+[reprex](#reprex) section.
+
+- Describe what kinds of help or resources you are looking for. More on this in the
+[contributing guidelines](#contributing-guidelines) section.
+
+Remember: even if you are pretty sure that all your users have the same expertise
+as you or that you won't have contributors, writing a clear README is also
+extremely helpful for your number one collaborator: Future You. Furthermore, the very
+act of thinking through your project's documentation can be a great way to
+clarify your own thoughts, brainstorm ideas, and foresee issues. 
+
+References: [Mozilla Open Leadership Training Series](
+https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/write-a-great-project-readme/)
+
+### Exercise: Write a jargon-free description of the `zipfs` package.
+
+When you are an expert in some particular subject matter, it can be hard
+to know which of the words and concepts you use often are not so easy
+for others to understand. This exercise will challenge you to rethink
+how you explain concepts by taking it to the extreme - restricting your vocabulary
+to the 1000 most common words in the English language!
+
+1. Write a one-paragraph description of the `zipfs` package using
 the [Up-Goer Five Text Editor](https://splasho.com/upgoer5/).
   - Text: making your project easy to use and understand with reproducible
 examples. `reprex`: not just for bug reports!
@@ -161,13 +196,15 @@ step, refer to the
 [Mozilla Open Leadership Training Series resources](https://mozilla.github.io/open-leadership-training-series/articles/readme/)
 
 1. Review your project package's `README.Rmd`:
-    - Write a one-paragraph description of your package using the 
-    [Up-Goer Five Text Editor](https://splasho.com/upgoer5/). *Note*: You don't
+    - Paste your package description into the
+    [Up-Goer Five Text Editor](https://splasho.com/upgoer5/).
+    Try to revise it to include only allowed words. *Note*: You don't
     need to use this in your actual README, but it is a fun and informative
     exercise to see and understand what words you think are common, but might not be!
     - Review your `README.Rmd` file by trying to place yourself with the
     viewpoint of a new contributor to your project. Does your README clearly
-    explain the purpose and function of your package without using jargon? Make
+    explain the purpose and function of your package without using jargon? 
+    Is it welcoming and clearly laid out? Make
     as many additions, deletions, and revisions as you'd like until you feel
     your README is clear and welcoming.
     - After editing your `README.Rmd` file, make sure to knit the `README.md`
