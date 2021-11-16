@@ -64,7 +64,7 @@ clarify your own thoughts, brainstorm ideas, and foresee issues.
 References: [Mozilla Open Leadership Training Series](
 https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/write-a-great-project-readme/)
 
-### Exercise: Write a jargon-free description of the `zipfs` package.
+### Exercise: Write a jargon-free description of the `zipfs` package. {#ex-upgoer5}
 
 When you are an expert in some particular subject matter, it can be hard
 to know which of the words and concepts you use often are not so easy
@@ -72,14 +72,55 @@ for others to understand. This exercise will challenge you to rethink
 how you explain concepts by taking it to the extreme - restricting your vocabulary
 to the 1000 most common words in the English language!
 
-1. Write a one-paragraph description of the `zipfs` package using
+Write a one-paragraph description of the `zipfs` package using
 the [Up-Goer Five Text Editor](https://splasho.com/upgoer5/).
-  - Text: making your project easy to use and understand with reproducible
-examples. `reprex`: not just for bug reports!
-  - Code: use the `reprex` package to create a minimal reproducible example for
-a function in the `zipfs` package.
-  - Exercise: use `reprex` to create a minimal reproducible example for the
-`book-meta` function in the `zipfs` package (or another function not described in the code section).
+<!--- For example: "These computer words tell the computer to look at a book and add up the number of times each word is used and then make a picture of all the numbers. Most of the time, all the numbers turn out to be a straight line."--->
+
+### Using reproducible examples to explain your project {#reprex}
+
+https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219
+
+Simple examples are very effective tools for explaining how your package works.
+The `reprex` package is designed to help you create **rep**roducible **ex**amples:
+stand-alone examples that include all the necessary information about running
+a chunk of code in the same way someone else did. This packages is mainly aimed
+at creating bug reports, but it is also a great tool for packaging examples
+more generally. 
+
+Let's create a reprex for how to use the `count_words` function in the `zipfs` package
+by following these steps:
+- Install (only for the first time) and load the `reprex` package.
+
+```{r cs-reprex-load, eval=FALSE}
+install.packages('reprex')
+library(reprex)
+```
+
+- Highlight the entire chunk of code that you want to include in your reprex, 
+including any packages, and copy the text using Ctrl/Cmd + c.
+
+FIXME: should this be from the perspective of developing zipfs, like start with `load_all()` instead of `library(zipfs)`?
+
+```{r cs-reprex, eval=TRUE}
+library(zipfs)
+text <- c("Star light, star bright,
+    First star I see tonight;
+    I wish I may, I wish I might,
+    Have the wish I wish tonight.")
+(word_freq <- count_words(text))
+```
+
+- In the console, type `reprex()` and hit Enter/Return.
+- Your reprex is now stored on your clipboard - use Ctrl/Cmd + v to paste it where you like.
+
+### Exercise: use `reprex` to create a minimal reproducible example for the `book-meta` function {#ex-reprex}
+
+Create a reprex for simple usage of the `book-meta` function in the `zipfs` package.
+FIXME: this might be tricky since it requires data - need to test this to make sure it's doable, or 
+talk about how to include data?
+
+### Keeping current with a NEWS file {#news}
+
   - Text: using a NEWS file ([reference](https://r-pkgs.org/release.html#news)).
 How and when to update the NEWS file.
   - Code: `usethis::use_news_md()`
@@ -87,7 +128,7 @@ How and when to update the NEWS file.
 most recent change that was make to the structure or code of `zipfs` (FIXME: we
 can be more specific here, like referring to a change made in the previous chapter.)
 
-- Contributing guidelines
+### Contributing guidelines {#contributing-guidelines}
 
   - Text: the purpose of Contributing guidelines and what they can contain
 ([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/)). 
@@ -102,7 +143,7 @@ understand how to interact with your project. We'll talk more in a later chapter
  (\@ref(team-package-development)) about how to develop contributing guidelines
 for working with a team of developers.
 
-- Code of Conduct
+### Code of Conduct {#code-of-conduct}
 
   - Text: inclusivity and safety with a focus on package users and community
 contributors, the purpose of a Code of Conduct and what goes into one 
@@ -122,7 +163,7 @@ many environments and for many different people. We recommend that you add to
 your code of conduct as needed to suit your situation, but that you keep the
 standard components to create the most welcoming and safe environment possible. 
 
-- Licensing
+### Licensing {#license}
 
   - Text: why do you need a license, what is the purpose of a license 
 ([reference](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/sharing-your-work-in-the-open/))
