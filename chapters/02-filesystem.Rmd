@@ -1,20 +1,8 @@
 # Folder and file structure for R projects
 
-* Very basics of the shell (in RStudio),
-and filesystem terminology
-  * `cd`, `ls`, flags
-  * recursive
-  * paths: home and root
-* Working directory and how it is set with RStudio R Projects
-* Making use of the `fs` package for filesystem management
-  * similar functions in base R and why `fs` is preferred
-  * `dir_ls()`, `dir_tree()`
-  * `dir_map()`
-  * `file_delete()`, `file_info()`, `file_move()`
-
 ## Learning Objectives
 
-* access the shell through RStudio terminal to execute basic Unix commands
+* interact with the RStudio interface to navigate files and directories
 * interpret paths as locations within folders
 * create RStudio projects and identify the working directory
 * apply functions from the `fs` package for filesystem management
@@ -29,42 +17,20 @@ and filesystem terminology
   * Console: left side, where code is executed
   * Environment: top right side, lists names of defined objects and information about them
   * Files: lower right side, browser for navigating directories and files (other tabs in this pane include Plots, Packages, and Help)
+  * note appendix with customization options for RStudio
 
-## The RStudio terminal
+> popout about RStudio terminal: way to access the Unix shell from within RStudio. 
+- Other methods of interacting with the shell include Terminal (Mac OSX), or Windows Subsystem for Linux (WSL) or Git-Bash (also Windows).
+- some version control tasks can only be accomplished on the command line
+- remote computing requires a remote login
 
-* text (and image?): the RStudio terminal is a way to access the Unix shell from within RStudio. 
-  * Other methods of interacting with the shell include Terminal (Mac OSX), or Windows Subsystem for Linux (WSL) or Git-Bash (also Windows).
-  * RStudio terminal accesses these other methods via the RStudio interface: available via separate tab in Console
-  * Reference RStudio support materials?
+## Creating a project
 
-* text: why are we learning about the shell?
-  * some version control tasks can only be accomplished on the command line
-  * remote computing requires a remote login
-  * demonstrates and reinforces the importance of directory structure and project organization
-* text: accessing the terminal interface in RStudio
-  * locate tab in console window
-  * explain command prompt: bash default ends in `$`; some Macs may be running zsh and end in `%`, but this won't affect any commands in this book
-
-## Paths and running commands in the Unix shell and understanding paths
-
-* text: basic commands in the Unix shell
-  * there are many commands that perform many different operations
-  * in this chapter we're focusing on commands used for navigating folders and directories
-* code: `pwd` as first command
-* text: interpret output from `pwd`
-  * differing output from Mac and Windows
+* text (image?): one of the challenges of software engineering is keeping our code and associated files organized
+  * we use projects to make these tasks easier
   * define working directory
+  * if you are looking at RStudio with no project open, you'll see the working directory listed at the top of the Console as `~/` (or Windows equivalent)
 
-* code: `ls` to show what is in current (working) directory
-* text: describe output from `ls`
-* code: `ls -a` adding an option to show hidden files
-* text: identify differences between this output and earlier output
-  * `.` prefacing a file name means the file is hidden
-  * `.` and `..` as shortcuts to folders (current and parent file, respectively)
-  * define option/flag as way to modify how the command is executed
-* code: `ls Desktop`: include a directory as an argument to show contents of a different directory
-
-* code: `cd Desktop` to change directory, then `pwd` and `ls` to inspect what has happened
 * text: working directory does not necessarily match the file browser in lower right pane
 * text: changing the working directory can make it easier to reference files and directories 
 
@@ -72,12 +38,6 @@ and filesystem terminology
   * absolute paths
   * relative paths
   * `~` as home directory
-
-## Creating a project
-
-* text (image?): one of the challenges of software engineering is keeping our code and associated files organized
-  * we use projects to make these tasks easier
-  * if you are looking at RStudio with no project open, you'll see the working directory listed at the top of the Console as `~/` (or Windows equivalent)
 
 * text (image): create a new project
   * File -> New Project -> New Directory -> New Project
@@ -87,10 +47,12 @@ and filesystem terminology
 
 * text: what happens after creating a project?
   * screen refreshes and path to working directory changes (ends in name of project you just created)
-* code: `pwd` and `ls -a` in Terminal to confirm working directory and show files in project
 * text: interpreting output:
   * if creating a new project, creates a folder in the specified location that includes hidden files containing information about your project
   * RStudio references that information to make it easier for us to focus on writing code (includes working directory and our preferences)
+  
+  * `.` prefacing a file name means the file is hidden
+  * `.` and `..` as shortcuts to folders (current and parent file, respectively)
 
 * text: why aren't we creating a project to use in later chapters? Here we use a project to get warmed up in a low-stakes way.
   * while creating your project, you may have noticed the option to create a package, as these are more specialized, structured types of projects
@@ -118,7 +80,7 @@ and filesystem terminology
   * while covering all useful functions is outside the scope of thsi chapter, we'll demonstrate a few to help you understand their breadth of applications
 
 * code: `dir_ls()` to list files in current directory
-  * as with Unix commands, providing no argument defaults to the current working directory
+  * providing no argument defaults to the current working directory
   * if your working directory is `sassafras`, you'll only have one file shown here (`sassafras.Rproj`)
 * code: `dir_ls("Desktop")`: indicate a different directory by including the path as an argument 
   * don't forget to enclose the path inside quotation marks
