@@ -5,17 +5,20 @@ not showing output of git in code chunks (they are a pain to edit afterwards).
 
 Clearly identify which tasks are best accomplished by each interface.
 
-- Using Git integration in RStudio (standard add-commit-history)
-- Using Git in the Terminal of RStudio
-  - moving in history with checkout
+- Using Git integration in RStudio 
+  - standard add-commit
+  - view history
   - creating branches
+  - moving in history
   - adding and updating remotes
-- Setting up GitHub for R package (make use of `usethis`), pushing and pulling
+- `gert` and `usethis` commands for git; Setting up GitHub for R package 
+- working with remote repositories
+  - pushing and pulling
 
 ## Learning objectives
 
 * identify why version control, specifically Git, is important for software engineering
-* differentiate methods for working with Git and R: RStudio integration, using shell commands in Terminal, `usethis` functions
+* differentiate methods for working with Git and R: RStudio integration, `usethis` and `gert` functions
 * apply the change-stage-commit process as the Git workflow for tracking changes and viewing a repository's commit history
 * create branches to isolate work in progress and protect the main branch while working on major changes
 * publish repositories to GitHub and coordinate between remote and local versions
@@ -24,7 +27,7 @@ Clearly identify which tasks are best accomplished by each interface.
 
 All text (no code):
 * why to use version control
-* why to use Git as a version control system (popularity, GitHub, 
+* why to use Git as a version control system (popularity, GitHub)
 * how are Git and GitHub different?
   * local vs remote
   * publishing 
@@ -44,7 +47,7 @@ All text (no code):
   * creates hidden folder containing git history
   * some files ignored (note that it's possible to add other files to ignore)
 
-### Tracking changes in RStudio
+### Tracking changes
 
 All text and images:
 * exercise: work through basic workflow using RStudio integration
@@ -57,63 +60,31 @@ All text and images:
 
 * exercise: create new file, commit, delete file, commit
 
-### Viewing history in RStudio
+### Working with version history
 
 All text and images:
 * click on clock button in Git pane (don't confuse with history tab; all git buttons are in Git tab)
 * explain fields: subject, author, date, SHA
 * click on a previous commit to see changes
 
-## Git in Terminal
-
-* text: git on command line includes commands for full range of tasks, including those we've already covered:
-  * initialize repository: `git init`
-  * basic workflow: `git add` then `git commit`
-  * view history: `git log`
-
-### Exploring history in Terminal
-
-* code: make a change to README, then restore to previous (most recent) commit (pretend changes didn't exist, as if we changed our mind)
-  * `git status`
-  * `git restore README.md`
-  * `git status`
+* make a change to README, then restore to previous (most recent) commit (pretend changes didn't exist, as if we changed our mind)
 
 * text: if we wanted to use content from a previous commit, like the file we created then deleted earlier
   * find SHA key in log
-* code:
-  * `git checkout XXXXXXX filename`
-  * `git status`
-  * `git restore --staged filename`
-  * `git restore filename`
-  * `git status`
 
-### Creating branches in Terminal
+### Working with branches
 
 * text: what is a branch? 
   * main branch (make sure usethis creates main as default branch)
   * why work with them?
-* code: create branch, make changes, merge with main
-  * `git branch`
-  * `git checkout -b new_idea`
-  * make changes to file
-  * `git add filename`
-  * `git commit -m filename`
-  * `git checkout main`
-  * `git merge new_idea`
-  * `git branch -d new_idea`
-* text: note working with branches in rstudio tab
+* exercise: create branch, make changes, merge with main
 
-Exercise
-
-Discuss more about branches in git workflows chapter
+> Discuss more about branches in git workflows chapter
 
 ## Working with remote repositories
 
 * text: remote vs local repositories
-* code: create remote repo and connect with local
-  * `usethis::git_remotes`
-  * `usethis::use_github`
-  * `usethis::git_remotes`
+* exercise: create remote repo and connect with local
 * text: summarize process above
 
 Exercise
@@ -138,19 +109,18 @@ TODO: This question makes a change to zipfs, so this should be reflected in any 
 
 1. For the `zipfs` previously used for demonstration in this chapter,
 perform the following tasks:
-    - Open up a Terminal and create a new branch called `new-feature` with `git`.
+    - Create a new branch called `new-feature` with `git`.
     - Open up any file and make a minor change (e.g. add a word like "random").
-    In the RStudio Git Interface, add and commit those changes into the history.
+    Add and commit those changes into the history.
     - Go back to the main branch by using checkout with `git`. 
     - Think about and consider what will happen if you attempt to merge your
-    branches? In the Terminal, merge the changes from the `new-feature` branch
+    branches? Merge the changes from the `new-feature` branch
     into the `main` branch and find out.
 
 1. Go to your package for your first project assignment and perform the
-following tasks, noting the approach you used (Git integration in RStudio,
-command-line interface, `usethis`):
+following tasks, noting the RStudio features and R functions you used:
     - Initialize the repository (`use_git()` in the R Console).
-    - In the RStudio Git Interface, add and commit all the relevant files that
+    - Add and commit all the relevant files that
     you've worked on until this point. Are there any you need to ignore? 
     TODO: Should we have this thing about ignore? At this point would there be anything?
     - Connect your new Git repository to GitHub (`use_github()` in the R Console)
