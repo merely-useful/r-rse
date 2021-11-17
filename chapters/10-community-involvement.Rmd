@@ -99,7 +99,7 @@ library(reprex)
 - Highlight the entire chunk of code that you want to include in your reprex, 
 including any packages, and copy the text using Ctrl/Cmd + c.
 
-FIXME: should this be from the perspective of developing zipfs, like start with `load_all()` instead of `library(zipfs)`?
+FIXME: should this be from the perspective of developing zipfs, like starting with `load_all()` instead of `library(zipfs)`?
 
 ```{r cs-reprex, eval=TRUE}
 library(zipfs)
@@ -113,6 +113,8 @@ text <- c("Star light, star bright,
 - In the console, type `reprex()` and hit Enter/Return.
 - Your reprex is now stored on your clipboard - use Ctrl/Cmd + v to paste it where you like.
 
+Reference: [So you’ve been asked to make a reprex](https://www.jessemaegan.com/blog/so-you-ve-been-asked-to-make-a-reprex/)
+
 ### Exercise: use `reprex` to create a minimal reproducible example for the `book-meta` function {#ex-reprex}
 
 Create a reprex for simple usage of the `book-meta` function in the `zipfs` package.
@@ -121,27 +123,73 @@ talk about how to include data?
 
 ### Keeping current with a NEWS file {#news}
 
-  - Text: using a NEWS file ([reference](https://r-pkgs.org/release.html#news)).
-How and when to update the NEWS file.
-  - Code: `usethis::use_news_md()`
-  - Exercise: make an edit to `NEWS.md` in the `zipfs` package describing the
+When you make changes to your project, such as fixing a bug or adding
+a new feature, it's a good idea to maintain a high-level summary of
+these changes so that people who interact with your project can understand
+when and how your project is changing. By convention, this list of
+changes lives in a file called NEWS.md. Changes
+are usually grouped by which package release they belong to; we will
+cover releasing your package in more detail in Chapter 12. Check out
+the [devtools NEWS.md](https://github.com/r-lib/devtools/blob/main/NEWS.md)
+for an example of how this file is used in a popular package. 
+
+The function `usethis::use_news_()` automatically creates a file called
+NEWS.md with a header and the start of a bullet-point list.
+Let's run it now for the `zipfs` package. 
+
+```{r cs-news, eval=TRUE}
+use_news_md()
+```
+
+Each time you make a change,
+add it to the NEWS.md file as you go. When it's time for a release,
+you'll have a handy summary of all the changes that have been made.
+
+[reference](https://r-pkgs.org/release.html#news))
+
+### Exercise: edit the NEWS.md file {#ex-news}
+
+Make an edit to `NEWS.md` in the `zipfs` package describing the
 most recent change that was make to the structure or code of `zipfs` (FIXME: we
 can be more specific here, like referring to a change made in the previous chapter.)
 
 ### Contributing guidelines {#contributing-guidelines}
 
+By this point, your README already contains some information about
+how people can use or get involved in your project. When you want
+to include more specific details, those details will live in a file called
+CONTRIBUTING.md. Contributing guidelines help people understand how
+to interact with your project and help you plan out the types of
+contributions you are looking for. We'll talk more in a later chapter
+(\@ref(team-package-development)) about how to develop contributing guidelines
+for working with a team of developers.
+
+The function `usethis::use_tidy_contributing()` automatically creates a file called
+CONTRIBUTING.md with some boilerplate contributing guidelines in the
+tidyverse style.
+
+```{r, cs-contributing, eval=TRUE}
+use_tidy_contributing()
+```
+
+Here's the [GitHub Docs CONTRIBUTING.md file](https://github.com/github/docs/blob/main/CONTRIBUTING.md)
+as an example. 
+
   - Text: the purpose of Contributing guidelines and what they can contain
 ([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/)). 
 Emphasize that the different sections are quite project-specific (i.e. your
 project might not use communication channels outside of GitHub).
-  - Code: `usethis::use_tidy_contributing()`
-  - Exercise: choose two open source products that you have used and find their
-contributing guidelines. Do they contain any sections that aren't in the
-default Tidy Contributing Guidelines that you think are useful?
+
   - Text: In a basic sense, contribution guidelines help other people
 understand how to interact with your project. We'll talk more in a later chapter
  (\@ref(team-package-development)) about how to develop contributing guidelines
 for working with a team of developers.
+
+### Exercise: Reading contributing guidlines {#ex-contributing}
+
+Choose two open source products that you have used and find their
+contributing guidelines. Do they contain any sections that aren't in the
+default Tidy Contributing Guidelines that you think are useful?
 
 ### Code of Conduct {#code-of-conduct}
 
