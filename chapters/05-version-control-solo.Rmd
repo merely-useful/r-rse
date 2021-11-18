@@ -1,19 +1,4 @@
-# Version control: Using Git and GitHub as a sole user (part 1)
-
-Emphasize exercises to practice,
-not showing output of git in code chunks (they are a pain to edit afterwards).
-
-Clearly identify which tasks are best accomplished by each interface.
-
-- Using Git integration in RStudio 
-  - standard add-commit
-  - view history
-  - creating branches
-  - moving in history
-  - adding and updating remotes
-- `gert` and `usethis` commands for git; Setting up GitHub for R package 
-- working with remote repositories
-  - pushing and pulling
+# Version control: Introduction to Git and GitHub
 
 ## Learning objectives
 
@@ -25,19 +10,33 @@ Clearly identify which tasks are best accomplished by each interface.
 
 ## Overview
 
-All text (no code):
-* why to use version control
-* why to use Git as a version control system (popularity, GitHub)
-* how are Git and GitHub different?
-  * local vs remote
-  * publishing 
-* why use version control for software engineering 
-  * basics of version control and why it matters for code
-  * preview this chapter, connect to other chapters
+Version control is the practice of tracking and managing changes to code and other types of files.
+If you've used tracked changes in Microsoft Word or Google Docs,
+you're already familiar with using version control to track changes to documents.
+A version control system, or software used to implement version control,
+is an essential part of software engineering because of the history it retains
+of who made what changes and when.
+
+Git is a version control system,
+while GitHub is a website for publishing and sharing projects that are tracked using Git. 
+Git and GitHub are a very popular set of tools used by both academic and commercial organizations, 
+and correspondingly, 
+have well-developed help documentation and a large community of users to assist in their use.
+Version control is used to record changes to all types of files, 
+but is especially important for code. 
+This is because changes made to code may have consequences for other parts of the file or project, 
+and being able to understand when and where changes caused problems is especially important.
+
+In this chapter,
+we'll introduce version control by tracking the files to our project created so far,
+navigating the Git workflow within the context of project development,
+and exploring different ways to interact with Git in RStudio.
 
 ## Git integration in RStudio
 
 ### Setting up Git in RStudio
+
+Installation and Getting Started: https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN
 
 * text: connecting Git and RStudio
   * accessing Git through Global options
@@ -81,7 +80,7 @@ All text and images:
 
 > Discuss more about branches in git workflows chapter
 
-## Working with remote repositories
+## Working with remote repositories in GitHub
 
 * text: remote vs local repositories
 * exercise: create remote repo and connect with local
