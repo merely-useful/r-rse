@@ -5,7 +5,6 @@
 * identify why version control, specifically Git, is important for software engineering
 * differentiate methods for working with Git and R: RStudio integration, `usethis` and `gert` functions
 * apply the change-stage-commit process as the Git workflow for tracking changes and viewing a repository's commit history
-* create branches to isolate work in progress and protect the main branch while working on major changes
 * publish repositories to GitHub and coordinate between remote and local versions
 
 ## Overview
@@ -71,15 +70,6 @@ All text and images:
 * text: if we wanted to use content from a previous commit, like the file we created then deleted earlier
   * find SHA key in log
 
-### Working with branches
-
-* text: what is a branch? 
-  * main branch (make sure usethis creates main as default branch)
-  * why work with them?
-* exercise: create branch, make changes, merge with main
-
-> Discuss more about branches in git workflows chapter
-
 ## Working with remote repositories in GitHub
 
 * text: remote vs local repositories
@@ -105,16 +95,6 @@ create and on what the package should do. As with the other final exercises,
 we will use the `kenyaweather` package as an example and reference.
 
 TODO: This question makes a change to zipfs, so this should be reflected in any automation we do to it.
-
-1. For the `zipfs` previously used for demonstration in this chapter,
-perform the following tasks:
-    - Create a new branch called `new-feature` with `git`.
-    - Open up any file and make a minor change (e.g. add a word like "random").
-    Add and commit those changes into the history.
-    - Go back to the main branch by using checkout with `git`. 
-    - Think about and consider what will happen if you attempt to merge your
-    branches? Merge the changes from the `new-feature` branch
-    into the `main` branch and find out.
 
 1. Go to your package for your first project assignment and perform the
 following tasks, noting the RStudio features and R functions you used:
