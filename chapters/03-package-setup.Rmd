@@ -19,78 +19,209 @@
 
 ## About Zipf's Law
 
+TODO: Not sure this belongs here.
+
 We'll create a package (`zipfs`) to analyze a fascinating result in the field of
-quantitative linguistics. Zipf’s Law states that the second most common word in
+quantitative linguistics. Zipf's Law states that the second most common word in
 a body of text appears half as often as the most common, the third most common
-appears a third as often, and so on. To test whether Zipf’s Law holds for a
+appears a third as often, and so on. To test whether Zipf's Law holds for a
 collection of classic novels that are freely available from Project Gutenberg,
 we will write a software package that counts and analyzes the word frequency
 distribution in any arbitrary body of text.
 
-## Outline of action steps
+## Why create an R package?
 
-* Why create an R package? 
+Reasons are:
 
-    * Text: Whenever you want to use data or functions over more than one project.
-    * Text: Advantages over sharing code and/or data files:
-        * Easy for other people to obtain and install
-        * Built-in documentation of functions and data
-        * Incorporate package-level meta data: authors, version, etc.
+1. Make it easier to share your work with others and for them to easily use it.
+1. Incorporating checks
 
-* What is an R package?
+1. It's actually really easy to create R packages by using the [devtools][pkg-devtools]
+and usethis packages, so why not?
 
-    * Text: Files that follow the R package conventions. usethis and devtools, 
-    designed to help you do this.  
-    * Exercise: Install a simple package from GitHub.
-    Give some code that: loads package, 
-    calls `xxx()` and data `yyy`.  
-    Examine structure of GitHub repo.   
-    Can you find where is the `xxx()` defined?  `yyy`? 
-    Where is the name of the package? 
+[pkg-devtools]: https://devtools.r-lib.org/
+[pkg-usethis]: https://usethis.r-lib.org/
+
+* Text: Whenever you want to use data or functions over more than one project.
+* Text: Advantages over sharing code and/or data files:
+    * Easy for other people to obtain and install
+    * Built-in documentation of functions and data
+    * Incorporate package-level meta data: authors, version, etc.
+
+## What is an R package?
+
+With 
+
+* Text: Files that follow the R package conventions. usethis and devtools,
+designed to help you do this.
     
-* Creating a package    
+### Exercise: Exercise Name {#ex-EXERCISE-TAG}
 
-    * Text: Where should your package live? What should you call your package?
-    * Code: `usethis::create_package()` (maybe also `available::available()`?)
-        * Note about using `::` vs `library()`
-    * Text: `DESCRIPTION` is structured text that describes package, 
-    `R/` for R script files that define functions in the package. 
-    * Exercise: Repeat steps, e.g. `usethis::create_package("zipfs")`, 
-    edit `DESCRIPTION` to have you as author.
+* Exercise: Install a simple package from GitHub.
+Give some code that: loads package, 
+calls `xxx()` and data `yyy`.  
+Examine structure of GitHub repo.   
+Can you find where is the `xxx()` defined?  `yyy`? 
+Where is the name of the package?
+
+1. Summary of steps to do in exercise
+
+```{r es-LABEL-NAME}
+# Code for exercise and shown to learner
+```
+
+```{r ee-LABEL-NAME}
+# If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
+```
+
+```{r sol-LABEL-NAME}
+# Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
+```
+
+
+## Creating a package    
+
+* Text: Where should your package live? What should you call your package?
+
+
+* Code: `usethis::create_package()` (maybe also `available::available()`?)
+    * Note about using `::` vs `library()`
+
+```{r cs-LABEL-NAME}
+# Code used in section and shown to learners
+```
+
+```{r ce-LABEL-NAME}
+# If needed. Code used in section, NOT shown to learners, but needed for auto building of package/book
+```
+
+* Text: `DESCRIPTION` is structured text that describes package, 
+`R/` for R script files that define functions in the package. 
+
+### Exercise: Exercise Name {#ex-EXERCISE-TAG}
+
+* Exercise: Repeat steps, e.g. `usethis::create_package("zipfs")`, 
+edit `DESCRIPTION` to have you as author.
  
+1. Summary of steps to do in exercise
 
-* Package development workflow
-    
-    * Text: As an example, add a function to this package. 
-    Here, function is provided, next chapter, talks about how you
-    write functions. 
-    * Code: `use_r()`
-    * Text: How do we load the function and check it works?
-    * Code: `devtools::load_all()`
-    * Exercise: Practice workflow. Make small edit to function, reload, 
-    rerun function.
-    * Text: `load_all()` emulates installing and loading, but only
-    for current session.  Sometimes you want to actually install and load.
-    * Code: `devtools::install()`, `library()`
-    
-* Adding data to a package
+```{r es-LABEL-NAME}
+# Code for exercise and shown to learner
+```
 
-    * Text: Data live in `data/` as `.rda` files.  
-    * Code: `usethis::use_data("FIXME")` Here with simplified data. Restart, `devtools::load_all()`, `FIXME`
-    * Text: Should document how data was created. 
-    Put raw data and scripts that end in `usethis::use_data()` in `data-raw/`
-    * Code: `use_data_raw()` 
-    * Exercise: Provide script for getting dracula text from Gutenberg. 
-    Add `dracula` to package.
+```{r ee-LABEL-NAME}
+# If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
+```
 
-* R settings that help you as a developer
+```{r sol-LABEL-NAME}
+# Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
+```
+
+## R settings that help you as a developer
     
-    * Text: `usethis::` `devtools::` get tiresome to type.  Setup to always load.
-    * Code: `usethis::use_devtools()` `usethis::use_usethis()`
-    * Text: When we restart R, want nothing in environment, no packages loaded, etc.
-    * Code: `use_blank_slate()`
-    * Text: Other configuration, e.g. to automatically populate `DESCRIPTION`:  https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences
+* Text: `usethis::` `devtools::` get tiresome to type.  Setup to always load.
+
+```{r cs-LABEL-NAME}
+usethis::use_devtools()
+usethis::use_usethis()
+```
+
+* Text: When we restart R, want nothing in environment, no packages loaded, etc.
+
+TODO: Fix up, this was copied from r-cubed.
+Now that we’ve created a project and associated folders, let’s add some more
+options to the project. One option to set is to ensure that every R session you
+start with is a "blank slate", meaning no old data are automatically imported
+into the Environment. This is done by typing the following code in the Console:
+
+```{r cs-LABEL-NAME}
+use_blank_slate()
+```
+
+* Text: Other configuration, e.g. to automatically populate `DESCRIPTION`:  https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences
     
+## Package development workflow
+    
+* Text: As an example, add a function to this package. 
+Here, function is provided, next chapter, talks about how you
+write functions. 
+
+* Code: `use_r()`
+```{r cs-LABEL-NAME}
+# Code used in section and shown to learners
+```
+
+* Text: How do we load the function and check it works?
+
+* Code: `devtools::load_all()`
+```{r cs-LABEL-NAME}
+# Code used in section and shown to learners
+```
+    
+### Exercise: Exercise Name {#ex-EXERCISE-TAG}
+
+* Exercise: Practice workflow. Make small edit to function, reload, 
+rerun function.
+
+1. Summary of steps to do in exercise
+
+```{r es-LABEL-NAME}
+# Code for exercise and shown to learner
+```
+
+```{r ee-LABEL-NAME}
+# If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
+```
+
+```{r sol-LABEL-NAME}
+# Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
+```
+
+
+* Text: `load_all()` emulates installing and loading, but only
+for current session.  Sometimes you want to actually install and load.
+
+* Code: `devtools::install()`, `library()`
+```{r cs-LABEL-NAME}
+# Code used in section and shown to learners
+```
+    
+## Adding data to a package
+
+* Text: Data live in `data/` as `.rda` files.  
+
+* Code: `usethis::use_data("FIXME")` Here with simplified data. Restart, `devtools::load_all()`, `FIXME`
+```{r cs-LABEL-NAME}
+# Code used in section and shown to learners
+```
+
+* Text: Should document how data was created. 
+Put raw data and scripts that end in `usethis::use_data()` in `data-raw/`
+
+```{r cs-LABEL-NAME}
+use_data_raw()
+```
+
+### Exercise: Exercise Name {#ex-EXERCISE-TAG}
+
+* Exercise: Provide script for getting dracula text from Gutenberg. 
+Add `dracula` to package.
+
+1. Summary of steps to do in exercise
+
+```{r es-LABEL-NAME}
+# Code for exercise and shown to learner
+```
+
+```{r ee-LABEL-NAME}
+# If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
+```
+
+```{r sol-LABEL-NAME}
+# Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
+```
+
+
     
 ## Final exercise
 
