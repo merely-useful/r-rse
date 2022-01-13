@@ -165,54 +165,75 @@ contributions you are looking for. We'll talk more in a later chapter
 for working with a team of developers.
 
 The function `usethis::use_tidy_contributing()` automatically creates a file called
-CONTRIBUTING.md with some boilerplate contributing guidelines in the
-tidyverse style.
+CONTRIBUTING.md in the folder `.github` with some boilerplate contributing
+guidelines in the Tidyverse style.
 
 ```{r, cs-contributing, eval=TRUE}
 use_tidy_contributing()
 ```
 
+The specific topics and text in your contributing guidelines will depend
+a lot on your project. For example, you might want to add sections about
+reporting bugs, how to communicate with others on the project,
+or where to find more resources or information. Don't forget to make your
+include a statement welcoming people to your project at the top!
 Here's the [GitHub Docs CONTRIBUTING.md file](https://github.com/github/docs/blob/main/CONTRIBUTING.md)
 as an example. 
 
-  - Text: the purpose of Contributing guidelines and what they can contain
-([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/)). 
-Emphasize that the different sections are quite project-specific (i.e. your
-project might not use communication channels outside of GitHub).
-
-  - Text: In a basic sense, contribution guidelines help other people
-understand how to interact with your project. We'll talk more in a later chapter
- (\@ref(team-package-development)) about how to develop contributing guidelines
-for working with a team of developers.
+[reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/)
 
 ### Exercise: Reading contributing guidlines {#ex-contributing}
 
 Choose two open source products that you have used and find their
 contributing guidelines. Do they contain any sections that aren't in the
-default Tidy Contributing Guidelines that you think are useful?
+default Tidyverse Contributing Guidelines that you think are useful?
 
 ### Code of Conduct {#code-of-conduct}
 
-  - Text: inclusivity and safety with a focus on package users and community
-contributors, the purpose of a Code of Conduct and what goes into one 
-([reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-a-code-of-conduct/)).
-  - Code: `usethis::use_code_of_conduct()`
-  - Exercise: read the Code of Conduct file in the `zipfs` package and edit it
+To create an inclusive and safe community of users and contributors,
+a Code of Conduct is an important document to include in your project.
+A Code of Conduct improves safety by clearly laying out which behaviors
+are encouraged and which are not acceptable, helping to prevent problems
+from arising in the first place, as well as outlining how problems
+will be handled if they do occur. 
+
+The function `usethis::use_code_of_conduct()` creates a file called
+`CODE_OF_CONDUCT.md` that contains the text of the 
+[Contributor Covenant](https://www.contributor-covenant.org/).
+
+```{r, cs-code_of_conduct, eval=TRUE}
+use_code_of_conduct()
+```
+
+The files CONTRIBUTING.md and CODE_OF_CONDUCT.md are treated specially
+by GitHub so that when a new issue is opened for the first time,
+a message box appears with a link to CONTRIBUTING.md and
+CODE_OF_CONDUCT.md, directing new contributors to read these documents.
+
+### Exercise: Editing the Code of Conduct {#ex-code-of-conduct}
+
+Read the Code of Conduct file in the `zipfs` package and edit it
 to include a method of contact for reporting violations. Add details for how
 violations will be handled (for example, banning from project, blocking, etc.).
-  - Optional exercise for a group assignment: discuss as a group what your
-expectations are for working together (things like communication channels,
-communication expectations, timeliness, meeting preparedness, meeting ettiquette,
-etc.) 
-    - Text followup: While your code of conduct list in this exercise may
+
+### Exercise: Developing a Code of Conduct as a group {#ex-group-code-of-conduct}
+
+Discuss as a group what your expectations are for working together
+(things like communication channels, communication expectations,
+timeliness, meeting preparedness, meeting etiquette, etc.).
+
+While your code of conduct list in this exercise may
 include things that are specific to your group, the code of conduct templates
 that are widely used (such as the tidyverse default) have been tested across
 many environments and for many different people. We recommend that you add to
 your code of conduct as needed to suit your situation, but that you keep the
 standard components to create the most welcoming and safe environment possible. 
 
+[reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-a-code-of-conduct/)
+
 ### Licensing {#license}
 
+Every project shared online should have a license, 
   - Text: why do you need a license, what is the purpose of a license 
 ([reference](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/sharing-your-work-in-the-open/))
     - what happens when code is unlicensed. Copyrighted and not re-usable.
@@ -226,7 +247,10 @@ about the different types of open source licenses.
 [Wordpress](https://wordpress.org/about/license/)). Find and read the license
 for each product.
 
-- Project management for a user-friendly package
+Python book stuff on license: https://github.com/merely-useful/py-rse/blob/04d2a2cc07ab95a4ea5b1782a5fc029709304182/chapters/teams.Rmd
+[reference](https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/sharing-your-work-in-the-open/)
+
+## Project management for a user-friendly package
 
   - Text: creating, using, and managing GitHub Issues to maintain your project.
 GitHub Issues provides a way to log bugs and project improvement suggestions
@@ -242,7 +266,7 @@ contributor [personas and pathways](https://mozilla.github.io/open-leadership-tr
 [leadership structure](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/understand-meaningful-participation-and-distributed-leadership/),
 [event planning and facilitation](https://mozilla.github.io/open-leadership-training-series/articles/running-awesome-community-events/event-planning-and-facilitation/).
   
-- Tracking tasks with GitHub Issues (moved from chapter 12)
+### Tracking tasks with GitHub Issues (moved from chapter 12)
   - Text: Beyond bugs: how GitHub issues can help you keep track of tasks and
 communicate with your community ([reference](
 https://mozilla.github.io/open-leadership-training-series/articles/get-your-project-online/project-set-up-for-collaboration-with-github/#project-structure-and-organization)). 
