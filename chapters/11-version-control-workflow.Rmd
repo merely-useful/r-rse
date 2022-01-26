@@ -76,7 +76,7 @@ Learning to effectively use these tools and concepts can make collaborating with
 others much easier and makes it easier to contribute to other projects.
 You can even use this workflow as a solo developer. So what is this workflow?
 Figure TODO: REF and TODO: REF show the basic overview for workflows
-not using or using a fork-based approach. For non-forked-based workflows, the
+not using or using a fork-based approach. For non-fork-based workflows, the
 steps are to:
 
 1. Create a new branch.
@@ -117,11 +117,11 @@ sami_repo -> amira_fork -> amira_new_branch -> pr_to_sami_repo ->
 }")
 ```
 
-The main differences between using a non-forked-based approach compared to a
-forked-based approach is determined by whether you have access to modify ("write
+The main differences between using a non-fork-based approach compared to a
+fork-based approach is determined by whether you have access to modify ("write
 permissions") the main repository. Usually if you are in a team, you have
 permissions to modify and save ("write") changes to the main repository,
-so in that case you would use a non-forked-based approach.
+so in that case you would use a non-fork-based approach.
 
 One challenge that often comes up is knowing how and when to use the branches.
 Do you do all your changes there and make pull requests to the main branch
