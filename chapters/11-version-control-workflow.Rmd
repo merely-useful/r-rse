@@ -1,4 +1,4 @@
-# Collaborating by using GitHub {#github-collaboration}
+# Collaborating with Git and GitHub {#github-collaboration}
 
 ```{r setup}
 library(usethis)
@@ -14,7 +14,7 @@ on a project
 requests in GitHub
 - Manage pull requests as a maintainer or lead of a project
 
-## Collaborating with Git and GitHub
+## Collaboration the GitHub way
 
 ### Exercise: Consider ways to collaborate {#ex-ways-to-collaborate}
 
