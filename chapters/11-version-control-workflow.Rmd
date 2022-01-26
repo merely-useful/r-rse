@@ -7,7 +7,7 @@ library(usethis)
 ## Learning objectives {#11-learning-objectives}
 
 - Apply concepts from basic Git workflows to working collaboratively using GitHub
-- Differentiate forking and branching and identify situations when to use either
+- Differentiate forking and branching and identify situations in which to use each
 - Understand the use and role of branches and pull requests in collaborating
 on a project
 - Use helper functions in the usethis package to manage branches and submit pull
@@ -19,8 +19,8 @@ requests in GitHub
 ### Exercise: Consider ways to collaborate {#ex-ways-to-collaborate}
 
 Before we get into this section, let's do an exercise to start thinking about 
-the different ways people have come up with so that they can collaborate together.
-They range from writing files and emailing them around to using Google Drive or 
+the different ways people collaborate together,
+ranging from writing files and emailing them around to using Google Drive or 
 similar services.
 
 1. Take some time to think about and write down the different ways you have
@@ -31,7 +31,7 @@ which of them do you feel are more effective in terms of time management,
 effort, ease of use, and that best fit the needs for the project they were used it?
 Would any of these methods work well when building an R package as a team?
 1. Take some time and brainstorm some approaches to collaborating that you would
-feel would help make an R package with others?
+feel would help when making an R package with others.
 
 <!-- TODO: Have them write this down in a vignette? -->
 
@@ -49,9 +49,9 @@ commit in the Git repository. Working in a branch allows you to modify files
 without modifying the same files in other branches, because you are essentially
 working in a "parallel" set of files. When you want the changes made in the
 branch to be put into the main branch (which is also often called "main"),
-you would do this by merging the branches together. In team settings, working on
+you do this by *merging* the branches together. In team settings, working on
 branches lets you make changes to files without impacting your other team
-members work. When your changes to files are finished, you can then merge your
+members' work. When your changes to files are finished, you can then merge your
 changes into the main branch so your other team members have those changes too.
 Branches are heavily used in team-based settings in software and R
 package projects.
@@ -63,13 +63,13 @@ The collaborative workflow includes two new terms and concepts: *forks* and
 *pull requests*.
 
 - **Forks**: A fork is a copy of an original repository on GitHub that is also
-stored on GitHub. So both the original and fork are on GitHub.
+stored on GitHub. Both the original and fork are on GitHub.
 - **Pull requests**: A pull request is a tool in GitHub that lets contributors
 make changes in a fork or branch and then request that those changes get merged
 into the main repository by the maintainer. Pull requests can come from forks
 or from separate branches from within the repository. They let maintainers and
-contributors review, discussion, request further changes, and approve the
-changes for being merged into the main branch. Think of pull requests like peer
+contributors review, discuss, request further changes, and approve the
+changes for merge into the main branch. Think of pull requests like peer
 review of scientific work or collaborators reviewing a scientific report.
 
 Learning to effectively use these tools and concepts can make collaborating with 
@@ -83,7 +83,7 @@ steps are to:
 1. Make some edits to files and commit to the branch.
 1. When the changes are done and ready, submit a pull request for the new branch
 to be merged into the main branch.
-1. Pull request gets either accepts and merged or changes are requested, which
+1. Pull request gets either accepted and merged or changes are requested, which
 require going back up to step 2.
 1. After pull request gets accepted and merged, the main branch now has the updated
 changes and the new branch can now be deleted.
@@ -144,7 +144,7 @@ Let's show some examples of how you'd use the fork and non-fork based workflows
 based on a few scenarios.
 
 1. **As a solo developer**: In this scenario, you would probably be least
-likely to use this workflow since you can easily work with Git without ever making
+likely to use either fork or non-fork-based workflow since you can easily work with Git without ever making
 a branch. However, sometimes you might want to experiment with code or text
 and don't want to modify the main branch. Here you'd use the *non-fork-based workflow*.
 1. **As a solo developer with some outside contributors**: If you are working on
@@ -270,7 +270,7 @@ TODO: gitcreds might be phased out in favor of credientials (https://docs.ropens
 These are some of the many ways of securing your GitHub and repositories. In
 Chapter \ref(team-package-dev) we will cover more ways that you can improve
 security of your GitHub repositories, especially within a team setting.
-For now, we will expand more on these recommendations and define these new terms. Firstly, 2FA is 
+
 
 Next we provide some context and a rationale for these recommendations. In the
 following section, we explain how to actually implement this. 
@@ -345,7 +345,7 @@ holding you back from starting to use one?
 TODO: Should this be in scope of the book? How do we make sure to encourage best practices (including security) while staying in scope?
 1. Why might it be important to have more security when working on a project
 as part of a team? What might happen if your GitHub account or repository was
-hacked because you have poor security practices?
+hacked?
 1. How might using a PAT make it easier for you to fix a security issue?
 If you didn't use a PAT when you remotely (e.g. through RStudio) access your
 GitHub repositories and instead used your GitHub password, what is the danger
@@ -354,8 +354,8 @@ less dangerous if someone gained access to it instead of your password?
 
 ## Simplified collaboration with usethis
 
-Collaborating through GitHub with forks, branches, and pull requests is
-generally pretty easy when you've learned how to do use them. But even then, 
+Collaborating through GitHub with forks, branches, and pull requests becomes
+easier the more you practice. But even then, 
 sometimes it can be a bit tedious having to click through all the clicks
 to either submit a new pull request or to review, accept, and merge changes.
 Thankfully, the usethis package has several helper functions specifically
@@ -392,7 +392,7 @@ listed below. This list of helper functions might feel overwhelming, but we will
 cover them slowly and, as with Git commands, you'll get plenty of practice using
 them especially in your team project.
 
-1. Starting a contributing and submitting a pull request:
+1. Starting a contribution and submitting a pull request:
     - `create_from_github()`: This is only done when you start contributing to
     a package that is not yours nor is your teams. For instance, if you see a
     typo or bug in a package and want to fix it yourself, you'd first start by
