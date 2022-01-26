@@ -342,6 +342,7 @@ Take some time to think about these questions and self-reflect on them.
 
 1. Do you use a password manager? Why or why not? If not, what is it that is
 holding you back from starting to use one?
+TODO: Should this be in scope of the book? How do we make sure to encourage best practices (including security) while staying in scope?
 1. Why might it be important to have more security when working on a project
 as part of a team? What might happen if your GitHub account or repository was
 hacked because you have poor security practices?
