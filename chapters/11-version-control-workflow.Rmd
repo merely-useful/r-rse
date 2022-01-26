@@ -270,7 +270,7 @@ TODO: gitcreds might be phased out in favor of credientials (https://docs.ropens
 These are some of the many ways of securing your GitHub and repositories. In
 Chapter \ref(team-package-dev) we will cover more ways that you can improve
 security of your GitHub repositories, especially within a team setting.
-For now, we will expand more on these recommendations and define these new terms. Firstly, 2FA is 
+
 
 Next we provide some context and a rationale for these recommendations. In the
 following section, we explain how to actually implement this. 
@@ -344,7 +344,7 @@ Take some time to think about these questions and self-reflect on them.
 holding you back from starting to use one?
 1. Why might it be important to have more security when working on a project
 as part of a team? What might happen if your GitHub account or repository was
-hacked because you have poor security practices?
+hacked?
 1. How might using a PAT make it easier for you to fix a security issue?
 If you didn't use a PAT when you remotely (e.g. through RStudio) access your
 GitHub repositories and instead used your GitHub password, what is the danger
@@ -353,8 +353,8 @@ less dangerous if someone gained access to it instead of your password?
 
 ## Simplified collaboration with usethis
 
-Collaborating through GitHub with forks, branches, and pull requests is
-generally pretty easy when you've learned how to do use them. But even then, 
+Collaborating through GitHub with forks, branches, and pull requests becomes
+easier the more you practice. But even then, 
 sometimes it can be a bit tedious having to click through all the clicks
 to either submit a new pull request or to review, accept, and merge changes.
 Thankfully, the usethis package has several helper functions specifically
@@ -391,7 +391,7 @@ listed below. This list of helper functions might feel overwhelming, but we will
 cover them slowly and, as with Git commands, you'll get plenty of practice using
 them especially in your team project.
 
-1. Starting a contributing and submitting a pull request:
+1. Starting a contribution and submitting a pull request:
     - `create_from_github()`: This is only done when you start contributing to
     a package that is not yours nor is your teams. For instance, if you see a
     typo or bug in a package and want to fix it yourself, you'd first start by
