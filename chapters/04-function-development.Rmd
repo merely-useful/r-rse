@@ -24,59 +24,172 @@ TODO: should this be here or later?
 * Use functions from other packages in a function in your own package
 * Return an error message from a function
 
-## Outline of action steps
+## Writing Functions in R
 
-* Writing Functions in R
-  * Text: Writing a function starts with working chunk of code. 
-  Where can I write this code, so it doesn't interfere with package
-  conventions?
-  * Code: `use_directory("dev", ignore = TRUE)`
-  * Text: Review how to turn code into a function: pick a name, identify arguments, 
-  fill in the function constructor.  
-  * Code: Use code from `extract_element()` and `book_meta()` on `dracula` as an example. 
-  Convert repeated extracting of elements to `extract_element()`. Avoid pipe for now.
-    * Explicit vs implicit returns?
-  * Exercise: Give updated chunk that uses `extract_element()`. Write 
-  the `book_meta()` function.
+* Review current state of package
 
-* Including Functions in an R Package
-  * Text: Functions live in `.R` files in `R/`.
-  How should functions be organized into files?
-  * Code: `use_r("book-meta")`, `load_all()`, run examples.
-  * Exercise: Write `count_words()` based on chunk. 
+```{r cs-dracula-meta}
+load_all()
+dracula[8:14]
+```
+
+* Goal: extract meta data
+* Writing a function starts with working chunk of code. 
+
+```{r ce-load-zipfs}
+# Needed to get data for now...
+library(zipfs)
+```
+
+* Start with some working code. 
+(We are providing working code here, but usually this is the hardest part!)
+
+```{r cs-extract-meta, eval = FALSE}
+library(stringr)
+library(tibble)
+
+text <- dracula[8:14]
+
+author_line <- str_subset(text, "Author: ")
+author <- str_remove(author_line, "Author: ")
+
+title_line <- str_subset(text, "Title: ")
+title <- str_remove(title_line, "Title: ")
+
+release_date_line <- str_subset(text, "Release Date: ")
+release_date <- str_remove(release_date_line, "Release Date: ")
+
+tibble(
+  author = author, 
+  title = title,
+  release_date = release_date
+)
+```
+* Where can I write this code, so it doesn't interfere with package
+conventions? 
+
+```{r cs-setup-dev-dir}
+use_directory("dev", ignore = TRUE)
+```
+
+* Save above chunk in `dev/creating.R`
+
+* Identify repetition in above code: x3
+```
+line <- str_subset(text, "XXX: ")
+value <- str_remove(line, "XXX: ")
+```
+
+* Review how to turn code into a function: pick a name, identify arguments, 
+fill in the function constructor.  
+
+```{r cs-extract-element}
+extract_element <- function(text, element){
+  pattern <- paste0(element, ": ")
+  line <- str_subset(text, pattern)
+  value <- str_remove(line, pattern)
+  value
+}
+extract_element(text, "Author")
+```
+
+* Explicit vs implicit returns?
+
+```{r cs-implicit-return}
+extract_element <- function(text, element){
+  pattern <- paste0(element, ": ")
+  line <- str_subset(text, pattern)
+  str_remove(line, pattern)
+}
+extract_element <- function(text, element){
+  pattern <- paste0(element, ": ")
+  line <- str_subset(text, pattern)
+  value <- str_remove(line, pattern)
+  return(value)
+}
+```
+
+* Updated chunk
+```{r cs-updated-chunk}
+library(stringr)
+library(tibble)
+
+text <- dracula[8:14]
+
+tibble(
+  author = extract_element(text, "Author: "), 
+  title =  extract_element(text, "Title: "),
+  release_date = extract_element(text, "Release Date: ")
+)
+```
+
+### Exercise: Write `book_meta()` {#ex-write-book-meta} 
+
+Write the `book_meta()` function.
+
+This is how we'd like our chunk to look:
+```{r es-book-meta}
+library(stringr)
+library(tibble)
+
+text <- dracula[8:14]
+book_meta(text)
+```
+
+```{r sol-book-meta}
+book_meta <- function(text){
+  author <- extract_element(text, "Author: ")
+  title <- extract_element(text, "Title: ")
+  release_date <- extract_element(text, "Release Date: ")
+
+  tibble(
+    author = author, 
+    title = title,
+    release_date = release_date
+  )
+}
+```
+
+## Including Functions in an R Package
+
+* Text: Functions live in `.R` files in `R/`.
+How should functions be organized into files?
+* Code: `use_r("book-meta")`, `load_all()`, run examples.
+* Exercise: Write `count_words()` based on chunk. 
 
 * Dependencies: Using Functions From Other Packages
-  * Text: We have a problem.  On clean session, `load_all()`, 
-  `book_meta(dracula)`, produces an error, 
-  can't find `tibble()`. Difference between interactive work (`library(tibble)`)
-  and package development (don't want to load entire libraries in user's workspaces)
-  * Text: Two changes needed: specify our package relies on another, 
-  inside functions, be specific about where functions inside our own code come from.
-  * Code: `use_package("tibble")`, `tibble::tibble()`
-  * Exercise: Fix dependency problems in `extract_element()`.
-  * Text: The pipe needs slightly more complicated handling.
-  * Code: `use_pipe()`
-  * Exercise: Fix dependency problems in `count_words()`.
+* Text: We have a problem.  On clean session, `load_all()`, 
+`book_meta(dracula)`, produces an error, 
+can't find `tibble()`. Difference between interactive work (`library(tibble)`)
+and package development (don't want to load entire libraries in user's workspaces)
+* Text: Two changes needed: specify our package relies on another, 
+inside functions, be specific about where functions inside our own code come from.
+* Code: `use_package("tibble")`, `tibble::tibble()`
+* Exercise: Fix dependency problems in `extract_element()`.
+* Text: The pipe needs slightly more complicated handling.
+* Code: `use_pipe()`
+* Exercise: Fix dependency problems in `count_words()`.
 
-* Documenting Functions
-  * Text: Outline of Roxygen workflow: special comments above functions + `document()`, 
-  generates `man/` and allows `?function_name`
-  * Code: With `book_meta()` RStudio: Code -> Insert ROxygen Skeleton, `document()`, `?book_meta()`
-  * Text: Common Roxygen tags (title, arguments, return, examples), demo with `book_meta()`
-  * Exercise: Document `count_words()`
-  * Text: `@export`, why we might not document every function.
+## Documenting Functions
+
+* Text: Outline of Roxygen workflow: special comments above functions + `document()`, 
+generates `man/` and allows `?function_name`
+* Code: With `book_meta()` RStudio: Code -> Insert ROxygen Skeleton, `document()`, `?book_meta()`
+* Text: Common Roxygen tags (title, arguments, return, examples), demo with `book_meta()`
+* Exercise: Document `count_words()`
+* Text: `@export`, why we might not document every function.
 
 * Stopping Your Function with an Error
-  * Text: Alternate workflow for editing functions, 
-  use `@examples`, edit directly in `R/book-meta.R`. 
-  Add `book_meta(1)` as example.
-  <!-- This will cause a check error later, because examples need to run without error. -->
-  * Text: Basic checks of user input, how to return an error
-  * Code: `if()`, `stop()`
-  * Exercise: Add an input check to `count_words()`.
-  * Text: Re-iterate idea of extracting common code into simpler functions.
-  Suggest input check could be its own function.
-  * Text: Mention other kinds of process control, give pointer to learn more.
+* Text: Alternate workflow for editing functions, 
+use `@examples`, edit directly in `R/book-meta.R`. 
+Add `book_meta(1)` as example.
+<!-- This will cause a check error later, because examples need to run without error. -->
+* Text: Basic checks of user input, how to return an error
+* Code: `if()`, `stop()`
+* Exercise: Add an input check to `count_words()`.
+* Text: Re-iterate idea of extracting common code into simpler functions.
+Suggest input check could be its own function.
+* Text: Mention other kinds of process control, give pointer to learn more.
   
 
 ## Final exercise {#04-final-exercise}
