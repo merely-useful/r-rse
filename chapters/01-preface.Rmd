@@ -136,7 +136,8 @@ Learners will need:
 - To have [R][r], [Git][git], and [RStudio][rstudio] installed.
 - A [GitHub][github] account.
 
-TODO: List of packages used and that need to be installed here as well.
+TODO: List of packages used and that need to be installed here as well,
+link to appendix.
 
 ### What's the big picture?
 

@@ -41,6 +41,8 @@ Two ways to interact with Git:
 
 ### Setting up Git in RStudio {#git-rstudio}
 
+Reference appendix for setup
+
 RStudio provides a Installation and Getting Started [rstudio-git]
 
 * connecting Git and RStudio
