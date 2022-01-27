@@ -1,13 +1,13 @@
 # Version control: Introduction to Git and GitHub
 
-## Learning objectives
+## Learning objectives {#05-learning-objectives}
 
 * identify why version control, specifically Git, is important for software engineering
 * differentiate methods for working with Git and R: RStudio integration, `usethis` and `gert` functions
 * apply the change-stage-commit process as the Git workflow for tracking changes and viewing a repository's commit history
 * publish repositories to GitHub and coordinate between remote and local versions
 
-## Overview
+## Introduction to version control {#intro-version-control}
 
 Version control is the practice of tracking and managing changes to code and other types of files.
 If you've used tracked changes in Microsoft Word or Google Docs,
@@ -31,61 +31,99 @@ we'll introduce version control by tracking the files to our project created so 
 navigating the Git workflow within the context of project development,
 and exploring different ways to interact with Git in RStudio.
 
-## Git integration in RStudio
+## The basic Git workflow {#git-workflow}
 
-### Setting up Git in RStudio
+Two ways to interact with Git:
+- git interface in RStudio
+- R commands implemented through `usethis` and `gert`
 
-Installation and Getting Started: https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN
+> popout to explain working with git on command line and with Git Desktop App
 
-* text: connecting Git and RStudio
+### Setting up Git in RStudio {#git-rstudio}
+
+RStudio provides a Installation and Getting Started [rstudio-git]
+
+* connecting Git and RStudio
+  * ensure Git is already installed (link to installation instructions)
   * accessing Git through Global options
-  * tab in environment pane 
-* code: `usethis::use_git` to initialize repository
-* text: explain what happens when repo is initialized
+  * tab in environment pane
+
+* setting global parameters
+  * name
+  * email
+
+* Initializing a repository
   * creates hidden folder containing git history
   * some files ignored (note that it's possible to add other files to ignore)
 
-### Tracking changes
+### Exercise: initialize repository {#ex-initialize}
 
-All text and images:
-* exercise: work through basic workflow using RStudio integration
+initializing with GUI
+
+`usethis::use_git` to initialize repository
+
+### Tracking changes {#tracking-changes}
+
+explain git workflow
+
+### Exercise: track existing files in project {#ex-tracking}
+
+* work through basic workflow using RStudio integration
   * all existing files in repo appear in git pane
   * ensure box is checked so these files are staged
   * click Commit button, add commit message and click commit
   * note pop up box with commit report, files no longer appear in window
-* reiterate workflow by editing README
+
+* reiterate workflow by editing README and commiting with `gert`
   * status difference between tracking new files and editing previously tracked file
 
-* exercise: create new file, commit, delete file, commit
+```
+git_add(README.md)
+git_commit("message")
+```
 
-### Working with version history
+* with your choice of interface, create new file, commit, delete file, commit
 
-All text and images:
+### Working with version history {#git-history}
+
+Viewing history:
 * click on clock button in Git pane (don't confuse with history tab; all git buttons are in Git tab)
 * explain fields: subject, author, date, SHA
 * click on a previous commit to see changes
+
+`gert::git_log(max=-6)`
+
+### Exercise: discarding a change {#ex-discard}
 
 * make a change to README, then restore to previous (most recent) commit (pretend changes didn't exist, as if we changed our mind)
 
 * text: if we wanted to use content from a previous commit, like the file we created then deleted earlier
   * find SHA key in log
 
-## Working with remote repositories in GitHub
+## Working with remote repositories in GitHub {#git-remotes}
 
-* text: remote vs local repositories
-* exercise: create remote repo and connect with local
-* text: summarize process above
+* remote vs local repositories
 
-Exercise
+### Exercise: connect a remote repository {#ex-remote}
 
-* text: pushing (define)
+* create remote repo and connect with local
+
+### Pushing 
+
+defining push and pull
+
+explain why you'd want to use these
+
+### Exercise: push changes to GitHub {#ex-push}
+
 * make change to file
 * commit with Rstudio integration
 * use push button
 
-* explain pulling as inverse (but maybe not explain GitHub interface as thoroughly?)
+### Pulling
 
-* text: relate to command line activities
+* explain pulling as inverse of pushing
+* FIXME: include exercise making change on github and pulling?
 
 ## Final exercise {#05-final-exercise}
 

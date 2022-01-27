@@ -311,6 +311,7 @@
 [rstudio-addin]: https://rstudio.github.io/rstudioaddins/
 [rstudio-cloud]: https://rstudio.cloud/
 [rstudio-ide]: https://www.rstudio.com/products/rstudio/
+[rstudio-git]: https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN
 [rstudio-r-projects]: https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects
 [rstudio]: https://rstudio.com/
 [rubber-duck-debugging]: https://en.wikipedia.org/wiki/Rubber_duck_debugging
