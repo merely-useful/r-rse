@@ -37,7 +37,7 @@ Reasons are:
 1. Incorporating checks
 
 1. It's actually really easy to create R packages by using the [devtools][pkg-devtools]
-and usethis packages, so why not?
+and [usethis][pkg-usethis] packages, so why not?
 
 [pkg-devtools]: https://devtools.r-lib.org/
 [pkg-usethis]: https://usethis.r-lib.org/
