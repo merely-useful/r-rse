@@ -8,8 +8,9 @@ need to create, use, and share software. Most introductions to programming or
 software engineering focus on developing commercial applications, however,
 researchers needs are largely related to exploring problems and answering
 questions. This book covers the fundamentals of creating software as part of
-your research cycle whether you work alone or as part of a team. We wrote this
-book with three audiences in mind:
+your research cycle whether you work alone or as part of a team. 
+
+We wrote this book with three audiences in mind:
 
 1. **Learners in a class setting** who would be using this book in a more
 formal class or workshop setting, lead by an instructor or instructors.
@@ -74,7 +75,7 @@ coordinate the development of software, particularly for software that is
 complex or when working in a team.
 - Outline (and optionally practice) how to work productively in a small team
 that is inclusive and welcoming.
-- Explain why it is beneficial to involve community contributors when designing design software and documentation.
+- Explain why it is beneficial to involve community contributors when designing software and documentation.
 
 TODO: Add graphic for overview? Something like https://moderndive.com/preface.html#fig:pipeline-figure?
 
@@ -138,7 +139,7 @@ Learners will need:
 
 TODO: List of packages used and that need to be installed here as well.
 
-### What's the big picture?
+### What's the big picture? {#big-picture}
 
 This book and the tools, skills, and knowledge being taught come out of the
 growing awareness of and demand for [open science][open-science],
