@@ -31,26 +31,92 @@ distribution in any arbitrary body of text.
 
 ## Why create an R package?
 
-Reasons are:
+The main aim of developing software, and this applies to software development in
+R as well, is to simplify some task or a set of tasks for yourself and for
+others (like your team). And creating an R package is one of the more powerful
+ways of simplifying tasks, no matter how simple or complex to begin with.
 
-1. Make it easier to share your work with others and for them to easily use it.
-1. Incorporating checks
+TODO: Add a connecting paragraph or sentence...
 
-1. It's actually really easy to create R packages by using the [devtools][pkg-devtools]
-and [usethis][pkg-usethis] packages, so why not?
+How do you determine if you should make an R package? Ask these questions to
+yourself. Have you ever made a function, no matter how simple? Have you ever
+used that function more than once across more than one project or file, either
+by copying and pasting it or by sourcing the file that contains it? If you
+answered yes to these two questions, than you should make an R package for that
+function. But you might wonder, why make a package with only one function?
+Because it never stops with *just* one function, you will very likely be making
+more in your work. Aside from packaging up R functions, if you have small to
+medium sized datasets that you use across multiple projects or files, you can
+even package up data.
 
-[pkg-devtools]: https://devtools.r-lib.org/
-[pkg-usethis]: https://usethis.r-lib.org/
+Aside from a "yes" to these questions, making an R package now is much easier
+than it was in the past. That's largely thanks to R packages like
+[devtools][pkg-devtools] and [usethis][pkg-usethis] that are designed to simplify
+developing R packages. Combined with these packages, there are also so many
+free, online books and resources for learning how to make R packages and doing
+software development in R (LINK).
 
-* Text: Whenever you want to use data or functions over more than one project.
-* Text: Advantages over sharing code and/or data files:
-    * Easy for other people to obtain and install
-    * Built-in documentation of functions and data
-    * Incorporate package-level meta data: authors, version, etc.
+TODO: Include link to resources section for r packages book, mastering software dev etc.
+
+If we go back to the big picture in the preface (\@ref(#big-picture)), creating
+an R package (that is posted on GitHub or submitted to CRAN) connected to scientific
+work or analyses will usually fulfill the reproducibility and open science
+components of research. That's because making an R package usually requires a higher
+level of rigor, testing, documentation, and inspection of the code, which means
+you and others will have more trust in the results. And if its on GitHub, it's
+much easier to share your work with others and have a bigger impact on research
+overall.
+
+<!-- * Other advantages? -->
+<!--     * Easy for other people to obtain and install -->
+<!--     * Built-in documentation of functions and data -->
+<!--     * Incorporate package-level meta data: authors, version, etc. -->
 
 ## What is an R package?
 
-With 
+To understand what an R package is, we'll take a step back and consider what 
+happens when we interact with R. The very basic, low-level use of R is through
+the R Console where you type functions in R to do tasks that print to the screen.
+This initial R Console operates in your computer's user home directory, usually
+something that looks like `/home/username/` for Linux, `/Users/username/` for
+macOS, or `C:\Users\username` for Windows. So any data or graphs that you save
+or import needs to include the file path to the right location. From a
+reproducible and modular point of view, this is goes against best practices.
+Likewise, the R code entered into this session while in the Console is not saved[^r-history]
+So, you cannot easily re-use or share R code when it is used this way.
+
+[^r-history]: Well, technically you can see the history by default in a file,
+but this stores *everything* you've entered into the R Console, including
+wrong code. 
+
+TODO: Image here that describes this a bit more?
+
+The next level up is to save code in an R script (a file stored anywhere on the
+computer that end in `.R`) and get R to run this code in sequence. In the past,
+people might write R scripts in text editors like vim, emacs, or Notepad, and
+manually run the script in the R Console. Now, you'll mostly encounter people
+use an IDE (REF LINK) like RStudio to do this work instead. This is the most
+commonly used approach to doing any type of work in R. Theoretically, code
+written in this way is reproducible and can be shared. However, practically,
+often R code in these files is written out of sequence since researchers work
+with R more interactively rather than programmatically. And the working
+directory (REF LINK) of an R script changes depending on how it is used, so we
+still encounter similar issues as if we used the R Console on its own.
+You can use clever tricks to store commonly used R code or functions in an R script
+and `source()` these files from other scripts, among many other tricks. In essence,
+this involves keeping track of R files across your computer to be able to do your
+work.
+
+An R package is not much different from using several R scripts. There are
+certain expectations and conventions that must be followed in order for it to
+be "installed" on your computer as a R package. Some of these conventions include:
+
+- The folder with the R code must be named the same as the package name. For instance,
+the R package usethis
+
+TODO: Add note somewhere about how package can be installed without being on CRAN.
+
+TODO: Add note about what installing actually means or does.
 
 * Text: Files that follow the R package conventions. usethis and devtools,
 designed to help you do this.
@@ -77,7 +143,6 @@ Where is the name of the package?
 ```{r sol-LABEL-NAME}
 # Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
 ```
-
 
 ## Creating a package    
 
