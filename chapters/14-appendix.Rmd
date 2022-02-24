@@ -1,9 +1,0 @@
-# Appendix: Software installation and configuration
-
-## Software installation
-
-
-## Configuring RStudio
-
-## Configuring Git
-
