@@ -183,31 +183,11 @@ and complete these tasks.
 [`R/`](https://github.com/r-lib/usethis/tree/main/R) folder. Hint, use GitHub's
 "Search or jump to..." feature to find things in the repository.
 
-2. In your RStudio Console, use `remotes::install_github()` to install the
+2. Find out where the package name is in the `DESCRIPTION` file.
+
+3. In your RStudio Console, use `remotes::install_github()` to install the
 usethis package. View the help documentation (`?remotes::install_github`) to
 learn how to use it to install the package. 
-
-
-Install a simple package from GitHub.
-Give some code that: loads package, 
-calls `xxx()` and data `yyy`.  
-Examine structure of GitHub repo.   
-Can you find where is the `xxx()` defined?  `yyy`? 
-Where is the name of the package?
-
-1. Summary of steps to do in exercise
-
-```{r es-LABEL-NAME}
-# Code for exercise and shown to learner
-```
-
-```{r ee-LABEL-NAME}
-# If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
-```
-
-```{r sol-LABEL-NAME}
-# Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
-```
 
 ## Creating a package    
 
