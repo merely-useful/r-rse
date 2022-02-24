@@ -111,19 +111,84 @@ An R package is not much different from using several R scripts. There are
 certain expectations and conventions that must be followed in order for it to
 be "installed" on your computer as a R package. Some of these conventions include:
 
-- The folder with the R code must be named the same as the package name. For instance,
-the R package usethis
+- There must be a file called `DESCRIPTION` what contains metadata necessary
+for R to know how to install the package. We'll cover what the fields should
+have in Section TODO: REF.
 
-TODO: Add note somewhere about how package can be installed without being on CRAN.
+- There must be an `R/` folder. This will usually contain only `.R` files
+and usually they contain only R functions you've created.
 
-TODO: Add note about what installing actually means or does.
+- The folder with the R code should be named the same as the package name. For
+instance, the R package usethis has the folder name of `usethis`. This is not
+an explicit requirement, but is highly recommended. R determines the
+name of the package from the `Package:` field in the `DESCRIPTION` file.
 
-* Text: Files that follow the R package conventions. usethis and devtools,
-designed to help you do this.
+None of this is something you really have to worry about because the packages
+usethis and devtools are designed to do many of these package setup tasks 
+easier for you.
+
+So how does package installing work? When you tell R to install a package, which
+is a set of files and folder that follow a specific convention, R takes the
+folder and converts it into its own special format. Then R saves this special
+format into a default location that is specific to the operating system,
+like macOS, Windows, or Linux. To see where packages are installed, use:
+
+```{r}
+.libPaths()
+```
+
+If you type this out on in your Console, what you see will probably be a bit different
+to this. If `.libPaths()` outputs more than one path, usually the first will
+contain all of the packages. Let's use the fs package to explore this folder.
+First, let us see *some* of the packages that are installed but using `dir_ls()`.
+
+```{r}
+library(fs)
+packages <- dir_ls(path(.libPaths()[1]))
+
+# Number of installed packages
+length(packages)
+# See the first few package names
+head(packages)
+```
+
+If we want to see how R stores packages, in there special format, we can use
+`dir_tree()` and look inside the installed `fs/` package folder.
+
+```{r}
+dir_tree(path(.libPaths()[1], "fs"))
+```
+
+See the `R/fs.rdb` and `R/fs.rdx` files? These are the special formats that contain
+the functions within fs that R will look for when you load the fs package.
+When a package is installed in R, what that means is it is found in the R library
+folder given by `.libPaths()` with the files in the R specific format. So 
+when you run `library(fs)`, R will know to search for the functions found in the 
+`fs/` package folder. 
+
+So, installing your own package that is only found on your computer is no different
+from installing a package from CRAN with `install.packages()` or from GitHub
+with `remotes::install_github()`. The only difference is that packages on 
+CRAN or GitHub (from a public repository) are usable to anyone who can access
+the Internet.
     
-### Exercise: Exercise Name {#ex-EXERCISE-TAG}
+### Exercise: Install a package from GitHub {#ex-install-github-package}
 
-* Exercise: Install a simple package from GitHub.
+Since we make heavy use of usethis for building R packages, let's get
+a bit familiar with it. Open up the 
+[GitHub repository for usethis](https://github.com/r-lib/usethis)
+and complete these tasks.
+
+1. Find which file contains the `create_package()` function in the 
+[`R/`](https://github.com/r-lib/usethis/tree/main/R) folder. Hint, use GitHub's
+"Search or jump to..." feature to find things in the repository.
+
+2. In your RStudio Console, use `remotes::install_github()` to install the
+usethis package. View the help documentation (`?remotes::install_github`) to
+learn how to use it to install the package. 
+
+
+Install a simple package from GitHub.
 Give some code that: loads package, 
 calls `xxx()` and data `yyy`.  
 Examine structure of GitHub repo.   
