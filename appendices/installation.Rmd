@@ -1,8 +1,29 @@
 # Appendix: Software installation and configuration
 
-## Software installation
+## Software installation and setup
+
+Reference instructions for both Mac and process
+
+### R
+
+Install
+
+### RStudio
+
+Install
+
+### R packages
+
+Example of installation
+
+### Git
+
+Install (command line or GUI?)
+
+### GitHub
+
+Register account
 
 ## Configuring RStudio
 
 ## Configuring Git
-
