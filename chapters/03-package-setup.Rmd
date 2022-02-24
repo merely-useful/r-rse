@@ -191,6 +191,16 @@ learn how to use it to install the package.
 
 ## Creating a package    
 
+Now that we have determined that *installed* R packages are found in the
+library location determined by `.libPaths()`, what about packages that you are
+actively developing? Do you save them in the same location? Short answer, no, you
+should not. Instead create, develop, and save your files somewhere in your Documents
+folder. Where exactly you save them is up to you, but as an example, we might
+do them in `Documents/R/` or ...
+TODO: Add more potential locations here.
+
+Deciding where to save your package is the easy part. The hard part comes with...
+
 * Text: Where should your package live? What should you call your package?
 
 
