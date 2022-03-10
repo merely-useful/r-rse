@@ -184,10 +184,77 @@ book_meta(text)
 
 * Text: Functions live in `.R` files in `R/`.
 How should functions be organized into files?
-* Code: `use_r("book-meta")`, `load_all()`, run examples.
-* Exercise: Write `count_words()` based on chunk. 
 
-* Dependencies: Using Functions From Other Packages
+```{r cs-create-code-file}
+use_r("book-meta")
+```
+
+```{r cs-contents-book-meta}
+extract_element <- function(text, element){ 
+  line <- str_subset(text, element)
+  value <- str_remove(line, element)
+  value
+}
+
+book_meta <- function(text){
+  tibble(
+    author = extract_element(text, "Author: "), 
+    title =  extract_element(text, "Title: "),
+    release_date = extract_element(text, "Release Date: ")
+  )
+}
+```
+
+
+```{r cs-updated-creating-contents}
+library(stringr)
+library(tibble)
+load_all() # I don't think we've `install()`ed yet?
+book_meta(dracula) # notice this is now all lines 
+```
+
+### Exercise: Write `count_words()` based on chunk
+
+Might put code in `dev/counting.R`
+```{r es-count-words-chunk}
+library(stringr)
+library(tibble)
+library(zipfs)
+
+# convert to all lower
+text_lower <- str_to_lower(dracula) 
+
+# split by one or more whitespace characters
+chunks <- unlist(str_split(text_lower, "\\s+"))
+
+# remove punctuation
+words <- str_remove_all(chunks, pattern = "[[:punct:]]+")
+
+# get rid of empty strings
+words <- words[words != ""]
+
+# count occurrences and sort
+word_freq <- sort(table(words), decreasing = TRUE)
+
+# return in rectangular format
+tibble(word = names(word_freq), n = as.numeric(word_freq))
+```
+
+Reminder of steps:
+
+* Convert chunk into function in `dev/counting.R`. Check it works `count_words(dracula)`
+* Create new file in `R/` called `count_words()`, copy over definition
+* Check work by editing code in `dev/counting.R` to 
+```{es-check-count}
+library(stringr)
+library(tibble)
+library(zipfs)
+
+count_words(dracula)
+```
+    
+## Dependencies: Using Functions From Other Packages
+
 * Text: We have a problem.  On clean session, `load_all()`, 
 `book_meta(dracula)`, produces an error, 
 can't find `tibble()`. Difference between interactive work (`library(tibble)`)
