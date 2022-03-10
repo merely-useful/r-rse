@@ -40,8 +40,8 @@ and programming focus on largely on developing commercial applications and not
 often on the type of tasks and activities that researchers more commonly do,
 like exploring problems and answering questions. This book will cover how to
 create software as part of your research cycle. For researchers who build
-software packages, this book will help prepare you for being a [research
-software engineer][rse].
+software packages as a core part of their work, this book will help prepare you
+for being a [research software engineer][rse].
 
 The course material was created using [rmarkdown] to write the lessons,
 [bookdown] to create the book format, [GitHub] to host the [Git] 
