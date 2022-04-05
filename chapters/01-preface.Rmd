@@ -169,7 +169,7 @@ This book presents software development that emphasizes openness,
 reproducibility, and sustainability, because it supports both individual
 researchers and the entire research community.
 
-### Overview of the packages created
+### Overview of the packages created {#overview-packages-created}
 
 Throughout the book, you will build at least two packages (maybe more depending on
 the instructor). 
