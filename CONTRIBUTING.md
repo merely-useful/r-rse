@@ -108,6 +108,10 @@ Please read and adhere to those styles. The
 with the PDF output. TODO: This will probably be automated and you won't need to 
 think about this.
 
+- Write functions as `function_name()`, folders as `folder-name/`, and
+packages as `{packagename}`. At least for the functions and packages, when formatted
+this way they get automatic linking through bookdown (as HTML only).
+
 ### Language-related
 
 - Write in plain, international Simplified English (i.e. American compared to British).
