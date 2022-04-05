@@ -1,8 +1,8 @@
 # Setting up an R package {#package-setup}
 
 - Describing what a package is and when or why to make one
-    - Use [available](https://github.com/r-lib/available) to make a name (naming is hard).
-- Using devtools, usethis for development
+    - Use `{zipfs}` [available](https://github.com/r-lib/available) to make a name (naming is hard).
+- Using `{zipfs}`devtools, `{zipfs}`usethis for development
     - e.g. `use_devtools()` and `use_usethis()`.
 - Developing functions
 - Basic explanation of what a function is and its components
@@ -21,7 +21,7 @@
 
 TODO: Not sure this belongs here.
 
-We'll create a package (`zipfs`) to analyze a fascinating result in the field of
+We'll create a package (`{zipfs}`) to analyze a fascinating result in the field of
 quantitative linguistics. Zipf's Law states that the second most common word in
 a body of text appears half as often as the most common, the third most common
 appears a third as often, and so on. To test whether Zipf's Law holds for a
@@ -51,7 +51,7 @@ even package up data.
 
 Aside from a "yes" to these questions, making an R package now is much easier
 than it was in the past. That's largely thanks to R packages like
-[devtools][pkg-devtools] and [usethis][pkg-usethis] that are designed to simplify
+`{devtools}` and `{usethis}` that are designed to simplify
 developing R packages. Combined with these packages, there are also so many
 free, online books and resources for learning how to make R packages and doing
 software development in R (LINK).
@@ -119,12 +119,12 @@ have in Section TODO: REF.
 and usually they contain only R functions you've created.
 
 - The folder with the R code should be named the same as the package name. For
-instance, the R package usethis has the folder name of `usethis`. This is not
+instance, the R package usethis has the folder name of `{usethis}`. This is not
 an explicit requirement, but is highly recommended. R determines the
 name of the package from the `Package:` field in the `DESCRIPTION` file.
 
 None of this is something you really have to worry about because the packages
-usethis and devtools are designed to do many of these package setup tasks 
+`{usethis}` and `{devtools}` are designed to do many of these package setup tasks 
 easier for you.
 
 So how does package installing work? When you tell R to install a package, which
@@ -139,7 +139,7 @@ like macOS, Windows, or Linux. To see where packages are installed, use:
 
 If you type this out on in your Console, what you see will probably be a bit different
 to this. If `.libPaths()` outputs more than one path, usually the first will
-contain all of the packages. Let's use the fs package to explore this folder.
+contain all of the packages. Let's use the `{fs}` package to explore this folder.
 First, let us see *some* of the packages that are installed but using `dir_ls()`.
 
 ```{r}
@@ -160,7 +160,7 @@ dir_tree(path(.libPaths()[1], "fs"))
 ```
 
 See the `R/fs.rdb` and `R/fs.rdx` files? These are the special formats that contain
-the functions within fs that R will look for when you load the fs package.
+the functions within fs that R will look for when you load the `{fs}` package.
 When a package is installed in R, what that means is it is found in the R library
 folder given by `.libPaths()` with the files in the R specific format. So 
 when you run `library(fs)`, R will know to search for the functions found in the 
@@ -171,12 +171,21 @@ from installing a package from CRAN with `install.packages()` or from GitHub
 with `remotes::install_github()`. The only difference is that packages on 
 CRAN or GitHub (from a public repository) are usable to anyone who can access
 the Internet.
+
+You might have noticed that we've used the syntax `packagename::functionname()`
+a few times now. What this tells R to do is to use the function from a specific 
+package. So `remotes::install_github()` is telling R to use the `install_github()`
+function from the `{remotes}` package. For package development in particular, we
+use this rather than, for instance, `library(remotes)` because we want to be
+explicit about which function we are wanting to use and because we don't need to
+load all the functions from the package when we only want to use one or two of
+them.
     
 ### Exercise: Install a package from GitHub {#ex-install-github-package}
 
-Since we make heavy use of usethis for building R packages, let's get
+Since we make heavy use of `{usethis}` for building R packages, let's get
 a bit familiar with it. Open up the 
-[GitHub repository for usethis](https://github.com/r-lib/usethis)
+[GitHub repository for `{usethis}`](https://github.com/r-lib/usethis)
 and complete these tasks.
 
 1. Find which file contains the `create_package()` function in the 
@@ -195,17 +204,37 @@ Now that we have determined that *installed* R packages are found in the
 library location determined by `.libPaths()`, what about packages that you are
 actively developing? Do you save them in the same location? Short answer, no, you
 should not. Instead create, develop, and save your files somewhere in your Documents
-folder. Where exactly you save them is up to you, but as an example, we might
-do them in `Documents/R/` or ...
+folder, or somewhere where you store other work projects. Where exactly you save
+them is up to you, but as an example, we might do them in `Documents/R/` or ...
 TODO: Add more potential locations here.
 
-Deciding where to save your package is the easy part. The hard part comes with...
+Deciding where to save your package is the easy part. The hard part comes with
+*naming* your package. Creating a meaningful, catchy, and Google-able name is
+*really really hard*. There is no easy way to teach you how to make one and
+it often requires several days of brainstorming ideas. Once you do have an idea,
+you want to make sure that it hasn't been taken already. You can do that easily
+with the package `{available}`. We have already described in the preface
+(Section \@ref(overview-packages-created)) that we will be creating a package
+called `{zipfs}`, let's check to see if the package name is `{available}`. The
+output will look a bit like this, though you'll see more items.
 
-* Text: Where should your package live? What should you call your package?
+```{r cs-available-pkg, eval=FALSE}
+available::available("zipfs")
+```
 
+```{r ce-available-pkg, eval=TRUE, echo=FALSE}
+available::valid_package_name("zipfs")
+available::available_on_cran("zipfs")
+available::available_on_bioc("zipfs")
+available::available_on_github("zipfs")
+```
 
-* Code: `usethis::create_package()` (maybe also `available::available()`?)
-    * Note about using `::` vs `library()`
+TODO: Update based on if the package has been added to GitHub at time of publication.
+
+We see in this case that `{zipfs}` is available for us to use. Now that we have 
+a name, the next step is to setup the basic infrastructure for the package.
+Thankfully, the `{usethis}` package helps ease a lot of the difficult of this 
+step. Using the `usethis::create_package()` 
 
 ```{r cs-LABEL-NAME}
 # Code used in section and shown to learners
@@ -217,6 +246,14 @@ Deciding where to save your package is the easy part. The hard part comes with..
 
 * Text: `DESCRIPTION` is structured text that describes package, 
 `R/` for R script files that define functions in the package. 
+
+```{r cs-LABEL-NAME}
+# Code used in section and shown to learners
+```
+
+```{r ce-LABEL-NAME}
+# If needed. Code used in section, NOT shown to learners, but needed for auto building of package/book
+```
 
 ### Exercise: Exercise Name {#ex-EXERCISE-TAG}
 
