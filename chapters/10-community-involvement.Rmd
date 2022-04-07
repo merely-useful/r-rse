@@ -1,6 +1,10 @@
 # Involving the community {#community-involvement}
 
-## Learning objectives {#10-learning-objectives}
+```{r, cs-usethis, eval=TRUE, echo=FALSE}
+library(usethis)
+```
+
+## Learning objectives {#learning-objectives-10}
 
 - Edit a project README and NEWS file to be welcoming to contributors and users
 - Understand the importance of having an explicit Code of Conduct and how to
@@ -233,8 +237,6 @@ standard components to create the most welcoming and safe environment possible.
 
 ### Licensing {#license}
 
-## Include a License {#teams-license}
-
 While a Code of Conduct describes how contributors should interact with each other,
 a license dictates how project materials can be used and redistributed.
 If the license or a publication agreement makes it difficult for people to contribute,
@@ -320,7 +322,7 @@ about the different types of open source licenses.
 [Wordpress](https://wordpress.org/about/license/)). Find and read the license
 for each product.
 
-### Software {#teams-license-software}
+#### Software {#teams-license-software}
 
 In order to choose the right license for our software,
 we need to understand the difference between two kinds of license.\index{open source license}
@@ -385,7 +387,8 @@ OTHER DEALINGS IN THE SOFTWARE.
 > the [Universal Declaration of Human Rights][udhr].
 > We have learned the hard way that software and science can be mis-used;
 > adopting the Hippocratic License is a small step toward preventing this.
-### Data and reports {#teams-license-other}
+
+#### Data and reports {#teams-license-other}
 
 The MIT license, the GPL, and the Hippocratic License are intended for use with software.
 When it comes to data and reports,
@@ -445,6 +448,241 @@ use_ccby_license()
 ```
 
 ## Project management for a user-friendly package
+
+Codes of conduct and licenses are a project's constitution,
+but how do contributors know what they should actually be doing on any given day?
+Whether we are working by ourselves or with a group of people,
+the best way to manage this is to use an \gref{issue tracking system}{issue_tracking_system}
+to keep track of tasks we need to complete or problems we need to fix.
+\gref{Issues}{issue} are sometimes called \gref{tickets}{ticket},\index{project!issue}\index{issue (in project)}
+so issue tracking systems are sometimes called \gref{ticketing systems}{ticketing_system}.\index{issue tracking system}
+They are also often called \gref{bug trackers}{bug_tracker},
+but they can be used to manage any kind of work,
+and are often a convenient way to manage discussions as well.
+
+\newpage
+
+Like other \gref{forges}{forge},
+GitHub allows participants to create issues for a project,
+comment on existing issues,
+and search all available issues.
+Every issue can hold:
+
+-   A unique ID, such as `#123`, which is also part of its URL.
+    This makes issues easy to find and refer to:
+    GitHub automatically turns the expression `#123` in a \gref{commit message}{commit_message}
+    into a link to that issue.
+
+-   A one-line title to aid browsing and search.
+
+-   The issue's current status.
+    In simple systems (like GitHub's) each issue is either open or closed,
+    and by default,
+    only open issues are displayed.
+    Closed items are generally removed from default interfaces,
+    so issues should only be closed when they no longer require any attention.
+
+-   The user ID of the issue's creator.
+    Just as `#123` refers to a particular issue,
+    `@name` is automatically translated into a link to that person.
+    The IDs of people who have commented on it or modified it are embedded in the issue's history,
+    which helps figure out who to talk to about what.
+
+-   The user ID of the person assigned to review the issue, if someone is assigned.
+
+-   A full description that may include screenshots,
+    error messages,
+    and anything else that can be put in a web page.
+
+-   Replies, counter-replies, and so on from people who are interested in the issue.
+
+Broadly speaking,
+people create three kinds of issues:
+
+1.  \gref{Bug reports}{bug_report} to describe problems they have encountered.\index{bug report}
+
+2.  \gref{Feature requests}{feature_request}\index{feature request}
+    describing what could be done next,
+    such as "add this function to this package" or "add a menu to the website."
+
+3.  Questions about how to use the software,
+    how parts of the project work,
+    or its future directions.
+    These can eventually turn into bug reports or feature requests,
+    and can often be recycled as documentation.
+
+> **Helping Users Find Information**
+>
+> Many projects encourage people to ask questions on a mailing list or in a chat channel.
+> However,
+> answers given there can be hard to find later,
+> which leads to the same questions coming up over and over again.
+> If people can be persuaded to ask questions by filing issues,
+> and to respond to issues of this kind,
+> then the project's old issues become a customized [Stack Overflow][stack-overflow] for the project.
+> Some projects go so far as to create a page of links
+> to old questions and answers that are particularly helpful.
+## Bug Reports {#teams-bugs}
+
+One steady supply of work in any active project is \gref{bug reports}{bug_report}.
+Unsurprisingly,
+a well-written bug report is more likely to get a fast response\index{bug report!style}
+that actually addresses the problem [@Bett2008].
+To write a good bug report:
+
+1.  Make sure the problem actually *is* a bug.
+    It's always possible that we have called a function the wrong way
+    or done an analysis using the wrong configuration file.
+    If we take a minute to double-check,
+    or ask someone else on our team to check our logic,
+    we could well fix the problem ourselves.
+
+2.  Try to come up with a \gref{reproducible example}{reprex}
+    or "reprex"\index{reproducible example (reprex)}\index{reprex (reproducible example)}
+    that includes only the steps needed to make the problem happen,
+    and that (if possible) uses simplified data rather than a complete dataset.
+    Again,
+    we can often solve the problem ourselves as we trim down the steps to create one.
+
+3.  Write a one-line title for the issue
+    and a longer (but still brief) description that includes relevant details.
+
+4.  Attach any screenshots that show the problem,
+    resulting errors,
+    or (slimmed-down) input files needed to re-create it.
+
+5.  Describe the version of the software we were using,
+    the operating system we were running on,
+    which version of the programming language we ran it with,
+    and anything else that might affect behavior.
+    If the software in question uses a logging framework (Section \@ref(errors-logging)),
+    turn debugging output on and include it with the issue.
+
+6.  Describe each problem separately so that each one can be tackled on its own.
+    This parallels the rule about creating a branch in version control for each bug fix or feature
+    discussed in Section \@ref(git-advanced).
+
+An example of a well-written bug report with all of the components mentioned above
+is shown in Figure \@ref(fig:teams-bug-report).
+
+```{r teams-bug-report, echo=FALSE, fig.cap="Example of a bug report."}
+insert_graphic("figures/teams/bug-report.png")
+```
+
+It takes time and energy to write a good error report.
+If the report is being filed by a member of the development team,
+the incentive to document errors well is that resolving the issue later is easier.
+You can encourage users from outside the project to write thorough error reports
+by including an issue template for your project.
+An issue template is a file included in your GitHub repository
+that proliferates each new issue with text that describes expectations
+for content that should be submitted.
+You can't force new issues to be as complete as you might like,
+but you can use an issue template to make it easier for contributors to
+remember and complete documentation about bug reports.
+
+Sometimes the person creating the issue may not know or have the right answer for some of these things,
+and will be doing their best with limited information about the error.
+Responding with kindness and encouragement is important to maintain a healthy community,
+and should be enforced by the project's Code of Conduct\index{Code of Conduct (for project)}
+(Section \@ref(teams-coc)).
+
+## Labeling Issues {#teams-labels}
+
+The bigger or older a project gets,
+the harder it is to find things---unless, that is,
+the project's members put in a bit of work to make things findable [@Lin2020].
+Issue trackers let project members add \gref{labels}{issue_label} to issues\index{issue (in project)!label}
+to make things easier to search and organize.
+Labels are also often called \gref{tags}{tag};\index{tags (for issues in project)}
+whatever term is used,
+each one is just a descriptive word or two.
+
+GitHub allows project owners to define any labels they want.
+A small project should always use some variation on these three:
+
+-   *Bug*: something should work but doesn't.
+
+-   *Enhancement*: something that someone wants added to the software.
+
+-   *Task*: something needs to be done, but won't show up in code
+    (e.g., organizing the next team meeting).
+
+Projects also often use:
+
+-   *Question*: where is something
+    or how is something supposed to work?
+    As noted above,
+    issues with this label can often be recycled as documentation.
+
+-   *Discussion* or *Proposal*: something the team needs to make a decision about
+    or a concrete proposal to resolve such a discussion.
+    All issues can have discussion:
+    this category is for issues that start that way.
+    (Issues that are initially labeled *Question*
+    are often relabeled *Discussion* or *Proposal*
+    after some back and forth.)
+
+-   *Suitable for Newcomer* or *Beginner-Friendly*:
+    to identify an easy starting point for someone who has just joined the project.
+    If we help potential new contributors find places to start,
+    they are more likely to do so [@Stei2014].
+
+The labels listed above identify the kind of work an issue describes.
+A separate set of labels can be used to indicate the state of an issue:
+
+-   *Urgent*: work needs to be done right away.
+    (This label is typically reserved for security fixes).
+
+-   *Current*: this issue is included in the current round of work.
+
+-   *Next*: this issue is (probably) going to be included in the next round.
+
+-   *Eventually*: someone has looked at the issue and believes it needs to be tackled,
+    but there's no immediate plan to do it.
+
+-   *Won't Fix*: someone has decided that the issue isn't going to be addressed,
+    either because it's out of scope or because it's not actually a bug.
+    Once an issue has been marked this way,
+    it is usually then closed.
+    When this happens,
+    send the issue's creator a note explaining why the issue won't be addressed
+    and encourage them to continue working with the project.
+
+-   *Duplicate*: this issue is a duplicate of one that's already in the system.
+    Issues marked this way are usually also then closed;
+    this is another opportunity to encourage people to stay involved.
+
+Some of the labels that GitHub creates for repositories by default
+are shown in Figure \@ref(fig:teams-labels).
+These labels can be modified or otherwise customized for each repository.
+
+```{r teams-labels, echo=FALSE, fig.cap="Labels for GitHub issues."}
+insert_graphic("figures/teams/issue-labels.png")
+```
+
+Some projects use labels corresponding to upcoming software releases, journal issues, or conferences
+instead of *Current*, *Next*, and *Eventually*.
+This approach works well in the short term,
+but becomes unwieldy as labels with names like `sprint-2020-08-01` and `spring-2020-08-16` pile up.
+
+Instead,
+a project team will usually create a \gref{milestone}{milestone},\index{milestone (in project)}\index{project!milestone}
+which is a set of issues and pull requests in a single project repository.
+GitHub milestones can have a due date
+and display aggregate progress toward completion,
+so the team can easily see when work is due and how much is left to be done.
+Teams can also create projects,
+which can include issues and pull requests from several repositories
+as well as notes and reminders for miscellaneous tasks.
+
+--------------
+
+Your package now lives in a GitHub repo, and you've created several helpful files that will orient users and contributors to your project. In this section, we discuss some of GitHub's features that are useful for managing your project.
+
+GitHub Issues provide a way to log bugs and project improvement suggestions
+from you, collaborators, and your user community. The Issues tab on GitHub stores issues in reverse chronological order and sorts them into an 'Open' and 'Closed' category by default. Creating [issue templates](
+https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository) for bugs and feature requests.
 
   - Text: creating, using, and managing GitHub Issues to maintain your project.
 GitHub Issues provides a way to log bugs and project improvement suggestions
