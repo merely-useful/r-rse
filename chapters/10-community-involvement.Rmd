@@ -9,7 +9,7 @@ library(usethis)
 - Edit a project README and NEWS file to be welcoming to contributors and users
 - Understand the importance of having an explicit Code of Conduct and how to
 create one relevant to a project
-- Understand the purpose of licensing content, choose a license and create a
+- Understand the purpose of licensing content, how to choose a license and create a
 LICENSE file
 - Understand the importance of contributing guidelines and how to develop them
 for a project
@@ -39,25 +39,25 @@ all the information needed to use or contribute to your project?
 
 We recommend paying special attention to the following components
 to make your README clear and welcoming.
-For an example, check out the [README from the STEMM Role Models project](https://github.com/KirstieJane/STEMMRoleModels#stemm-role-models-app).
+For an example of a welcoming README, check out the [README from the STEMM Role Models project][STEMM-readme].
 
 - A great way to start a welcoming README is with a statement of welcome! You
 can introduce yourself, welcome people to your project, and say that you're
 excited they came.
 
 - Write your project description to answer the following questions in a way that is
-understandable to a wide range of people. Avoid using jargon, and if you
-do use terms or concepts that are field-specific, define them.
+understandable to a wide range of people. Avoid using jargon, and make sure to
+define any terms or concepts that are field-specific.
     - What is this project about?
     - Who is this project for?
     - Why does this project exist?
     - What makes your project unique or exciting?
 
-- Describe how to use your project with simple examples. More on this in the
-[reprex](#reprex) section.
+- Describe how to use your project with simple examples (more on this in the
+[reprex](#reprex) section).
 
-- Describe what kinds of help or resources you are looking for. More on this in the
-[contributing guidelines](#contributing-guidelines) section.
+- Describe what kinds of help or resources you are looking for (more on this in the
+[contributing guidelines](#contributing-guidelines) section).
 
 Remember: even if you are pretty sure that all your users have the same expertise
 as you or that you won't have contributors, writing a clear README is also
@@ -65,12 +65,14 @@ extremely helpful for your number one collaborator: Future You. Furthermore, the
 act of thinking through your project's documentation can be a great way to
 clarify your own thoughts, brainstorm ideas, and foresee issues. 
 
+[STEMM-readme]: https://github.com/KirstieJane/STEMMRoleModels#stemm-role-models-app
+
 References: [Mozilla Open Leadership Training Series](
 https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/write-a-great-project-readme/)
 
 ### Exercise: Write a jargon-free description of the `zipfs` package. {#ex-upgoer5}
 
-When you are an expert in some particular subject matter, it can be hard
+When you are an expert in a particular subject matter, it can be hard
 to know which of the words and concepts you use often are not so easy
 for others to understand. This exercise will challenge you to rethink
 how you explain concepts by taking it to the extreme - restricting your vocabulary
@@ -87,12 +89,13 @@ https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-
 Simple examples are very effective tools for explaining how your package works.
 The `reprex` package is designed to help you create **rep**roducible **ex**amples:
 stand-alone examples that include all the necessary information about running
-a chunk of code in the same way someone else did. This packages is mainly aimed
+a chunk of code in the same way someone else did. This package is mainly aimed
 at creating bug reports, but it is also a great tool for packaging examples
 more generally. 
 
 Let's create a reprex for how to use the `count_words` function in the `zipfs` package
 by following these steps:
+
 - Install (only for the first time) and load the `reprex` package.
 
 ```{r cs-reprex-load, eval=FALSE}
@@ -105,7 +108,7 @@ including any packages, and copy the text using Ctrl/Cmd + c.
 
 FIXME: should this be from the perspective of developing zipfs, like starting with `load_all()` instead of `library(zipfs)`?
 
-```{r cs-reprex, eval=TRUE}
+```{r cs-reprex, eval=FALSE}
 library(zipfs)
 text <- c("Star light, star bright,
     First star I see tonight;
@@ -115,7 +118,33 @@ text <- c("Star light, star bright,
 ```
 
 - In the console, type `reprex()` and hit Enter/Return.
-- Your reprex is now stored on your clipboard - use Ctrl/Cmd + v to paste it where you like.
+- Your reprex is now stored on your clipboard - use Ctrl/Cmd + v to paste it where you like. It will look like this:
+
+``` r
+library(zipfs)
+text <- c("Star light, star bright,
+    First star I see tonight;
+    I wish I may, I wish I might,
+    Have the wish I wish tonight.")
+(word_freq <- count_words(text))
+#> # A tibble: 12 × 2
+#>    word        n
+#>    <chr>   <dbl>
+#>  1 i           6
+#>  2 wish        4
+#>  3 star        3
+#>  4 tonight     2
+#>  5 bright      1
+#>  6 first       1
+#>  7 have        1
+#>  8 light       1
+#>  9 may         1
+#> 10 might       1
+#> 11 see         1
+#> 12 the         1
+```
+
+<sup>Created on 2022-04-07 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Reference: [So you’ve been asked to make a reprex](https://www.jessemaegan.com/blog/so-you-ve-been-asked-to-make-a-reprex/)
 
@@ -134,7 +163,7 @@ when and how your project is changing. By convention, this list of
 changes lives in a file called NEWS.md. Changes
 are usually grouped by which package release they belong to; we will
 cover releasing your package in more detail in Chapter 12. Check out
-the [devtools NEWS.md](https://github.com/r-lib/devtools/blob/main/NEWS.md)
+the [devtools NEWS.md][devtools-news]
 for an example of how this file is used in a popular package. 
 
 The function `usethis::use_news_()` automatically creates a file called
@@ -149,6 +178,7 @@ Each time you make a change,
 add it to the NEWS.md file as you go. When it's time for a release,
 you'll have a handy summary of all the changes that have been made.
 
+[devtools-news]: https://github.com/r-lib/devtools/blob/main/NEWS.md
 [reference](https://r-pkgs.org/release.html#news))
 
 ### Exercise: edit the NEWS.md file {#ex-news}
@@ -179,11 +209,12 @@ use_tidy_contributing()
 The specific topics and text in your contributing guidelines will depend
 a lot on your project. For example, you might want to add sections about
 reporting bugs, how to communicate with others on the project,
-or where to find more resources or information. Don't forget to make your
+or where to find more resources or information. Don't forget to
 include a statement welcoming people to your project at the top!
-Here's the [GitHub Docs CONTRIBUTING.md file](https://github.com/github/docs/blob/main/CONTRIBUTING.md)
+Here's the [GitHub Docs CONTRIBUTING.md file][github-contributing]
 as an example. 
 
+[github-contributing]: https://github.com/github/docs/blob/main/CONTRIBUTING.md
 [reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/)
 
 ### Exercise: Reading contributing guidlines {#ex-contributing}
@@ -203,16 +234,35 @@ will be handled if they do occur.
 
 The function `usethis::use_code_of_conduct()` creates a file called
 `CODE_OF_CONDUCT.md` that contains the text of the 
-[Contributor Covenant](https://www.contributor-covenant.org/).
+[Contributor Covenant][contributor-covenant].
 
 ```{r, cs-code_of_conduct, eval=TRUE}
 use_code_of_conduct()
 ```
 
+Writing a Code of Conduct that is both comprehensive and readable is hard.
+We therefore recommend using one that other groups have drafted, refined, and tested.
+The Contributor Covenant is relevant for most projects being developed online.
+
+> **In-Person Events**
+>
+> The Contributor Covenant works well for interactions that are largely online,
+> which is the case for many research software projects.
+> The best option for in-person events is
+> the [model Code of Conduct][model-coc] from the [Geek Feminism Wiki][geek-feminism],
+> which is used by many open source organizations and conferences.
+> If your project is sited at a university or within a company,
+> it may already have Code of Conduct:
+> the Human Resources department is usually the most helpful place to ask.
+
 The files CONTRIBUTING.md and CODE_OF_CONDUCT.md are treated specially
 by GitHub so that when a new issue is opened for the first time,
 a message box appears with a link to CONTRIBUTING.md and
 CODE_OF_CONDUCT.md, directing new contributors to read these documents.
+
+[contributor-covenant]: https://www.contributor-covenant.org/
+[model-coc]: https://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy
+[geek-feminism]: https://geekfeminism.wikia.com/
 
 ### Exercise: Editing the Code of Conduct {#ex-code-of-conduct}
 
@@ -313,7 +363,7 @@ that is also in the project's root directory.
 
 ### Exercise: The Landscape of Open Source Licenses {#ex-license}
 
-1. Explore [choosealicense.com](https://choosealicense.com/) and read
+1. Explore [choosealicense.com][choose-license] and read
 about the different types of open source licenses.
 
 2. Choose two open source products that you have used (for example
@@ -321,6 +371,9 @@ about the different types of open source licenses.
 [Atom](https://github.com/atom/atom/blob/master/LICENSE.md), or 
 [Wordpress](https://wordpress.org/about/license/)). Find and read the license
 for each product.
+
+[osi-license-list]: https://opensource.org/licenses
+[choose-license]: https://choosealicense.com/
 
 #### Software {#teams-license-software}
 
@@ -351,6 +404,8 @@ The last thirty years have shown that this restriction isn't necessary:
 many projects have survived and thrived without this safeguard.
 We therefore recommend that projects choose the MIT license,
 as it places the fewest restrictions on future action.
+
+[tldr-gpl]: https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
 
 ```text
 MIT License
@@ -387,6 +442,9 @@ OTHER DEALINGS IN THE SOFTWARE.
 > the [Universal Declaration of Human Rights][udhr].
 > We have learned the hard way that software and science can be mis-used;
 > adopting the Hippocratic License is a small step toward preventing this.
+
+[hippocratic-license]: https://firstdonoharm.dev/
+[udhr]: https://en.wikipedia.org/wiki/Universal_Declaration_of_Human_Rights
 
 #### Data and reports {#teams-license-other}
 
