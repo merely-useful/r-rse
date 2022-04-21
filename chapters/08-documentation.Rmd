@@ -77,6 +77,20 @@ style guide](https://google.github.io/styleguide/Rguide.html), others?)
 documentation files. Run `update_wordlist()` to add any special words to the
 spell-checker that you want to ignore.
 
+## Why do we need documentation? {#introduction}
+
+Just like version control tracks what changes you make and why, documentation for code and packages tells your collaborators, your package's users, and future you *what* the code does and *why*.
+
+Over time, programming languages have become more "human-readable": it is possible for an experienced programmer to read code and understand what it does. But even if one understands *what* a chunk of code is doing, it may not be obvious at all *why* it does that! Programming languages come with built-in ways to add comments and documentation that are not read by the computer, but exist solely to help you and your collaborators describe and understand code. Good documentation is key for openness, reproducibility, and project sustainability.
+
+Good documentation happens at all scales of code: at the level of individual objects, functions, and tests as well as for the entire package. In this chapter, we describe the workflow of documentation alongside package development and outline the components of a well-documented package.
+
+Reference: ([R Packages reference](https://r-pkgs.org/man.html?q=roxygen#man))
+
+## Documenting functions and tests with `roxygen` {#function-documentation}
+
+In R, documentation files for objects are stored by default in the `man/` folder in your package directory with a `.Rd` extension. These help files can be accessed for an object, function, or package by typing `?object-name` or `help(object-name)`.
+
 ## Final exercise {#08-final-exercise}
 
 Complete these tasks as part of the package for your first project assignment.
