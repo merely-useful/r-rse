@@ -2,7 +2,7 @@
 
 - Describing what a package is and when or why to make one
     - Use `{zipfs}` [available](https://github.com/r-lib/available) to make a name (naming is hard).
-- Using `{zipfs}`devtools, `{zipfs}`usethis for development
+- Using `{devtools}`, `{usethis}` for development
     - e.g. `use_devtools()` and `use_usethis()`.
 - Developing functions
 - Basic explanation of what a function is and its components
@@ -117,6 +117,11 @@ have in Section TODO: REF.
 
 - There must be an `R/` folder. This will usually contain only `.R` files
 and usually they contain only R functions you've created.
+
+- There must be a `NAMESPACE` file that contains the list of functions in your
+package that you want the user to use. We won't cover this file in detail because
+much of this file is managed automatically with the `{devtools}` and `{roxygen2}`
+packages.
 
 - The folder with the R code should be named the same as the package name. For
 instance, the R package usethis has the folder name of `{usethis}`. This is not
@@ -234,40 +239,100 @@ TODO: Update based on if the package has been added to GitHub at time of publica
 We see in this case that `{zipfs}` is available for us to use. Now that we have 
 a name, the next step is to setup the basic infrastructure for the package.
 Thankfully, the `{usethis}` package helps ease a lot of the difficult of this 
-step. Using the `usethis::create_package()` 
+step. When we use the `usethis::create_package()` function, it will setup the
+basic files and folders we need in order for R to install it as a package.
+We'll setup use the function to create a `{zipfs}` package.
 
-```{r cs-LABEL-NAME}
-# Code used in section and shown to learners
+TODO: Set author within GH Actions with usethis.full_name option. Use local .Rprofile?
+
+```{r cs-create-pkg, eval=FALSE}
+create_package(path = "zipfs")
 ```
 
-```{r ce-LABEL-NAME}
+```{r ce-create-pkg, echo=FALSE}
 # If needed. Code used in section, NOT shown to learners, but needed for auto building of package/book
+temp_pkg <- fs::file_temp_push(glue::glue("{tempdir()}/zipfs"))
+fs::dir_create(temp_pkg)
+create_package(path = temp_pkg, open = FALSE)
+fs::dir_delete(temp_pkg)
 ```
 
-* Text: `DESCRIPTION` is structured text that describes package, 
-`R/` for R script files that define functions in the package. 
+Instead of using code, you can also do it through RStudio (if you use it) by
+clicking through "File -> New Project -> ... TODO: Complete".
+When you run this code in the Console, though, a bunch of text will pop up (like
+above) indicating what was done on your computer. We'll go through each of the
+things that have been created throughout the rest of this section.
 
-```{r cs-LABEL-NAME}
-# Code used in section and shown to learners
+::: comment
+TODO: Make sure this thing works for css and latex
+You might notice that we are creating the package in the temporary directory 
+"`r fs::path_dir(temp_pkg)`". Because (almost) all of the output from code in
+this book is generated automatically, we need to have a way to create the
+package and do other code-based work that works on each of the authors' computers
+as well as on the GitHub Actions server (which builds the final version of this
+website). So we chose to use the temporary location provided by R's `tempdir()`
+function. The name of this temporary folder is random, so if you use it too,
+you will see something different from what is in the book.
+:::
+
+As we wrote in the previous section, all R packages must have at least an `R/`
+folder, a `DESCRIPTION` file, and a `NAMESPACE` file. Inside our newly created
+package, we can see these have all been created. In addition to the required
+files and folder, there are also the `.Rproj` file since we use RStudio,
+the `.gitignore` file since we will eventually use Git, and a `.Rbuildignore`
+file that tells R to ignore including certain files when building the package.
+This will become important later.
+
+```{r ce-new-pkg-file-tree, echo=FALSE}
+fs::dir_tree(temp_pkg, all = TRUE)
 ```
 
-```{r ce-LABEL-NAME}
+Open up the `DESCRIPTION` file so we can look inside it:
+
+```{r ce-show-description-contents}
 # If needed. Code used in section, NOT shown to learners, but needed for auto building of package/book
+cat(readLines(fs::path(temp_pkg, "DESCRIPTION")), sep = "\n")
 ```
 
-### Exercise: Exercise Name {#ex-EXERCISE-TAG}
+As mentioned, the `DESCRIPTION` file contains the metadata for the package and
+some configuration settings that R uses when building and installing it.
+The format of the metadata uses the pattern `key: value`. So for instance,
+the key `Package` has the value `zipfs`, which tells R what the name of the package
+is. Likewise, `Title` and `Authors` give a bit more information on what the
+package does and who created it. There are many more keys to cover, some of which
+are not important to learn about since they are created automatically and used
+internally by R for general building purposes. But some are quite important.
+Specifically, the `Title`, `Authors`, and `Description` keys should have more
+appropriate values added to them.
 
-* Exercise: Repeat steps, e.g. `usethis::create_package("zipfs")`, 
-edit `DESCRIPTION` to have you as author.
+### Exercise: Add details to the `DESCRIPTION` file {#ex-fill-in-description}
+
+Let's fill in the important key fields in the `DESCRIPTION` file with better
+details. If you haven't opened the `DESCRIPTION` file yet, please open it up.
+
+1. In the `Title:` value field, replace the current generic text with 
+with `Testing Zipfs Law on Novels`. Note the instructions to use one line only 
+and to have the first letter of each word Capitalized.
+
+2. For the `Authors@R:` value field, go to the R Console and type out and run
+`?person`. Read through the help documentation and than fill it out as best you
+can in the `Authors@R:` section. The start should look like `Authors@R: person(`.
+TODO: Not everyone may have this author key. Some might have `Authors:` or `Maintainer:`, need to consider how to handle this.
+
+3. In the `Description:` value field, replace the current generic text with
+a brief (one or two sentence) explanation
  
-1. Summary of steps to do in exercise
-
 ```{r es-LABEL-NAME}
 # Code for exercise and shown to learner
 ```
 
 ```{r ee-LABEL-NAME}
 # If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
+desc <- desc::description$new(file = fs::path(temp_pkg, "DESCRIPTION"))
+desc$set(
+    Title = "Testing Zipfs Law on Novels",
+    Description = ""
+)
 ```
 
 ```{r sol-LABEL-NAME}
