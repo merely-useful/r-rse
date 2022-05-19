@@ -246,14 +246,14 @@ We'll setup use the function to create a `{zipfs}` package.
 TODO: Set author within GH Actions with usethis.full_name option. Use local .Rprofile?
 
 ```{r cs-create-pkg, eval=FALSE}
-create_package(path = "zipfs")
+usethis::create_package(path = "zipfs")
 ```
 
 ```{r ce-create-pkg, echo=FALSE}
 # If needed. Code used in section, NOT shown to learners, but needed for auto building of package/book
 temp_pkg <- fs::file_temp_push(glue::glue("{tempdir()}/zipfs"))
 fs::dir_create(temp_pkg)
-create_package(path = temp_pkg, open = FALSE)
+usethis::create_package(path = temp_pkg, open = FALSE)
 fs::dir_delete(temp_pkg)
 ```
 
@@ -317,47 +317,77 @@ and to have the first letter of each word Capitalized.
 2. For the `Authors@R:` value field, go to the R Console and type out and run
 `?person`. Read through the help documentation and than fill it out as best you
 can in the `Authors@R:` section. The start should look like `Authors@R: person(`.
+For the `role` argument you'll need to add `c("cre", "aut")`. Read about what those
+mean in the `?person` help documentation.
 TODO: Not everyone may have this author key. Some might have `Authors:` or `Maintainer:`, need to consider how to handle this.
 
 3. In the `Description:` value field, replace the current generic text with
 a brief (one or two sentence) explanation
  
-```{r es-LABEL-NAME}
-# Code for exercise and shown to learner
-```
+TODO: This should be as a solution maybe?
+The `DESCRIPTION` file should look something like this now:
 
-```{r ee-LABEL-NAME}
+```{r ee-fill-in-description, include=FALSE}
 # If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
-desc <- desc::description$new(file = fs::path(temp_pkg, "DESCRIPTION"))
+desc_file <- fs::path(temp_pkg, "DESCRIPTION")
+desc <- desc::description$new(file = desc_file)
 desc$set(
     Title = "Testing Zipfs Law on Novels",
-    Description = ""
+    Description = "Contains functions to test out whether Zipfs Law applies to multiple novels."
 )
+# TODO: Decide on name of author to use through
+desc$add_author(
+    given = "Sami",
+    email = "sami@random.com",
+    role = c("aut", "cre")
+)
+desc$write()
 ```
 
-```{r sol-LABEL-NAME}
+```{r sol-fill-in-description}
 # Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
+desc
 ```
 
-## R settings that help you as a developer
+## Developer-friendly R settings
     
-* Text: `usethis::` `devtools::` get tiresome to type.  Setup to always load.
+You will have noticed how often we use `::` when referring to functions within
+packages. You will also probably have felt that it was a bit annoying to always
+have to type these out, especially interactively in the R Console. We will
+be using functions from the `{usethis}` and `{devtools}` a lot as R package 
+developers and for RSE work, so to make our workflow easier, `{usethis}` has
+naturally made functions to help us out. In the R Console, run each of these
+commands, following their instructions before running the next one.
 
-```{r cs-LABEL-NAME}
+TODO: Include output from these?
+
+```{r cs-developer-profile-options, eval=FALSE}
 usethis::use_devtools()
 usethis::use_usethis()
 ```
 
+Don't forget to restart your session, using "Ctrl-Shift-F10" or "Session -> Restart R"
+or by using the "Command Palette" ("Ctrl-Shift-P" and type out "Restart R")
+while using RStudio. After the R session restarts, test out that the `{usethis}` 
+and `{devtools}` packages are loaded by typing out `use_` in the R Console and
+hitting the TAB key to list available functions.
+
+TODO: Add details about fixing issues if the above doesn't work.
+
 * Text: When we restart R, want nothing in environment, no packages loaded, etc.
+Next, we want to ensure that when you open the RStudio R Project of our `{zipfs}`
+package the R session starts in a "blank slate", meaning no old data are
+automatically imported into the Environment. This is done by typing the
+following code in the Console:
 
-TODO: Fix up, this was copied from r-cubed.
-Now that we’ve created a project and associated folders, let’s add some more
-options to the project. One option to set is to ensure that every R session you
-start with is a "blank slate", meaning no old data are automatically imported
-into the Environment. This is done by typing the following code in the Console:
-
-```{r cs-LABEL-NAME}
+```{r cs-LABEL-NAME, eval=FALSE}
 use_blank_slate()
+```
+
+```{r ce-LABEL-NAME}
+# If needed. Code used in section, NOT shown to learners, but needed for auto building of package/book
+    
+
 ```
 
 * Text: Other configuration, e.g. to automatically populate `DESCRIPTION`:  https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences
