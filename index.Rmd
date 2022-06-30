@@ -1,62 +1,31 @@
----
-title: "Research Software Engineering with R"
-subtitle: "Building software that makes research possible"
-author: 
-- "Madeleine Bonsma-Fisher"
-- "Kate Hertweck"
-- "Damien Irving"
-- "Luke Johnston"
-- "Joel Ostblom"
-- "Ian Flores Siaca"
-- "Charlotte Wickham"
-- "Greg Wilson"
-documentclass: book
-bibliography: includes/book.bib
-csl: includes/jcb.csl
-citation-package: none
-link-citations: yes
-github-repo: "merely-useful/r-rse"
-favicon: favicon.ico
-site: bookdown::bookdown_site
-date: "`r Sys.Date()`"
-lot: yes
-lof: yes
----
-
 # Welcome!
 
 > It's still magic even if you know how it's done.
 >
-> — Terry Pratchett
+> --- Terry Pratchett
 
 TODO: Add version of book here?
 
-Welcome to our book! We are actively working on it, so it is largely a work in
-progress.
+Welcome to our book! We are actively working on it, so it is largely a
+work in progress.
 
-Computers and computational work are essential components to conducting 
-science and research. However, most introductions to software development
-and programming focus on largely on developing commercial applications and not
-often on the type of tasks and activities that researchers more commonly do,
-like exploring problems and answering questions. This book will cover how to
-create software as part of your research cycle. For researchers who build
-software packages, this book will help prepare you for being a [research
-software engineer][rse].
+Computers and computational work are essential components to conducting
+science and research. However, most introductions to software
+development and programming focus on largely on developing commercial
+applications and not often on the type of tasks and activities that
+researchers more commonly do, like exploring problems and answering
+questions. This book will cover how to create software as part of your
+research cycle. For researchers who build software packages, this book
+will help prepare you for being a research software engineer.
 
-The course material was created using [rmarkdown] to write the lessons,
-[bookdown] to create the book format, [GitHub] to host the [Git] 
-repository of the material, and [GitHub Actions] to create the website.
-The original source material for this book is found on the 
-[`r-rse`] GitHub repository. For those interested in contributing, read the
+The course material was created using
+[rmarkdown](https://rmarkdown.rstudio.com/) to write the lessons,
+[bookdown](https://bookdown.org/yihui/bookdown/) to create the book
+format, [GitHub](https://github.com/) to host the
+[Git](https://git-scm.com/) repository of the material, and [GitHub
+Actions](https://github.com/features/actions) to create the website. The
+original source material for this book is found on the
+[`r-rse`](https://github.com/merely-useful/r-rse) GitHub repository. For
+those interested in contributing, read the
 [`README.md`](https://github.com/merely-useful/r-rse/blob/main/README.md)
 for more information.
-
-[rmarkdown]: https://rmarkdown.rstudio.com/
-[bookdown]: https://bookdown.org/yihui/bookdown/
-[GitHub]: https://github.com/
-[Git]: https://git-scm.com/
-[GitHub Actions]: https://github.com/features/actions
-[`r-rse`]: https://github.com/merely-useful/r-rse
-
-```{r insert-links, child="includes/links.md", eval=TRUE}
-```
