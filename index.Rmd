@@ -58,5 +58,5 @@ for more information.
 [GitHub Actions]: https://github.com/features/actions
 [`r-rse`]: https://github.com/merely-useful/r-rse
 
-```{r, child="includes/links.md"}
+```{r insert-links, child="includes/links.md", eval=TRUE}
 ```
