@@ -29,4 +29,3 @@ original source material for this book is found on the
 those interested in contributing, read the
 [`README.md`](https://github.com/merely-useful/r-rse/blob/main/README.md)
 for more information.
-
