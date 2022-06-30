@@ -31,13 +31,14 @@ book:
         - index.Rmd
         - chapters/01-preface.Rmd
     appendices:
-        - appendices/references.Rmd
+        - appendices/references.md
     page-footer:
         center:
             - text: "License"
               href: LICENSE.md
 
-csl: includes/jcb.csl
+# TODO: This strangely doesn't work, will need to address it later.
+# csl: includes/jcb.csl
 bibliography: includes/book.bib
 
 format:
