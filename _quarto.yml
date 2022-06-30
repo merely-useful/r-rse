@@ -1,0 +1,51 @@
+project:
+    type: book
+    output-dir: _book
+    execute-dir: project
+
+book:
+    title: "Research Software Engineering with R: Building software that makes research possible"
+    # TODO: Update for each tag/release?
+    # date:
+    author:
+        - "Madeleine Bonsma-Fisher"
+        - "Kate Hertweck"
+        - "Damien Irving"
+        - "Luke Johnston"
+        - "Joel Ostblom"
+        - "Ian Flores Siaca"
+        - "Charlotte Wickham"
+        - "Greg Wilson"
+    # Add these?
+    # apple-touch-icon: "images/apple-touch-icon.png"
+    # apple-touch-icon-size: 180
+    favicon: favicon.ico
+    site-url: "https://merely-useful-tech/r-rse"
+    repo-url: "https://github.com/merely-useful/r-rse"
+    repo-branch: main
+    repo-actions: [edit, issue, source]
+    search:
+        location: navbar
+        type: overlay
+    chapters:
+        - index.Rmd
+        - chapters/01-preface.Rmd
+    appendices:
+        - appendices/references.Rmd
+    page-footer:
+        center:
+            - text: "License"
+              href: LICENSE.md
+
+csl: includes/jcb.csl
+bibliography: includes/book.bib
+
+format:
+  html:
+    code-link: true
+    theme: zephyr
+    include-in-header:
+        - "includes/header.html"
+
+editor:
+  mode: visual
