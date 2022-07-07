@@ -374,11 +374,10 @@ hitting the TAB key to list available functions.
 
 TODO: Add details about fixing issues if the above doesn't work.
 
-* Text: When we restart R, want nothing in environment, no packages loaded, etc.
-Next, we want to ensure that when you open the RStudio R Project of our `{zipfs}`
-package the R session starts in a "blank slate", meaning no old data are
-automatically imported into the Environment. This is done by typing the
-following code in the Console:
+After that, we want set up our RStudio so that whenever we open the R
+Project of our `{zipfs}` package, the R session starts in a "blank slate".
+What this means is that we don't want old data, functions, or variables loaded
+into the Environment from the previous session we might have worked on.
 
 ```{r cs-LABEL-NAME, eval=FALSE}
 use_blank_slate()
