@@ -389,6 +389,11 @@ use_blank_slate()
 
 ```
 
+TODO: Should this be a note section or appendix?
+
+There are other configurations you can set to make your work as a developer easier.
+
+
 * Text: Other configuration, e.g. to automatically populate `DESCRIPTION`:  https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences
     
 ## Package development workflow
