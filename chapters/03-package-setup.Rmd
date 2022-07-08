@@ -1,151 +1,171 @@
 # Setting up an R package {#package-setup}
 
-- Describing what a package is and when or why to make one
-    - Use `{zipfs}` [available](https://github.com/r-lib/available) to make a name (naming is hard).
-- Using `{devtools}`, `{usethis}` for development
-    - e.g. `use_devtools()` and `use_usethis()`.
-- Developing functions
-- Basic explanation of what a function is and its components
-- Making and using datasets
-- Downloading zipf data at this point, using `usethis::use_data_raw()`, write the script to download the data and process into `data/` via `usethis::use_data()`.
+-   Describing what a package is and when or why to make one
+    -   Use `{zipfs}` [available](https://github.com/r-lib/available) to
+        make a name (naming is hard).
+-   Using `{devtools}`, `{usethis}` for development
+    -   e.g. `use_devtools()` and `use_usethis()`.
+-   Developing functions
+-   Basic explanation of what a function is and its components
+-   Making and using datasets
+-   Downloading zipf data at this point, using
+    `usethis::use_data_raw()`, write the script to download the data and
+    process into `data/` via `usethis::use_data()`.
 
 ## Learning Objectives
 
-* Identify when to create an R package
-* Create a new R package using `usethis::create_package()`
-* Describe the purpose of the folders and files in a skeleton R package
-* Add data to an R package
-* Set global defaults to ease package development with devtools and usethis
+-   Identify when to create an R package
+-   Create a new R package using `usethis::create_package()`
+-   Describe the purpose of the folders and files in a skeleton R
+    package
+-   Add data to an R package
+-   Set global defaults to ease package development with devtools and
+    usethis
 
 ## About Zipf's Law
 
 TODO: Not sure this belongs here.
 
-We'll create a package (`{zipfs}`) to analyze a fascinating result in the field of
-quantitative linguistics. Zipf's Law states that the second most common word in
-a body of text appears half as often as the most common, the third most common
-appears a third as often, and so on. To test whether Zipf's Law holds for a
-collection of classic novels that are freely available from Project Gutenberg,
-we will write a software package that counts and analyzes the word frequency
-distribution in any arbitrary body of text.
+We'll create a package (`{zipfs}`) to analyze a fascinating result in
+the field of quantitative linguistics. Zipf's Law states that the second
+most common word in a body of text appears half as often as the most
+common, the third most common appears a third as often, and so on. To
+test whether Zipf's Law holds for a collection of classic novels that
+are freely available from Project Gutenberg, we will write a software
+package that counts and analyzes the word frequency distribution in any
+arbitrary body of text.
 
 ## Why create an R package?
 
-The main aim of developing software, and this applies to software development in
-R as well, is to simplify some task or a set of tasks for yourself and for
-others (like your team). And creating an R package is one of the more powerful
-ways of simplifying tasks, no matter how simple or complex to begin with.
+The main aim of developing software, and this applies to software
+development in R as well, is to simplify some task or a set of tasks for
+yourself and for others (like your team). And creating an R package is
+one of the more powerful ways of simplifying tasks, no matter how simple
+or complex to begin with.
 
 TODO: Add a connecting paragraph or sentence...
 
-How do you determine if you should make an R package? Ask these questions to
-yourself. Have you ever made a function, no matter how simple? Have you ever
-used that function more than once across more than one project or file, either
-by copying and pasting it or by sourcing the file that contains it? If you
-answered yes to these two questions, than you should make an R package for that
-function. But you might wonder, why make a package with only one function?
-Because it never stops with *just* one function, you will very likely be making
-more in your work. Aside from packaging up R functions, if you have small to
-medium sized datasets that you use across multiple projects or files, you can
-even package up data.
+How do you determine if you should make an R package? Ask these
+questions to yourself. Have you ever made a function, no matter how
+simple? Have you ever used that function more than once across more than
+one project or file, either by copying and pasting it or by sourcing the
+file that contains it? If you answered yes to these two questions, than
+you should make an R package for that function. But you might wonder,
+why make a package with only one function? Because it never stops with
+*just* one function, you will very likely be making more in your work.
+Aside from packaging up R functions, if you have small to medium sized
+datasets that you use across multiple projects or files, you can even
+package up data.
 
-Aside from a "yes" to these questions, making an R package now is much easier
-than it was in the past. That's largely thanks to R packages like
-`{devtools}` and `{usethis}` that are designed to simplify
-developing R packages. Combined with these packages, there are also so many
-free, online books and resources for learning how to make R packages and doing
+Aside from a "yes" to these questions, making an R package now is much
+easier than it was in the past. That's largely thanks to R packages like
+`{devtools}` and `{usethis}` that are designed to simplify developing R
+packages. Combined with these packages, there are also so many free,
+online books and resources for learning how to make R packages and doing
 software development in R (LINK).
 
-TODO: Include link to resources section for r packages book, mastering software dev etc.
+TODO: Include link to resources section for r packages book, mastering
+software dev etc.
 
-If we go back to the big picture in the preface (\@ref(#big-picture)), creating
-an R package (that is posted on GitHub or submitted to CRAN) connected to scientific
-work or analyses will usually fulfill the reproducibility and open science
-components of research. That's because making an R package usually requires a higher
-level of rigor, testing, documentation, and inspection of the code, which means
-you and others will have more trust in the results. And if its on GitHub, it's
-much easier to share your work with others and have a bigger impact on research
-overall.
+If we go back to the big picture in the preface (\@ref(#big-picture)),
+creating an R package (that is posted on GitHub or submitted to CRAN)
+connected to scientific work or analyses will usually fulfill the
+reproducibility and open science components of research. That's because
+making an R package usually requires a higher level of rigor, testing,
+documentation, and inspection of the code, which means you and others
+will have more trust in the results. And if its on GitHub, it's much
+easier to share your work with others and have a bigger impact on
+research overall.
 
 <!-- * Other advantages? -->
+
 <!--     * Easy for other people to obtain and install -->
+
 <!--     * Built-in documentation of functions and data -->
+
 <!--     * Incorporate package-level meta data: authors, version, etc. -->
 
 ## What is an R package?
 
-To understand what an R package is, we'll take a step back and consider what 
-happens when we interact with R. The very basic, low-level use of R is through
-the R Console where you type functions in R to do tasks that print to the screen.
-This initial R Console operates in your computer's user home directory, usually
-something that looks like `/home/username/` for Linux, `/Users/username/` for
-macOS, or `C:\Users\username` for Windows. So any data or graphs that you save
-or import needs to include the file path to the right location. From a
-reproducible and modular point of view, this is goes against best practices.
-Likewise, the R code entered into this session while in the Console is not saved[^r-history]
-So, you cannot easily re-use or share R code when it is used this way.
+To understand what an R package is, we'll take a step back and consider
+what happens when we interact with R. The very basic, low-level use of R
+is through the R Console where you type functions in R to do tasks that
+print to the screen. This initial R Console operates in your computer's
+user home directory, usually something that looks like `/home/username/`
+for Linux, `/Users/username/` for macOS, or `C:\Users\username` for
+Windows. So any data or graphs that you save or import needs to include
+the file path to the right location. From a reproducible and modular
+point of view, this is goes against best practices. Likewise, the R code
+entered into this session while in the Console is not
+saved[^package-setup-1] So, you cannot easily re-use or share R code
+when it is used this way.
 
-[^r-history]: Well, technically you can see the history by default in a file,
-but this stores *everything* you've entered into the R Console, including
-wrong code. 
+[^package-setup-1]: Well, technically you can see the history by default
+    in a file, but this stores *everything* you've entered into the R
+    Console, including wrong code.
 
 TODO: Image here that describes this a bit more?
 
-The next level up is to save code in an R script (a file stored anywhere on the
-computer that end in `.R`) and get R to run this code in sequence. In the past,
-people might write R scripts in text editors like vim, emacs, or Notepad, and
-manually run the script in the R Console. Now, you'll mostly encounter people
-use an IDE (REF LINK) like RStudio to do this work instead. This is the most
-commonly used approach to doing any type of work in R. Theoretically, code
-written in this way is reproducible and can be shared. However, practically,
-often R code in these files is written out of sequence since researchers work
-with R more interactively rather than programmatically. And the working
-directory (REF LINK) of an R script changes depending on how it is used, so we
-still encounter similar issues as if we used the R Console on its own.
-You can use clever tricks to store commonly used R code or functions in an R script
-and `source()` these files from other scripts, among many other tricks. In essence,
-this involves keeping track of R files across your computer to be able to do your
-work.
+The next level up is to save code in an R script (a file stored anywhere
+on the computer that end in `.R`) and get R to run this code in
+sequence. In the past, people might write R scripts in text editors like
+vim, emacs, or Notepad, and manually run the script in the R Console.
+Now, you'll mostly encounter people use an IDE (REF LINK) like RStudio
+to do this work instead. This is the most commonly used approach to
+doing any type of work in R. Theoretically, code written in this way is
+reproducible and can be shared. However, practically, often R code in
+these files is written out of sequence since researchers work with R
+more interactively rather than programmatically. And the working
+directory (REF LINK) of an R script changes depending on how it is used,
+so we still encounter similar issues as if we used the R Console on its
+own. You can use clever tricks to store commonly used R code or
+functions in an R script and `source()` these files from other scripts,
+among many other tricks. In essence, this involves keeping track of R
+files across your computer to be able to do your work.
 
-An R package is not much different from using several R scripts. There are
-certain expectations and conventions that must be followed in order for it to
-be "installed" on your computer as a R package. Some of these conventions include:
+An R package is not much different from using several R scripts. There
+are certain expectations and conventions that must be followed in order
+for it to be "installed" on your computer as a R package. Some of these
+conventions include:
 
-- There must be a file called `DESCRIPTION` what contains metadata necessary
-for R to know how to install the package. We'll cover what the fields should
-have in Section TODO: REF.
+-   There must be a file called `DESCRIPTION` what contains metadata
+    necessary for R to know how to install the package. We'll cover what
+    the fields should have in Section TODO: REF.
 
-- There must be an `R/` folder. This will usually contain only `.R` files
-and usually they contain only R functions you've created.
+-   There must be an `R/` folder. This will usually contain only `.R`
+    files and usually they contain only R functions you've created.
 
-- There must be a `NAMESPACE` file that contains the list of functions in your
-package that you want the user to use. We won't cover this file in detail because
-much of this file is managed automatically with the `{devtools}` and `{roxygen2}`
-packages.
+-   There must be a `NAMESPACE` file that contains the list of functions
+    in your package that you want the user to use. We won't cover this
+    file in detail because much of this file is managed automatically
+    with the `{devtools}` and `{roxygen2}` packages.
 
-- The folder with the R code should be named the same as the package name. For
-instance, the R package usethis has the folder name of `{usethis}`. This is not
-an explicit requirement, but is highly recommended. R determines the
-name of the package from the `Package:` field in the `DESCRIPTION` file.
+-   The folder with the R code should be named the same as the package
+    name. For instance, the R package usethis has the folder name of
+    `{usethis}`. This is not an explicit requirement, but is highly
+    recommended. R determines the name of the package from the
+    `Package:` field in the `DESCRIPTION` file.
 
-None of this is something you really have to worry about because the packages
-`{usethis}` and `{devtools}` are designed to do many of these package setup tasks 
-easier for you.
+None of this is something you really have to worry about because the
+packages `{usethis}` and `{devtools}` are designed to do many of these
+package setup tasks easier for you.
 
-So how does package installing work? When you tell R to install a package, which
-is a set of files and folder that follow a specific convention, R takes the
-folder and converts it into its own special format. Then R saves this special
-format into a default location that is specific to the operating system,
-like macOS, Windows, or Linux. To see where packages are installed, use:
+So how does package installing work? When you tell R to install a
+package, which is a set of files and folder that follow a specific
+convention, R takes the folder and converts it into its own special
+format. Then R saves this special format into a default location that is
+specific to the operating system, like macOS, Windows, or Linux. To see
+where packages are installed, use:
 
 ```{r}
 .libPaths()
 ```
 
-If you type this out on in your Console, what you see will probably be a bit different
-to this. If `.libPaths()` outputs more than one path, usually the first will
-contain all of the packages. Let's use the `{fs}` package to explore this folder.
-First, let us see *some* of the packages that are installed but using `dir_ls()`.
+If you type this out on in your Console, what you see will probably be a
+bit different to this. If `.libPaths()` outputs more than one path,
+usually the first will contain all of the packages. Let's use the `{fs}`
+package to explore this folder. First, let us see *some* of the packages
+that are installed but using `dir_ls()`.
 
 ```{r}
 library(fs)
@@ -157,71 +177,76 @@ length(packages)
 head(packages)
 ```
 
-If we want to see how R stores packages, in there special format, we can use
-`dir_tree()` and look inside the installed `fs/` package folder.
+If we want to see how R stores packages, in there special format, we can
+use `dir_tree()` and look inside the installed `fs/` package folder.
 
 ```{r}
 dir_tree(path(.libPaths()[1], "fs"))
 ```
 
-See the `R/fs.rdb` and `R/fs.rdx` files? These are the special formats that contain
-the functions within fs that R will look for when you load the `{fs}` package.
-When a package is installed in R, what that means is it is found in the R library
-folder given by `.libPaths()` with the files in the R specific format. So 
-when you run `library(fs)`, R will know to search for the functions found in the 
-`fs/` package folder. 
+See the `R/fs.rdb` and `R/fs.rdx` files? These are the special formats
+that contain the functions within fs that R will look for when you load
+the `{fs}` package. When a package is installed in R, what that means is
+it is found in the R library folder given by `.libPaths()` with the
+files in the R specific format. So when you run `library(fs)`, R will
+know to search for the functions found in the `fs/` package folder.
 
-So, installing your own package that is only found on your computer is no different
-from installing a package from CRAN with `install.packages()` or from GitHub
-with `remotes::install_github()`. The only difference is that packages on 
-CRAN or GitHub (from a public repository) are usable to anyone who can access
-the Internet.
+So, installing your own package that is only found on your computer is
+no different from installing a package from CRAN with
+`install.packages()` or from GitHub with `remotes::install_github()`.
+The only difference is that packages on CRAN or GitHub (from a public
+repository) are usable to anyone who can access the Internet.
 
-You might have noticed that we've used the syntax `packagename::functionname()`
-a few times now. What this tells R to do is to use the function from a specific 
-package. So `remotes::install_github()` is telling R to use the `install_github()`
-function from the `{remotes}` package. For package development in particular, we
-use this rather than, for instance, `library(remotes)` because we want to be
-explicit about which function we are wanting to use and because we don't need to
-load all the functions from the package when we only want to use one or two of
-them.
-    
+You might have noticed that we've used the syntax
+`packagename::functionname()` a few times now. What this tells R to do
+is to use the function from a specific package. So
+`remotes::install_github()` is telling R to use the `install_github()`
+function from the `{remotes}` package. For package development in
+particular, we use this rather than, for instance, `library(remotes)`
+because we want to be explicit about which function we are wanting to
+use and because we don't need to load all the functions from the package
+when we only want to use one or two of them.
+
 ### Exercise: Install a package from GitHub {#ex-install-github-package}
 
-Since we make heavy use of `{usethis}` for building R packages, let's get
-a bit familiar with it. Open up the 
-[GitHub repository for `{usethis}`](https://github.com/r-lib/usethis)
-and complete these tasks.
+Since we make heavy use of `{usethis}` for building R packages, let's
+get a bit familiar with it. Open up the [GitHub repository for
+`{usethis}`](https://github.com/r-lib/usethis) and complete these tasks.
 
-1. Find which file contains the `create_package()` function in the 
-[`R/`](https://github.com/r-lib/usethis/tree/main/R) folder. Hint, use GitHub's
-"Search or jump to..." feature to find things in the repository.
+1.  Find which file contains the `create_package()` function in the
+    [`R/`](https://github.com/r-lib/usethis/tree/main/R) folder. Hint,
+    use GitHub's "Search or jump to..." feature to find things in the
+    repository.
 
-2. Find out where the package name is in the `DESCRIPTION` file.
+2.  Find out where the package name is in the `DESCRIPTION` file.
 
-3. In your RStudio Console, use `remotes::install_github()` to install the
-usethis package. View the help documentation (`?remotes::install_github`) to
-learn how to use it to install the package. 
+3.  In your RStudio Console, use `remotes::install_github()` to install
+    the usethis package. View the help documentation
+    (`?remotes::install_github`) to learn how to use it to install the
+    package.
 
-## Creating a package    
+## Creating a package
 
 Now that we have determined that *installed* R packages are found in the
-library location determined by `.libPaths()`, what about packages that you are
-actively developing? Do you save them in the same location? Short answer, no, you
-should not. Instead create, develop, and save your files somewhere in your Documents
-folder, or somewhere where you store other work projects. Where exactly you save
-them is up to you, but as an example, we might do them in `Documents/R/` or ...
-TODO: Add more potential locations here.
+library location determined by `.libPaths()`, what about packages that
+you are actively developing? Do you save them in the same location?
+Short answer, no, you should not. Instead create, develop, and save your
+files somewhere in your Documents folder, or somewhere where you store
+other work projects. Where exactly you save them is up to you, but as an
+example, we might do them in `Documents/R/` or ... TODO: Add more
+potential locations here.
 
-Deciding where to save your package is the easy part. The hard part comes with
-*naming* your package. Creating a meaningful, catchy, and Google-able name is
-*really really hard*. There is no easy way to teach you how to make one and
-it often requires several days of brainstorming ideas. Once you do have an idea,
-you want to make sure that it hasn't been taken already. You can do that easily
-with the package `{available}`. We have already described in the preface
-(Section \@ref(overview-packages-created)) that we will be creating a package
-called `{zipfs}`, let's check to see if the package name is `{available}`. The
-output will look a bit like this, though you'll see more items.
+Deciding where to save your package is the easy part. The hard part
+comes with *naming* your package. Creating a meaningful, catchy, and
+Google-able name is *really really hard*. There is no easy way to teach
+you how to make one and it often requires several days of brainstorming
+ideas. Once you do have an idea, you want to make sure that it hasn't
+been taken already. You can do that easily with the package
+`{available}`. We have already described in the preface (Section
+\@ref(overview-packages-created)) that we will be creating a package
+called `{zipfs}`, let's check to see if the package name is
+`{available}`. The output will look a bit like this, though you'll see
+more items.
 
 ```{r cs-available-pkg, eval=FALSE}
 available::available("zipfs")
@@ -234,16 +259,19 @@ available::available_on_bioc("zipfs")
 available::available_on_github("zipfs")
 ```
 
-TODO: Update based on if the package has been added to GitHub at time of publication.
+TODO: Update based on if the package has been added to GitHub at time of
+publication.
 
-We see in this case that `{zipfs}` is available for us to use. Now that we have 
-a name, the next step is to setup the basic infrastructure for the package.
-Thankfully, the `{usethis}` package helps ease a lot of the difficult of this 
-step. When we use the `usethis::create_package()` function, it will setup the
-basic files and folders we need in order for R to install it as a package.
-We'll setup use the function to create a `{zipfs}` package.
+We see in this case that `{zipfs}` is available for us to use. Now that
+we have a name, the next step is to setup the basic infrastructure for
+the package. Thankfully, the `{usethis}` package helps ease a lot of the
+difficult of this step. When we use the `usethis::create_package()`
+function, it will setup the basic files and folders we need in order for
+R to install it as a package. We'll setup use the function to create a
+`{zipfs}` package.
 
-TODO: Set author within GH Actions with usethis.full_name option. Use local .Rprofile?
+TODO: Set author within GH Actions with usethis.full_name option. Use
+local .Rprofile?
 
 ```{r cs-create-pkg, eval=FALSE}
 usethis::create_package(path = "zipfs")
@@ -257,31 +285,34 @@ usethis::create_package(path = temp_pkg, open = FALSE)
 fs::dir_delete(temp_pkg)
 ```
 
-Instead of using code, you can also do it through RStudio (if you use it) by
-clicking through "File -> New Project -> ... TODO: Complete".
-When you run this code in the Console, though, a bunch of text will pop up (like
-above) indicating what was done on your computer. We'll go through each of the
-things that have been created throughout the rest of this section.
+Instead of using code, you can also do it through RStudio (if you use
+it) by clicking through "File -\> New Project -\> ... TODO: Complete".
+When you run this code in the Console, though, a bunch of text will pop
+up (like above) indicating what was done on your computer. We'll go
+through each of the things that have been created throughout the rest of
+this section.
 
 ::: comment
-TODO: Make sure this thing works for css and latex
-You might notice that we are creating the package in the temporary directory 
-"`r fs::path_dir(temp_pkg)`". Because (almost) all of the output from code in
-this book is generated automatically, we need to have a way to create the
-package and do other code-based work that works on each of the authors' computers
-as well as on the GitHub Actions server (which builds the final version of this
-website). So we chose to use the temporary location provided by R's `tempdir()`
-function. The name of this temporary folder is random, so if you use it too,
-you will see something different from what is in the book.
+TODO: Make sure this thing works for css and latex You might notice that
+we are creating the package in the temporary directory
+"`r fs::path_dir(temp_pkg)`". Because (almost) all of the output from
+code in this book is generated automatically, we need to have a way to
+create the package and do other code-based work that works on each of
+the authors' computers as well as on the GitHub Actions server (which
+builds the final version of this website). So we chose to use the
+temporary location provided by R's `tempdir()` function. The name of
+this temporary folder is random, so if you use it too, you will see
+something different from what is in the book.
 :::
 
-As we wrote in the previous section, all R packages must have at least an `R/`
-folder, a `DESCRIPTION` file, and a `NAMESPACE` file. Inside our newly created
-package, we can see these have all been created. In addition to the required
-files and folder, there are also the `.Rproj` file since we use RStudio,
-the `.gitignore` file since we will eventually use Git, and a `.Rbuildignore`
-file that tells R to ignore including certain files when building the package.
-This will become important later.
+As we wrote in the previous section, all R packages must have at least
+an `R/` folder, a `DESCRIPTION` file, and a `NAMESPACE` file. Inside our
+newly created package, we can see these have all been created. In
+addition to the required files and folder, there are also the `.Rproj`
+file since we use RStudio, the `.gitignore` file since we will
+eventually use Git, and a `.Rbuildignore` file that tells R to ignore
+including certain files when building the package. This will become
+important later.
 
 ```{r ce-new-pkg-file-tree, echo=FALSE}
 fs::dir_tree(temp_pkg, all = TRUE)
@@ -294,38 +325,42 @@ Open up the `DESCRIPTION` file so we can look inside it:
 cat(readLines(fs::path(temp_pkg, "DESCRIPTION")), sep = "\n")
 ```
 
-As mentioned, the `DESCRIPTION` file contains the metadata for the package and
-some configuration settings that R uses when building and installing it.
-The format of the metadata uses the pattern `key: value`. So for instance,
-the key `Package` has the value `zipfs`, which tells R what the name of the package
-is. Likewise, `Title` and `Authors` give a bit more information on what the
-package does and who created it. There are many more keys to cover, some of which
-are not important to learn about since they are created automatically and used
-internally by R for general building purposes. But some are quite important.
-Specifically, the `Title`, `Authors`, and `Description` keys should have more
+As mentioned, the `DESCRIPTION` file contains the metadata for the
+package and some configuration settings that R uses when building and
+installing it. The format of the metadata uses the pattern `key: value`.
+So for instance, the key `Package` has the value `zipfs`, which tells R
+what the name of the package is. Likewise, `Title` and `Authors` give a
+bit more information on what the package does and who created it. There
+are many more keys to cover, some of which are not important to learn
+about since they are created automatically and used internally by R for
+general building purposes. But some are quite important. Specifically,
+the `Title`, `Authors`, and `Description` keys should have more
 appropriate values added to them.
 
 ### Exercise: Add details to the `DESCRIPTION` file {#ex-fill-in-description}
 
-Let's fill in the important key fields in the `DESCRIPTION` file with better
-details. If you haven't opened the `DESCRIPTION` file yet, please open it up.
+Let's fill in the important key fields in the `DESCRIPTION` file with
+better details. If you haven't opened the `DESCRIPTION` file yet, please
+open it up.
 
-1. In the `Title:` value field, replace the current generic text with 
-with `Testing Zipfs Law on Novels`. Note the instructions to use one line only 
-and to have the first letter of each word Capitalized.
+1.  In the `Title:` value field, replace the current generic text with
+    with `Testing Zipfs Law on Novels`. Note the instructions to use one
+    line only and to have the first letter of each word Capitalized.
 
-2. For the `Authors@R:` value field, go to the R Console and type out and run
-`?person`. Read through the help documentation and than fill it out as best you
-can in the `Authors@R:` section. The start should look like `Authors@R: person(`.
-For the `role` argument you'll need to add `c("cre", "aut")`. Read about what those
-mean in the `?person` help documentation.
-TODO: Not everyone may have this author key. Some might have `Authors:` or `Maintainer:`, need to consider how to handle this.
+2.  For the `Authors@R:` value field, go to the R Console and type out
+    and run `?person`. Read through the help documentation and than fill
+    it out as best you can in the `Authors@R:` section. The start should
+    look like `Authors@R: person(`. For the `role` argument you'll need
+    to add `c("cre", "aut")`. Read about what those mean in the
+    `?person` help documentation. TODO: Not everyone may have this
+    author key. Some might have `Authors:` or `Maintainer:`, need to
+    consider how to handle this.
 
-3. In the `Description:` value field, replace the current generic text with
-a brief (one or two sentence) explanation
- 
-TODO: This should be as a solution maybe?
-The `DESCRIPTION` file should look something like this now:
+3.  In the `Description:` value field, replace the current generic text
+    with a brief (one or two sentence) explanation
+
+TODO: This should be as a solution maybe? The `DESCRIPTION` file should
+look something like this now:
 
 ```{r ee-fill-in-description, include=FALSE}
 # If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
@@ -350,14 +385,15 @@ desc
 ```
 
 ## Developer-friendly R settings
-    
-You will have noticed how often we use `::` when referring to functions within
-packages. You will also probably have felt that it was a bit annoying to always
-have to type these out, especially interactively in the R Console. We will
-be using functions from the `{usethis}` and `{devtools}` a lot as R package 
-developers and for RSE work, so to make our workflow easier, `{usethis}` has
-naturally made functions to help us out. In the R Console, run each of these
-commands, following their instructions before running the next one.
+
+You will have noticed how often we use `::` when referring to functions
+within packages. You will also probably have felt that it was a bit
+annoying to always have to type these out, especially interactively in
+the R Console. We will be using functions from the `{usethis}` and
+`{devtools}` a lot as R package developers and for RSE work, so to make
+our workflow easier, `{usethis}` has naturally made functions to help us
+out. In the R Console, run each of these commands, following their
+instructions before running the next one.
 
 TODO: Include output from these?
 
@@ -366,18 +402,20 @@ usethis::use_devtools()
 usethis::use_usethis()
 ```
 
-Don't forget to restart your session, using "Ctrl-Shift-F10" or "Session -> Restart R"
-or by using the "Command Palette" ("Ctrl-Shift-P" and type out "Restart R")
-while using RStudio. After the R session restarts, test out that the `{usethis}` 
-and `{devtools}` packages are loaded by typing out `use_` in the R Console and
-hitting the TAB key to list available functions.
+Don't forget to restart your session, using "Ctrl-Shift-F10" or "Session
+-\> Restart R" or by using the "Command Palette" ("Ctrl-Shift-P" and
+type out "Restart R") while using RStudio. After the R session restarts,
+test out that the `{usethis}` and `{devtools}` packages are loaded by
+typing out `use_` in the R Console and hitting the TAB key to list
+available functions.
 
 TODO: Add details about fixing issues if the above doesn't work.
 
 After that, we want set up our RStudio so that whenever we open the R
-Project of our `{zipfs}` package, the R session starts in a "blank slate".
-What this means is that we don't want old data, functions, or variables loaded
-into the Environment from the previous session we might have worked on.
+Project of our `{zipfs}` package, the R session starts in a "blank
+slate". What this means is that we don't want old data, functions, or
+variables loaded into the Environment from the previous session we might
+have worked on.
 
 ```{r cs-LABEL-NAME, eval=FALSE}
 use_blank_slate()
@@ -391,35 +429,46 @@ use_blank_slate()
 
 TODO: Should this be a note section or appendix?
 
-There are other configurations you can set to make your work as a developer easier.
+There are other configurations you can set to make your work as a
+developer easier.
 
+``` r
+options(
+    usethis.full_name = "___",
+    usethis.description = list(`Authors@R` = 'person(given = "___", family = "___", email = "___", role = c("aut", "cre"))',
+                               Roxygen = "list(markdown = TRUE)")
+)
+```
 
-* Text: Other configuration, e.g. to automatically populate `DESCRIPTION`:  https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences
-    
+-   Text: Other configuration, e.g. to automatically populate
+    `DESCRIPTION`:
+    <https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences>
+
 ## Package development workflow
-    
-* Text: As an example, add a function to this package. 
-Here, function is provided, next chapter, talks about how you
-write functions. 
 
-* Code: `use_r()`
+-   Text: As an example, add a function to this package. Here, function
+    is provided, next chapter, talks about how you write functions.
+
+-   Code: `use_r()`
+
 ```{r cs-LABEL-NAME}
 # Code used in section and shown to learners
 ```
 
-* Text: How do we load the function and check it works?
+-   Text: How do we load the function and check it works?
 
-* Code: `devtools::load_all()`
+-   Code: `devtools::load_all()`
+
 ```{r cs-LABEL-NAME}
 # Code used in section and shown to learners
 ```
-    
+
 ### Exercise: Exercise Name {#ex-EXERCISE-TAG}
 
-* Exercise: Practice workflow. Make small edit to function, reload, 
-rerun function.
+-   Exercise: Practice workflow. Make small edit to function, reload,
+    rerun function.
 
-1. Summary of steps to do in exercise
+1.  Summary of steps to do in exercise
 
 ```{r es-LABEL-NAME}
 # Code for exercise and shown to learner
@@ -433,26 +482,28 @@ rerun function.
 # Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
 ```
 
+-   Text: `load_all()` emulates installing and loading, but only for
+    current session. Sometimes you want to actually install and load.
 
-* Text: `load_all()` emulates installing and loading, but only
-for current session.  Sometimes you want to actually install and load.
+-   Code: `devtools::install()`, `library()`
 
-* Code: `devtools::install()`, `library()`
 ```{r cs-LABEL-NAME}
 # Code used in section and shown to learners
 ```
-    
+
 ## Adding data to a package
 
-* Text: Data live in `data/` as `.rda` files.  
+-   Text: Data live in `data/` as `.rda` files.
 
-* Code: `usethis::use_data("FIXME")` Here with simplified data. Restart, `devtools::load_all()`, `FIXME`
+-   Code: `usethis::use_data("FIXME")` Here with simplified data.
+    Restart, `devtools::load_all()`, `FIXME`
+
 ```{r cs-LABEL-NAME}
 # Code used in section and shown to learners
 ```
 
-* Text: Should document how data was created. 
-Put raw data and scripts that end in `usethis::use_data()` in `data-raw/`
+-   Text: Should document how data was created. Put raw data and scripts
+    that end in `usethis::use_data()` in `data-raw/`
 
 ```{r cs-LABEL-NAME}
 use_data_raw()
@@ -460,10 +511,10 @@ use_data_raw()
 
 ### Exercise: Exercise Name {#ex-EXERCISE-TAG}
 
-* Exercise: Provide script for getting dracula text from Gutenberg. 
-Add `dracula` to package.
+-   Exercise: Provide script for getting dracula text from Gutenberg.
+    Add `dracula` to package.
 
-1. Summary of steps to do in exercise
+1.  Summary of steps to do in exercise
 
 ```{r es-LABEL-NAME}
 # Code for exercise and shown to learner
@@ -477,37 +528,40 @@ Add `dracula` to package.
 # Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
 ```
 
-
-    
 ## Final exercise
 
-Complete these tasks as part of the package for your first project assignment.
-Refer to the project assignment for exact details on what you are required to
-create and on what the package should do. For this exercise, we will be using
-a package about weather in Kenya as an example and reference.
+Complete these tasks as part of the package for your first project
+assignment. Refer to the project assignment for exact details on what
+you are required to create and on what the package should do. For this
+exercise, we will be using a package about weather in Kenya as an
+example and reference.
 
-1. Decide on a simple but descriptive name for your new package. Use
-[available][pkg-available] to see if the name is taken.
+1.  Decide on a simple but descriptive name for your new package. Use
+    [available][pkg-available] to see if the name is taken.
 
-2. Use `create_package()` to create a new package. While you can create this
-package anywhere on your computer, for now we suggest either your `Desktop/` or
-maybe something like `Documents/r-pkgs/`.
+2.  Use `create_package()` to create a new package. While you can create
+    this package anywhere on your computer, for now we suggest either
+    your `Desktop/` or maybe something like `Documents/r-pkgs/`.
 
-3. Open the `DESCRIPTION` file and update the file with:
-    * Yourself as the author in the `Authors@R:` field.
-    * A one sentence description of the package in the `Title:` field.
-    * Two or three sentence summary of the package in the `Description:` field.
+3.  Open the `DESCRIPTION` file and update the file with:
 
-4. Add some data to the package. Use `use_data_raw()` to create the `data-raw/`
-folder along with a script for cleaning the raw data. Then put the data in this
-newly created folder. Write in some simple data cleaning processes in the cleaning
-R script and follow the steps in Section FIXME to make the FIXME data available
-as part of the package.
- 
+    -   Yourself as the author in the `Authors@R:` field.
+    -   A one sentence description of the package in the `Title:` field.
+    -   Two or three sentence summary of the package in the
+        `Description:` field.
+
+4.  Add some data to the package. Use `use_data_raw()` to create the
+    `data-raw/` folder along with a script for cleaning the raw data.
+    Then put the data in this newly created folder. Write in some simple
+    data cleaning processes in the cleaning R script and follow the
+    steps in Section FIXME to make the FIXME data available as part of
+    the package.
+
 You'll know you are finished if:
 
-* Your package can be installed with `install()` (or `Ctrl-Shift-B` to build it).
-* In a fresh R session, after running `library(FIXME)` you can access the data
-by its name.
+-   Your package can be installed with `install()` (or `Ctrl-Shift-B` to
+    build it).
+-   In a fresh R session, after running `library(FIXME)` you can access
+    the data by its name.
 
 TODO: Add actions done to kenyaweather package here?
