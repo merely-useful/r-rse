@@ -454,18 +454,44 @@ options(
 
 ## Package development workflow
 
--   Text: As an example, add a function to this package. Here, function
-    is provided, next chapter, talks about how you write functions.
+While there are several ways of developing an R package, a
+well-established and documented workflow revolves around making heavy
+use of `{usethis}` and `{devtools}`. This is the workflow that we are
+covering in this book and that we will briefly go over in this section.
 
--   Code: `use_r()`
+The typical steps used in this development workflow are, in simple
+terms, like this:
 
-```{r cs-LABEL-NAME}
-# Code used in section and shown to learners
-```
+1.  When you have an idea for a function or set of similar function, for
+    instance to load in text files, you would switch to the Console and
+    type out `use_r("load-text")`. A new R file will be created in the
+    `R/` folder and it will be opened up in RStudio.
 
--   Text: How do we load the function and check it works?
+2.  In this new file you would start creating and developing the
+    function, writing the input arguments and the eventual output, while
+    starting to fill in the Roxygen documentation. We'll discuss a more
+    detailed function workflow in later chapters (TODO: add ref to
+    chapters).
 
--   Code: `devtools::load_all()`
+3.  Once you feel the function is ready to be tested out, you might test
+    the function out by either running it in the `@examples` Roxygen
+    section, by using a temporary "development" script or R Markdown
+    file, or inside one of the R Markdown vignettes, all of which we
+    will talk about more in later chapters (TODO: Add ref). To make the
+    function available to R, you would use "Ctrl-Shift-L" while in
+    RStudio to run `load_all()` (from `{devtools}`). After `load_all()`
+    finishes, run the function to see if it works.
+
+4.  Unless the function you created is very simple or in the *very*
+    unlikely scenario that you happened to write code the worked
+    perfectly the first time, the function will more likely not work
+    exactly how you wanted or gives an error. In that case you go back
+    to the function and continue developing it further, alternating
+    between developing it, running `load_all()`, and testing the
+    function out.
+
+Let's take an example. In the Console, We'll provide a simple function
+for
 
 ```{r cs-LABEL-NAME}
 # Code used in section and shown to learners
