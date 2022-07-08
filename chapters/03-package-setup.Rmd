@@ -427,10 +427,22 @@ use_blank_slate()
 
 ```
 
-TODO: Should this be a note section or appendix?
+### Exercise: Setting up additional configurations
+
+TODO: Should this be a note section or appendix or exercise?
 
 There are other configurations you can set to make your work as a
-developer easier.
+developer easier, particularly when adding things to your `.Rprofile`
+file. See the [usethis
+vignette](https://usethis.r-lib.org/articles/usethis-setup.html) for
+more details about it.
+
+Open up your `.Rprofile` using `edit_r_profile()`. Inside copy and paste
+the below text and replace the `___` with your specific values. If you
+need help figuring out what to fill in for the `person()` section, use
+`?person` to read through the help documentation. The last value about
+the `Roxygen` and `markdown = TRUE` will be discussed more in the next
+chapter.
 
 ``` r
 options(
@@ -439,10 +451,6 @@ options(
                                Roxygen = "list(markdown = TRUE)")
 )
 ```
-
--   Text: Other configuration, e.g. to automatically populate
-    `DESCRIPTION`:
-    <https://usethis.r-lib.org/articles/articles/usethis-setup.html#store-default-values-for-description-fields-and-other-preferences>
 
 ## Package development workflow
 
