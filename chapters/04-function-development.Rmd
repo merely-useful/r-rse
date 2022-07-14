@@ -189,6 +189,8 @@ How should functions be organized into files?
 use_r("book-meta")
 ```
 
+* Text: move function definitions into `R/book-meta`
+
 ```{r cs-contents-book-meta}
 extract_element <- function(text, element){ 
   line <- str_subset(text, element)
@@ -205,6 +207,7 @@ book_meta <- function(text){
 }
 ```
 
+* Text: Now, `load_all()` loads our function definitions too. 
 
 ```{r cs-updated-creating-contents}
 library(stringr)
@@ -243,9 +246,9 @@ tibble(word = names(word_freq), n = as.numeric(word_freq))
 Reminder of steps:
 
 * Convert chunk into function in `dev/counting.R`. Check it works `count_words(dracula)`
-* Create new file in `R/` called `count_words()`, copy over definition
+* Create new file in `R/` called `count-words.R`, copy over definition
 * Check work by editing code in `dev/counting.R` to 
-```{es-check-count}
+```{r es-check-count}
 library(stringr)
 library(tibble)
 library(zipfs)
@@ -259,6 +262,13 @@ count_words(dracula)
 `book_meta(dracula)`, produces an error, 
 can't find `tibble()`. Difference between interactive work (`library(tibble)`)
 and package development (don't want to load entire libraries in user's workspaces)
+
+```{r cs-dep-error, error = TRUE}
+# Restart R, clean slate
+load_all()
+book_meta(dracula)
+```
+
 * Text: Two changes needed: specify our package relies on another, 
 inside functions, be specific about where functions inside our own code come from.
 * Code: `use_package("tibble")`, `tibble::tibble()`
