@@ -459,6 +459,8 @@ While there are several ways of developing an R package, a
 well-established and documented workflow revolves around making heavy
 use of `{usethis}` and `{devtools}`. This is the workflow that we are
 covering in this book and that we will briefly go over in this section.
+Throughout this book you will be using this workflow many times, so
+you'll get lots of practice with it.
 
 The typical steps used in this development workflow are, in simple
 terms, like this:
@@ -491,8 +493,13 @@ terms, like this:
     between developing it, running `load_all()`, and testing the
     function out.
 
-Let's take an example. In the Console, We'll provide a simple function
-for
+Let's take an example. In the Console, type out this function:
+
+```{r}
+use_r("")
+```
+
+We'll provide a simple function for
 
 ```{r cs-LABEL-NAME}
 # Code used in section and shown to learners
@@ -528,21 +535,28 @@ for
 
 ## Adding data to a package
 
+-   Text: Should document how data was created. Put raw data and scripts
+    that end in `usethis::use_data()` in `data-raw/`
+
+```{r}
+use_data_raw("gutenberg-project")
+```
+
+```{r cs-LABEL-NAME}
+# Code used in section and shown to learners
+# DOI: https://doi.org/10.6084/m9.figshare.13040516.v1
+download.file(
+    "https://figshare.com/ndownloader/articles/13040516/versions/1",
+    destfile = here::here("data/books.zip")
+)
+zip::unzip(here::here("data/books.zip"), exdir = here::here("data"))
+fs::file_delete(here::here("data/books.zip"))
+```
+
 -   Text: Data live in `data/` as `.rda` files.
 
 -   Code: `usethis::use_data("FIXME")` Here with simplified data.
     Restart, `devtools::load_all()`, `FIXME`
-
-```{r cs-LABEL-NAME}
-# Code used in section and shown to learners
-```
-
--   Text: Should document how data was created. Put raw data and scripts
-    that end in `usethis::use_data()` in `data-raw/`
-
-```{r cs-LABEL-NAME}
-use_data_raw()
-```
 
 ### Exercise: Exercise Name {#ex-EXERCISE-TAG}
 
@@ -600,3 +614,25 @@ You'll know you are finished if:
     the data by its name.
 
 TODO: Add actions done to kenyaweather package here?
+
+```{r ee-LABEL-NAME, eval=FALSE}
+# If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
+temp_dir <- fs::path_temp("kenyaweather")
+usethis::create_package(
+    temp_dir, 
+    rstudio = TRUE, 
+    open = FALSE,
+    fields = list(
+        # TODO: Decide which name to use
+        `Authors@R` = 'person("Jane", "Doe", email = "jane@example.com",
+                          role = c("aut", "cre"))',
+        Title = "",
+        Description = ""
+    )
+)
+
+withr::with_dir(temp_dir, {
+    # TODO: Change name for this.
+    usethis::use_data_raw("NAME?")
+})
+```
