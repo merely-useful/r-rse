@@ -40,18 +40,10 @@ commenting features in the PR.
     remotes::install_deps()
     ```
 
-This book is written in [Bookdown](https://bookdown.org/). If you want
-to preview builds on your own computer:
+This book is written in [Quarto](https://quarto.org/). If you want to
+preview builds on your own computer:
 
 1.  Build the website by using Ctrl-Shift-B when in RStudio.
-
-Please note that Bookdown works best with
-[TinyTeX](https://yihui.name/tinytex/). Install it with:
-
-``` r
-install.packages("tinytex")
-tinytex::install_tinytex()
-```
 
 ## Guidelines
 
@@ -71,20 +63,19 @@ tinytex::install_tinytex()
 
 ### Markdown-related
 
--   When referring to links, use `[text][label]` and put the URL itself
-    in the `includes/links.md` file.
+-   Review the Quarto guide and reference for more detailed explanation
+    on how to write.
+
+-   When referring to links, use `[text](url)` as the canonical Markdown
+    format to use (as reformatted when using the RStudio Visual Editor).
 
 -   Use `@Name1234` or `[@Name1234]` to refer to bibliography entries.
     These entries must exist in the `includes/book.bib` file. For
     multiple entries, separate the entries with `;`, i.e.
     `[@Name1234;@Name5678]`.
 
--   Use `\@ref(label)` to refer to labels for sections and figures.
-
-    -   This needs to be accompanied by e.g. `Chapter`, `Appendix`,
-        `Section`, or `Figure`.
-    -   Chunks with code for figures should have a label to refer to,
-        e.g. `dot-plot` and referred to with `fig:dot-plot`.
+-   For internal cross-references, use `@sec-label` to link to specific
+    sections, `@fig-label` to refer to figures, and others.
 
 -   TODO: Write text about adding glossary entries.
 
@@ -96,14 +87,14 @@ tinytex::install_tinytex()
     -   File names, use `file-name`. Prefer `-` over `_` to distinguish
         between R variables and files. File names will of course usually
         have a file extension.
+    -   For packages, use `{packagename}`.
 
 ### Graphical
 
 -   We suggest using the free desktop version of
     [draw.io](https://www.draw.io/) to draw diagrams. Save the source as
-    `figures/CHAPTERNAME/raw/stem.drawio` and export drawings as all of
-    PNG and SVG. Use `knitr::include_graphics()` to insert these
-    figures.
+    `figures/raw/chNUM-stem.drawio` and export drawings as all of PNG
+    and SVG. Use `knitr::include_graphics()` to insert these figures.
 
 ### Code-related
 
@@ -161,4 +152,4 @@ would type out `usethis::use_package("dplyr")` and hit enter. Unless
 necessary for the building of the book, use CRAN official packages.
 
 The book is build using GitHub Actions with this
-[`deploy_bookdown.yaml`](.github/workflows/deploy_bookdown.yaml) action.
+[`build-website.yaml`](.github/workflows/build-website.yaml) action.
