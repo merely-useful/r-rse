@@ -5,7 +5,9 @@
     - Markdown functionality with `usethis::use_roxygen_md()`
 - Running spell checks and styling (with spelling and styler)
 
-## Learning Objectives
+<!-- python book documentation: https://merely-useful.tech/py-rse/scripting.html#scripting-docstrings-->
+
+## Learning Objectives {#learning-objectives-8}
 
 * Describe the purpose of documenting code and packages
 * Document functions with `roxygen`
@@ -13,12 +15,72 @@
 * Ensure that documentation is consistent with up-to-date style guidelines
 using `styler`
 
-## Outline
+## Why do we need documentation? {#introduction}
 
-* Introduction: the purpose of documentation
+Just like version control tracks what changes you make and why, documentation for code and packages tells your collaborators, your package's users, and future you *what* the code does and *why*.
 
-  * Text: documentation is for collaborators, users, and future you. It is key
-for openness, reproducibility, and sustainability.
+Over time, programming languages have become more "human-readable": it is possible for an experienced programmer to read code and understand what it does. But even if one understands *what* a chunk of code is doing, it may not be obvious at all *why* it does that! Programming languages come with built-in ways to add comments and documentation that are not read by the computer, but exist solely to help you and your collaborators describe and understand code. Good documentation is key for openness, reproducibility, and project sustainability.
+
+Good documentation happens at all scales of code: at the level of individual objects, functions, and tests as well as for the entire package. In this chapter, we describe the workflow of documentation alongside package development and outline the components of a well-documented package.
+
+## Documenting functions and tests with `roxygen` {#function-documentation}
+
+In R, documentation files for objects are stored by default in the `man/` folder in your package directory with a `.Rd` extension. These help files can be accessed for an object, function, or package by typing `?object-name` or `help(object-name)`. Writing documentation for functions as you write the function itself is helpful for future you and other users to understand how to use your code. You can edit these documentation files directly, but the package `roxygen` provides some shortcuts to make it easier to generate the help files with standard formatting. 
+
+Let's add documentation for the function `extract_element()` from the `zipfs` package. First, all we need to do is write the function itself.  
+
+```{r cs-extract-element}
+extract_element <- function(text, element){
+  line <- str_subset(text, element)
+  str_remove(line, element)
+}
+```
+
+Next, with your cursor over the function definition, click `Code > Insert roxygen skeleton` in RStudio. This command adds the default components of function documentation as comments above the function. 
+
+```{r cs-extract-element}
+#' Title
+#'
+#' @param text 
+#' @param element 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+extract_element <- function(text, element){
+  line <- str_subset(text, element)
+  str_remove(line, element)
+}
+```
+
+We can edit the default template to add more information in each field. The fields `@return` and `@export` are optional, depending on the function's behavior. We'll also add an example of how to use the function.
+
+<!-- perhaps include a deliberate typo here to be caught later by `spelling`?-->
+
+```{r cs-extract-element}
+#' Title
+#'
+#' @param text A string of text
+#' @param element A substring to search for in `text`
+#'
+#' @return The matching line without the text matched by `element`
+#' @export
+#'
+#' @examples
+#' text <- "Title: Dracula"
+#' extract_element(text, "Title: ")
+extract_element <- function(text, element){
+  line <- str_subset(text, element)
+  str_remove(line, element)
+}
+```
+
+Next, press Ctrl/Cmd + Shift + D or run `devtools::document()` to generate or update a file named `man/extract_element.Rd`. Try typing `?extract_element()` in the console to see what happens! (You may need to run `devtools::load_all()` in order to test out the new help file.)
+
+<!-- I wasn't able to get the man file to generate - not sure why, something about a malformed package name? It doesn't like the hyphen-->
+
+Reference: ([R Packages reference](https://r-pkgs.org/man.html?q=roxygen#man))
 
 * Documentation workflow: documenting the small stuff 
 ([R Packages reference](https://r-pkgs.org/man.html?q=roxygen#man))
@@ -76,20 +138,6 @@ style guide](https://google.github.io/styleguide/Rguide.html), others?)
   * Exercise: run `spell_check_package()` to check the spelling in the `zipfs`
 documentation files. Run `update_wordlist()` to add any special words to the
 spell-checker that you want to ignore.
-
-## Why do we need documentation? {#introduction}
-
-Just like version control tracks what changes you make and why, documentation for code and packages tells your collaborators, your package's users, and future you *what* the code does and *why*.
-
-Over time, programming languages have become more "human-readable": it is possible for an experienced programmer to read code and understand what it does. But even if one understands *what* a chunk of code is doing, it may not be obvious at all *why* it does that! Programming languages come with built-in ways to add comments and documentation that are not read by the computer, but exist solely to help you and your collaborators describe and understand code. Good documentation is key for openness, reproducibility, and project sustainability.
-
-Good documentation happens at all scales of code: at the level of individual objects, functions, and tests as well as for the entire package. In this chapter, we describe the workflow of documentation alongside package development and outline the components of a well-documented package.
-
-Reference: ([R Packages reference](https://r-pkgs.org/man.html?q=roxygen#man))
-
-## Documenting functions and tests with `roxygen` {#function-documentation}
-
-In R, documentation files for objects are stored by default in the `man/` folder in your package directory with a `.Rd` extension. These help files can be accessed for an object, function, or package by typing `?object-name` or `help(object-name)`.
 
 ## Final exercise {#08-final-exercise}
 
