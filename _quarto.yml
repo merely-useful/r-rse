@@ -47,6 +47,7 @@ format:
     theme: zephyr
     include-in-header:
         - "includes/header.html"
+    include-before-body: "includes/wip.html"
 
 editor:
   mode: visual
