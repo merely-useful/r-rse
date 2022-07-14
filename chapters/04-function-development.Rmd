@@ -80,7 +80,7 @@ tibble(
 * Where can I write this code, so it doesn't interfere with package
 conventions? 
 
-```{r cs-setup-dev-dir}
+```{r cs-setup-dev-dir, eval = FALSE}
 use_directory("dev", ignore = TRUE)
 ```
 
@@ -185,7 +185,7 @@ book_meta(text)
 * Text: Functions live in `.R` files in `R/`.
 How should functions be organized into files?
 
-```{r cs-create-code-file}
+```{r ce-create-code-file}
 use_r("book-meta")
 ```
 
@@ -209,7 +209,7 @@ book_meta <- function(text){
 
 * Text: Now, `load_all()` loads our function definitions too. 
 
-```{r cs-updated-creating-contents}
+```{r ce-updated-creating-contents}
 library(stringr)
 library(tibble)
 load_all() # I don't think we've `install()`ed yet?
@@ -256,6 +256,28 @@ library(zipfs)
 count_words(dracula)
 ```
     
+```{r sol-count-words-chunk}
+count_words <- function(text) {
+    # convert to all lower
+    text_lower <- str_to_lower(text) 
+    
+    # split by one or more whitespace characters
+    chunks <- unlist(str_split(text_lower, "\\s+"))
+    
+    # remove punctuation
+    words <- str_remove_all(chunks, pattern = "[[:punct:]]+")
+    
+    # get rid of empty strings
+    words <- words[words != ""]
+    
+    # count occurrences and sort
+    word_freq <- sort(table(words), decreasing = TRUE)
+    
+    # return in rectangular format
+    tibble(word = names(word_freq), n = as.numeric(word_freq))
+}
+```
+    
 ## Dependencies: Using Functions From Other Packages
 
 * Text: We have a problem.  On clean session, `load_all()`, 
@@ -263,7 +285,7 @@ count_words(dracula)
 can't find `tibble()`. Difference between interactive work (`library(tibble)`)
 and package development (don't want to load entire libraries in user's workspaces)
 
-```{r cs-dep-error, error = TRUE}
+```{r ce-dep-error, error = TRUE}
 # Restart R, clean slate
 load_all()
 book_meta(dracula)
@@ -271,11 +293,70 @@ book_meta(dracula)
 
 * Text: Two changes needed: specify our package relies on another, 
 inside functions, be specific about where functions inside our own code come from.
-* Code: `use_package("tibble")`, `tibble::tibble()`
-* Exercise: Fix dependency problems in `extract_element()`.
-* Text: The pipe needs slightly more complicated handling.
-* Code: `use_pipe()`
-* Exercise: Fix dependency problems in `count_words()`.
+
+* Text: Specify our function relies on another package,
+
+```{r ce-use-package}
+use_package("tibble")
+```
+
+* Text: What changes? Adds line to Imports in DESCRIPTION, ensures when someone installs our package, they get tibble too if they don't have it.
+
+Output includes:
+```
+• Refer to functions with `tibble::fun()`
+```
+
+Text: Also need to be explicit when we use tibble functions
+that these come from the tibble package, use `tibble::` in front
+
+`book_meta()` becomes:
+```{cs-book-meta-tibble}
+book_meta <- function(text){
+  tibble::tibble(
+    author = extract_element(text, "Author: "), 
+    title =  extract_element(text, "Title: "),
+    release_date = extract_element(text, "Release Date: ")
+  )
+}
+```
+
+Text: Try again, restart R, 
+```{r ce-dep-error-2}
+# Restart R, clean slate
+load_all()
+book_meta(dracula)
+```
+
+Text: Still have an error, but now it's related to functions we use inside `extract_element()`.
+
+### Exercise: Fix dependency problems in `extract_element()`
+
+Reminder of steps:
+
+* Add the stringr package as a dependency with `usethis::use_package()`
+* Anywhere a stringr function is used preface with `stringr::`
+
+You'll know it's worked if this code works without error in a fresh session of R.
+
+```{r es-extract-element-dep}
+# Restart R, clean slate
+load_all()
+book_meta(dracula)
+```
+
+```{r sol-extract-element-dep}
+# + change to DESCRIPTION
+extract_element <- function(text, element){ 
+  line <- stringr::str_subset(text, element)
+  value <- stringr::str_remove(line, element)
+  value
+}
+```
+
+### Exercise: Fix dependency problems in `count_words()`
+
+<!-- Doesn't use pipe anymore, so this is just finding the stringr and tibble functions and adding stringr:: and tibble:: -->
 
 ## Documenting Functions
 
