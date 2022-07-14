@@ -361,24 +361,184 @@ extract_element <- function(text, element){
 ## Documenting Functions
 
 * Text: Outline of Roxygen workflow: special comments above functions + `document()`, 
-generates `man/` and allows `?function_name`
-* Code: With `book_meta()` RStudio: Code -> Insert ROxygen Skeleton, `document()`, `?book_meta()`
-* Text: Common Roxygen tags (title, arguments, return, examples), demo with `book_meta()`
-* Exercise: Document `count_words()`
-* Text: `@export`, why we might not document every function.
+generates `man/` and allows `?function_name`, Maybe explain all this using an existing package.
 
-* Stopping Your Function with an Error
+* Code: With `book_meta()` RStudio: Code -> Insert ROxygen Skeleton, `document()`, `?book_meta()`
+
+```{cs-book-meta-roxygen-skeleton}
+#' Title
+#'
+#' @param text 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+book_meta <- function(text){
+  tibble::tibble(
+    author = extract_element(text, "Author: "), 
+    title =  extract_element(text, "Title: "),
+    release_date = extract_element(text, "Release Date: ")
+  )
+}
+```
+
+```{cs-document}
+document()
+?book_meta
+```
+
+* Text: Common Roxygen tags (title, arguments, return, examples), demo with `book_meta()`
+
+```{cs-book-meta-roxygen-complete}
+#' Get book metadata from a Gutenberg book
+#'
+#' @param text A character vector of lines from a Gutenberg book
+#'
+#' @return a one row tibble with `author`, `title` and `release` columns.
+#' @export
+#'
+#' @examples
+#' book_meta(dracula[1:20])
+book_meta <- function(text){
+  tibble::tibble(
+    author = extract_element(text, "Author: "), 
+    title =  extract_element(text, "Title: "),
+    release_date = extract_element(text, "Release Date: ")
+  )
+}
+```
+
+### Exercise: Document `count_words()`
+
+Reminder of steps:
+
+1. Insert a roxygen skeleton above the definition of `count_words()`
+2. Run `document()` to generate help page and preview with `?count_words`
+3. Edit the roxygen comment.
+4. Iterate steps 2. and 3. until done.
+
+```{r sol-document-count-words}
+#' Count word frequency in text
+#'
+#' Counts the occurrence of words over all elements provided in `text`.
+#'
+#' Each element of `text` is considered a line.
+#' Lines are first converted to lower case then split into words
+#' by whitespace. Then punctuation is removed, and empty strings are ignored.
+#'
+#' @param text A character vector
+#'
+#' @return A tibble with columns `word`,
+#' and `n` the number of times `word` occurs in `text`.
+#' @export
+#'
+#' @examples
+#' count_words(dracula)
+```
+
+* Text: `@export`, why we might not document every function., e.g. `extract_element()`
+
+## Stopping Your Function with an Error
+
 * Text: Alternate workflow for editing functions, 
 use `@examples`, edit directly in `R/book-meta.R`. 
 Add `book_meta(1)` as example.
+
+```{r cs-add-example}
+#' Get book metadata from a Gutenberg book
+#'
+#' @param text A character vector of lines from a Gutenberg book
+#'
+#' @return a one row tibble with `author`, `title` and `release` columns.
+#' @export
+#'
+#' @examples
+#' book_meta(dracula[1:20])
+#' book_meta(1)
+```
+
 <!-- This will cause a check error later, because examples need to run without error. -->
+
 * Text: Basic checks of user input, how to return an error
-* Code: `if()`, `stop()`
-* Exercise: Add an input check to `count_words()`.
+
+Basic template of input check:
+```r
+if( << test for bad input >> ){
+    stop("<< message for bad input >>", call. = FALSE)
+}
+```
+
+* Text: As a comment? Mention other kinds of process control, give pointer to learn more.
+
+```{r ce-bad-input-ideas}
+text <- 1
+is.numeric(text) 
+is.character(text)
+!is.character(text)
+```
+
+Guidance for writing error messages:
+https://style.tidyverse.org/error-messages.html
+
+See if you want fancier bulleted list type error messages: https://rlang.r-lib.org/reference/abort.html
+
+
+```{r ce-bad-input-check}
+if(!is.character(text)){
+    stop("`text` must be a character vector.", call. = FALSE)
+}
+```
+
+Add to function definition
+```{r cs-book-meta-with-check, eval = FALSE}
+book_meta <- function(text){
+    if(!is.character(text)){
+        stop("`text` must be a character vector.", call. = FALSE)
+    }
+    tibble::tibble(
+        author = extract_element(text, "Author: "), 
+        title =  extract_element(text, "Title: "),
+        release_date = extract_element(text, "Release Date: ")
+    )
+}
+```
+
+`load_all()`
+Rerun examples 
+
+### Exercise: Add an input check to `count_words()`.
+
+```{r sol-input-check-count-words}
+count_words <- function(text) {
+    if(!is.character(text)){
+        stop("`text` must be a character vector.", call. = FALSE)
+    }
+    
+    # convert to all lower
+    text_lower <- str_to_lower(text) 
+    
+    # split by one or more whitespace characters
+    chunks <- unlist(str_split(text_lower, "\\s+"))
+    
+    # remove punctuation
+    words <- str_remove_all(chunks, pattern = "[[:punct:]]+")
+    
+    # get rid of empty strings
+    words <- words[words != ""]
+    
+    # count occurrences and sort
+    word_freq <- sort(table(words), decreasing = TRUE)
+    
+    # return in rectangular format
+    tibble(word = names(word_freq), n = as.numeric(word_freq))
+}
+```
+
+## Wrapping Up
+
 * Text: Re-iterate idea of extracting common code into simpler functions.
-Suggest input check could be its own function.
-* Text: Mention other kinds of process control, give pointer to learn more.
-  
+Suggest input check could be its own function. Then describe steps as a review of chapter: decide on a name, decide on a file to store it, write it, try it, careful with dependencies, document it.
 
 ## Final exercise {#04-final-exercise}
 
