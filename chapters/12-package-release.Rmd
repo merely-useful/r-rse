@@ -43,7 +43,7 @@ for more details. As with the other final exercises,
 we will use the `kenyaweather` package as an example and reference.
 Don't forget to add and commit any changes you've made into the Git history
 after each task, and pushing to GitHub. Make use of the usethis `pr_*` workflow
-described in Chapter \@ref(github-workflows).
+described in Chapter @sec-github-workflows).
 
 1. Run a package check with `rhub::check()` against an OS different from your
 own. For instance, if you use Windows, run a check on Mac OS or Linux.
