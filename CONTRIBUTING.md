@@ -61,6 +61,10 @@ preview builds on your own computer:
 -   While much of the content is targeted to a course setting, we refer
     to the content as "book" and not "course" to keep it more generic.
 
+-   In general, try to be more serious but little, while keeping
+    colloquial humor or cultural humor to a minimal in order to be
+    understandable to as many globally as possible.
+
 ### Markdown-related
 
 -   Review the Quarto guide and reference for more detailed explanation
@@ -114,6 +118,9 @@ preview builds on your own computer:
 
 -   Write in plain, international Simplified English (i.e. American
     compared to British).
+
+-   Avoid culturally specific or language specific humor and jokes so
+    that we can be understandable to as many as possible.
 
 -   Write in the active voice. The assumed reader for "you" refers to:
 
