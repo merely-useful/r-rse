@@ -22,7 +22,7 @@ highlight and describe where necessary.
 3. **Instructors** who would use this book as the basis for a course or workshop
 of their own. Throughout the book there are sections dedicated to this reader
 that give information or instructions on how to use or modify the material for
-the instructor's specific context. See Appendix \@ref(for-instructors) for more
+the instructor's specific context. See Appendix @sec-for-instructors) for more
 detail about how to use this book for teaching.
 
 ## Introduction for learners
@@ -177,13 +177,13 @@ the instructor).
 - The main example package developed throughout the book is the Zipf's Law package `zipfs`.
 This package is used for the code-alongs, the actual content, and most of the
 exercises. More details about the Zipf's Law will be introduced in Chapter
-\@ref(package-setup).
+@sec-package-setup).
 - The example package for the first project assignment is the Weather in Kenya
 package `kenyaweather`. This package is used as a reference when you work on
 your package for the first project assignment.
 
 Specific details about the project assignments are found in the
-Appendix \@ref(assignments). Two of the packages are completed and can be
+Appendix @sec-assignments). Two of the packages are completed and can be
 used as references (`zipfs` and `kenyaweather`).
 
 TODO: Add link to the repos with these packages.

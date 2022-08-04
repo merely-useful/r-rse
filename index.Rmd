@@ -6,9 +6,6 @@
 
 TODO: Add version of book here?
 
-Welcome to our book! We are actively working on it, so it is largely a
-work in progress.
-
 Computers and computational work are essential components to conducting
 science and research. However, most introductions to software
 development and programming focus on largely on developing commercial
