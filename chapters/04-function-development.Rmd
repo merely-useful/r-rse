@@ -25,9 +25,25 @@ TODO: should this be here or later?
 -   Use functions from other packages in a function in your own package
 -   Return an error message from a function
 
+## Introduction
+
+So far, our zipfs package contains some data and a very simple function.
+We've seen the general workflow for adding a function to a package, but
+we skimmed over lots of the details. In this chapter, we'll take a much
+closer look at writing functions, the details of including them in a
+package, documenting them, and how to stop your functions with an error.
+
+```{r ce-load-zipfs}
+# Temporarily needed?, for getting access to `dracula`
+library(zipfs)
+```
+
 ## Writing Functions in R
 
--   Review current state of package
+We have a number of books included in our zipfs package. One useful
+feature to add to our package would be a way to extract metadata about
+the books from the book text. For example, let's take a look at lines 8
+through 14 in Dracula:
 
 ```{r cs-dracula-meta}
 load_all()
@@ -45,21 +61,23 @@ dracula[8:14]
     [6] "Release Date: August 16, 2013 [EBook #345]"
     [7] ""   
 
--   Goal: extract meta data
--   Writing a function starts with working chunk of code.
+We can see the book text includes information on the book title, author
+and release date. This format is consistent across the books, so it is
+ideal for automatic parsing. Our goal will be to add a function
+`book_meta()` that extracts these details from the text of a book.
 
-```{r ce-load-zipfs}
-# Needed to get data for now...
-library(zipfs)
-```
-
--   Start with some working code. (We are providing working code here,
-    but usually this is the hardest part!)
+Writing a function should start with working code. That is, rather than
+starting with a blank function template for `book_meta()` and trying to
+fill it in. First, we should write code that extracts the relevant
+details in a concrete example, and then turn it into a function. We are
+going to start with this working code that extracts these details from
+the `dracula` object:
 
 ```{r cs-extract-meta, eval = FALSE}
 library(stringr)
 library(tibble)
 
+devtools::load_all() # Replace with `library(zipfs)` if we've installed by now
 text <- dracula[8:14]
 
 author_line <- str_subset(text, "Author: ")
@@ -78,14 +96,63 @@ tibble(
 )
 ```
 
--   Where can I write this code, so it doesn't interfere with package
-    conventions?
+We are presenting this code fully formed, but usually getting to this
+point is the hardest part of writing a function. We certainly didn't
+write it out in one go. We started with a little example `text` then
+wrote a little code, tested it out, fixed any problems and iterated.
+
+But, where did we write this code? If we weren't working on a package,
+we'd think nothing of opening up a new R script file, or Quarto file,
+and putting our code inside, and saving it any old place. But, when we
+are working on a package, we need to be more careful about adding files
+that aren't directly related to the package. We wouldn't want someone
+who wants to use our package also getting all code files that were
+notes, or experiments, and in fact, there are rules about what files and
+folders **can't** be in a package directory. One option would be to open
+an R script and use it as a temporary code writing area, and never save
+it - the `Untitled.R` strategy. This is fine for quick experiments, but
+is a little dangerous for anything you might write over more than one
+session. A better option is to create a specific location for code that
+isn't part of the package, and make sure it is ignored when the package
+is built. There is a `usethis` function `use_directory()` that helps set
+this up. Let's create a `dev/` directory in our package project:
 
 ```{r cs-setup-dev-dir, eval = FALSE}
 use_directory("dev", ignore = TRUE)
 ```
 
--   Save above chunk in `dev/creating.R`
+    ✓ Creating 'dev/'
+    ✓ Adding '^dev$' to '.Rbuildignore'
+
+The argument `ignore = TRUE` adds this folder to `.Rbuildignore` - a
+file that lists things that shouldn't be included in the package when it
+is built.
+
+Now we can take the chunk above and save it in `dev/creating.R`, and be
+sure it won't end up in the final built package. Let's work through the
+code in that is in this chunk:
+
+1.  Some packages are loaded - stringr is needed for the string
+    operations and tibble for putting the results together.
+2.  A variable `text` is created to hold a little bit of the `dracula`
+    text as a concrete example of book text.
+3.  The author is extracted from `text` into `author` by first pulling
+    out the line that contains the pattern `"Author: "`, then removing
+    the pattern `"Author: "` from that line.
+4.  Repeat 3. but now with the pattern `"Title:  "` to extract the
+    title.
+5.  Repeat 3. but now with the pattern `"Release Date:  "` to extract
+    the release date.
+6.  Combine `author`, `title`, and `release_date` in a one row tibble.
+
+If we run the entire script we should end with the output:
+
+    # A tibble: 1 × 3
+      author      title   release_date                
+      <chr>       <chr>   <chr>                       
+    1 Bram Stoker Dracula August 16, 2013 [EBook #345]
+
+### When to write a function?
 
 -   Identify repetition in above code: x3
 
