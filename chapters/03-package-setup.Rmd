@@ -567,12 +567,21 @@ by hitting the `Ctrl-Shift-B` keys. Notice how much longer it takes
 compared to `load_all()` (even if only a few seconds) and that the R
 Session restarts, followed by a call to `library()`.
 
-## Adding data to a package
+## Bundling data within a package
+
+While you are able to bundle data within a package, the vast majority of
+R packages do not contain data. In some instances, especially within
+custom company or academic environments, packaging data in a package can
+make it very easy to share data with colleagues. And considering R and
+many R packages are designed around working with data in some way, like
+using statistics or making plots, we will also bundle data with our
+package in order to make use of the data for the functions we will be
+creating throughout this book.
 
 -   Text: Should document how data was created. Put raw data and scripts
     that end in `usethis::use_data()` in `data-raw/`
 
-```{r}
+```{r cs-create-data-raw, eval=FALSE}
 use_data_raw("gutenberg-project")
 ```
 
