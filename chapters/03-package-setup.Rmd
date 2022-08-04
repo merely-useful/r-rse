@@ -97,12 +97,12 @@ Windows. So any data or graphs that you save or import needs to include
 the file path to the right location. From a reproducible and modular
 point of view, this is goes against best practices. Likewise, the R code
 entered into this session while in the Console is not
-saved[^package-setup-1] So, you cannot easily re-use or share R code
+saved[^03-package-setup-1] So, you cannot easily re-use or share R code
 when it is used this way.
 
-[^package-setup-1]: Well, technically you can see the history by default
-    in a file, but this stores *everything* you've entered into the R
-    Console, including wrong code.
+[^03-package-setup-1]: Well, technically you can see the history by
+    default in a file, but this stores *everything* you've entered into
+    the R Console, including wrong code.
 
 TODO: Image here that describes this a bit more?
 
