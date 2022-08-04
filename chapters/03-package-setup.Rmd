@@ -582,8 +582,8 @@ fs::file_delete(here::here("data/books.zip"))
 Complete these tasks as part of the package for your first project
 assignment. Refer to the project assignment for exact details on what
 you are required to create and on what the package should do. For this
-exercise, we will be using a package about weather in Kenya as an
-example and reference.
+exercise, we will be using a package about weather in Kenya *only as an
+example and reference*.
 
 1.  Decide on a simple but descriptive name for your new package. Use
     `{available}` to see if the name is taken.
