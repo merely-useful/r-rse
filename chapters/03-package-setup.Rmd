@@ -591,6 +591,9 @@ fs::file_delete(here::here("data-raw/books.zip"))
 -   Code: `usethis::use_data("FIXME")` Here with simplified data.
     Restart, `devtools::load_all()`, `FIXME`
 
+We'll cover how you will document data in Chapter
+@sec-package-documentation.
+
 ### Exercise: Exercise Name
 
 -   Exercise: Provide script for getting dracula text from Gutenberg.
