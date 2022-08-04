@@ -493,45 +493,79 @@ terms, like this:
     between developing it, running `load_all()`, and testing the
     function out.
 
-Let's take an example. In the Console, type out this function:
+Let's try a bit of this workflow out by making a temporary, practice
+function. In the Console, type out this function:
 
-```{r}
-use_r("")
+```{r cs-test-workflow, eval=FALSE}
+use_r("test-workflow")
 ```
 
-We'll provide a simple function for
+After it opens up, copy and paste the simple function below into the
+newly created `R/test-workflow.R` file:
 
-```{r cs-LABEL-NAME}
-# Code used in section and shown to learners
+```{r cs-temp-function}
+greeting <- function(name = "Sami") {
+    paste0("Hi there, ", name, "!")
+}
 ```
 
-### Exercise: Exercise Name {#ex-EXERCISE-TAG}
+Before doing anything, type out `greeting()` in the Console and hit
+enter to run it. What happens? Nothing! That's because R doesn't know
+about the function just yet. We have to make R aware of it by either
+running the function directly into R from the script (`Ctrl-Enter` to
+send to the Console), by using `source()` on the script, by installing
+the package, or by mimicking installing the package (but not actually
+installing it) with the `load_all()` function. Since we're doing package
+*development*, we will use the `load_all()` function, conveniently bound
+to the keys `Ctrl-Shift-L` in RStudio.
 
--   Exercise: Practice workflow. Make small edit to function, reload,
-    rerun function.
+Let us try out the `load_all()` function but hitting `Ctrl-Shift-L`.
+After it finishes loading, again type out `greeting()` in the Console.
+You should now see that it works.
 
-1.  Summary of steps to do in exercise
+### Exercise: Practice the workflow some more {#ex-practice-workflow-load-all}
 
-```{r es-LABEL-NAME}
-# Code for exercise and shown to learner
+Since you'll be using this workflow a lot when making R packages, we'll
+do some more practices using it so you feel more comfortable with it.
+
+Make the following changes to the function. With each change, re-load
+(`Ctrl-Shift-L` in RStudio or `load_all()` in the Console) so that the
+updated functions become available to R. After each re-load, switch to
+the Console and run the `greeting()` function.
+
+-   Change the default value for the `name` argument from `"Sami"` to
+    `"Jun"`.
+
+-   Change the greeting inside of the `paste0()` function from
+    `"Hi there, "` to `"How do you do, "`.
+
+-   Change the function `paste0()` to `paste()`. What changes?
+
+After completing these tasks, since we don't need the
+`R/test-workflow.R` file anymore, we'll delete it either manually or by
+typing out:
+
+```{r delete-test-workflow, eval=FALSE}
+fs::file_delete("R/test-workflow.R")
 ```
 
-```{r ee-LABEL-NAME}
-# If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
-```
+## Installing instead of loading
 
-```{r sol-LABEL-NAME}
-# Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
-```
+When actively developing a package, rather than to directly use it in
+another project, we use `load_all()`. That is because it can quickly
+create an environment that mimics how the package might behave if it was
+installed, without having to take the time to actually install it.
 
--   Text: `load_all()` emulates installing and loading, but only for
-    current session. Sometimes you want to actually install and load.
+When we want to actually install the package, we use the `{devtools}`
+function `install()` (keybinding is `Ctrl-Shift-B`), which makes the
+package available to R on your computer. When you install, accessing the
+functions in the package is done as you normally would with other
+packages, like loading it with `library()`.
 
--   Code: `devtools::install()`, `library()`
-
-```{r cs-LABEL-NAME}
-# Code used in section and shown to learners
-```
+We won't cover this much more in this chapter, but for now, test it out
+by hitting the `Ctrl-Shift-B` keys. Notice how much longer it takes
+compared to `load_all()` (even if only a few seconds) and that the R
+Session restarts, followed by a call to `library()`.
 
 ## Adding data to a package
 
@@ -542,15 +576,14 @@ We'll provide a simple function for
 use_data_raw("gutenberg-project")
 ```
 
-```{r cs-LABEL-NAME}
-# Code used in section and shown to learners
+```{r cs-LABEL-NAME, engine.opts=list(file=fs::path(temp_pkg, "data-raw", "gutenberg-project.R"))}
 # DOI: https://doi.org/10.6084/m9.figshare.13040516.v1
 download.file(
     "https://figshare.com/ndownloader/articles/13040516/versions/1",
-    destfile = here::here("data/books.zip")
+    destfile = here::here("data-raw/books.zip")
 )
-zip::unzip(here::here("data/books.zip"), exdir = here::here("data"))
-fs::file_delete(here::here("data/books.zip"))
+zip::unzip(here::here("data-raw/books.zip"), exdir = here::here("data-raw"))
+fs::file_delete(here::here("data-raw/books.zip"))
 ```
 
 -   Text: Data live in `data/` as `.rda` files.
@@ -558,7 +591,7 @@ fs::file_delete(here::here("data/books.zip"))
 -   Code: `usethis::use_data("FIXME")` Here with simplified data.
     Restart, `devtools::load_all()`, `FIXME`
 
-### Exercise: Exercise Name {#ex-EXERCISE-TAG}
+### Exercise: Exercise Name
 
 -   Exercise: Provide script for getting dracula text from Gutenberg.
     Add `dracula` to package.
