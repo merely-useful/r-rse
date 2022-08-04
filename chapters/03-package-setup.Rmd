@@ -666,7 +666,12 @@ usethis::create_package(
 )
 
 withr::with_dir(temp_dir, {
+    usethis::use_blank_slate("project")
     # TODO: Change name for this.
-    usethis::use_data_raw("NAME?")
+    usethis::use_data_raw("NAME?", open = FALSE)
 })
+
+fs::dir_tree(temp_dir)
+fs::dir_delete(temp_dir)
 ```
+
