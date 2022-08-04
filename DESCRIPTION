@@ -1,15 +1,16 @@
-Package: r-rse
 Type: Book
+Package: r-rse
 Title: "Merely Useful: Using R for Research Software Engineering"
 Version: 0.1
 Imports: 
-    tinytex,
-    tools,
-    usethis,
-    here,
+    available,
+    devtools,
     downlit,
     fs,
-    devtools,
-    available
+    here,
+    tinytex,
+    tools,
+    usethis
 Suggests: 
     tidyverse
+Encoding: UTF-8
