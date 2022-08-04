@@ -1,30 +1,19 @@
 # Setting up an R package {#package-setup}
 
--   Describing what a package is and when or why to make one
-    -   Use `{zipfs}` [available](https://github.com/r-lib/available) to
-        make a name (naming is hard).
--   Using `{devtools}`, `{usethis}` for development
-    -   e.g. `use_devtools()` and `use_usethis()`.
--   Developing functions
--   Basic explanation of what a function is and its components
--   Making and using datasets
--   Downloading zipf data at this point, using
-    `usethis::use_data_raw()`, write the script to download the data and
-    process into `data/` via `usethis::use_data()`.
-
 ## Learning Objectives
 
--   Identify when to create an R package
--   Create a new R package using `usethis::create_package()`
--   Describe the purpose of the folders and files in a skeleton R
-    package
--   Add data to an R package
--   Set global defaults to ease package development with devtools and
-    usethis
+-   Identify when and why to create an R package
+-   Learn how to create a new R package using
+    `usethis::create_package()`
+-   Describe and explain the purpose of the folders and files in a
+    skeleton R package
+-   Learn how and why you might add data to an R package
+-   Describe what are global defaults in R and how to use them ease
+    package development with `{devtools}` and `{usethis}`
 
 ## About Zipf's Law
 
-TODO: Not sure this belongs here.
+TODO: Not sure this belongs here. Maybe in preface?
 
 We'll create a package (`{zipfs}`) to analyze a fascinating result in
 the field of quantitative linguistics. Zipf's Law states that the second
