@@ -617,6 +617,7 @@ TODO: Add actions done to kenyaweather package here?
 
 ```{r ee-LABEL-NAME, eval=FALSE}
 # If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
+# TODO: Use temp or use Desktop or use a subfolder in this book's folder?
 temp_dir <- fs::path_temp("kenyaweather")
 usethis::create_package(
     temp_dir, 
