@@ -150,7 +150,9 @@ that are installed but using `dir_ls()`.
 
 ```{r}
 library(fs)
-packages <- dir_ls(path(.libPaths()[1]))
+# R priorities the first path, so we'll select it
+primary_library_path <- .libPaths()[1]
+packages <- dir_ls(path(primary_library_path))
 
 # Number of installed packages
 length(packages)
@@ -158,11 +160,11 @@ length(packages)
 head(packages)
 ```
 
-If we want to see how R stores packages, in there special format, we can
+If we want to see how R stores packages in its special format, we can
 use `dir_tree()` and look inside the installed `fs/` package folder.
 
 ```{r}
-dir_tree(path(.libPaths()[1], "fs"))
+dir_tree(path(primary_library_path, "fs"))
 ```
 
 See the `R/fs.rdb` and `R/fs.rdx` files? These are the special formats
