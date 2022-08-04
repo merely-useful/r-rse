@@ -56,23 +56,15 @@ software development in R (LINK).
 TODO: Include link to resources section for r packages book, mastering
 software dev etc.
 
-If we go back to the big picture in the preface (\@ref(#big-picture)),
-creating an R package (that is posted on GitHub or submitted to CRAN)
-connected to scientific work or analyses will usually fulfill the
-reproducibility and open science components of research. That's because
-making an R package usually requires a higher level of rigor, testing,
-documentation, and inspection of the code, which means you and others
-will have more trust in the results. And if its on GitHub, it's much
-easier to share your work with others and have a bigger impact on
-research overall.
-
-<!-- * Other advantages? -->
-
-<!--     * Easy for other people to obtain and install -->
-
-<!--     * Built-in documentation of functions and data -->
-
-<!--     * Incorporate package-level meta data: authors, version, etc. -->
+If we go back to the big picture in the preface in Section
+@sec-big-picture, creating an R package (that is posted on GitHub or
+submitted to CRAN) connected to scientific work or analyses will usually
+fulfill the reproducibility and open science components of research.
+That's because making an R package usually requires a higher level of
+rigor, testing, documentation, and inspection of the code, which means
+you and others will have more trust in the results. And if its on
+GitHub, it's much easier to share your work with others and have a
+bigger impact on research overall.
 
 ## What is an R package?
 
