@@ -570,39 +570,154 @@ Session restarts, followed by a call to `library()`.
 
 While you are able to bundle data within a package, the vast majority of
 R packages do not contain data. In some instances, especially within
-custom company or academic environments, packaging data in a package can
-make it very easy to share data with colleagues. And considering R and
-many R packages are designed around working with data in some way, like
-using statistics or making plots, we will also bundle data with our
+custom company or academic environments, packaging data in an R package
+can make it very easy to share data with colleagues. And considering R
+and many R packages are designed around working with data in some way,
+like using statistics or making plots, we will also bundle data with our
 package in order to make use of the data for the functions we will be
 creating throughout this book.
 
--   Text: Should document how data was created. Put raw data and scripts
-    that end in `usethis::use_data()` in `data-raw/`
+### Starting with the raw data
+
+Since Zipf's Law is about some math underlying text, the "data" we will
+be working with is text from books. The books we are going to use come
+from the open source [Project Gutenberg](https://www.gutenberg.org/).
+Part of creating an R package is about making analytic or data
+processing steps reproducible and explicit, so in this regard, since we
+don't have the books we need on our computers, we need to write out
+coding steps to get them. This is what the `data-raw/` folder is for
+inside an R package. Inside this folder we include R scripts that have
+code showing where and how we get the data that we do. To start, we will
+set up the folder using the `{usethis}` function:
 
 ```{r cs-create-data-raw, eval=FALSE}
-use_data_raw("gutenberg-project")
+use_data_raw("project-gutenberg")
 ```
 
-```{r cs-LABEL-NAME, engine.opts=list(file=fs::path(temp_pkg, "data-raw", "gutenberg-project.R"))}
-# DOI: https://doi.org/10.6084/m9.figshare.13040516.v1
-download.file(
-    "https://figshare.com/ndownloader/articles/13040516/versions/1",
-    destfile = here::here("data-raw/books.zip")
-)
-zip::unzip(here::here("data-raw/books.zip"), exdir = here::here("data-raw"))
-fs::file_delete(here::here("data-raw/books.zip"))
+```{r ce-create-data-raw, echo=FALSE}
+local_project(temp_pkg, quiet = TRUE)
+use_data_raw("project-gutenberg", open = FALSE)
 ```
+
+This function creates the `data-raw/` folder as well as an R script
+inside, as we can see with `dir_tree()`.
+
+```{r ce-show-tree-with-data-raw, echo=FALSE}
+dir_tree(temp_pkg)
+```
+
+Inside the file is:
+
+```{r cs-inside-empty-data-raw-folder, file=fs::path(temp_pkg, "data-raw", "project-gutenberg.R"), eval=FALSE}
+```
+
+We want to eventually download a few books but for now we will download
+[Dracula](https://www.gutenberg.org/ebooks/345). Specifically, we want
+the version of book that lets us load it into R, so the ["Plain Text
+UTF-8"](https://www.gutenberg.org/cache/epub/345/pg345.txt) version is
+the one we want. You find books by going onto [Project
+Gutenberg](https://www.gutenberg.org/), typing out the book name in the
+"Quick search" at the top left corner of the page, clicking the book
+title and entering into the book page that should contain the link to
+the plain text version. The steps we want to take are:
+
+1.  Find a book, open the "Plain Text UTF-8" link, and copy the URL at
+    the top.
+2.  Using the URL, download the plain text book file and save it in the
+    `data-raw/` folder. While we could read in the text directly from
+    the URL, we want to keep a local copy in case we are working offline
+    or in the unlikely chance that the website is down.
+3.  Load the text file into R and save it into the `data/` folder. We'll
+    explain why we do this step shortly.
+
+Let's open up our `data-raw/project-gutenberg.R` script and complete the
+exercise below to complete the steps above in R.
+
+### Exercise: Download Dracula book and save as data
+
+For this exercise, you will need to translate the steps listed above
+into a form that R understands. To help break it down, what we need to
+get R to do and write in the `data-raw/project-gutenberg.R` script is
+to:
+
+1.  Load the necessary packages: `{fs}`, `{readr}`, `{purrr}`, and
+    `{here}`. We have so far only explained the `{fs}` package.
+    -   `{readr}`: We use this to read in the text file.
+    -   `{here}`: We use this for reproducibility purposes so that when
+        we refer to file paths, they are always relative to the project
+        root (where the `.Rproj` file is). Read the
+        [website](https://here.r-lib.org/index.html) for more details on
+        it.
+    -   `{purrr}`: We use this
+2.  Create a `list()` for the book's URL (`book_urls`), with the list
+    item name being the books short title. While we are only downloading
+    the Dracula book first, we want to write the code so that it is
+    easier later to download more books later without modifying the code
+    too much.
+3.  Create a function (`download_then_read()`) that has arguments `url`
+    and `book_name` that
+    -   creates a file path from `book_name` to where the book should be
+        downloaded to using `here()` pointing to `"data-raw"` and
+        `paste0(book_name, ".txt")` (to add the text file ending)
+    -   checks if the file exists (`file_exists()`) and downloads it
+        (`download.file()`) if it does not
+    -   then reads in the file into R (`read_lines()`) from `{readr}`
+4.  Use `imap()` from `{purrr}`
+
+```{r ee-for-copying-project-gutenberg-script-only, eval=FALSE, include=FALSE}
+# Use for copying script code to add to chunk below.
+readr::read_lines(here::here("data-raw/project-gutenberg.R")) |>
+    clipr::write_clip()
+```
+
+```{r es-download-dracula-book, eval=FALSE}
+library(____)
+library(____)
+library(____)
+library(____)
+
+# List with the short name for the book (no spaces or dashes/minuses), along
+# the URL.
+book_urls <- list(
+    ___ = "___"
+)
+
+# Function to download the file if it doesn't exist, then read the file into R.
+___ <- function(___, ___) {
+    # Set the path of the book to `data-raw/` and ending as a `.txt` file.
+    book_file_path <- ___("___", paste0(___, "___"))
+    # Download text if it isn't already here
+    if (!___(book_file_path)) {
+        ___(url, book_file_path)
+    }
+    ___(book_file_path)
+}
+
+# `imap()` takes the URLs inside the `book_urls` list as the first argument (`url`) to
+# `download_then_read()` and uses the `names()` of the list as the second
+# argument (`book_name`). The output is a list of the books.
+books <- ___(
+    book_urls,
+    download_then_read
+)
+
+# Save the book list as an .rda file in `data/`.
+usethis::use_data(books, overwrite = TRUE)
+```
+
+```{r sol-project-gutenberg-script, file=here::here("data-raw", "project-gutenberg.R"), eval=FALSE, echo=-10}
+```
+
+### Loading the newly included data
 
 -   Text: Data live in `data/` as `.rda` files.
 
--   Code: `usethis::use_data("FIXME")` Here with simplified data.
     Restart, `devtools::load_all()`, `FIXME`
 
 We'll cover how you will document data in Chapter
 @sec-package-documentation.
 
-### Exercise: Exercise Name
+### Exercise: Include the book Frankenstein in the books data
 
 -   Exercise: Provide script for getting dracula text from Gutenberg.
     Add `dracula` to package.
