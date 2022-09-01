@@ -270,7 +270,6 @@ usethis::create_package(path = "zipfs")
 temp_pkg <- fs::file_temp_push(glue::glue("{tempdir()}/zipfs"))
 fs::dir_create(temp_pkg)
 usethis::create_package(path = temp_pkg, open = FALSE)
-fs::dir_delete(temp_pkg)
 ```
 
 Instead of using code, you can also do it through RStudio (if you use
