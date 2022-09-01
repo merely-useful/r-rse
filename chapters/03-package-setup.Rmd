@@ -405,14 +405,26 @@ slate". What this means is that we don't want old data, functions, or
 variables loaded into the Environment from the previous session we might
 have worked on.
 
-```{r cs-LABEL-NAME, eval=FALSE}
+```{r cs-blank-slate-user, eval=FALSE}
 use_blank_slate()
 ```
 
-```{r ce-LABEL-NAME}
-# If needed. Code used in section, NOT shown to learners, but needed for auto building of package/book
-    
+This function sets options to the user's Global Options in RStudio. If
+you want these settings at a project level like the package so that when
+you collaborate with others, everyone is using the same settings, use
+instead:
 
+```{r cs-blank-slate-project, eval=FALSE}
+use_blank_slate("project")
+```
+
+```{r ce-blank-slate-project, echo=FALSE}
+# If needed. Code used in section, NOT shown to learners, but needed for auto building of package/book
+# local_project(temp_pkg, quiet = TRUE)
+temp_pkg
+usethis::with_project(temp_pkg, {
+    use_blank_slate("project")
+})
 ```
 
 ### Exercise: Setting up additional configurations
