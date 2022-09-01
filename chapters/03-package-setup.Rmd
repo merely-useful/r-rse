@@ -1,5 +1,10 @@
 # Setting up an R package {#package-setup}
 
+```{r setup, include=FALSE}
+# TODO: Have this as its own setup chunk?
+library(usethis)
+```
+
 ## Learning Objectives
 
 -   Identify when and why to create an R package
