@@ -659,7 +659,7 @@ You'll know you are finished if:
 
 TODO: Add actions done to kenyaweather package here?
 
-```{r ee-LABEL-NAME, eval=FALSE}
+```{r ee-chapter-3-assignment, eval=FALSE}
 # If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
 # TODO: Use temp or use Desktop or use a subfolder in this book's folder?
 temp_dir <- fs::path_temp("kenyaweather")
@@ -681,10 +681,11 @@ usethis::with_project(temp_dir, {
     # TODO: Change name for this.
     usethis::use_data_raw("weather", open = FALSE)
 }, quiet = TRUE)
-```
 
-```{r ee-LABEL-NAME, eval=FALSE}
 fs::dir_tree(temp_dir)
 fs::dir_delete(temp_dir)
 ```
+
+TODO: Bundle the final package used with Git/zip? move to temp folder?
+TODO: Use git_commit/git_signature to set the author to Sami or other
 
