@@ -308,7 +308,7 @@ fs::dir_tree(temp_pkg, all = TRUE)
 
 Open up the `DESCRIPTION` file so we can look inside it:
 
-```{r ce-show-description-contents}
+```{r ce-show-description-contents, results='asis', echo=FALSE}
 # If needed. Code used in section, NOT shown to learners, but needed for auto building of package/book
 cat(readLines(fs::path(temp_pkg, "DESCRIPTION")), sep = "\n")
 ```
