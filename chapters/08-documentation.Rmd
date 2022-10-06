@@ -157,28 +157,68 @@ In RStudio, click `Knit` in the menu above the editor, or run
 `devtools::build_readme()` in the console as suggested by the template text.
 <!-- what's the difference between build_readme() and knit?-->
 
-### Exercise: Edit and knit the `zipfs` README
+### Exercise: Edit and knit the `zipfs` README {#ex-readme}
 
 Edit `README.Rmd` to include a description of `zipfs`, installation
 instructions, and an example of its use.
 Knit the `README.Rmd` file so it creates a `README.md` file.
 
-## Vignettes
+## Vignettes: long-form documentation of examples {#vignette}
 
-* Vignettes
+Everything we've discussed about documentation so far applies to all
+programming projects in nearly any language: all programming languages
+provide some way to document code, and all GitHub projects have READMEs.
+"Vignettes" are a distinctly R type of documentation - they describe
+a problem-solving unit of your package in detail, with examples.
 
-  * Text: vignettes focus on the purpose and usage of a package or package
-component, a long-form description of something the package does, with examples.
-  * Code: `browseVignettes()` and `browseVignettes("packagename")`
-  * Exercise: find the vignette(s) for the packages `devtools` and `ggplot2`.
+The function `browseVignettes()` allows you to, you guessed it, browse
+existing vignettes. Calling `browseVignettes()` with no arguments will
+open a browser window with a list of vignettes for all installed
+packages, while `browseVignettes("packagename")` will show vignettes
+for a particular package. You can also call up a vignette directly
+if you know its name with `vignette("vignettename")`.
+
+```{r cs-vignette, eval=False}
+browseVignettes("tidyr")
+vignette("nest")
+```
+
+### Exercise: finding vignettes {#ex-find-vignette}
+
+Find the vignette(s) for the packages `devtools` and `ggplot2`.
 Why might a package have more than one vignette? In what ways is a vignette
 different from a README?
-  * Code: `usethis::use_vignette("zipfs", title = "Using zipfs")`
-  * Code: `knitr` to preview vignette
-  * Exercise: run `use_vignette("zipfs", title = "Using zipfs")` to create a
-template vignette. Modify the vignette to include a one-paragraph description
+
+### Making a vignette {#make-vignette}
+
+Once again, `usethis` has a useful function to help us create vignettes.
+The function `usethis::use_vignette()` takes a package name and vignette
+title and creates a short template R markdown document in the `vignettes` folder.
+
+```{r cs-create-vignette, eval=True}
+use_vignette("zipfs", title = "Using zipfs")`
+```
+
+The boilerplate text is very minimal. Try knitting the file `zipfs.Rmd`
+to see what's included by default - it's not much. Vignettes can vary a
+lot depending on the goals of the author; they can be long or short,
+[simple](http://127.0.0.1:28784/library/devtools/doc/dependencies.html) or
+[complex](http://127.0.0.1:28784/library/ggplot2/doc/extending-ggplot2.html).
+
+### Exercise: edit a `zipfs` vignette {#ex-edit-vignette}
+
+<!-- This might be too involved for a single exercise -->
+
+Modify the vignette `zipfs.Rmd` (in the `vignettes` folder) to include a
+one-paragraph description
 of the purpose of `zipfs`, and an example of how to use the `zipfs` functions
-together to analyze a book. Run `knitr` to preview the vignette.
+together to analyze a book. Knit the file to preview the vignette.
+
+Reference: [R packages](https://r-pkgs.org/vignettes.html)
+
+## Writing in style - the housekeeping help of `styler` and `spelling` {#styler-spelling}
+
+
 
 * `styler` and `spelling`: helpful packages for consistent and accurate
 documentation and code
