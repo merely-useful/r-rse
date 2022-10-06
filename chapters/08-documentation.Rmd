@@ -218,19 +218,48 @@ Reference: [R packages](https://r-pkgs.org/vignettes.html)
 
 ## Writing in style - the housekeeping help of `styler` and `spelling` {#styler-spelling}
 
+When writing code, some aspects of formatting are very strict, but there
+are still choices a programmer can make about the appearance and content
+of code. For instance, R strictly requires that parentheses be properly
+paired in order for code to function (`print("hi")` will run, `print("hi"`
+will not), but things like variable names and the position of whitespace
+are more flexible. To create code that is maximally understandable,
+many communities have developed *style guides* that outline guidance
+for how to write clear code and documentation. Check out the
+[tidyverse style guide](https://style.tidyverse.org/)'s
+[syntax](https://style.tidyverse.org/syntax.html) section for examples
+of the types of stylistic decisions we make when writing code.
 
+Different communities may disagree on certain aspects of style.
+[Google's R style guide](https://google.github.io/styleguide/Rguide.html)
+lists differences between their guide and the tidyverse style guide:
+for instance, tidyverse recommends that all object names be written in
+`snake_case` (lowercase with underscores), while Google prefers function
+names to be written in `BigCamelCase` (capitalizing the first letter of
+each word). Which style guide you adhere to will depend on who your project
+is for, who you're working with, and on your own personal preferences.
 
-* `styler` and `spelling`: helpful packages for consistent and accurate
-documentation and code
+It's possible to adhere to a style guide by remembering the rules and
+applying them yourself, but luckily there are tools that can help automate
+the boring parts. The package `styler` automatically formats code according
+to a specified style guide: simply run `styler::style_pkg()` to format
+your code according to the tidyverse style guide by default.
 
-  * Text: What style guides are, style guide choices (tidyverse, [Google's R
-style guide](https://google.github.io/styleguide/Rguide.html), others?)
-  * Code: `styler::style_pkg()`
-  * Code: `spelling::spell_check_package()`
-  * Exercise: run `style_pkg()` to restyle the files in the `zipfs` package.
-  * Exercise: run `spell_check_package()` to check the spelling in the `zipfs`
-documentation files. Run `update_wordlist()` to add any special words to the
-spell-checker that you want to ignore.
+In the same spirit, the package `spelling` does a spell check on the
+documentation files in a package. Run `spelling::spell_check_package()`
+prints a list of potential spelling errors and their locations to the
+console; unlike `styler`, it does not modify files.
+
+### Exercise: checking style {#ex-styler}
+
+Run `style_pkg()` to restyle the files in the `zipfs` package. Use Git to
+explore some of the changes that were made. What do you notice?
+
+### Exercise: checking spelling {#ex-spelling}
+
+Run `spell_check_package()` to check the spelling in the `zipfs`
+documentation files. Fix the errors, then run `update_wordlist()` to add
+any special words to the spell-checker that you want to ignore.
 
 ## Final exercise {#08-final-exercise}
 
