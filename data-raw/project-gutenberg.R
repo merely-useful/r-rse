@@ -6,8 +6,8 @@ library(here)
 # List with the short name for the book (no spaces or dashes/minuses), along
 # the URL.
 book_urls <- list(
-    dracula = "https://www.gutenberg.org/cache/epub/345/pg345.txt",
-    frankenstein = "https://www.gutenberg.org/cache/epub/42324/pg42324.txt"
+    frankenstein = "https://www.gutenberg.org/cache/epub/42324/pg42324.txt",
+    dracula = "https://www.gutenberg.org/cache/epub/345/pg345.txt"
 )
 
 # Function to download the file if it doesn't exist, then read the file into R.
