@@ -668,6 +668,7 @@ to:
 
 ```{r ee-for-copying-project-gutenberg-script-only, eval=FALSE, include=FALSE}
 # Use for copying script code to add to chunk below.
+# For this exercise, only include the `dracula` book
 readr::read_lines(here::here("data-raw/project-gutenberg.R")) |>
     clipr::write_clip()
 ```
@@ -707,24 +708,53 @@ books <- ___(
 usethis::use_data(books, overwrite = TRUE)
 ```
 
-```{r sol-project-gutenberg-script, file=here::here("data-raw", "project-gutenberg.R"), eval=FALSE, echo=-10}
+```{r sol-project-gutenberg-script, file=here::here("data-raw", "project-gutenberg.R"), eval=FALSE, echo=-9}
 ```
 
 ### Loading the newly included data
 
--   Text: Data live in `data/` as `.rda` files.
+After completing the exercise above, you will have seen messages
+produced by `use_data()` that look like this:
 
-    Restart, `devtools::load_all()`, `FIXME`
+```{r output-use-data-messages, echo=FALSE}
+send_to_null <- suppressMessages(source(here::here("data-raw/project-gutenberg.R"), verbose = FALSE))
+usethis::use_data(books, overwrite = TRUE)
+```
 
-We'll cover how you will document data in Chapter
+Data that you want the user to access must be included in the `data/`
+folder and it must be as an `.rda` file format. It should also be
+documented properly, which we will cover in Chapter
 @sec-package-documentation.
 
-### Exercise: Include the book Frankenstein in the books data
+If you recall, we use `load_all()` (`Ctrl-Shift-L` in RStudio) during
+package development to mimic installing the package and testing that
+things work. We will do the same thing here to test that the `books`
+data can be accessed if our package were to be installed. Run
+`load_all()` and type in the console:
 
--   Exercise: Provide script for getting dracula text from Gutenberg.
-    Add `dracula` to package.
+```{r cs-show-new-books-data, eval=FALSE}
+names(books)
+str(books)
+```
 
-1.  Summary of steps to do in exercise
+```{r ce-show-new-books-data, echo=FALSE}
+names(books[[2]])
+str(books[[2]])
+```
+
+Adding more data to the package, like more book text to the `books`
+object or another dataset, is then done by adding more to the scripts in
+`data-raw/`, including the `use_data()` function at the end, and running
+the script to get the data as a `.rda` file in the `data/` folder.
+
+### Exercise: Include Frankenstein in the books data
+
+One book is nice to include, but let's add another one to make it more
+interesting. Let's add the book "Frankenstein".
+
+1.  Add URL (show what it should look like now)
+2.  Re-run the script
+3.  `load_all()` and check `names(books)`
 
 ```{r es-LABEL-NAME}
 # Code for exercise and shown to learner
@@ -805,4 +835,3 @@ fs::dir_delete(temp_dir)
 
 TODO: Bundle the final package used with Git/zip? move to temp folder?
 TODO: Use git_commit/git_signature to set the author to Sami or other
-
