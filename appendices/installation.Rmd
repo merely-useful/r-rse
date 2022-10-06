@@ -1,29 +1,47 @@
 # Appendix: Software installation and configuration
 
-## Software installation and setup
+Reference instructions for both Mac and Windows (and Linux?)
 
-Reference instructions for both Mac and process
+## R and RStudio
+
+Install R first, then RStudio
 
 ### R
 
-Install
+Install 
+
+https://www.r-project.org/ (choose a mirror? how do others do this?)
 
 ### RStudio
 
 Install
 
+https://www.rstudio.com/products/rstudio/download/#download
+
+Configuration
+
 ### R packages
 
 Example of installation
 
-### Git
+## Git and GitHub
 
-Install (command line or GUI?)
+GitHub first, so you can associate your Git work with that account
 
 ### GitHub
 
 Register account
 
-## Configuring RStudio
+https://github.com/
 
-## Configuring Git
+### Git
+
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+or
+https://github.com/git-guides/install-git
+
+### Accessing Git through RStudio
+
+RStudio provides a guide for Installation and Getting Started [rstudio-git]
+
+https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN
