@@ -746,26 +746,41 @@ Adding more data to the package, like more book text to the `books`
 object or another dataset, is then done by adding more to the scripts in
 `data-raw/`, including the `use_data()` function at the end, and running
 the script to get the data as a `.rda` file in the `data/` folder.
+Complete the next exercise to add another book to the `data/books.rda`
+file.
 
 ### Exercise: Include Frankenstein in the books data
 
-One book is nice to include, but let's add another one to make it more
-interesting. Let's add the book "Frankenstein".
+One book is nice to have as a starting point, but let's add another one
+to make it more interesting. Let's add the book "Frankenstein" to the
+`books` data.
 
-1.  Add URL (show what it should look like now)
-2.  Re-run the script
-3.  `load_all()` and check `names(books)`
+1.  Follow the same steps you took to find the Dracula book, but instead
+    find the URL for the book Frankenstein. Add the URL to the
+    `book_urls` list inside the `data-raw/project-gutenberg.R` script.
+    It should look like this now (with the added `frankenstein` name and
+    URL).
 
-```{r es-LABEL-NAME}
-# Code for exercise and shown to learner
-```
+    ``` r
+    book_urls <- list(
+        ___ = "___",
+        dracula = "https://www.gutenberg.org/cache/epub/345/pg345.txt"
+    )
+    ```
 
-```{r ee-LABEL-NAME}
-# If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
-```
+2.  Source or re-run the script to re-build the `data/books.rda` data
+    file.
 
-```{r sol-LABEL-NAME}
-# Code for exercise *solution*, NOT shown to learner, (maybe) used for auto building of package/book
+3.  Check that the data was added by running `load_all()` and typing
+    `names(books)` in the Console. You should now see something like:
+
+    ```{r es-list-added-books}
+    names(books) 
+    ```
+
+You now have two books to work with for the next chapters.
+
+```{r sol-project-gutenberg-script-with-frankenstein, file=here::here("data-raw", "project-gutenberg.R"), eval=FALSE}
 ```
 
 ## Final exercise
