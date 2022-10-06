@@ -7,6 +7,10 @@
 
 <!-- python book documentation: https://merely-useful.tech/py-rse/scripting.html#scripting-docstrings-->
 
+```{r, cs-usethis, eval=TRUE, echo=FALSE}
+library(usethis)
+```
+
 ## Learning Objectives {#learning-objectives-8}
 
 * Describe the purpose of documenting code and packages
@@ -95,20 +99,71 @@ TODO: Decide if this is needed based on what is put into chapter 6.
   * Exercise: add and/or improve comments and documentation in a test file in
 the `zipfs` package.
 
-* The README
+Reference: ([R Packages reference](https://r-pkgs.org/man.html?q=roxygen#man))
 
-  * Text: basic components of a README (description, installation instructions,
-usage, examples)
-  * Code: `usethis::use_readme_rmd()` - creates an R markdown document with
-some boilerplate sections and text.
-  * Code: `knitr` to knit README for previewing
-  * Exercise: read the help file for `use_readme_rmd()` and `use_readme_md()`.
+## The README - the first stop documentation shop {#create-readme}
+
+<!-- Some bits from py-rse/packaging -->
+
+When a user or contributor first encounters a package,
+they usually want to know what the package is meant to do,
+instructions on how to install it,
+and examples of how to use it.
+We can include these elements in the README file.
+
+The function `usethis::use_readme_rmd()` creates an
+R markdown document with some boilerplate sections and text.
+These default "Installation" and "Example" sections are a
+great starting point to create a helpful and descriptive README.
+
+```{r cs-readme, eval=True}
+use_readme_rmd()
+```
+
+### Exercise: R markdown vs. mardown {#ex-rmd-md}
+
+Read the help file for `use_readme_rmd()` and `use_readme_md()`.
 What is the difference between `.Rmd` and `.md` files? Why might one or the
 other be better for a README?
-  * Exercise: run `use_readme_rmd()` to create a README for the `zipfs` project
-(if this isn't done in the previous code section). Edit `README.Rmd` to include
-a description of `zipfs`, installation instructions, and an example of its use.
+
+GitHub treats the file `README.md` specially, displaying it at
+the top of your repo for easy access. The README created by
+`use_readme_rmd()` contains the following helpful tips about the reasons
+to use an R markdown README instead of just writing it in
+markdown directly:
+
+> What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+>
+> ```{r cars}
+> summary(cars)
+> ```
+>
+> You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
+> You can also embed plots, for example:
+>
+> ```{r pressure, echo = FALSE}
+> plot(pressure)
+> ```
+>
+> In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+
+### Knitting the markdown README {#knit-readme}
+
+To create the markdown README that GitHub will display, you can use `knitr` to
+knit the RMD file into `README.md`. The YAML text `output: github_document`
+included in the template tells `knitr` to create a markdown output for GitHub
+instead of the default HTML.
+In RStudio, click `Knit` in the menu above the editor, or run
+`devtools::build_readme()` in the console as suggested by the template text.
+<!-- what's the difference between build_readme() and knit?-->
+
+### Exercise: Edit and knit the `zipfs` README
+
+Edit `README.Rmd` to include a description of `zipfs`, installation
+instructions, and an example of its use.
 Knit the `README.Rmd` file so it creates a `README.md` file.
+
+## Vignettes
 
 * Vignettes
 
