@@ -29,24 +29,26 @@ and being able to understand when and where changes caused problems is especiall
 In this chapter,
 we'll introduce version control by tracking the files to our project created so far,
 navigating the Git workflow within the context of project development,
-and exploring different ways to interact with Git in RStudio.
+both while exploring different ways to interact with Git in RStudio.
 
 ## The basic Git workflow {#git-workflow}
 
-Two ways to interact with Git:
-- git interface in RStudio
-- R commands implemented through `usethis` and `gert`
+There are many different ways to interact with Git version control software.
+For the purposes of this book,
+we'll be using two of these approaches:
+the Git interface in RStudio, 
+and R functions that implement Git commands
+through the `usethis` and `gert` packages.
 
 > popout to explain working with git on command line and with Git Desktop App
 
-### Setting up Git in RStudio {#git-rstudio}
+See the [appendix]
+for more information on setting up Git and GitHub,
+and make sure you can access Git via RStudio prior to continuing with this chapter.
 
-Reference appendix for setup
+### Getting started with Git in RStudio {#git-rstudio}
 
-RStudio provides a Installation and Getting Started [rstudio-git]
-
-* connecting Git and RStudio
-  * ensure Git is already installed (link to installation instructions)
+* Git and RStudio
   * accessing Git through Global options
   * tab in environment pane
 
