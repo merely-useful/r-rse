@@ -648,7 +648,9 @@ to:
         root (where the `.Rproj` file is). Read the
         [website](https://here.r-lib.org/index.html) for more details on
         it.
-    -   `{purrr}`: We use this
+    -   `{purrr}`: We use this to download and read in each book URL.
+        Right now we only have one book, but we will be adding more
+        later.
 2.  Create a `list()` for the book's URL (`book_urls`), with the list
     item name being the books short title. While we are only downloading
     the Dracula book first, we want to write the code so that it is
