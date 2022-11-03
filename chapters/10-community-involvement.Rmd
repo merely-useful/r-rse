@@ -64,7 +64,7 @@ contributing guidelines. Do they contain any sections that aren't in the
 default Tidy Contributing Guidelines that you think are useful?
   - Text: In a basic sense, contribution guidelines help other people
 understand how to interact with your project. We'll talk more in a later chapter
- (\@ref(team-package-development)) about how to develop contributing guidelines
+ (@sec-team-package-development)) about how to develop contributing guidelines
 for working with a team of developers.
 
 - Code of Conduct
@@ -125,7 +125,7 @@ https://mozilla.github.io/open-leadership-training-series/articles/get-your-proj
 How to label issues and link issues to other parts of your project.
   - Exercise: create at least three issue labels for the `zipfs` repository.
 Label the existing issues so that each has at least one label.
-  - We'll discuss using labels for project management in \@ref(team-package-development)
+  - We'll discuss using labels for project management in @sec-team-package-development)
 
 Also moved from chapter 12:
 - use_github_labels(), browse_github_issues(), issue_reprex_needed(), and perhaps issue_close_community()
