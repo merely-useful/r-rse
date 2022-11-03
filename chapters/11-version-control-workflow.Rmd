@@ -12,8 +12,8 @@ library(usethis)
     to use each
 -   Understand the use and role of branches and pull requests in
     collaborating on a project
--   Use helper functions in the usethis package to manage branches and
-    submit pull requests in GitHub
+-   Use helper functions in the `{usethis}` package to manage branches
+    and submit pull requests in GitHub
 -   Manage pull requests as a maintainer or lead of a project
 
 ## Collaboration the GitHub way
@@ -260,12 +260,12 @@ Any interaction with the Internet carries some risk to malicious
 activities and threats. This is no different when using GitHub.
 Considering that most if not all of your Git repositories will (now or
 eventually) be on GitHub, keep them secured is a vital step when working
-online. Not only is it something that should be done, but many usethis
-functions require these security features to be set up in order to work.
-Thankfully making your GitHub account secure is a fairly straightforward
-task and is made easier by the usethis functions `gh_token_help()` and
-`create_github_token()`. The usethis package website also has a really
-[well written
+online. Not only is it something that should be done, but many
+`{usethis}` functions require these security features to be set up in
+order to work. Thankfully making your GitHub account secure is a fairly
+straightforward task and is made easier by the `{usethis}` functions
+`gh_token_help()` and `create_github_token()`. The `{usethis}` package
+website also has a really [well written
 guide](https://usethis.r-lib.org/articles/articles/git-credentials.html)
 on setting it up. Their (and our) basic recommendation is to:
 
@@ -280,8 +280,8 @@ on setting it up. Their (and our) basic recommendation is to:
     immediately improving the security of your GitHub.
 -   Use personal access tokens (PAT, or simply called a "token") when
     interacting with your GitHub remote repositories while outside of
-    the GitHub website (e.g. when using R or usethis). PAT's are like
-    temporary passwords that provide limited access to your GitHub
+    the GitHub website (e.g. when using R or `{usethis}`). PAT's are
+    like temporary passwords that provide limited access to your GitHub
     account, like being able to read or write to your GitHub
     repositories, but not being able to delete them. They are useful
     because you can easily delete the PAT if you feel someone got access
@@ -292,7 +292,7 @@ on setting it up. Their (and our) basic recommendation is to:
     accounts, because they can generate random and long passwords that
     you don't have to remember.
 -   Use packages like [gitcreds](https://gitcreds.r-lib.org/) to give
-    usethis access to the PAT and to interact with your GitHub
+    `{usethis}` access to the PAT and to interact with your GitHub
     repositories. You normally would have to use gitcreds every time you
     restart your computer or after a certain period of time.
 -   Don't save your PAT in plain text files like `.Renviron` (which
@@ -401,20 +401,20 @@ Collaborating through GitHub with forks, branches, and pull requests
 becomes easier the more you practice. But even then, sometimes it can be
 a bit tedious having to click through all the clicks to either submit a
 new pull request or to review, accept, and merge changes. Thankfully,
-the usethis package has several helper functions specifically designed
-to work with pull requests and collaborating through GitHub. These
-functions all start with `pr_`, which stands for Pull Request.
+the `{usethis}` package has several helper functions specifically
+designed to work with pull requests and collaborating through GitHub.
+These functions all start with `pr_`, which stands for Pull Request.
 
-What is the advantage of using the usethis PR helpers over using the
+What is the advantage of using the `{usethis}` PR helpers over using the
 GitHub interface? Once you learn to use these helpers, the biggest
 advantage is that you will be faster at contributing to a project or
 dealing with contributions since you won't have to leave RStudio. And,
-since the usethis functions are well documented, you can read the help
-documents to remind yourself what to do and how they work.
+since the `{usethis}` functions are well documented, you can read the
+help documents to remind yourself what to do and how they work.
 
 In Section \@ref(workflows-explained), we covered the different
 scenarios you'd likely encounter while developing R packages and the
-accompanying workflows you'd use. The usethis PR helpers are largely
+accompanying workflows you'd use. The `{usethis}` PR helpers are largely
 designed to help with scenarios that involve either contributors to your
 project, you contributing to someone else's project, or working within a
 team setting. You can also use these helpers as a solo developer, but
@@ -430,8 +430,8 @@ contributions from others in the pull requests.
 
 ### Workflow as a contributor
 
-In general, the usethis PR helper functions can be grouped into a few
-categories or "phases" of the workflow based on your role as a
+In general, the `{usethis}` PR helper functions can be grouped into a
+few categories or "phases" of the workflow based on your role as a
 **contributor**, which are listed below. This list of helper functions
 might feel overwhelming, but we will cover them slowly and, as with Git
 commands, you'll get plenty of practice using them especially in your
@@ -501,7 +501,7 @@ pr_init("contributing-using-usethis")
 
 This creates a new Git branch called `contributing-using-usethis`. We
 gave the new branch this name because we want add some documentation on
-using the usethis package to contribute to the package, and it is
+using the `{usethis}` package to contribute to the package, and it is
 important that even branch names be descriptive as well. We can confirm
 that this branch was created by using the
 [gert](https://docs.ropensci.org/gert/index.html) package to list
