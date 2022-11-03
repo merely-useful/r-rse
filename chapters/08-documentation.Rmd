@@ -29,7 +29,7 @@ Good documentation happens at all scales of code: at the level of individual obj
 
 ## Documenting functions and tests with `roxygen` {#function-documentation}
 
-In R, documentation files for objects are stored by default in the `man/` folder in your package directory with a `.Rd` extension. These help files can be accessed for an object, function, or package by typing `?object-name` or `help(object-name)`. Writing documentation for functions as you write the function itself is helpful for future you and other users to understand how to use your code. You can edit these documentation files directly, but the package `roxygen` provides some shortcuts to make it easier to generate the help files with standard formatting. 
+In R, documentation files for objects are stored by default in the `man/` folder in your package directory with a `.Rd` extension. These help files can be accessed for an object, function, or package by typing `?object-name` or `help(object-name)`. Writing documentation for functions as you write the function itself is helpful for future you and other users to understand how to use your code. You can edit these documentation files directly, but the package `{roxygen2}` provides some shortcuts to make it easier to generate the help files with standard formatting. 
 
 Let's add documentation for the function `extract_element()` from the `zipfs` package. First, all we need to do is write the function itself.  
 
@@ -40,7 +40,7 @@ extract_element <- function(text, element){
 }
 ```
 
-Next, with your cursor over the function definition, click `Code > Insert roxygen skeleton` in RStudio. This command adds the default components of function documentation as comments above the function. 
+Next, with your cursor over the function definition, click `Code > Insert roxygen skeleton` in RStudio (or use the command palette with `Ctrl-Shift-P` and then type out `roxygen` to search for the option). This command adds the default components of function documentation as comments above the function. 
 
 ```{r cs-extract-element}
 #' Title
@@ -60,7 +60,7 @@ extract_element <- function(text, element){
 
 We can edit the default template to add more information in each field. The fields `@return` and `@export` are optional, depending on the function's behavior. We'll also add an example of how to use the function.
 
-<!-- perhaps include a deliberate typo here to be caught later by `spelling`?-->
+<!-- TODO: perhaps include a deliberate typo here to be caught later by `spelling`?-->
 
 ```{r cs-extract-element}
 #' Title
@@ -80,16 +80,16 @@ extract_element <- function(text, element){
 }
 ```
 
-Next, press Ctrl/Cmd + Shift + D or run `devtools::document()` to generate or update a file named `man/extract_element.Rd`. Try typing `?extract_element()` in the console to see what happens! (You may need to run `devtools::load_all()` in order to test out the new help file.)
+Next, press `Ctrl/Cmd + Shift + D` or run `devtools::document()` in the Console to generate or update a file named `man/extract_element.Rd`. Try typing `?extract_element()` in the console to see what happens! (You may need to run `devtools::load_all()` in order to test out the new help file.)
 
-<!-- I wasn't able to get the man file to generate - 'Error: Clipboard on X11 requires that the DISPLAY envvar be configured.' -->
+<!-- TODO: I wasn't able to get the man file to generate - 'Error: Clipboard on X11 requires that the DISPLAY envvar be configured.' -->
 
-### Exercise: add `roxygen` comments to functions in `zipfs` {#ex-roxygen}
+### Exercise: Add roxygen comments to functions in `zipfs` {#ex-roxygen}
 
-<!-- All functions in the draft package have documentation except `dpower` and `nllpower` - we can document these ones, or take out other documentation to do this exercise. -->
+<!-- TODO: All functions in the draft package have documentation except `dpower` and `nllpower` - we can document these ones, or take out other documentation to do this exercise. -->
 
 Follow the steps above to add documentation for the `dpower` and `nllpower` functions in the `zipfs` package.
-What files are created in the `man` folder when multiple functions in the same file are documented?
+What files are created in the `man/` folder when multiple functions in the same file are documented?
 
 ### Documenting tests
 
@@ -112,15 +112,15 @@ and examples of how to use it.
 We can include these elements in the README file.
 
 The function `usethis::use_readme_rmd()` creates an
-R markdown document with some boilerplate sections and text.
+R Markdown document with some boilerplate sections and text.
 These default "Installation" and "Example" sections are a
 great starting point to create a helpful and descriptive README.
 
-```{r cs-readme, eval=True}
+```{r cs-readme, eval=TRUE}
 use_readme_rmd()
 ```
 
-### Exercise: R markdown vs. mardown {#ex-rmd-md}
+### Exercise: R Markdown vs. Mardown {#ex-rmd-md}
 
 Read the help file for `use_readme_rmd()` and `use_readme_md()`.
 What is the difference between `.Rmd` and `.md` files? Why might one or the
