@@ -1,117 +1,342 @@
 # Developing documentation and tutorials on usage {#package-documentation}
 
-- Vignettes, README (with rmarkdown and usethis)
-- Function documentation (with roxygen2), part 2
-    - Markdown functionality with `usethis::use_roxygen_md()`
-- Running spell checks and styling (with spelling and styler)
+<!-- python book documentation: https://merely-useful.tech/py-rse/scripting.html#scripting-docstrings-->
 
-## Learning Objectives
+```{r cs-usethis, include=FALSE}
+library(usethis)
+```
 
-* Describe the purpose of documenting code and packages
-* Document functions with `roxygen`
-* Create a README and vignette for package documentation
-* Ensure that documentation is consistent with up-to-date style guidelines
-using `styler`
+## Learning Objectives {#learning-objectives-8}
 
-## Outline
+-   Describe the purpose of documenting code and packages
+-   Document functions with `{roxygen2}`
+-   Create a README and vignette for package documentation
+-   Ensure that documentation is consistent with up-to-date style
+    guidelines using `{styler}`
 
-* Introduction: the purpose of documentation
+## Why do we need documentation? {#introduction}
 
-  * Text: documentation is for collaborators, users, and future you. It is key
-for openness, reproducibility, and sustainability.
+Just like version control tracks what changes you make and why,
+documentation for code and packages tells your collaborators, your
+package's users, and future you *what* the code does and *why*.
 
-* Documentation workflow: documenting the small stuff 
-([R Packages reference](https://r-pkgs.org/man.html?q=roxygen#man))
+Over time, programming languages have become more "human-readable": it
+is possible for an experienced programmer to read code and understand
+what it does. But even if one understands *what* a chunk of code is
+doing, it may not be obvious at all *why* it does that! Programming
+languages come with built-in ways to add comments and documentation that
+are not read by the computer, but exist solely to help you and your
+collaborators describe and understand code. Good documentation is key
+for openness, reproducibility, and project sustainability.
 
-  * Text: why document functions
-  * Code: function documentation cycle. Add `roxygen` comments (with cursor in
-function definition, do `Code > Insert roxygen skeleton` in RStudio). Run
-`devtools::document()`. Include a deliberate typo here that will get caught by
-`spelling` later in the chapter?
-  * Exercise: add `roxygen` comments to two functions in the `zipfs` package.
-  * Text: documenting tests
-  * TODO: Decide if this is needed based on what is put into chapter 6.
-  * Code: FIXME test documentation workflow
-  * Exercise: add and/or improve comments and documentation in a test file in
-the `zipfs` package.
+Good documentation happens at all scales of code: at the level of
+individual objects, functions, and tests as well as for the entire
+package. In this chapter, we describe the workflow of documentation
+alongside package development and outline the components of a
+well-documented package.
 
-* The README
+## Documenting functions and tests with roxygen2 {#function-documentation}
 
-  * Text: basic components of a README (description, installation instructions,
-usage, examples)
-  * Code: `usethis::use_readme_rmd()` - creates an R markdown document with
-some boilerplate sections and text.
-  * Code: `knitr` to knit README for previewing
-  * Exercise: read the help file for `use_readme_rmd()` and `use_readme_md()`.
-What is the difference between `.Rmd` and `.md` files? Why might one or the
+In R, documentation files for objects are stored by default in the
+`man/` folder in your package directory with a `.Rd` extension. These
+help files can be accessed for an object, function, or package by typing
+`?object-name` or `help(object-name)`. Writing documentation for
+functions as you write the function itself is helpful for future you and
+other users to understand how to use your code. You can edit these
+documentation files directly, but the package `{roxygen2}` provides some
+shortcuts to make it easier to generate the help files with standard
+formatting.
+
+Let's add documentation for the function `extract_element()` from the
+zipfs package. First, all we need to do is write the function itself.
+
+```{r cs-extract-element}
+extract_element <- function(text, element){
+  line <- str_subset(text, element)
+  str_remove(line, element)
+}
+```
+
+Next, with your cursor over the function definition, click
+`Code > Insert roxygen skeleton` in RStudio (or use the command palette
+with `Ctrl-Shift-P` and then type out `roxygen` to search for the
+option). This command adds the default components of function
+documentation as comments above the function.
+
+```{r cs-extract-element}
+#' Title
+#'
+#' @param text 
+#' @param element 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+extract_element <- function(text, element){
+  line <- str_subset(text, element)
+  str_remove(line, element)
+}
+```
+
+We can edit the default template to add more information in each field.
+The fields `@return` and `@export` are optional, depending on the
+function's behavior. We'll also add an example of how to use the
+function.
+
+<!-- TODO: perhaps include a deliberate typo here to be caught later by `spelling`?-->
+
+```{r cs-extract-element}
+#' Title
+#'
+#' @param text A string of text
+#' @param element A substring to search for in `text`
+#'
+#' @return The matching line without the text matched by `element`
+#' @export
+#'
+#' @examples
+#' text <- "Title: Dracula"
+#' extract_element(text, "Title: ")
+extract_element <- function(text, element){
+  line <- str_subset(text, element)
+  str_remove(line, element)
+}
+```
+
+Next, press `Ctrl/Cmd + Shift + D` or run `devtools::document()` in the
+Console to generate or update a file named `man/extract_element.Rd`. Try
+typing `?extract_element()` in the console to see what happens! (You may
+need to run `devtools::load_all()` in order to test out the new help
+file.)
+
+<!-- TODO: I wasn't able to get the man file to generate - 'Error: Clipboard on X11 requires that the DISPLAY envvar be configured.' -->
+
+### Exercise: Add roxygen comments to functions in zipfs {#ex-roxygen}
+
+<!-- TODO: All functions in the draft package have documentation except `dpower` and `nllpower` - we can document these ones, or take out other documentation to do this exercise. -->
+
+Follow the steps above to add documentation for the `dpower()` and
+`nllpower()` functions in the zipfs package. What files are created in
+the `man/` folder when multiple functions in the same file are
+documented?
+
+### Documenting tests
+
+TODO: Decide if this is needed based on what is put into chapter 6.
+
+-   Code: FIXME test documentation workflow
+-   Exercise: add and/or improve comments and documentation in a test
+    file in the zipfs package.
+
+Reference: ([R Packages
+reference](https://r-pkgs.org/man.html?q=roxygen#man))
+
+## The README: The first stop documentation shop {#create-readme}
+
+<!-- Some bits from py-rse/packaging -->
+
+When a user or contributor first encounters a package, they usually want
+to know what the package is meant to do, instructions on how to install
+it, and examples of how to use it. We can include these elements in the
+README file.
+
+The function `usethis::use_readme_rmd()` creates an R Markdown document
+with some boilerplate sections and text. These default "Installation"
+and "Example" sections are a great starting point to create a helpful
+and descriptive README.
+
+```{r cs-readme, eval=TRUE}
+use_readme_rmd()
+```
+
+### Exercise: R Markdown vs. Mardown {#ex-rmd-md}
+
+Read the help file for `use_readme_rmd()` and `use_readme_md()`. What is
+the difference between `.Rmd` and `.md` files? Why might one or the
 other be better for a README?
-  * Exercise: run `use_readme_rmd()` to create a README for the `zipfs` project
-(if this isn't done in the previous code section). Edit `README.Rmd` to include
-a description of `zipfs`, installation instructions, and an example of its use.
-Knit the `README.Rmd` file so it creates a `README.md` file.
 
-* Vignettes
+GitHub treats the file `README.md` specially, displaying it at the top
+of your repo for easy access. The README created by `use_readme_rmd()`
+contains the basics of what a package README should have.
 
-  * Text: vignettes focus on the purpose and usage of a package or package
-component, a long-form description of something the package does, with examples.
-  * Code: `browseVignettes()` and `browseVignettes("packagename")`
-  * Exercise: find the vignette(s) for the packages `devtools` and `ggplot2`.
-Why might a package have more than one vignette? In what ways is a vignette
+```{r ce-show-readme-contents, echo=FALSE, results='asis'}
+# This prints the contents as output in the book.
+cat(usethis:::render_template(
+    "package-README",
+    data = list(on_github = TRUE, Package = "zipfs"),
+    package = "usethis"
+), sep = "\n")
+```
+
+### Knitting the Markdown README {#knit-readme}
+
+To create the Markdown README that GitHub will display, you can use
+`{knitr}` to knit the RMD file into `README.md`. The YAML text
+`output: github_document` included in the template tells `{knitr}` to
+create a Markdown output for GitHub instead of the default HTML. In
+RStudio, click `Knit` in the menu above the editor, or run
+`devtools::build_readme()` in the Console as suggested by the template
+text.
+
+The main difference between `devtools::build_readme()` and knitting is
+that `build_readme()` will do some additional checks that will be
+important for submitting to CRAN. This step is really only important
+before you submit to CRAN, not while actively developing the package.
+
+### Exercise: Edit and knit the zipfs README {#ex-readme}
+
+Edit `README.Rmd` to include a description of zipfs, installation
+instructions, and an example of its use. Knit the `README.Rmd` file so
+it creates a `README.md` file.
+
+## Vignettes: Long-form documentation of examples {#vignette}
+
+Everything we've discussed about documentation so far applies to all
+programming projects in nearly any language: All programming languages
+provide some way to document code, and all GitHub projects have READMEs.
+"Vignettes" are a distinctly R type of documentation - they describe a
+problem-solving unit of your package in detail, with examples.
+
+The function `browseVignettes()` allows you to, you guessed it, browse
+existing vignettes. Calling `browseVignettes()` with no arguments will
+open a browser window with a list of vignettes for all installed
+packages, while `browseVignettes("packagename")` will show vignettes for
+a particular package. You can also call up a vignette directly if you
+know its name with `vignette("vignettename")`.
+
+```{r cs-vignette, eval=FALSE}
+browseVignettes("tidyr")
+vignette("nest")
+```
+
+### Exercise: Finding package vignettes {#ex-find-vignette}
+
+Find the vignette(s) for the packages `{devtools}` and `{ggplot2}`. Why
+might a package have more than one vignette? In what ways is a vignette
 different from a README?
-  * Code: `usethis::use_vignette("zipfs", title = "Using zipfs")`
-  * Code: `knitr` to preview vignette
-  * Exercise: run `use_vignette("zipfs", title = "Using zipfs")` to create a
-template vignette. Modify the vignette to include a one-paragraph description
-of the purpose of `zipfs`, and an example of how to use the `zipfs` functions
-together to analyze a book. Run `knitr` to preview the vignette.
 
-* `styler` and `spelling`: helpful packages for consistent and accurate
-documentation and code
+### Making a vignette {#make-vignette}
 
-  * Text: What style guides are, style guide choices (tidyverse, [Google's R
-style guide](https://google.github.io/styleguide/Rguide.html), others?)
-  * Code: `styler::style_pkg()`
-  * Code: `spelling::spell_check_package()`
-  * Exercise: run `style_pkg()` to restyle the files in the `zipfs` package.
-  * Exercise: run `spell_check_package()` to check the spelling in the `zipfs`
-documentation files. Run `update_wordlist()` to add any special words to the
-spell-checker that you want to ignore.
+Once again, `{usethis}` has a useful function to help us create
+vignettes. The function `usethis::use_vignette()` takes a package name
+and vignette title and creates a short template R Markdown document in
+the `vignettes/` folder.
+
+```{r cs-create-vignette, eval=TRUE}
+use_vignette("zipfs", title = "Using zipfs")`
+```
+
+The boilerplate text is very minimal. Try knitting the file
+`vignette/zipfs.Rmd` to see what's included by default - it's not much.
+Vignettes can vary a lot depending on the goals of the author; they can
+be long or short,
+[simple](https://cran.r-project.org/web/packages/devtools/vignettes/dependencies.html)
+or
+[complex](https://cran.r-project.org/web/packages/ggplot2/doc/extending-ggplot2.html).
+
+### Exercise: Edit a zipfs vignette {#ex-edit-vignette}
+
+<!-- This might be too involved for a single exercise -->
+
+Modify the vignette `zipfs.Rmd` (in the `vignettes/` folder) to include
+a one-paragraph description of the purpose of zipfs, and an example of
+how to use the zipfs functions together to analyze a book. Knit the file
+to preview the vignette.
+
+Reference: [R packages](https://r-pkgs.org/vignettes.html)
+
+## Writing in style: The housekeeping help of styler and spelling {#styler-spelling}
+
+When writing code, some aspects of formatting are very strict, but there
+are still choices a programmer can make about the appearance and content
+of code. For instance, R strictly requires that parentheses be properly
+paired in order for code to function (`print("hi")` will run,
+`print("hi"` will not), but things like variable names and the position
+of whitespace are more flexible. To create code that is maximally
+understandable, many communities have developed *style guides* that
+outline guidance for how to write clear code and documentation. Check
+out the [tidyverse style guide](https://style.tidyverse.org/)'s
+[syntax](https://style.tidyverse.org/syntax.html) section for examples
+of the types of stylistic decisions we make when writing code.
+
+Different communities may disagree on certain aspects of style.
+[Google's R style
+guide](https://google.github.io/styleguide/Rguide.html) lists
+differences between their guide and the tidyverse style guide. For
+instance, tidyverse recommends that all object names be written in
+`snake_case` (lowercase with underscores), while Google prefers function
+names to be written in `BigCamelCase` (capitalizing the first letter of
+each word). Which style guide you adhere to will depend on who your
+project is for, who you're working with, and on your own personal
+preferences.
+
+It's possible to adhere to a style guide by remembering the rules and
+applying them yourself, but luckily there are tools that can help
+automate the boring parts. The package `{styler}` automatically formats
+code according to a specified style guide: Simply run
+`styler::style_pkg()` to format your code according to the tidyverse
+style guide by default.
+
+In the same spirit, the package `{spelling}` does a spell check on the
+documentation files in a package. Run `spelling::spell_check_package()`
+prints a list of potential spelling errors and their locations to the
+console; unlike `{styler}`, it does not modify files.
+
+### Exercise: Checking style {#ex-styler}
+
+Run `style_pkg()` to restyle the files in the zipfs package. Use Git to
+explore some of the changes that were made. What do you notice?
+
+### Exercise: Checking spelling {#ex-spelling}
+
+Run `spell_check_package()` to check the spelling in the zipfs
+documentation files. Fix the errors, then run `update_wordlist()` to add
+any special words to the spell-checker that you want to ignore.
 
 ## Final exercise {#08-final-exercise}
 
-Complete these tasks as part of the package for your first project assignment.
-Refer to the project assignment TODO: Add ref to assignment here?
-for more details. As with the other final exercises,
-we will use the `kenyaweather` package as an example and reference.
-Don't forget to add and commit any changes you've made into the Git history
-after each task, and pushing to GitHub.
+Complete these tasks as part of the package for your first project
+assignment. Refer to the project assignment TODO: Add ref to assignment
+here? for more details. As with the other final exercises, we will use
+the kenyaweather package as an example and reference. Don't forget to
+add and commit any changes you've made into the Git history after each
+task, and pushing to GitHub.
 
-1. Add the ability to write your roxygen2 documentation using Markdown with 
-`usethis::use_roxygen_md()`.
+1.  Add the ability to write your roxygen2 documentation using Markdown
+    with `usethis::use_roxygen_md()`.
 
-2. Go through your existing function documentations and fill them in more.
-Especially focus on completing the `@param`, `@return`, and `@examples` fields.
-Then run `document()` (`Ctrl-Shift-D`).
+2.  Go through your existing function documentations and fill them in
+    more. Especially focus on completing the `@param`, `@return`, and
+    `@examples` fields. Then run `document()` (`Ctrl-Shift-D`).
 
-3. Create a README file for your repository by using `use_readme_rmd()`.
-    - Edit the `README.Rmd` to include a description of your package and its
-    purpose, installation instructions, and one or more examples of how to use it.
-    - Knit the `README.Rmd` file so it creates a `README.md` file.
+3.  Create a README file for your repository by using
+    `use_readme_rmd()`.
 
-4. Add a vignette to your project package by running `use_vignette("YOURPACKAGENAME")`,
-replacing `YOURPACKAGENAME` with the name of your actual project package.
-Edit the vignette to include a:
-	- Higher-level paragraph describing your package and its purpose.
-	- An example of how to use your package, including code, that's more complete
-	than what the README might have.
-    - Use `knitr` to Knit and preview your vignette.
+    -   Edit the `README.Rmd` to include a description of your package
+        and its purpose, installation instructions, and one or more
+        examples of how to use it.
+    -   Knit the `README.Rmd` file so it creates a `README.md` file.
 
-4. (*Alternate*) Add a vignette to your project that describes how your package
-interacts with another published R package. <!--leaflet?-->
-    - Use `knitr` to Knit and preview your vignette.
+4.  Add a vignette to your project package by running
+    `use_vignette("YOURPACKAGENAME")`, replacing `YOURPACKAGENAME` with
+    the name of your actual project package. Edit the vignette to
+    include a:
 
-5. Check the spelling and style of your files in your package by running
-`styler::style_pkg()` to restyle your files and `use_spell_check()` to check the
-spelling. Fix any problems and if there are any special words, create a
-new file in `inst/WORDLIST`, add the word, and run `spelling::update_wordlist()`.
-Then re-run these styling and spelling checks to confirm no problems exist anymore.
+    -   Higher-level paragraph describing your package and its purpose.
+    -   An example of how to use your package, including code, that's
+        more complete than what the README might have.
+    -   Use `knitr` to Knit and preview your vignette.
+
+5.  (*Alternate*) Add a vignette to your project that describes how your
+    package interacts with another published R package. <!--leaflet?-->
+
+    -   Use `{knitr}` to Knit and preview your vignette.
+
+6.  Check the spelling and style of your files in your package by
+    running `styler::style_pkg()` to restyle your files and
+    `use_spell_check()` to check the spelling. Fix any problems and if
+    there are any special words, create a new file in `inst/WORDLIST`,
+    add the word, and run `spelling::update_wordlist()`. Then re-run
+    these styling and spelling checks to confirm no problems exist
+    anymore.
