@@ -1,4 +1,4 @@
-# Team-based development {#team-package-dev}
+# Team-based development {#sec-team-package-dev}
 
 -   For solo learners, relevant information will be added to callout
     boxes like Carpentries.
@@ -270,4 +270,3 @@ assignment*.
 4.  As a group, decide on the tasks that need to be completed and create
     Issues of those tasks. Together, assign which team member will do
     which tasks.
-

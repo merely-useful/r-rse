@@ -1,4 +1,4 @@
-# Assignments
+# Assignments {#sec-assignments}
 
 ## For learners
 
@@ -31,11 +31,11 @@ confidence in package development that will help for the later
 assignments.
 
 The project assignment is recommended to be **due** immediately after
-the Package Release lesson (Chapter @sec-package-release)). At the end
-of each chapter there is a final exercise that gives you tasks to do
-that guide you in completing this first project assignment. These final
-exercises are used as milestones to ensure you are making progress on
-your assignment.
+the Package Release lesson (@sec-package-release). At the end of each
+chapter there is a final exercise that gives you tasks to do that guide
+you in completing this first project assignment. These final exercises
+are used as milestones to ensure you are making progress on your
+assignment.
 
 An *acceptable* package for completing the assignment would have at a
 *minimum*:
@@ -87,11 +87,11 @@ skills and knowledge that you've learned on community involvement and of
 the importance that documentation has for involving the community.
 Completing this assignment will make it easier to finish the first
 assignment. The project assignment is recommended to be started after
-Chapter @sec-community-involvement) and be **due** immediately after the
-Chapter @sec-github-workflows). Like with the first project, at the end
-of Chapters @sec-community-involvement) and @sec-github-workflows) are
-some final exercises with tasks to help guide you in completing this
-second project assignment.
+@sec-community-involvement and be **due** immediately after the
+@sec-github-workflows. Like with the first project, at the end of
+@sec-community-involvement and @sec-github-workflows are some final
+exercises with tasks to help guide you in completing this second project
+assignment.
 
 1.  Choose a package to improve by either:
     1.  Selecting one from the list of packages provided by the
@@ -123,13 +123,12 @@ This would be the third and final deliverable for the course. There are
 no final exercises in each chapter that learners need to complete
 related to this assignment. Exercises and the structure of the group
 work would be determined by the instructor. This assignment would best
-be due sometime after the team-work lesson (Chapter
-@sec-team-package-development)).
+be due sometime after the team-work lesson ( 1).
 
 -   Using the same process as was done with the first project
     assignment, complete a package as a team, using the tools taught in
-    Chapters @sec-community-involvement), @sec-github-workflows), and
-    @sec-team-package-development).
+    @sec-community-involvement, @sec-github-workflows, and
+    1.  
 
 ### Rubric and expectations of the learner
 
