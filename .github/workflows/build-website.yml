@@ -13,35 +13,22 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup R
-        uses: r-lib/actions/setup-r@master
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
 
-      # Not sure this is needed.
-      # - name: Setup pandoc
-      #   uses: r-lib/actions/setup-pandoc@master
+      - name: Install dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          cache-version: 2
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          # To install LaTeX to build PDF book
           tinytex: false
-          # uncomment below and fill to pin a version
-          # version: 0.9.600
 
-      - name: Cache Renv packages
-        uses: actions/cache@v2
-        with:
-          path: $HOME/.local/share/renv
-          key: r-${{ hashFiles('renv.lock') }}
-          restore-keys: r-
-
-      - name: Install packages
-        run: |
-          R -e 'install.packages("renv")'
-          R -e 'renv::restore()'
-
-      - name: Publish to GitHub Pages (and render)
+      - name: Publish to Netlify (and render)
         uses: quarto-dev/quarto-actions/publish@v2
         with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
+          target: netlify
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

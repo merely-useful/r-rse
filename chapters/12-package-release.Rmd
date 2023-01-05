@@ -1,71 +1,76 @@
 # Preparing for package release {#package-release}
 
-- Check builds on other systems (with rhub)
-- Etiquette for using (mostly free) servers and external build systems like GitHub Actions and rhub (e.g. do not overuse them)
-- Managing your versions, git tagging, DOI?
-- ORCID here?
+-   Check builds on other systems (with rhub)
+-   Etiquette for using (mostly free) servers and external build systems
+    like GitHub Actions and rhub (e.g. do not overuse them)
+-   Managing your versions, git tagging, DOI?
+-   ORCID here?
 
 ## Learning Objectives
 
-- Describe the importance of using a build system for validating software and how to apply it
-- Understand and implement ethical guidelines when using build systems like RHub
-- Prepare a package version release on GitHub
-- Manage current package versions and devise future ones
+-   Describe the importance of using a build system for validating
+    software and how to apply it
+-   Understand and implement ethical guidelines when using build systems
+    like RHub
+-   Prepare a package version release on GitHub
+-   Manage current package versions and devise future ones
 
 ## Outline
 
-* RHub
-    * Text: What is `rhub`?
-    * Text: Talk about why it is important to check in multiple environments
-        * Text: Cover dependencies, file management, build processes
-    * Exercise: Create an account in RHub and validate your email
-        * `rhub::validate_email("youremail@email.com")`
-    * Text: Talk about behaviour when using RHub and other build systems
-        Exercise: Read https://docs.r-hub.io/ and answer "Can you use RHub to continously build and deploy your package?"
-
-* GitHub Release Process
-    * Text: Talk about Git tagging
-    * Text: Talk about GitHub releases
-    * Code: use_github_release(), use_release_issue()
-    * Exercise: Perform a GitHub release of the core package
-
-* Version management
-    * Text: When should I upgrade the package version?
-    * Code: use_version(), use_dev_version()
-    * Text: When should I do a patch release of the package?
-    * Exercise: Identify a patch release in a tidyverse package
+-   RHub
+    -   Text: What is `rhub`?
+    -   Text: Talk about why it is important to check in multiple
+        environments
+        -   Text: Cover dependencies, file management, build processes
+    -   Exercise: Create an account in RHub and validate your email
+        -   `rhub::validate_email("youremail@email.com")`
+    -   Text: Talk about behaviour when using RHub and other build
+        systems Exercise: Read https://docs.r-hub.io/ and answer "Can
+        you use RHub to continously build and deploy your package?"
+-   GitHub Release Process
+    -   Text: Talk about Git tagging
+    -   Text: Talk about GitHub releases
+    -   Code: use_github_release(), use_release_issue()
+    -   Exercise: Perform a GitHub release of the core package
+-   Version management
+    -   Text: When should I upgrade the package version?
+    -   Code: use_version(), use_dev_version()
+    -   Text: When should I do a patch release of the package?
+    -   Exercise: Identify a patch release in a tidyverse package
 
 ## Final exercise
 
-Complete these tasks as part of the package for your first project assignment.
-Refer to the project assignment TODO: Add ref to assignment here?
-for more details. As with the other final exercises,
-we will use the `kenyaweather` package as an example and reference.
-Don't forget to add and commit any changes you've made into the Git history
-after each task, and pushing to GitHub. Make use of the usethis `pr_*` workflow
+Complete these tasks as part of the package for your first project
+assignment. Refer to the project assignment TODO: Add ref to assignment
+here? for more details. As with the other final exercises, we will use
+the `kenyaweather` package as an example and reference. Don't forget to
+add and commit any changes you've made into the Git history after each
+task, and pushing to GitHub. Make use of the usethis `pr_*` workflow
 described in Chapter @sec-github-workflows).
 
-1. Run a package check with `rhub::check()` against an OS different from your
-own. For instance, if you use Windows, run a check on Mac OS or Linux.
-    - For Mac checks, use `rhub::check_on_macos()`.
-    - For Linux checks, use `rhub::check_on_linux()`.
-    - For Windows checks, use `rhub::check_on_windows()`.
+1.  Run a package check with `rhub::check()` against an OS different
+    from your own. For instance, if you use Windows, run a check on Mac
+    OS or Linux.
+    -   For Mac checks, use `rhub::check_on_macos()`.
+    -   For Linux checks, use `rhub::check_on_linux()`.
+    -   For Windows checks, use `rhub::check_on_windows()`.
 
 TODO: Add task about checking results from within R? (eg. get_check())
 2. Browse your previous checks with `rhub::list_package_checks()`.
 
-TODO: I'm hesitant about this one. Seems like its a bit of work to install, its a third-party app and might change. 
-1(b). Run the GitHub Actions for the package, locally (optional)
-> https://github.com/nektos/act
+TODO: I'm hesitant about this one. Seems like its a bit of work to
+install, its a third-party app and might change. 1(b). Run the GitHub
+Actions for the package, locally (optional) \>
+https://github.com/nektos/act
 
-TODO: This one requires installing Docker and I think that's outside the scope of this book.
-1(c). Run the rhub check locally (optional)
-> https://r-hub.github.io/rhub/articles/local-debugging.html
+TODO: This one requires installing Docker and I think that's outside the
+scope of this book. 1(c). Run the rhub check locally (optional) \>
+https://r-hub.github.io/rhub/articles/local-debugging.html
 
-3. Upgrade your R package minor version number with
-`usethis::use_version("minor")`.
+3.  Upgrade your R package minor version number with
+    `usethis::use_version("minor")`.
 
-TODO: Need to think about another way to do this, maybe instead with the gert package?
-3. Tag your commit (version # is flexible)
-> `git tag -a v1.0 -m "Version Tag 1.0"`
-TODO: Use use_release_issue() as well?
+TODO: Need to think about another way to do this, maybe instead with the
+gert package? 3. Tag your commit (version \# is flexible) \>
+`git tag -a v1.0 -m "Version Tag 1.0"` TODO: Use use_release_issue() as
+well?

@@ -16,9 +16,6 @@ book:
         - "Ian Flores Siaca"
         - "Charlotte Wickham"
         - "Greg Wilson"
-    # Add these?
-    # apple-touch-icon: "images/apple-touch-icon.png"
-    # apple-touch-icon-size: 180
     favicon: favicon.ico
     site-url: "https://merely-useful-tech/r-rse"
     repo-url: "https://github.com/merely-useful/r-rse"
@@ -30,11 +27,12 @@ book:
     chapters:
         - index.Rmd
         - chapters/01-preface.Rmd
+        - chapters/11-version-control-workflow.Rmd
     appendices:
         - appendices/references.md
     page-footer:
         center:
-            - text: "License"
+            - text: "License: CC BY 4.0"
               href: LICENSE.md
 
 # TODO: This strangely doesn't work, will need to address it later.
@@ -43,11 +41,16 @@ bibliography: includes/book.bib
 
 format:
   html:
+    df-print: tibble
     code-link: true
-    theme: zephyr
+    theme:
+      - zephyr
+      # - includes/theme.scss
     include-in-header:
         - "includes/header.html"
     include-before-body: "includes/wip.html"
 
-editor:
-  mode: visual
+editor_options:
+  markdown:
+    wrap: 72
+    canonical: true

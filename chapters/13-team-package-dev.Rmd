@@ -1,139 +1,168 @@
-# Team-based development {#team-package-dev}
+# Team-based development {#sec-team-package-dev}
 
-- For solo learners, relevant information will be added to callout boxes like Carpentries.
+-   For solo learners, relevant information will be added to callout
+    boxes like Carpentries.
 
 ## Learning objectives
 
-- Apply tools within GitHub for improving team work and
-coordinating development of an R package
-- Explicitly communicate culture and standards for
-interacting with your team to build a healthy and productive working
-environment
+-   Apply tools within GitHub for improving team work and coordinating
+    development of an R package
+-   Explicitly communicate culture and standards for interacting with
+    your team to build a healthy and productive working environment
 
 ## Overview (remove this header later)
 
-In earlier chapters (e.g.,@sec-community-involvement)),
-we discussed how to set up your project to encourage other people to use your work,
-and potentially make small contributions to your code.
-In this chapter,
-we'll cover the next big step in project development:
-using tools and creating infrastructure that will allow you to plan and work with a team of developers.
+In earlier chapters (e.g.,@sec-community-involvement)), we discussed how
+to set up your project to encourage other people to use your work, and
+potentially make small contributions to your code. In this chapter,
+we'll cover the next big step in project development: using tools and
+creating infrastructure that will allow you to plan and work with a team
+of developers.
 
-- Making use of GitHub Organizations/Teams, member roles
-    - Text: 
-        - Centralize team activity, more settings to control how team members
-        contribute, more control for other members
-        - Different roles and permissions of members ("owners", "maintainers", etc)
-    - Exercise:
-        - Solo: Create a new GitHub Organization and make a new (random) repo 
-        in the newly created Organization. 
-            - TODO: Add a callout box here.
-        - Team: 
-            - Discuss within your team who wants to be assigned the "owner" of
-            the organization
-            - One of the owners create a new GitHub Organization
-            - Add the other team members and set their permission level to maintainer,
-            (and owner if there will be more than one.)
-            - Create new repo of the ... (FIXME: not sure which repo should be created)
-- Setting up two-factor authentication
-    - Text: What is it and why to use it.
-    - Text: In general 2FA is highly highly encouraged, but on team-based projects,
-    its even more so important, especially for repo owners and organization "owners".
-    - Exercise: Set up 2FA for your GitHub account.
-- Branch protection
-    - Text: Used to assign a specific person or people to be responsible for specific
-    branches, to provide a level of accountability and prevent unreviewed content
-    from being added to package.
-    - Text: Generally, depending on skill of member in git/github, best give
-    more team members access to modifying branch than to have less. But ultimately
-    it is a safety and accountability feature that needs to be discussed with team.
-    - Exercise: 
-        - Solo: In the Organization repo, set up branch protection for the main branch.
-        - Team:
-            - In the organization repo, set up branch protection for the main branch
-            and assign the owners as the only ones who can push to the branch.
-            FIXME: Make sure this is the correct terminology.
-- Relying on and using code of conduct, contributing guide, governance to build
-culture and standards
-    - Text: An implicit team culture will naturally evolve as people work together,
-    but having purely implicit cultural norms makes it difficult for newcomers
-    and for dealing with problems that come from misunderstanding of these cultural
-    practices. Much of this comes from the code of conduct and contributing guidelines,
-    but there are other aspects that can be team-, country-, etc specific.
-    - Exercise:
-        - (Solo/team?): Brainstorm come explicit expected behaviours, norms, 
-        practices that you would like in a team environment. Write this text
-        down and put it in the team's own CODE OF CONDUCT for admin purposes and 
-        not for external contributors.
-    - Text: Consider how a team might handle, prevent/limit, and resolving
-    conflict and personality differences. These often are team-specific.
-    - Exercise:
-        - (Solo/team?): Brainstorm ideas for what things to write about and include
-        in an explicit document about how these are handled.
-- Running meetings
-    - Put this text in Contributing
-    - Text: Running effective meetings is a key skill to working as a team.
-    - Text: List some best practices.
-    - Exercise: 
-        - Consider past meetings you've had. Think of the worse and best meetings.
-        What made a good meeting? What made a bad one?
-        - Team: Discuss and brainstorm as a team some practices you agree with 
-        and want to implement in your meetings.
-- Governance (team focused)
-    - Text: Governance is being explicit about the structure of the team, who does
-    what and is responsible for what, how decisions are made, etc.
-    - Exercise:
-        - Solo: ? FIXME: add something here?
-            - Make a list of project administration or upkeep tasks (such as
-            labeling and assigning user-created GitHub Issues, initiating
-            meetings or check-ins, or fixing bugs). For each task, describe what
-            changes to your project documentation (if any) would be necessary to
-            enable someone else to do that task. What information and expertise
-            would they need? How familiar would they need to be with the
-            project? (thought exercise specifically about delegation.)
-        - Team: Discuss as a team how you want to make decisions, who is responsible 
-        for what, etc. Write these decisions in the Governance file.
-            - TODO: Decide later on if Governance file is the approach we want to do.
-    - Text: A major advantage of using GitHub is the project management, like issue assignments.
-    How to assign issues/tasks can be a challenge and depending on the size of the
-    team, you might need someone dedicated to coordinating issue assignment etc.
-    - Exercise:
-        - Team: Discuss and write down who will have the role of coordinating issues/tasks
-        to team members.
-    - Text: CODEOWNERS (?) who is primarily responsible for what parts of the package
-    (e.g. R code vs vignettes). Using this concept can help streamline and automate
-    other tasks.
+-   Making use of GitHub Organizations/Teams, member roles
+    -   Text:
+        -   Centralize team activity, more settings to control how team
+            members contribute, more control for other members
+        -   Different roles and permissions of members ("owners",
+            "maintainers", etc)
+    -   Exercise:
+        -   Solo: Create a new GitHub Organization and make a new
+            (random) repo in the newly created Organization.
+            -   TODO: Add a callout box here.
+        -   Team:
+            -   Discuss within your team who wants to be assigned the
+                "owner" of the organization
+            -   One of the owners create a new GitHub Organization
+            -   Add the other team members and set their permission
+                level to maintainer, (and owner if there will be more
+                than one.)
+            -   Create new repo of the ... (FIXME: not sure which repo
+                should be created)
+-   Setting up two-factor authentication
+    -   Text: What is it and why to use it.
+    -   Text: In general 2FA is highly highly encouraged, but on
+        team-based projects, its even more so important, especially for
+        repo owners and organization "owners".
+    -   Exercise: Set up 2FA for your GitHub account.
+-   Branch protection
+    -   Text: Used to assign a specific person or people to be
+        responsible for specific branches, to provide a level of
+        accountability and prevent unreviewed content from being added
+        to package.
+    -   Text: Generally, depending on skill of member in git/github,
+        best give more team members access to modifying branch than to
+        have less. But ultimately it is a safety and accountability
+        feature that needs to be discussed with team.
+    -   Exercise:
+        -   Solo: In the Organization repo, set up branch protection for
+            the main branch.
+        -   Team:
+            -   In the organization repo, set up branch protection for
+                the main branch and assign the owners as the only ones
+                who can push to the branch. FIXME: Make sure this is the
+                correct terminology.
+-   Relying on and using code of conduct, contributing guide, governance
+    to build culture and standards
+    -   Text: An implicit team culture will naturally evolve as people
+        work together, but having purely implicit cultural norms makes
+        it difficult for newcomers and for dealing with problems that
+        come from misunderstanding of these cultural practices. Much of
+        this comes from the code of conduct and contributing guidelines,
+        but there are other aspects that can be team-, country-, etc
+        specific.
+    -   Exercise:
+        -   (Solo/team?): Brainstorm come explicit expected behaviours,
+            norms, practices that you would like in a team environment.
+            Write this text down and put it in the team's own CODE OF
+            CONDUCT for admin purposes and not for external
+            contributors.
+    -   Text: Consider how a team might handle, prevent/limit, and
+        resolving conflict and personality differences. These often are
+        team-specific.
+    -   Exercise:
+        -   (Solo/team?): Brainstorm ideas for what things to write
+            about and include in an explicit document about how these
+            are handled.
+-   Running meetings
+    -   Put this text in Contributing
+    -   Text: Running effective meetings is a key skill to working as a
+        team.
+    -   Text: List some best practices.
+    -   Exercise:
+        -   Consider past meetings you've had. Think of the worse and
+            best meetings. What made a good meeting? What made a bad
+            one?
+        -   Team: Discuss and brainstorm as a team some practices you
+            agree with and want to implement in your meetings.
+-   Governance (team focused)
+    -   Text: Governance is being explicit about the structure of the
+        team, who does what and is responsible for what, how decisions
+        are made, etc.
+    -   Exercise:
+        -   Solo: ? FIXME: add something here?
+            -   Make a list of project administration or upkeep tasks
+                (such as labeling and assigning user-created GitHub
+                Issues, initiating meetings or check-ins, or fixing
+                bugs). For each task, describe what changes to your
+                project documentation (if any) would be necessary to
+                enable someone else to do that task. What information
+                and expertise would they need? How familiar would they
+                need to be with the project? (thought exercise
+                specifically about delegation.)
+        -   Team: Discuss as a team how you want to make decisions, who
+            is responsible for what, etc. Write these decisions in the
+            Governance file.
+            -   TODO: Decide later on if Governance file is the approach
+                we want to do.
+    -   Text: A major advantage of using GitHub is the project
+        management, like issue assignments. How to assign issues/tasks
+        can be a challenge and depending on the size of the team, you
+        might need someone dedicated to coordinating issue assignment
+        etc.
+    -   Exercise:
+        -   Team: Discuss and write down who will have the role of
+            coordinating issues/tasks to team members.
+    -   Text: CODEOWNERS (?) who is primarily responsible for what parts
+        of the package (e.g. R code vs vignettes). Using this concept
+        can help streamline and automate other tasks.
 
-Moved from chapter 12:
-- Planning and managing your project's goals
-  - Text: [Roadmaps](https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/start-your-project-roadmap/), GitHub Projects, and Milestones are all ways to keep track of the big-picture goals and progress of your project on GitHub.
-  - Exercise: create a roadmap for the `zipfs` project, either as an issue or as a file called ROADMAP.md.
-  - Exercise: create several new issues for the `zipfs` project using the roadmap as inspiration. Add labels to these issues.
-  - Exercise: look at some examples of packages that use GitHub milestones and GitHub Projects. Are there situations in which one project management approach is better than the other?
-    - Milestone examples:
-        - [ggplot2](https://github.com/tidyverse/ggplot2/milestones)
-	      - FIXME: more examples?
-    - Project examples:
-        - [bootstrap](https://github.com/twbs/bootstrap/projects)
-	      - FIXME: more examples?
-  - Exercise: create a GitHub Project for the `zipfs` repo containing the columns "To do", "In progress", and "Done".
-  - Exercise: create a milestone using the roadmap as inspiration. Assign at least two issues to the milestone.
-  - Exercise: in the `zipfs` roadmap, add links to the issues you created based on the roadmap and a link to the milestone.
+Moved from chapter 12: - Planning and managing your project's goals -
+Text:
+[Roadmaps](https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/start-your-project-roadmap/),
+GitHub Projects, and Milestones are all ways to keep track of the
+big-picture goals and progress of your project on GitHub. - Exercise:
+create a roadmap for the `zipfs` project, either as an issue or as a
+file called ROADMAP.md. - Exercise: create several new issues for the
+`zipfs` project using the roadmap as inspiration. Add labels to these
+issues. - Exercise: look at some examples of packages that use GitHub
+milestones and GitHub Projects. Are there situations in which one
+project management approach is better than the other? - Milestone
+examples: - [ggplot2](https://github.com/tidyverse/ggplot2/milestones) -
+FIXME: more examples? - Project examples: -
+[bootstrap](https://github.com/twbs/bootstrap/projects) - FIXME: more
+examples? - Exercise: create a GitHub Project for the `zipfs` repo
+containing the columns "To do", "In progress", and "Done". - Exercise:
+create a milestone using the roadmap as inspiration. Assign at least two
+issues to the milestone. - Exercise: in the `zipfs` roadmap, add links
+to the issues you created based on the roadmap and a link to the
+milestone.
 
-[project-roadmap]: https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/start-your-project-roadmap/
-
-(moved from chapter 12 exercises) Look at some examples of packages that use GitHub Milestones and GitHub Projects. Are there situations in which one project management approach is better than the other? Which do you prefer, or which do you feel suits your project better?
-    - Milestone examples:
-        - [ggplot2](https://github.com/tidyverse/ggplot2/milestones)
-	- FIXME: more examples?
-    - Project examples:
-        - [bootstrap](https://github.com/twbs/bootstrap/projects)
-	- FIXME: more examples?
+(moved from chapter 12 exercises) Look at some examples of packages that
+use GitHub Milestones and GitHub Projects. Are there situations in which
+one project management approach is better than the other? Which do you
+prefer, or which do you feel suits your project better? - Milestone
+examples: - [ggplot2](https://github.com/tidyverse/ggplot2/milestones) -
+FIXME: more examples? - Project examples: -
+[bootstrap](https://github.com/twbs/bootstrap/projects) - FIXME: more
+examples?
 
 <!-- TODO: This is better here, not in the final exercise. -->
+
 <!-- Example: [STEMMM Role Models -->
+
 <!-- roadmap](https://github.com/KirstieJane/STEMMRoleModels/issues/1). -->
 
+```{=html}
 <!--
 TODO: revise this text when adding the actual content.
 A team work contract communicates specifically **how** the core group of people who are working together
@@ -169,71 +198,75 @@ We recommend that generate the team work contract according to these guidelines
     - These are the principles you adhere to when working.
     - This file should only be updated if there is agreement between team members to do so.
 -->
-
+```
 ## Final exercises
 
 <!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->
 
 ### For the first project assignment
 
-Complete these tasks as part of the package for your *first project assignment*.
-You won't be able to practice everything that you've
-learned during this chapter for this exercise.
-Refer to the project assignment TODO: Add ref to assignment here?
-for more details. As with the other final exercises,
-we will use the `kenyaweather` package as an example and reference.
-Don't forget to add and commit any changes you've made into the Git history
-after each task, and pushing to GitHub. Make use of the usethis `pr_*` workflow
-described in Chapter @sec-github-workflows).
+Complete these tasks as part of the package for your *first project
+assignment*. You won't be able to practice everything that you've
+learned during this chapter for this exercise. Refer to the project
+assignment TODO: Add ref to assignment here? for more details. As with
+the other final exercises, we will use the `kenyaweather` package as an
+example and reference. Don't forget to add and commit any changes you've
+made into the Git history after each task, and pushing to GitHub. Make
+use of the usethis `pr_*` workflow described in Chapter
+@sec-github-workflows.
 
-1. Set up branch protection for your `main` branch in your package repository on
-GitHub.
-2. On your GitHub account, set up 2FA.
-3. Create a file called `GOVERNANCE.md` (FIXME: Should this be here?) and write
-some general guidelines on:
-    - How decisions are made.
-    - If and how meetings will be run and held.
-    - What culture and standards are valued and how they will be shaped.
-    - How conflict/disagreements will be resolved.
-4. In your GitHub package (user?) repository settings, create a PAT for working with...
-TODO: This item might already be done for setting up GitHub actions.
-...by using `usethis::create_github_token()`.
+1.  Set up branch protection for your `main` branch in your package
+    repository on GitHub.
+2.  On your GitHub account, set up 2FA.
+3.  Create a file called `GOVERNANCE.md` (FIXME: Should this be here?)
+    and write some general guidelines on:
+    -   How decisions are made.
+    -   If and how meetings will be run and held.
+    -   What culture and standards are valued and how they will be
+        shaped.
+    -   How conflict/disagreements will be resolved.
+4.  In your GitHub package (user?) repository settings, create a PAT for
+    working with... TODO: This item might already be done for setting up
+    GitHub actions. ...by using `usethis::create_github_token()`.
 
-Moved from chapter 12:
-1. Create a [roadmap][project-roadmap] for your project describing short-term,
-medium-term, and long-term project goals. For now keep these goals about completing
-the first project assignment. This can be a GitHub issue or a file called
-`ROADMAP.md`. TODO: We should decide on one, to restrict learners choice.
+Moved from chapter 12: 1. Create a
+[roadmap](https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/start-your-project-roadmap/)
+for your project describing short-term, medium-term, and long-term
+project goals. For now keep these goals about completing the first
+project assignment. This can be a GitHub issue or a file called
+`ROADMAP.md`. TODO: We should decide on one, to restrict learners
+choice.
 
-2. Using your roadmap as inspiration for todo items, create new Issues for a few
-of your project's tasks.
-    - Create several new Issue Labels. GitHub provides a few good default ones.
-    Add some new ones like FIXME: Add specific labels here, other than the ones
-    that github makes.
-    - Add a link in your `CONTRIBUTING.md` to Issues with the label `good-first-issue`
-    so new contributors know where they can get started.
-    - In your roadmap, add links to relevant Issues for others (and yourself)
-    to be able to quickly find and look over.
-
-1. Depending on whether you prefer Milestones or Projects, create one for your
-project for finishing this first project assignment. 
+2.  Using your roadmap as inspiration for todo items, create new Issues
+    for a few of your project's tasks.
+    -   Create several new Issue Labels. GitHub provides a few good
+        default ones. Add some new ones like FIXME: Add specific labels
+        here, other than the ones that github makes.
+    -   Add a link in your `CONTRIBUTING.md` to Issues with the label
+        `good-first-issue` so new contributors know where they can get
+        started.
+    -   In your roadmap, add links to relevant Issues for others (and
+        yourself) to be able to quickly find and look over.
+3.  Depending on whether you prefer Milestones or Projects, create one
+    for your project for finishing this first project assignment.
 
 ### For the third project assignment
 
-These exercises are to be done for the *third, team-based project assignment*.
+These exercises are to be done for the *third, team-based project
+assignment*.
 
-1. Assign one team member to create a GitHub Organization account. 
-Have this team member add the other members to the Organization.
-    - Set each team member with "Maintainer" permissions.
-2. Assign another team member to create a new repository where the
-project package will be hosted.
-    - This team member will then set up branch protection of the main
-    branch.
-3. In the new repository, create a new file called `GOVERNANCE.md`.
-As a group, decide on and write down:
-    - How decisions will be made.
-    - How meetings will be run.
-    - How disagreements will be resolved.
-4. As a group, decide on the tasks that need to be completed and
-create Issues of those tasks. Together, assign which team member
-will do which tasks.
+1.  Assign one team member to create a GitHub Organization account. Have
+    this team member add the other members to the Organization.
+    -   Set each team member with "Maintainer" permissions.
+2.  Assign another team member to create a new repository where the
+    project package will be hosted.
+    -   This team member will then set up branch protection of the main
+        branch.
+3.  In the new repository, create a new file called `GOVERNANCE.md`. As
+    a group, decide on and write down:
+    -   How decisions will be made.
+    -   How meetings will be run.
+    -   How disagreements will be resolved.
+4.  As a group, decide on the tasks that need to be completed and create
+    Issues of those tasks. Together, assign which team member will do
+    which tasks.
