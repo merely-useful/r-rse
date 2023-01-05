@@ -27,6 +27,7 @@ book:
     chapters:
         - index.Rmd
         - chapters/01-preface.Rmd
+        - chapters/11-version-control-workflow.Rmd
     appendices:
         - appendices/references.md
     page-footer:
