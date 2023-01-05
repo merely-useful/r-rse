@@ -4,7 +4,7 @@
 >
 > --- Terry Pratchett
 
-TODO: Add version of book here?
+<!-- TODO: Add version of book here? -->
 
 Computers and computational work are essential components to conducting
 science and research. However, most introductions to software
@@ -15,11 +15,10 @@ questions. This book will cover how to create software as part of your
 research cycle. For researchers who build software packages, this book
 will help prepare you for being a research software engineer.
 
-The course material was created using
-[rmarkdown](https://rmarkdown.rstudio.com/) to write the lessons,
-[bookdown](https://bookdown.org/yihui/bookdown/) to create the book
-format, [GitHub](https://github.com/) to host the
-[Git](https://git-scm.com/) repository of the material, and [GitHub
+The course material was created using [Quarto](https://quarto.org/) to
+write the lessons and to build the book format,
+[GitHub](https://github.com/) to host the [Git](https://git-scm.com/)
+repository of the material, and [GitHub
 Actions](https://github.com/features/actions) to create the website. The
 original source material for this book is found on the
 [`r-rse`](https://github.com/merely-useful/r-rse) GitHub repository. For
