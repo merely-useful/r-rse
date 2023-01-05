@@ -1,4 +1,4 @@
-# Version control: Using Git and GitHub as a sole user (part 1)
+# Version control: Using Git and GitHub as a sole user (part 1) {#git-solo}
 
 Emphasize exercises to practice,
 not showing output of git in code chunks (they are a pain to edit afterwards).
