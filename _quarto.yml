@@ -16,9 +16,6 @@ book:
         - "Ian Flores Siaca"
         - "Charlotte Wickham"
         - "Greg Wilson"
-    # Add these?
-    # apple-touch-icon: "images/apple-touch-icon.png"
-    # apple-touch-icon-size: 180
     favicon: favicon.ico
     site-url: "https://merely-useful-tech/r-rse"
     repo-url: "https://github.com/merely-useful/r-rse"
