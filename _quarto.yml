@@ -31,7 +31,7 @@ book:
         - appendices/references.md
     page-footer:
         center:
-            - text: "License"
+            - text: "License: CC BY 4.0"
               href: LICENSE.md
 
 # TODO: This strangely doesn't work, will need to address it later.
@@ -40,11 +40,16 @@ bibliography: includes/book.bib
 
 format:
   html:
+    df-print: tibble
     code-link: true
-    theme: zephyr
+    theme:
+      - zephyr
+      # - includes/theme.scss
     include-in-header:
         - "includes/header.html"
     include-before-body: "includes/wip.html"
 
-editor:
-  mode: visual
+editor_options:
+  markdown:
+    wrap: 72
+    canonical: true
