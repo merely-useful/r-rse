@@ -5,8 +5,6 @@ execute:
 
 # Collaborating with Git and GitHub {#sec-github-collaboration}
 
-{{< include ../includes/_wip.qmd >}}
-
 ```{r setup}
 #| include: false
 #| eval: true
@@ -721,4 +719,3 @@ Repeat this process one more time by making changes to:
 ```
 
 <!-- ### Exercises for second project assignment? -->
-
