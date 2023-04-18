@@ -81,6 +81,11 @@ preview builds on your own computer:
 -   For internal cross-references, use `@sec-label` to link to specific
     sections, `@fig-label` to refer to figures, and others.
 
+-   For keybindings, check `_variables.yml` if one already exists. If
+    the one you want doesn't exist, add it below the `keybinds:`
+    key-value pairing, using the others as an example. To insert in the
+    text, you type out `{{< var keybinds.ACTION >}}`.
+
 -   TODO: Write text about adding glossary entries.
 
 -   Stick to a specific style for markdown code. When referring to:
