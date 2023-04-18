@@ -48,9 +48,6 @@ format:
     theme:
       - zephyr
       # - includes/theme.scss
-    include-in-header:
-        - "includes/header.html"
-    include-before-body: "includes/wip.html"
 
 editor_options:
   markdown:
