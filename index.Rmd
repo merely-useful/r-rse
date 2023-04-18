@@ -1,4 +1,8 @@
-# Welcome!
+---
+title: "Welcome!"
+---
+
+{{< include includes/_wip.qmd >}}
 
 > It's still magic even if you know how it's done.
 >
