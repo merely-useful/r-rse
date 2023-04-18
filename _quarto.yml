@@ -27,6 +27,8 @@ book:
     chapters:
         - index.Rmd
         - chapters/01-preface.Rmd
+        - chapters/08-documetation.Rmd
+        - chapters/10-community-involvement.Rmd
         - chapters/11-version-control-workflow.Rmd
     appendices:
         - appendices/references.md
