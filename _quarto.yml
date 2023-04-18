@@ -6,7 +6,7 @@ project:
 book:
     title: "Research Software Engineering with R: Building software that makes research possible"
     # TODO: Update for each tag/release?
-    # date:
+    date: last-modified
     author:
         - "Madeleine Bonsma-Fisher"
         - "Kate Hertweck"
