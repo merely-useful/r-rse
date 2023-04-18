@@ -1,23 +1,27 @@
-# Involving the community {#community-involvement}
+# Involving the community {#sec-community-involvement}
 
-```{r, cs-usethis, eval=TRUE, echo=FALSE}
+{{< include ../includes/_wip.qmd >}}
+
+```{r setup}
+#| include: false
+#| eval: true
 library(usethis)
 ```
 
-## Learning objectives {#learning-objectives-10}
+## Learning objectives
 
 -   Edit a project README and NEWS file to be welcoming to contributors
-    and users
+    and users.
 -   Understand the importance of having an explicit Code of Conduct and
-    how to create one relevant to a project
+    how to create one relevant to a project.
 -   Understand the purpose of licensing content, how to choose a license
-    and create a LICENSE file
+    and create a LICENSE file.
 -   Understand the importance of contributing guidelines and how to
-    develop them for a project
+    develop them for a project.
 -   Create and manage GitHub Issues to track project bugs and
-    improvements
+    improvements.
 
-## Creating a welcoming community with welcoming materials {#welcoming-materials}
+## Creating a welcoming community with welcoming materials
 
 Now that your project is taking shape and you even have a website to
 share information about it, there are things you can do to help other
@@ -25,20 +29,20 @@ people understand how to interact with your project. This chapter covers
 the information users expect to find if they would like to use and
 perhaps contribute to your project.
 
-### Creating a welcoming README {#readme}
+### Creating a welcoming README
 
 The README is the first part of your project that new users and
 contributors see, and by making it clear and welcoming, you make it
 possible for people from many different fields or levels of experience
 to understand what you're doing and why.
 
-You created a README in Chapter 5, and in Chapter 8 you filled out the
-basic building blocks of a README: a description of your project,
-instructions for installing and using your project, and some examples.
-Now you will return to your README and assess it from the perspective of
-a new user or contributor. Is it welcoming? Is it easy to understand?
-Does it have all the information needed to use or contribute to your
-project?
+You created a README in @sec-git-solo, and in @sec-package-documentation
+you filled out the basic building blocks of a README: A description of
+your project, instructions for installing and using your project, and
+some examples. Now you will return to your README and assess it from the
+perspective of a new user or contributor. Is it welcoming? Is it easy to
+understand? Does it have all the information needed to use or contribute
+to your project?
 
 We recommend paying special attention to the following components to
 make your README clear and welcoming. For an example of a welcoming
@@ -46,8 +50,8 @@ README, check out the [README from the STEMM Role Models
 project](https://github.com/KirstieJane/STEMMRoleModels#stemm-role-models-app).
 
 -   A great way to start a welcoming README is with a statement of
-    welcome! You can introduce yourself, welcome people to your project,
-    and say that you're excited they came.
+    "Welcome!" You can introduce yourself, welcome people to your
+    project, and say that you're excited they came.
 
 -   Write your project description to answer the following questions in
     a way that is understandable to a wide range of people. Avoid using
@@ -60,23 +64,25 @@ project](https://github.com/KirstieJane/STEMMRoleModels#stemm-role-models-app).
     -   What makes your project unique or exciting?
 
 -   Describe how to use your project with simple examples (more on this
-    in the [reprex](#reprex) section).
+    with `{reprex}` in @sec-reprex).
 
 -   Describe what kinds of help or resources you are looking for (more
-    on this in the [contributing guidelines](#contributing-guidelines)
-    section).
+    on this in @sec-contributing-guidelines).
 
-Remember: even if you are pretty sure that all your users have the same
-expertise as you or that you won't have contributors, writing a clear
-README is also extremely helpful for your number one collaborator:
-Future You. Furthermore, the very act of thinking through your project's
+Remember that even if you are pretty sure that all your users have the
+same expertise as you or that you won't have contributors, writing a
+clear README is also extremely helpful for your number one collaborator:
+Future You. The very act of thinking through your project's
 documentation can be a great way to clarify your own thoughts,
 brainstorm ideas, and foresee issues.
 
-References: [Mozilla Open Leadership Training
-Series](https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/write-a-great-project-readme/)
+::: callout-tip
+For a great reference on making your project more welcoming, check out
+the [Mozilla Open Leadership Training
+Series](https://mozilla.github.io/open-leadership-training-series/articles/opening-your-project/write-a-great-project-readme/).
+:::
 
-### Exercise: Write a jargon-free description of the `zipfs` package. {#ex-upgoer5}
+### Exercise: Write a jargon-free description of the `zipfs` package
 
 When you are an expert in a particular subject matter, it can be hard to
 know which of the words and concepts you use often are not so easy for
@@ -84,122 +90,106 @@ others to understand. This exercise will challenge you to rethink how
 you explain concepts by taking it to the extreme - restricting your
 vocabulary to the 1000 most common words in the English language!
 
-Write a one-paragraph description of the `zipfs` package using the
+Write a one-paragraph description of the zipfs package using the
 [Up-Goer Five Text Editor](https://splasho.com/upgoer5/).
+
 <!--- For example: "These computer words tell the computer to look at a book and add up the number of times each word is used and then make a picture of all the numbers. Most of the time, all the numbers turn out to be a straight line."--->
 
 ### Using reproducible examples to explain your project {#reprex}
 
-https://community.rstudio.com/t/faq-whats-a-reproducible-example-reprex-and-how-do-i-create-one/5219
-
 Simple examples are very effective tools for explaining how your package
-works. The `reprex` package is designed to help you create
-**rep**roducible **ex**amples: stand-alone examples that include all the
-necessary information about running a chunk of code in the same way
-someone else did. This package is mainly aimed at creating bug reports,
-but it is also a great tool for packaging examples more generally.
+works. The `{reprex}` package is designed to help you create
+**rep**roducible **ex**amples. These are stand-alone examples that
+include all the necessary information about running a chunk of code in
+the same way someone else did. This package is mainly aimed at creating
+bug reports, but it is also a great tool for packaging examples more
+generally.
 
-Let's create a reprex for how to use the `count_words` function in the
-`zipfs` package by following these steps:
+Let's create a reprex for how to use the `count_words()` function in our
+zipfs package by following these steps:
 
--   Install (only for the first time) and load the `reprex` package.
+-   Install (only for the first time) and load the `{reprex}` package,
+    using the R Console.
 
-```{r cs-reprex-load, eval=FALSE}
-install.packages('reprex')
-library(reprex)
-```
+    ``` r
+    install.packages('reprex')
+    library(reprex)
+    ```
 
--   Highlight the entire chunk of code that you want to include in your
-    reprex, including any packages, and copy the text using Ctrl/Cmd +
-    c.
+-   Highlight the chunk of code you pasted, including packages, and copy
+    the text using `Ctrl/Cmd + C`.
 
-FIXME: should this be from the perspective of developing zipfs, like
-starting with `load_all()` instead of `library(zipfs)`?
+    ``` r
+    library(zipfs)
+    text <- c("Star light, star bright,
+      First star I see tonight;
+      I wish I may, I wish I might,
+      Have the wish I wish tonight.")
+    count_words(text)
+    ```
 
-```{r cs-reprex, eval=FALSE}
-library(zipfs)
-text <- c("Star light, star bright,
-    First star I see tonight;
-    I wish I may, I wish I might,
-    Have the wish I wish tonight.")
-(word_freq <- count_words(text))
-```
+-   Before continuing, build the zipfs package first
+    ({{< var keybinds.build >}}) so the latest version gets installed.
 
--   In the console, type `reprex()` and hit Enter/Return.
--   Your reprex is now stored on your clipboard - use Ctrl/Cmd + v to
+-   In the R Console, type `reprex()` and hit Enter.
+
+-   Your reprex is now stored on your clipboard. Use `Ctrl/Cmd + V` to
     paste it where you like. It will look like this:
 
-``` r
-library(zipfs)
-text <- c("Star light, star bright,
-    First star I see tonight;
-    I wish I may, I wish I might,
-    Have the wish I wish tonight.")
-(word_freq <- count_words(text))
-#> # A tibble: 12 × 2
-#>    word        n
-#>    <chr>   <dbl>
-#>  1 i           6
-#>  2 wish        4
-#>  3 star        3
-#>  4 tonight     2
-#>  5 bright      1
-#>  6 first       1
-#>  7 have        1
-#>  8 light       1
-#>  9 may         1
-#> 10 might       1
-#> 11 see         1
-#> 12 the         1
-```
+<!-- TODO: Paste what it will actually look like below? Or can reprex insert into R Markdown? -->
 
-<sup>Created on 2022-04-07 by the [reprex
-package](https://reprex.tidyverse.org) (v2.0.1)</sup>
+### Exercise: Create a reprex for the `book_meta()` function
 
-Reference: [So you've been asked to make a
-reprex](https://www.jessemaegan.com/blog/so-you-ve-been-asked-to-make-a-reprex/)
-
-### Exercise: use `reprex` to create a minimal reproducible example for the `book-meta` function {#ex-reprex}
-
-Create a reprex for simple usage of the `book-meta` function in the
+Create a reprex for simple usage of the `book_meta()` function in the
 `zipfs` package. FIXME: this might be tricky since it requires data -
 need to test this to make sure it's doable, or talk about how to include
 data?
 
-### Keeping current with a NEWS file {#news}
+### Keeping current with a NEWS file
 
 When you make changes to your project, such as fixing a bug or adding a
 new feature, it's a good idea to maintain a high-level summary of these
 changes so that people who interact with your project can understand
 when and how your project is changing. By convention, this list of
-changes lives in a file called NEWS.md. Changes are usually grouped by
+changes lives in a file called `NEWS.md`. Changes are usually grouped by
 which package release they belong to; we will cover releasing your
 package in more detail in Chapter 12. Check out the [devtools
 NEWS.md](https://github.com/r-lib/devtools/blob/main/NEWS.md) for an
 example of how this file is used in a popular package.
 
-The function `usethis::use_news_()` automatically creates a file called
-NEWS.md with a header and the start of a bullet-point list. Let's run it
-now for the `zipfs` package.
+The function `usethis::use_news_md()` automatically creates a file
+called `NEWS.md` with a header and the start of a bullet-point list.
+Let's run it now for the zipfs package.
 
-```{r cs-news, eval=TRUE}
+<!-- TODO: Extract this out to build the book package? -->
+
+```{r cs-news}
+#| eval: false
 use_news_md()
 ```
 
-Each time you make a change, add it to the NEWS.md file as you go. When
-it's time for a release, you'll have a handy summary of all the changes
-that have been made.
+When exactly you should add an entry to the `NEWS.md` file depends a lot
+on your available time, level of maturity of the package, and your
+skill. It also varies a lot between package developers. In general, a
+good guideline is to add an entry if there is a bug that's been fixed, a
+new function has been added, or if some functions or functionalities
+have been removed.
+
+Making sure to keep the `NEWS.md` file updated also makes it easier to
+have a list of major/minor changes when you eventually release the next
+version of your package. It also gets nicely rendered on the package
+website as we learned in @sec-package-website.
 
 [reference](https://r-pkgs.org/release.html#news))
 
-### Exercise: edit the NEWS.md file {#ex-news}
+### Exercise: Edit the NEWS file
 
 Make an edit to `NEWS.md` in the `zipfs` package describing the most
 recent change that was make to the structure or code of `zipfs` (FIXME:
 we can be more specific here, like referring to a change made in the
 previous chapter.)
 
-### Contributing guidelines {#contributing-guidelines}
+### Contributing guidelines {#sec-contributing-guidelines}
 
 By this point, your README already contains some information about how
 people can use or get involved in your project. When you want to include
@@ -211,7 +201,7 @@ contributions you are looking for. We'll talk more in a later chapter
 guidelines for working with a team of developers.
 
 The function `usethis::use_tidy_contributing()` automatically creates a
-file called CONTRIBUTING.md in the folder `.github` with some
+file called `CONTRIBUTING.md` in the folder `.github` with some
 boilerplate contributing guidelines in the Tidyverse style.
 
 ```{r, cs-contributing, eval=TRUE}
@@ -223,19 +213,19 @@ a lot on your project. For example, you might want to add sections about
 reporting bugs, how to communicate with others on the project, or where
 to find more resources or information. Don't forget to include a
 statement welcoming people to your project at the top! Here's the
-[GitHub Docs CONTRIBUTING.md
+[GitHub Docs `CONTRIBUTING.md`
 file](https://github.com/github/docs/blob/main/CONTRIBUTING.md) as an
 example.
 
-[reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/)
+<!-- [reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-contributor-guidelines/) -->
 
-### Exercise: Reading contributing guidlines {#ex-contributing}
+### Exercise: Reading contributing guidlines
 
 Choose two open source products that you have used and find their
 contributing guidelines. Do they contain any sections that aren't in the
 default Tidyverse Contributing Guidelines that you think are useful?
 
-### Code of Conduct {#code-of-conduct}
+### Code of Conduct
 
 To create an inclusive and safe community of users and contributors, a
 Code of Conduct is an important document to include in your project. A
@@ -248,7 +238,8 @@ The function `usethis::use_code_of_conduct()` creates a file called
 `CODE_OF_CONDUCT.md` that contains the text of the [Contributor
 Covenant](https://www.contributor-covenant.org/).
 
-```{r, cs-code_of_conduct, eval=TRUE}
+```{r cs-code_of_conduct}
+#| eval: false
 use_code_of_conduct()
 ```
 
@@ -269,19 +260,20 @@ projects being developed online.
 > have Code of Conduct: the Human Resources department is usually the
 > most helpful place to ask.
 
-The files CONTRIBUTING.md and CODE_OF_CONDUCT.md are treated specially
-by GitHub so that when a new issue is opened for the first time, a
-message box appears with a link to CONTRIBUTING.md and
-CODE_OF_CONDUCT.md, directing new contributors to read these documents.
+The files `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md` are treated
+specially by GitHub so that when a new issue is opened for the first
+time, a message box appears with a link to `CONTRIBUTING.md` and
+`CODE_OF_CONDUCT.md`, directing new contributors to read these
+documents.
 
-### Exercise: Editing the Code of Conduct {#ex-code-of-conduct}
+### Exercise: Editing the Code of Conduct
 
-Read the Code of Conduct file in the `zipfs` package and edit it to
+Read the Code of Conduct file in the zipfs package and edit it to
 include a method of contact for reporting violations. Add details for
 how violations will be handled (for example, banning from project,
 blocking, etc.).
 
-### Exercise: Developing a Code of Conduct as a group {#ex-group-code-of-conduct}
+### Exercise: Developing a Code of Conduct as a group
 
 Discuss as a group what your expectations are for working together
 (things like communication channels, communication expectations,
@@ -289,22 +281,22 @@ timeliness, meeting preparedness, meeting etiquette, etc.).
 
 While your code of conduct list in this exercise may include things that
 are specific to your group, the code of conduct templates that are
-widely used (such as the tidyverse default) have been tested across many
-environments and for many different people. We recommend that you add to
-your code of conduct as needed to suit your situation, but that you keep
-the standard components to create the most welcoming and safe
+widely used (such as the `{tidyverse}` default) have been tested across
+many environments and for many different people. We recommend that you
+add to your code of conduct as needed to suit your situation, but that
+you keep the standard components to create the most welcoming and safe
 environment possible.
 
 [reference](https://mozilla.github.io/open-leadership-training-series/articles/building-communities-of-contributors/write-a-code-of-conduct/)
 
-### Licensing {#license}
+### Licensing
 
 While a Code of Conduct describes how contributors should interact with
 each other, a license dictates how project materials can be used and
 redistributed. If the license or a publication agreement makes it
 difficult for people to contribute, the project is less likely to
-attract new members,\index{project!license} so the choice of license is
-crucial to the project's long-term sustainability.
+attract new members, so the choice of license is crucial to the
+project's long-term sustainability.
 
 > **Open Except...**
 >
@@ -347,8 +339,7 @@ structures.
 To make license selection for code as easy as possible, GitHub allows us
 to select one of several common software licenses when creating a
 repository. The Open Source Initiative maintains [a
-list](https://opensource.org/licenses) of
-\gref{open licenses}{open_license}, and
+list](https://opensource.org/licenses) of open licenses, and
 [choosealicense.com](https://choosealicense.com/) will help us find a
 license that suits our needs. Some of the things we need to think about
 are:
@@ -371,10 +362,9 @@ multiple licenses on different kinds of material [@Alme2017].
 
 Just as the project's Code of Conduct is usually placed in a root-level
 file called `CONDUCT.md`, its license is usually put in a file called
-`LICENSE.md`\index{project files!LICENSE} that is also in the project's
-root directory.
+`LICENSE.md` that is also in the project's root directory.
 
-### Exercise: The Landscape of Open Source Licenses {#ex-license}
+### Exercise: The Landscape of Open Source Licenses
 
 1.  Explore [choosealicense.com](https://choosealicense.com/) and read
     about the different types of open source licenses.
@@ -385,27 +375,23 @@ root directory.
     [Wordpress](https://wordpress.org/about/license/)). Find and read
     the license for each product.
 
-#### Software {#teams-license-software}
+#### Software
 
 In order to choose the right license for our software, we need to
-understand the difference between two kinds of
-license.\index{open source license} The
-\gref{MIT License}{mit_license}\index{MIT License}\index{open source license!MIT License}
-(and its close sibling the BSD
-License)\index{BSD License}\index{open source license!BSD License} say
-that people can do whatever they want to with the software as long as
-they cite the original source, and that the authors accept no
-responsibility if things go wrong. The \gref{GNU Public License}{gpl}
-(GPL)\index{GNU Public License (GPL)}\index{GPL (GNU Public License)}\index{open source license!GPL}
-gives people similar rights, but requires them to share their own work
-on the same terms:
+understand the difference between two kinds of license. The MIT License
+(and its close sibling the BSD License) say that people can do whatever
+they want to with the software as long as they cite the original source,
+and that the authors accept no responsibility if things go wrong. The
+GNU Public License (GPL) gives people similar rights, but requires them
+to share their own work on the same terms:
 
 > You may copy, distribute and modify the software as long as you track
 > changes/dates in source files. Any modifications to or software
 > including (via compiler) GPL-licensed code must also be made available
 > under the GPL along with build and install instructions.
 >
-> ---
+> ------------------------------------------------------------------------
+>
 > [tl;dr](https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3))
 > In other words, if someone modifies GPL-licensed software or
 > incorporates it into their own project, and then distributes what they
@@ -418,6 +404,8 @@ shown that this restriction isn't necessary: many projects have survived
 and thrived without this safeguard. We therefore recommend that projects
 choose the MIT license, as it places the fewest restrictions on future
 action.
+
+<!-- TODO: automatically insert this text with R -->
 
 ``` text
 MIT License
@@ -459,27 +447,23 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 The MIT license, the GPL, and the Hippocratic License are intended for
 use with software. When it comes to data and reports, the most widely
-used family of licenses are those produced by \[Creative
-Commons\]\[creative-commons\].\index{Creative Commons} These have been
-written and checked by lawyers and are well understood by the community.
+used family of licenses are those produced by [Creative
+Commons](https://creativecommons.org/). These have been written and
+checked by lawyers and are well understood by the community.
 
-The most liberal option is referred to as
-\gref{CC-0}{cc_license},\index{Creative Commons!CC-0 license}\index{public domain}
-where the "0" stands for "zero restrictions." This puts work in the
-public domain, i.e., allows anyone who wants to use it to do so, however
-they want, with no restrictions. CC-0 is usually the best choice for
-data, since it simplifies aggregate analysis involving datasets from
-different sources. It does not negate the scholarly tradition and
-requirement of citing sources; it just doesn't make it a legal
-requirement.
+The most liberal option is referred to as CC-0, where the "0" stands for
+"zero restrictions." This puts work in the public domain, i.e., allows
+anyone who wants to use it to do so, however they want, with no
+restrictions. CC-0 is usually the best choice for data, since it
+simplifies aggregate analysis involving datasets from different sources.
+It does not negate the scholarly tradition and requirement of citing
+sources; it just doesn't make it a legal requirement.
 
 The next step up from CC-0 is the Creative Commons--Attribution license,
-usually referred to as
-\gref{CC-BY}{cc_license}.\index{Creative Commons!CC-BY license}\index{CC-BY license}
-This allows people to do whatever they want to with the work as long as
-they cite the original source. This is the best license to use for
-manuscripts: we want people to share them widely but also want to get
-credit for our work.
+usually referred to as CC-BY. This allows people to do whatever they
+want to with the work as long as they cite the original source. This is
+the best license to use for manuscripts: we want people to share them
+widely but also want to get credit for our work.
 
 Other Creative Commons licenses incorporate various restrictions, and
 are usually referred to using two-letter abbreviations:
@@ -508,12 +492,13 @@ well, but after reflection, we decide to choose CC-BY for our papers so
 that everyone can read them (and cite them).
 
 The function `usethis::use_NAME_license()`, replacing `NAME` with a
-license from the list, will create a file called LICENSE.md with the
-text of that license. Hint: start typing `use_license` in RStudio to see
-a dropdown of the different licenses that are included in the `usethis`
-package.
+license from the list, will create a file called `LICENSE.md` with the
+text of that license. Hint: Start typing `use_license` in RStudio to see
+a dropdown of the different licenses that are included in the
+`{usethis}` package.
 
-```{r, cs-license, eval=TRUE}
+```{r cs-licens}
+#|  eval: false
 use_ccby_license()
 ```
 
@@ -531,12 +516,10 @@ contributors know what they should actually be doing on any given day?
 Whether we are working by ourselves or with a group of people, the best
 way to manage this is to use an issue tracking system to keep track of
 tasks we need to complete or problems we need to fix. Issues are
-sometimes called tickets,
-\index{project!issue}\index{issue (in project)} so issue tracking
-systems are sometimes called ticketing
-systems.\index{issue tracking system} They are also often called bug
-trackers, but they can be used to manage any kind of work, and are often
-a convenient way to manage discussions as well.
+sometimes called tickets, so issue tracking systems are sometimes called
+ticketing systems. They are also often called bug trackers, but they can
+be used to manage any kind of work, and are often a convenient way to
+manage discussions as well.
 
 GitHub allows participants to create issues for a project, comment on
 existing issues, and search all available issues. Every issue can hold:
@@ -572,12 +555,10 @@ existing issues, and search all available issues. Every issue can hold:
 
 Broadly speaking, people create three kinds of issues:
 
-1.  \gref{Bug reports}{bug_report} to describe problems they have
-    encountered.\index{bug report}
+1.  Bug reports to describe problems they have encountered.
 
-2.  \gref{Feature requests}{feature_request}\index{feature request}
-    describing what could be done next, such as "add this function to
-    this package" or "add a menu to the website."
+2.  Feature requests describing what could be done next, such as "add
+    this function to this package" or "add a menu to the website."
 
 3.  Questions about how to use the software, how parts of the project
     work, or its future directions. These can eventually turn into bug
@@ -585,7 +566,7 @@ Broadly speaking, people create three kinds of issues:
     documentation.
 
 Issues are sorted into reverse chronological order with the most recent
-issue at the top. The `usethis` package contains a number of functions
+issue at the top. The `{usethis}` package contains a number of functions
 to help you navigate the GitHub pages associated with a project, and the
 function `usethis:browse_github_issues()` will navigate to the Issues
 page of your project.
@@ -599,12 +580,12 @@ issues; for an example of this, check out these [example issue
 templates](https://github.com/altair-viz/altair/issues/new/choose) from
 the Altair project.
 
-### Exercise: Create an issue {#ex-issue}
+### Exercise: Create an issue
 
 1.  Create an issue describing a possible new feature or enhancement for
     the `zipfs` package.
 
-### Exercise: Create an issue template {#ex-issue-template}
+### Exercise: Create an issue template
 
 1.  Create an issue template for reporting bugs in the `zipfs` package,
     following the instructions on GitHub's [issue
@@ -618,16 +599,16 @@ the Altair project.
 > later, which leads to the same questions coming up over and over
 > again. If people can be persuaded to ask questions by filing issues,
 > and to respond to issues of this kind, then the project's old issues
-> become a customized \[Stack Overflow\]\[stack-overflow\] for the
-> project. Some projects go so far as to create a page of links to old
-> questions and answers that are particularly helpful.
+> become a customized [Stack Overflow](https://stackoverflow.com/) for
+> the project. Some projects go so far as to create a page of links to
+> old questions and answers that are particularly helpful.
 
-### Bug Reports {#teams-bugs}
+### Bug Reports
 
 One steady supply of work in any active project is bug reports.
 Unsurprisingly, a well-written bug report is more likely to get a fast
-response\index{bug report!style} that actually addresses the problem
-[@Bett2008]. To write a good bug report:
+response that actually addresses the problem [@Bett2008]. To write a
+good bug report:
 
 1.  Make sure the problem actually *is* a bug. It's always possible that
     we have called a function the wrong way or done an analysis using
@@ -635,12 +616,11 @@ response\index{bug report!style} that actually addresses the problem
     or ask someone else on our team to check our logic, we could well
     fix the problem ourselves.
 
-2.  Try to come up with a reproducible example or
-    "reprex"\index{reproducible example (reprex)}\index{reprex (reproducible example)}
-    that includes only the steps needed to make the problem happen, and
-    that (if possible) uses simplified data rather than a complete
-    dataset. Again, we can often solve the problem ourselves as we trim
-    down the steps to create one.
+2.  Try to come up with a reproducible example or "reprex" that includes
+    only the steps needed to make the problem happen, and that (if
+    possible) uses simplified data rather than a complete dataset.
+    Again, we can often solve the problem ourselves as we trim down the
+    steps to create one.
 
 3.  Write a one-line title for the issue and a longer (but still brief)
     description that includes relevant details.
@@ -661,11 +641,12 @@ response\index{bug report!style} that actually addresses the problem
     \@ref(git-advanced).
 
 An example of a well-written bug report with all of the components
-mentioned above is shown in Figure \@ref(fig:teams-bug-report).
+mentioned above is shown in Figure @fig-teams-bug-report.
 
-```{r teams-bug-report, echo=FALSE, fig.cap="Example of a bug report."}
-# insert_graphic("figures/teams/bug-report.png")
-```
+<!-- TODO: Insert image? -->
+
+![Example of a bug
+report.](/figures/teams/bug-report.png){#fig-teams-bug-report}
 
 It takes time and energy to write a good error report. If the report is
 being filed by a member of the development team, the incentive to
@@ -682,10 +663,9 @@ Sometimes the person creating the issue may not know or have the right
 answer for some of these things, and will be doing their best with
 limited information about the error. Responding with kindness and
 encouragement is important to maintain a healthy community, and should
-be enforced by the project's Code of
-Conduct\index{Code of Conduct (for project)} (Section \@ref(teams-coc)).
+be enforced by the project's Code of Conduct.
 
-### Labeling Issues {#teams-labels}
+### Labeling Issues
 
 The bigger or older a project gets, the harder it is to find
 things---unless, that is, the project's members put in a bit of work to
@@ -749,12 +729,13 @@ separate set of labels can be used to indicate the state of an issue:
     another opportunity to encourage people to stay involved.
 
 Some of the labels that GitHub creates for repositories by default are
-shown in Figure \@ref(fig:teams-labels). These labels can be modified or
-otherwise customized for each repository.
+shown in @fig-teams-labels. These labels can be modified or otherwise
+customized for each repository.
 
-```{r teams-labels, echo=FALSE, fig.cap="Labels for GitHub issues."}
-# insert_graphic("figures/teams/issue-labels.png")
-```
+<!-- TODO: Add image here? -->
+
+![Labels for GitHub
+Issues.](/figures/teams/issue-labels.png){#fig-teams-labels}
 
 Once your project is configured with GitHub (see chapter FIXME), the
 function `usethis:use_github_labels()` will create a set of default
@@ -786,9 +767,9 @@ which will label an issue (with the issue number as the function
 argument) with the *reprex* label and provide some default advice about
 what the author should do next.
 
-### Exercise: Create labels {#ex-labels}
+### Exercise: Create labels
 
-1.  Run `use_github_labels()` in the `zipfs` repository. Label the
+1.  Run `use_github_labels()` in the zipfs repository. Label the
     existing issues so that each has at least one label.
 
 2.  Do the default label names suit the project's needs? Delete any that
@@ -800,8 +781,7 @@ journal issues, or conferences instead of *current*, *next*, and
 unwieldy as labels with names like `sprint-2020-08-01` and
 `spring-2020-08-16` pile up.
 
-Instead, a project team will usually create a milestone
-,\index{milestone (in project)}\index{project!milestone} which is a set
+Instead, a project team will usually create a milestone , which is a set
 of issues and pull requests in a single project repository. GitHub
 milestones can have a due date and display aggregate progress toward
 completion, so the team can easily see when work is due and how much is
@@ -812,7 +792,7 @@ reminders for miscellaneous tasks.
 This chapter lays the foundation for encouraging other people to
 interact with your code. In following chapters, we'll formalize the the
 methods for sustaining your project. We'll discuss using labels for
-project management in \@ref(team-package-development).
+project management in @sec-team-package-development.
 
 FIXME: more here about project maintenance, longevity and
 sustainability? Possible areas to cover: [project
@@ -950,4 +930,3 @@ resources](https://mozilla.github.io/open-leadership-training-series/articles/re
         to contribute and use issues.
 
 ### Exercises for second project assignment
-
