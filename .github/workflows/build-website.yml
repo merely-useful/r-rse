@@ -31,4 +31,4 @@ jobs:
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: netlify
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.TIC_DEPLOY_KEY }}
