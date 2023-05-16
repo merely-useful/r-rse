@@ -253,11 +253,14 @@ action?
 usethis::create_package(path = "zipfs")
 ```
 
-```{r ce-create-pkg, echo=FALSE}
-# If needed. Code used in section, NOT shown to learners, but needed for auto building of package/book
+```{r admin-create-pkg}
+#| echo: false
 temp_pkg <- fs::file_temp_push(glue::glue("{tempdir()}/zipfs"))
 fs::dir_create(temp_pkg)
-usethis::create_package(path = temp_pkg, open = FALSE)
+usethis::with_project(
+  path = project_path,
+  {usethis::create_package(path = temp_pkg, open = FALSE)}
+)
 ```
 
 Instead of using code, you can also do it through RStudio (if you use
@@ -268,7 +271,7 @@ through each of the things that have been created throughout the rest of
 this section.
 
 ::: callout-note
-TODO: Make sure this thing works for css and latex
+<!-- TODO: Make sure this thing works for css and latex -->
 
 You might notice that we are creating the package in the temporary
 directory "`r fs::path_dir(temp_pkg)`". Because (almost) all of the
