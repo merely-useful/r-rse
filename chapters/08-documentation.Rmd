@@ -50,7 +50,7 @@ formatting.
 Let's add documentation for the function `extract_element()` from the
 zipfs package. First, all we need to do is write the function itself.
 
-```{r cs-extract-element}
+```{r cs-extract-element-fun}
 extract_element <- function(text, element){
   line <- str_subset(text, element)
   str_remove(line, element)
@@ -63,7 +63,7 @@ with `Ctrl-Shift-P` and then type out `roxygen` to search for the
 option). This command adds the default components of function
 documentation as comments above the function.
 
-```{r cs-extract-element}
+```{r cs-extract-element-with-roxygen}
 #' Title
 #'
 #' @param text 
@@ -86,8 +86,8 @@ function.
 
 <!-- TODO: perhaps include a deliberate typo here to be caught later by `spelling`?-->
 
-```{r cs-extract-element}
-#' Title
+```{r cs-extract-element-fill-in-roxygen}
+#' Extract specific text element from string.
 #'
 #' @param text A string of text
 #' @param element A substring to search for in `text`
