@@ -222,8 +222,14 @@ depending on the instructor).
 
 -   The main example package developed throughout the book is the Zipf's
     Law package zipfs. This package is used for the code-alongs, the
-    actual content, and most of the exercises. More details about the
-    Zipf's Law will be introduced in @sec-package-setup.
+    actual content, and most of the exercises. Zipf's Law is a
+    fascinating result in the field of quantitative linguistics that
+    states that the second most common word in a body of text appears
+    half as often as the most common, the third most common appears a
+    third as often, and so on. To test whether Zipf's Law holds for a
+    collection of classic novels that are freely available from Project
+    Gutenberg, we will write a software package that counts and analyzes
+    the word frequency distribution in any arbitrary body of text.
 -   The example package for the first project assignment is the Weather
     in Kenya package kenyaweather. This package is used as a reference
     when you work on your package for the first project assignment.

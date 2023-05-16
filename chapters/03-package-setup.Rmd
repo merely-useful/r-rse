@@ -18,19 +18,6 @@ library(usethis)
     package development a bit easier.
 -   Learn how and why you might add data to an R package.
 
-## About Zipf's Law
-
-TODO: Not sure this belongs here. Maybe in preface?
-
-We'll create a package (`{zipfs}`) to analyze a fascinating result in
-the field of quantitative linguistics. Zipf's Law states that the second
-most common word in a body of text appears half as often as the most
-common, the third most common appears a third as often, and so on. To
-test whether Zipf's Law holds for a collection of classic novels that
-are freely available from Project Gutenberg, we will write a software
-package that counts and analyzes the word frequency distribution in any
-arbitrary body of text.
-
 ## Why create an R package?
 
 The main aim of developing software is to simplify some task or a set of
