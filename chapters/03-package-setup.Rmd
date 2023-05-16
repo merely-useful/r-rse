@@ -187,19 +187,18 @@ will know to search for the functions found in the `fs/` package folder.
 
 So, installing your own package that is only found on your computer is
 no different from installing a package from CRAN with
-`install.packages()` or from GitHub with `remotes::install_github()`.
-The only difference is that packages on CRAN or GitHub (from a public
-repository) are usable to anyone who can access the Internet.
+`install.packages()` or from GitHub with `pak::pak()`. The only
+difference is that packages on CRAN or GitHub (from a public repository)
+are usable to anyone who can access the Internet.
 
 You might have noticed that we've used the syntax
 `packagename::functionname()` a few times now. What this tells R to do
-is to use the function from a specific package. So
-`remotes::install_github()` is telling R to use the `install_github()`
-function from the `{remotes}` package. For package development in
-particular, we use this rather than, for instance, `library(remotes)`
-because we want to be explicit about which function we are wanting to
-use and because we don't need to load all the functions from the package
-when we only want to use one or two of them.
+is to use the function from a specific package. So `pak::pak()` is
+telling R to use the `pak()` function from the `{pak}` package. For
+package development in particular, we use this rather than, for
+instance, `library(pak)` because we want to be explicit about which
+function we are wanting to use and because we don't need to load all the
+functions from the package when we only want to use one or two of them.
 
 ### Exercise: Install a package from GitHub {#ex-install-github-package}
 
@@ -214,10 +213,9 @@ get a bit familiar with it. Open up the [GitHub repository for
 
 2.  Find out where the package name is in the `DESCRIPTION` file.
 
-3.  In your RStudio Console, use `remotes::install_github()` to install
-    the `{usethis}` package. View the help documentation
-    (`?remotes::install_github`) to learn how to use it to install the
-    package.
+3.  In your RStudio Console, use `pak::pak()` to install the `{usethis}`
+    package. View the help documentation (`?pak::pak`) to learn how to
+    use it to install the package.
 
 ## Creating a package
 

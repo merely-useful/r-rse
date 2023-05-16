@@ -35,9 +35,9 @@ commenting features in the PR.
 3.  Install the dependencies by typing in the console
 
     ``` r
-    # Make sure you have remotes installed
-    # install.packages("remotes")
-    remotes::install_deps()
+    # Make sure you have pak installed
+    # install.packages("pak")
+    pak::pak()
     ```
 
 This book is written in [Quarto](https://quarto.org/). If you want to
@@ -119,9 +119,10 @@ preview builds on your own computer:
     limitations with the PDF output. TODO: This will probably be
     automated and you won't need to think about this.
 
-- Write functions as `function_name()`, folders as `folder-name/`, and
-packages as `{packagename}`. At least for the functions and packages, when formatted
-this way they get automatic linking through bookdown (as HTML only).
+-   Write functions as `function_name()`, folders as `folder-name/`, and
+    packages as `{packagename}`. At least for the functions and
+    packages, when formatted this way they get automatic linking through
+    bookdown (as HTML only).
 
 ### Language-related
 
@@ -169,3 +170,4 @@ necessary for the building of the book, use CRAN official packages.
 
 The book is build using GitHub Actions with this
 [`build-website.yaml`](.github/workflows/build-website.yaml) action.
+
