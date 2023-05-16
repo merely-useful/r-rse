@@ -26,6 +26,9 @@ When reviewing PRs and making changes, it's probably easier to edit the
 branch directly and push the change up. For comments, please use the
 commenting features in the PR.
 
+If you want to make use of snippets to add text/code more quickly, check
+out the `_admin/markdown.snippets` file.
+
 ## Setting up and building the book
 
 1.  Install R and RStudio
@@ -170,4 +173,3 @@ necessary for the building of the book, use CRAN official packages.
 
 The book is build using GitHub Actions with this
 [`build-website.yaml`](.github/workflows/build-website.yaml) action.
-

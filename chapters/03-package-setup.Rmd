@@ -18,19 +18,6 @@ library(usethis)
     package development a bit easier.
 -   Learn how and why you might add data to an R package.
 
-## About Zipf's Law
-
-TODO: Not sure this belongs here. Maybe in preface?
-
-We'll create a package (`{zipfs}`) to analyze a fascinating result in
-the field of quantitative linguistics. Zipf's Law states that the second
-most common word in a body of text appears half as often as the most
-common, the third most common appears a third as often, and so on. To
-test whether Zipf's Law holds for a collection of classic novels that
-are freely available from Project Gutenberg, we will write a software
-package that counts and analyzes the word frequency distribution in any
-arbitrary body of text.
-
 ## Why create an R package?
 
 The main aim of developing software is to simplify some task or a set of
@@ -59,10 +46,7 @@ easier than it was in the past. That's largely thanks to R packages like
 `{devtools}` and `{usethis}` that are designed to simplify developing R
 packages. Combined with these packages, there are also so many free,
 online books and resources for learning how to make R packages and doing
-software development in R (LINK).
-
-TODO: Include link to our resources section that has links to books like
-R packages, mastering software dev etc.
+software development in R (see @sec-resources).
 
 If we go back to the big picture in the preface in Section
 @sec-big-picture, creating an R package, either posted on GitHub or
@@ -93,13 +77,13 @@ when it is used this way.
     default in a file, but this stores *everything* you've entered into
     the R Console, including wrong code.
 
-TODO: Image here that describes this a bit more?
+<!-- TODO: Image here that describes this a bit more? -->
 
 The next level up is to save code in an R script (a file stored anywhere
 on the computer that end in `.R`) and get R to run this code in
 sequence. In the past, people might write R scripts in text editors like
 vim, emacs, or Notepad, and manually run the script in the R Console.
-Now, you'll mostly encounter people use an Integrated Development
+Now, you'll mostly encounter people using an Integrated Development
 Environment (IDE) (REF LINK) like RStudio to do this work instead. This
 is the most commonly used approach to doing any type of work in R.
 Theoretically, code written in this way is reproducible and can be
@@ -251,8 +235,7 @@ available::available_on_bioc("zipfs")
 available::available_on_github("zipfs")
 ```
 
-TODO: Update based on if the package has been added to GitHub at time of
-publication.
+<!-- TODO: Update based on if zipfs has been added to GitHub  -->
 
 We see in this case that `{zipfs}` is available for us to use. Now that
 we have a name, the next step is to setup the basic infrastructure for
@@ -270,11 +253,14 @@ action?
 usethis::create_package(path = "zipfs")
 ```
 
-```{r ce-create-pkg, echo=FALSE}
-# If needed. Code used in section, NOT shown to learners, but needed for auto building of package/book
+```{r admin-create-pkg}
+#| echo: false
 temp_pkg <- fs::file_temp_push(glue::glue("{tempdir()}/zipfs"))
 fs::dir_create(temp_pkg)
-usethis::create_package(path = temp_pkg, open = FALSE)
+usethis::with_project(
+  path = project_path,
+  {usethis::create_package(path = temp_pkg, open = FALSE)}
+)
 ```
 
 Instead of using code, you can also do it through RStudio (if you use
@@ -285,7 +271,7 @@ through each of the things that have been created throughout the rest of
 this section.
 
 ::: callout-note
-TODO: Make sure this thing works for css and latex
+<!-- TODO: Make sure this thing works for css and latex -->
 
 You might notice that we are creating the package in the temporary
 directory "`r fs::path_dir(temp_pkg)`". Because (almost) all of the
