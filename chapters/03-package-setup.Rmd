@@ -77,13 +77,13 @@ when it is used this way.
     default in a file, but this stores *everything* you've entered into
     the R Console, including wrong code.
 
-TODO: Image here that describes this a bit more?
+<!-- TODO: Image here that describes this a bit more? -->
 
 The next level up is to save code in an R script (a file stored anywhere
 on the computer that end in `.R`) and get R to run this code in
 sequence. In the past, people might write R scripts in text editors like
 vim, emacs, or Notepad, and manually run the script in the R Console.
-Now, you'll mostly encounter people use an Integrated Development
+Now, you'll mostly encounter people using an Integrated Development
 Environment (IDE) (REF LINK) like RStudio to do this work instead. This
 is the most commonly used approach to doing any type of work in R.
 Theoretically, code written in this way is reproducible and can be
@@ -235,8 +235,7 @@ available::available_on_bioc("zipfs")
 available::available_on_github("zipfs")
 ```
 
-TODO: Update based on if the package has been added to GitHub at time of
-publication.
+<!-- TODO: Update based on if zipfs has been added to GitHub  -->
 
 We see in this case that `{zipfs}` is available for us to use. Now that
 we have a name, the next step is to setup the basic infrastructure for
