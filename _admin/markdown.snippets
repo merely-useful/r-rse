@@ -1,0 +1,51 @@
+# Use this file to copy and paste into the RStudio snippets so you can
+# use `Shift-Tab` after typing the snippet text.
+#
+# Add these snippets by using the Palette (typing "edit snippets") and pasting
+# these into the Markdown section.
+#
+# -----
+snippet video
+	{{< video ${0} >}}
+
+snippet image_opts
+	![${1:caption}](${0}){${2:options}}
+
+# Use this to add to the package so later chapters can build off earlier work
+snippet temp_with_project
+	```{r admin-${1:label}}
+	#| echo: false
+	usethis::with_project(
+		path = project_path,
+		{${0}}
+	)
+	```
+
+# Not sure if we want to add the solution code right at the exercise,
+# or in another section
+snippet solution_chunk
+	```{r solution-${1:label}}
+	#| eval: true
+	#| output: false
+	#| code-fold: true
+	#| code-summary: "**Click for the solution**. Only click if you are struggling or are out of time."
+	${0}
+	```
+snippet r
+	```{r ${1:label}, ${2:options}}
+	${0}
+	```
+
+# For formatting packages properly
+snippet p
+	`{${0}}`
+
+snippet fix
+	<!-- FIXME: ${0} -->
+
+snippet todo
+	<!-- TODO: ${0} -->
+
+# To add keybindings
+snippet kb
+	{{< var keybind.${0} >}}
