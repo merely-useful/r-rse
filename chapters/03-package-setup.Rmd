@@ -46,10 +46,7 @@ easier than it was in the past. That's largely thanks to R packages like
 `{devtools}` and `{usethis}` that are designed to simplify developing R
 packages. Combined with these packages, there are also so many free,
 online books and resources for learning how to make R packages and doing
-software development in R (LINK).
-
-TODO: Include link to our resources section that has links to books like
-R packages, mastering software dev etc.
+software development in R (see @sec-resources).
 
 If we go back to the big picture in the preface in Section
 @sec-big-picture, creating an R package, either posted on GitHub or
