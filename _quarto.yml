@@ -27,6 +27,7 @@ book:
     chapters:
         - index.Rmd
         - chapters/01-preface.Rmd
+        - chapters/03-package-setup.Rmd
         - chapters/08-documentation.Rmd
         - chapters/10-community-involvement.Rmd
         - chapters/11-version-control-workflow.Rmd
@@ -53,3 +54,6 @@ editor_options:
   markdown:
     wrap: 72
     canonical: true
+
+execute:
+  freeze: true
