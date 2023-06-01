@@ -14,3 +14,4 @@ Imports:
 Suggests: 
     tidyverse
 Encoding: UTF-8
+LazyData: true
