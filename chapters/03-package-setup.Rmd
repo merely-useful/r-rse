@@ -108,7 +108,7 @@ conventions include:
 
 -   There must be an `R/` folder. This will usually contain only `.R`
     files and usually they contain only R functions you've created. We
-    cover functions in more detail in Chapter @sec-function-development.
+    cover functions in more detail `@sec-function-development`.
 
 -   There must be a `NAMESPACE` file that contains the list of functions
     in your package that you want the user to use. We won't cover this
@@ -255,12 +255,14 @@ usethis::create_package(path = "zipfs")
 
 ```{r admin-create-pkg}
 #| echo: false
-temp_pkg <- fs::file_temp_push(glue::glue("{tempdir()}/zipfs"))
-fs::dir_create(temp_pkg)
-usethis::with_project(
-  path = project_path,
-  {usethis::create_package(path = temp_pkg, open = FALSE)}
+temp_dir <- fs::path_temp()
+project_path <- fs::path(temp_dir, "zipfs")
+withr::with_dir(
+  new = temp_dir,
+  {usethis::create_package(path = "zipfs", open = FALSE, rstudio = TRUE)}
 )
+usethis::proj_set()
+warning(usethis::proj_get())
 ```
 
 Instead of using code, you can also do it through RStudio (if you use
@@ -274,7 +276,7 @@ this section.
 <!-- TODO: Make sure this thing works for css and latex -->
 
 You might notice that we are creating the package in the temporary
-directory "`r fs::path_dir(temp_pkg)`". Because (almost) all of the
+directory "`r fs::path_dir(project_path)`". Because (almost) all of the
 output from code in this book is generated automatically, we need to
 have a way to create the package and do other code-based work that works
 on each of the authors' computers as well as on the GitHub Actions
@@ -293,15 +295,24 @@ eventually use Git, and a `.Rbuildignore` file that tells R to ignore
 including certain files when building the package. This will become
 important later.
 
-```{r ce-new-pkg-file-tree, echo=FALSE}
-fs::dir_tree(temp_pkg, all = TRUE)
+```{r admin-new-pkg-file-tree}
+#| echo: false
+usethis::with_project(
+  path = project_path,
+  {fs::dir_tree(all = TRUE)},
+  quiet = TRUE
+)
 ```
 
 Open up the `DESCRIPTION` file so we can look inside it:
 
-```{r ce-show-description-contents, results='asis', echo=FALSE}
-# If needed. Code used in section, NOT shown to learners, but needed for auto building of package/book
-cat(readLines(fs::path(temp_pkg, "DESCRIPTION")), sep = "\n")
+```{r admin-show-desc}
+#| echo: false
+usethis::with_project(
+  path = project_path,
+  {desc::desc()},
+  quiet = TRUE
+)
 ```
 
 As mentioned, the `DESCRIPTION` file contains the metadata for the
@@ -343,7 +354,7 @@ look something like this now:
 
 ```{r ee-fill-in-description, include=FALSE}
 # If needed. Code for exercise, NOT shown to learner, used for auto building of package/book
-desc_file <- fs::path(temp_pkg, "DESCRIPTION")
+desc_file <- fs::path(project_path, "DESCRIPTION")
 desc <- desc::description$new(file = desc_file)
 desc$set(
     Title = "Testing Zipfs Law on Novels",
@@ -374,7 +385,7 @@ our workflow easier, `{usethis}` naturally has functions to help us out.
 In the R Console, run each of these commands, following their
 instructions before running the next one.
 
-TODO: Include output from these?
+<!-- TODO: Include output from these? -->
 
 ```{r cs-developer-profile-options, eval=FALSE}
 usethis::use_devtools()
@@ -388,7 +399,7 @@ test out that the `{usethis}` and `{devtools}` packages are loaded by
 typing out `use_` in the R Console and hitting the TAB key to list
 available functions.
 
-TODO: Add details about fixing issues if the above doesn't work.
+<!-- TODO: Add details about fixing issues if the above doesn't work. -->
 
 After that, we want to set up our RStudio so that whenever we open the R
 Project of our `{zipfs}` package, the R session starts in a "blank
@@ -396,7 +407,7 @@ slate". What this means is that we don't want old data, functions, or
 variables loaded into the Environment from the previous session we might
 have worked on.
 
-```{r cs-blank-slate-user, eval=FALSE}
+``` r
 use_blank_slate()
 ```
 
@@ -411,16 +422,16 @@ use_blank_slate("project")
 
 ```{r ce-blank-slate-project, echo=FALSE}
 # If needed. Code used in section, NOT shown to learners, but needed for auto building of package/book
-# local_project(temp_pkg, quiet = TRUE)
-temp_pkg
-usethis::with_project(temp_pkg, {
-    use_blank_slate("project")
-})
+usethis::with_project(
+  path = project_path, 
+  {usethis::use_blank_slate()},
+  quiet = TRUE
+)
 ```
 
 ### Exercise: Setting up additional configurations
 
-TODO: Should this be a note section or appendix or exercise?
+<!-- TODO: Should this be a note section or appendix or exercise? -->
 
 There are other configurations you can set to make your work as a
 developer easier, particularly when adding things to your `.Rprofile`
@@ -433,13 +444,18 @@ paste the below text and replace the `___` with your specific values. If
 you need help figuring out what to fill in for the `person()` section,
 use `?person` to read through the help documentation. The last value
 about the `Roxygen` and `markdown = TRUE` will be discussed more in the
-Chapter @sec-function-development and @sec-package-documentation.
+`@sec-function-development` and @sec-package-documentation.
 
 ``` r
 options(
     usethis.full_name = "___",
-    usethis.description = list(`Authors@R` = 'person(given = "___", family = "___", email = "___", role = c("aut", "cre"))',
-                               Roxygen = "list(markdown = TRUE)")
+    usethis.description = list(`Authors@R` = 'person(
+      given = "___", 
+      family = "___", 
+      email = "___", 
+      role = c("aut", "cre"))',
+      Roxygen = "list(markdown = TRUE)"
+    )
 )
 ```
 
@@ -463,15 +479,15 @@ terms, like this:
 2.  In this new file you would start creating and developing the
     function, writing the input arguments and the eventual output, while
     starting to fill in the Roxygen documentation. We'll discuss a more
-    detailed function workflow in later chapters, such as Chapter
-    @sec-function-development.
+    detailed function workflow in later chapters, such as
+    `@sec-function-development`.
 
 3.  Once you feel the function is ready to be tested out, you might test
     the function out by either running it in the `@examples` Roxygen
     section, by using a temporary "development" script or R Markdown
     file, or inside one of the R Markdown vignettes, all of which we
-    will talk about more in Chapter @sec-function-development. To make
-    the function available to R, you would use `Ctrl-Shift-L` while in
+    will talk about more in `@sec-function-development`. To make the
+    function available to R, you would use `Ctrl-Shift-L` while in
     RStudio to run `load_all()` (from `{devtools}`). After `load_all()`
     finishes, run the function to see if it works.
 
@@ -586,7 +602,7 @@ use_data_raw("project-gutenberg")
 ```
 
 ```{r ce-create-data-raw, echo=FALSE}
-local_project(temp_pkg, quiet = TRUE)
+local_project(project_path, quiet = TRUE)
 use_data_raw("project-gutenberg", open = FALSE)
 ```
 
@@ -594,12 +610,12 @@ This function creates the `data-raw/` folder as well as an R script
 inside, as we can see with `dir_tree()`.
 
 ```{r ce-show-tree-with-data-raw, echo=FALSE}
-dir_tree(temp_pkg)
+dir_tree(project_path)
 ```
 
 Inside the file is:
 
-```{r cs-inside-empty-data-raw-folder, file=fs::path(temp_pkg, "data-raw", "project-gutenberg.R"), eval=FALSE}
+```{r cs-inside-empty-data-raw-folder, file=fs::path(project_path, "data-raw", "project-gutenberg.R"), eval=FALSE}
 ```
 
 We want to eventually download a few books but for now we will download
@@ -720,8 +736,7 @@ usethis::use_data(books, overwrite = TRUE)
 
 Data that you want the user to access must be included in the `data/`
 folder and it must be as an `.rda` file format. It should also be
-documented properly, which we will cover in Chapter
-@sec-package-documentation.
+documented properly, which we will cover in @sec-package-documentation.
 
 If you recall, we use `load_all()` (`Ctrl-Shift-L` in RStudio) during
 package development to mimic installing the package and testing that
@@ -845,5 +860,6 @@ fs::dir_tree(temp_dir)
 fs::dir_delete(temp_dir)
 ```
 
-TODO: Bundle the final package used with Git/zip? move to temp folder?
-TODO: Use git_commit/git_signature to set the author to Sami or other
+<!-- TODO: Bundle the final package used with Git/zip? move to temp folder? -->
+
+<!-- TODO: Use git_commit/git_signature to set the author to Sami or other -->
