@@ -156,6 +156,63 @@ FIXME: more examples? - Project examples: -
 [bootstrap](https://github.com/twbs/bootstrap/projects) - FIXME: more
 examples?
 
+## Include Everyone {#teams-inclusive}
+
+Most research software projects begin as the work of one person,
+who may continue to do the bulk of the coding and data analysis throughout its existence [@Maju2019].
+As projects become larger,
+though,
+they eventually need more contributors to sustain them.
+Involving more people also improves the functionality and robustness of the code,
+since newcomers bring their own expertise or see old problems in new ways.
+
+In order to leverage a group's expertise,
+a project must do more than *allow* people to contribute:
+its leaders must communicate that the project *wants* contributions,
+and that newcomers are welcome and valued [@Shol2019].\index{project!inclusivity}\index{inclusivity}
+Saying "the door is open" is not enough:
+many potential contributors have painful personal experience of being less welcome than others.
+In order to create a truly welcoming environment for everyone,
+the project must explicitly acknowledge that some people are treated unfairly
+and actively take steps to remedy this.
+Doing this increases diversity within the team,
+which makes it more productive [@Zhan2020].
+More importantly,
+it is the right thing to do.
+
+> **Terminology**
+>
+> \gref{Privilege}{privilege} is an unearned advantage given to some people but not all,\index{privilege}
+> while \gref{oppression}{oppression} is systemic inequality that benefits the privileged\index{oppression}
+> and harms those without privilege [@Auro2018].
+> In Europe, the Americas, Australia, and New Zealand,
+> a straight, white, affluent, physically able male
+> is less likely to be interrupted when speaking,
+> more likely to be called on in class,
+> and more likely to get a job interview based on an identical CV
+> than someone who is outside these categories.
+> People who are privileged are often not aware of it,
+> as they've lived in a system that provides unearned advantages their entire lives.
+> In John Scalzi's memorable phrase,
+> they've been playing on the lowest difficulty setting there is
+> their whole lives,
+> and as a result don't realize how much harder things are for others [@Scal2012].
+>
+> The targets of oppression are often called "members of a marginalized group,"
+> but targets don't choose to be marginalized:
+> people with privilege marginalize them.
+> Finally,
+> an \gref{ally}{ally} is a member of a privileged group\index{ally}
+> who is working to understand their own privilege and end oppression.
+Encouraging inclusivity is a shared responsibility.
+If we are privileged,
+we should educate ourselves and call out peers who are marginalizing others,
+even if (or especially if) they aren't conscious of doing it.
+As project leaders,
+part of our job is to teach contributors how to be allies
+and to ensure an inclusive culture [@Lee1962].
+
+
 <!-- TODO: This is better here, not in the final exercise. -->
 
 <!-- Example: [STEMMM Role Models -->
