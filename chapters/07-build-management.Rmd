@@ -32,6 +32,31 @@
     * Exercise: Present an error with CRAN check that has not been previously seen in the book and have the learners find the solution
       * This will be expanded in detail once all of the chapters have been outlined
 
+CRAN, the Comprehensive R Archive Network (https://cran.r-project.org/) defines itself as:
+
+> a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R
+
+What this means in practice is that CRAN is a package repository for R packages. 
+As of March 2022, it contains over 19,000 of these packages. 
+CRAN provides these packages as source code for Linux distributions and as compiled binaries for macOS and Windows. 
+These compiled binaries substantially improve the speed of installation of the packages.
+Now, as a package repository, CRAN has a policy to ensure that packages meet a certain level of quality before they are accepted into the repository. 
+This policy is known as the CRAN Repository Policy. 
+It is important to be familiar with the policy as it informs best practices and requirements about R package developement, even if your package is not going to be hosted in CRAN.
+However, most folks don't try to comply with the policy manually and instead use a tool called a `check`. 
+
+These checks verify that the package has:
+
+- Tests
+- Documentation
+- Proper Metadata
+- Dependency Tracking
+
+among other things.
+
+To-Do: Explain the output of a CRAN check
+
+
 * R package build workflow
 
     * Text: Explain local functions and why to use `load_all()`
