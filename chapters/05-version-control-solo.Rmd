@@ -1,131 +1,133 @@
 # Version control: Using Git and GitHub as a sole user (part 1) {#git-solo}
 
-Emphasize exercises to practice,
-not showing output of git in code chunks (they are a pain to edit afterwards).
-
-Clearly identify which tasks are best accomplished by each interface.
-
-- Using Git integration in RStudio (standard add-commit-history)
-- Using Git in the Terminal of RStudio
-  - moving in history with checkout
-  - creating branches
-  - adding and updating remotes
-- Setting up GitHub for R package (make use of `usethis`), pushing and pulling
-
-## Learning objectives
+## Learning objectives {#05-learning-objectives}
 
 * identify why version control, specifically Git, is important for software engineering
-* differentiate methods for working with Git and R: RStudio integration, using shell commands in Terminal, `usethis` functions
+* differentiate methods for working with Git and R: RStudio integration, `usethis` and `gert` functions
 * apply the change-stage-commit process as the Git workflow for tracking changes and viewing a repository's commit history
-* create branches to isolate work in progress and protect the main branch while working on major changes
 * publish repositories to GitHub and coordinate between remote and local versions
 
-## Overview
+## Introduction to version control {#intro-version-control}
 
-All text (no code):
-* why to use version control
-* why to use Git as a version control system (popularity, GitHub, 
-* how are Git and GitHub different?
-  * local vs remote
-  * publishing 
-* why use version control for software engineering 
-  * basics of version control and why it matters for code
-  * preview this chapter, connect to other chapters
+Version control is the practice of tracking and managing changes to code and other types of files.
+If you've used tracked changes in Microsoft Word or Google Docs,
+you're already familiar with using version control to track changes to documents.
+A version control system, or software used to implement version control,
+is an essential part of software engineering because of the history it retains
+of who made what changes and when.
 
-## Git integration in RStudio
+Git is a version control system,
+while GitHub is a website for publishing and sharing projects that are tracked using Git. 
+Git and GitHub are a very popular set of tools used by both academic and commercial organizations, 
+and correspondingly, 
+have well-developed help documentation and a large community of users to assist in their use.
+Version control is used to record changes to all types of files, 
+but is especially important for code. 
+This is because changes made to code may have consequences for other parts of the file or project, 
+and being able to understand when and where changes caused problems is especially important.
 
-### Setting up Git in RStudio
+In this chapter,
+we'll introduce version control by tracking the files to our project created so far,
+navigating the Git workflow within the context of project development,
+both while exploring different ways to interact with Git in RStudio.
 
-* text: connecting Git and RStudio
+## The basic Git workflow {#git-workflow}
+
+There are many different ways to interact with Git version control software.
+For the purposes of this book,
+we'll be using two of these approaches:
+the Git interface in RStudio, 
+and R functions that implement Git commands
+through the `usethis` and `gert` packages.
+
+> popout to explain working with git on command line and with Git Desktop App
+
+See the [appendix]
+for more information on setting up Git and GitHub,
+and make sure you can access Git via RStudio prior to continuing with this chapter.
+
+### Getting started with Git in RStudio {#git-rstudio}
+
+* Git and RStudio
   * accessing Git through Global options
-  * tab in environment pane 
-* code: `usethis::use_git` to initialize repository
-* text: explain what happens when repo is initialized
+  * tab in environment pane
+
+* setting global parameters
+  * name
+  * email
+
+* Initializing a repository
   * creates hidden folder containing git history
   * some files ignored (note that it's possible to add other files to ignore)
 
-### Tracking changes in RStudio
+### Exercise: initialize repository {#ex-initialize}
 
-All text and images:
-* exercise: work through basic workflow using RStudio integration
+initializing with GUI
+
+`usethis::use_git` to initialize repository
+
+### Tracking changes {#tracking-changes}
+
+explain git workflow
+
+### Exercise: track existing files in project {#ex-tracking}
+
+* work through basic workflow using RStudio integration
   * all existing files in repo appear in git pane
   * ensure box is checked so these files are staged
   * click Commit button, add commit message and click commit
   * note pop up box with commit report, files no longer appear in window
-* reiterate workflow by editing README
+
+* reiterate workflow by editing README and commiting with `gert`
   * status difference between tracking new files and editing previously tracked file
 
-* exercise: create new file, commit, delete file, commit
+```
+git_add(README.md)
+git_commit("message")
+```
 
-### Viewing history in RStudio
+* with your choice of interface, create new file, commit, delete file, commit
 
-All text and images:
+### Working with version history {#git-history}
+
+Viewing history:
 * click on clock button in Git pane (don't confuse with history tab; all git buttons are in Git tab)
 * explain fields: subject, author, date, SHA
 * click on a previous commit to see changes
 
-## Git in Terminal
+`gert::git_log(max=-6)`
 
-* text: git on command line includes commands for full range of tasks, including those we've already covered:
-  * initialize repository: `git init`
-  * basic workflow: `git add` then `git commit`
-  * view history: `git log`
+### Exercise: discarding a change {#ex-discard}
 
-### Exploring history in Terminal
-
-* code: make a change to README, then restore to previous (most recent) commit (pretend changes didn't exist, as if we changed our mind)
-  * `git status`
-  * `git restore README.md`
-  * `git status`
+* make a change to README, then restore to previous (most recent) commit (pretend changes didn't exist, as if we changed our mind)
 
 * text: if we wanted to use content from a previous commit, like the file we created then deleted earlier
   * find SHA key in log
-* code:
-  * `git checkout XXXXXXX filename`
-  * `git status`
-  * `git restore --staged filename`
-  * `git restore filename`
-  * `git status`
 
-### Creating branches in Terminal
+## Working with remote repositories in GitHub {#git-remotes}
 
-* text: what is a branch? 
-  * main branch (make sure usethis creates main as default branch)
-  * why work with them?
-* code: create branch, make changes, merge with main
-  * `git branch`
-  * `git checkout -b new_idea`
-  * make changes to file
-  * `git add filename`
-  * `git commit -m filename`
-  * `git checkout main`
-  * `git merge new_idea`
-  * `git branch -d new_idea`
-* text: note working with branches in rstudio tab
+* remote vs local repositories
 
-Exercise
+### Exercise: connect a remote repository {#ex-remote}
 
-Discuss more about branches in git workflows chapter
+* create remote repo and connect with local
 
-## Working with remote repositories
+### Pushing 
 
-* text: remote vs local repositories
-* code: create remote repo and connect with local
-  * `usethis::git_remotes`
-  * `usethis::use_github`
-  * `usethis::git_remotes`
-* text: summarize process above
+defining push and pull
 
-Exercise
+explain why you'd want to use these
 
-* text: pushing (define)
+### Exercise: push changes to GitHub {#ex-push}
+
 * make change to file
 * commit with Rstudio integration
 * use push button
 
-* explain pulling as inverse (but maybe not explain GitHub interface as thoroughly?)
+### Pulling
 
-* text: relate to command line activities
+* explain pulling as inverse of pushing
+* FIXME: include exercise making change on github and pulling?
 
 ## Final exercise {#05-final-exercise}
 
@@ -136,21 +138,10 @@ we will use the `kenyaweather` package as an example and reference.
 
 TODO: This question makes a change to zipfs, so this should be reflected in any automation we do to it.
 
-1. For the `zipfs` previously used for demonstration in this chapter,
-perform the following tasks:
-    - Open up a Terminal and create a new branch called `new-feature` with `git`.
-    - Open up any file and make a minor change (e.g. add a word like "random").
-    In the RStudio Git Interface, add and commit those changes into the history.
-    - Go back to the main branch by using checkout with `git`. 
-    - Think about and consider what will happen if you attempt to merge your
-    branches? In the Terminal, merge the changes from the `new-feature` branch
-    into the `main` branch and find out.
-
 1. Go to your package for your first project assignment and perform the
-following tasks, noting the approach you used (Git integration in RStudio,
-command-line interface, `usethis`):
+following tasks, noting the RStudio features and R functions you used:
     - Initialize the repository (`use_git()` in the R Console).
-    - In the RStudio Git Interface, add and commit all the relevant files that
+    - Add and commit all the relevant files that
     you've worked on until this point. Are there any you need to ignore? 
     TODO: Should we have this thing about ignore? At this point would there be anything?
     - Connect your new Git repository to GitHub (`use_github()` in the R Console)
