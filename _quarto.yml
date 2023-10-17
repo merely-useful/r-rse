@@ -1,0 +1,59 @@
+project:
+    type: book
+    output-dir: _book
+    execute-dir: project
+
+book:
+    title: "Research Software Engineering with R: Building software that makes research possible"
+    # TODO: Update for each tag/release?
+    date: last-modified
+    author:
+        - "Madeleine Bonsma-Fisher"
+        - "Kate Hertweck"
+        - "Damien Irving"
+        - "Luke Johnston"
+        - "Joel Ostblom"
+        - "Ian Flores Siaca"
+        - "Charlotte Wickham"
+        - "Greg Wilson"
+    favicon: favicon.ico
+    site-url: "https://merely-useful-tech/r-rse"
+    repo-url: "https://github.com/merely-useful/r-rse"
+    repo-branch: main
+    repo-actions: [edit, issue, source]
+    search:
+        location: navbar
+        type: overlay
+    chapters:
+        - index.Rmd
+        - chapters/01-preface.Rmd
+        - chapters/03-package-setup.Rmd
+        - chapters/08-documentation.Rmd
+        - chapters/10-community-involvement.Rmd
+        - chapters/11-version-control-workflow.Rmd
+    appendices:
+        - appendices/references.md
+    page-footer:
+        center:
+            - text: "License: CC BY 4.0"
+              href: LICENSE.md
+
+# TODO: This strangely doesn't work, will need to address it later.
+# csl: includes/jcb.csl
+bibliography: includes/book.bib
+
+format:
+  html:
+    df-print: tibble
+    code-link: true
+    theme:
+      - zephyr
+      # - includes/theme.scss
+
+editor_options:
+  markdown:
+    wrap: 72
+    canonical: true
+
+execute:
+  freeze: true

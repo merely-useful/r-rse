@@ -1,0 +1,4 @@
+::: callout-warning
+🚧 Welcome to our book! We are actively working on it, so it is largely
+a work in progress. 🚧
+:::

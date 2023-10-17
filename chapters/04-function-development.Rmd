@@ -1,135 +1,696 @@
 # Function development in a package environment
 
-- Process of creating non-function code, checking that it works, then
-   converting it into a function
-- There are several workflows for this (create in vignette Rmd, make a dev/creating.R
-    script as a development location, developing in the examples Roxygen
-    section, 'Untitled1.R'). Which to use?
-- Mostly *how workflow actually looks like*.
-- Building functions up slowly, making small targeted functions that build up
-  into a bigger more complex functions
-- Process control (if, stop)
-- Dependency management (better term? e.g. using `@importFrom` vs `::`)
+-   Process of creating non-function code, checking that it works, then
+    converting it into a function
+-   There are several workflows for this (create in vignette Rmd, make a
+    dev/creating.R script as a development location, developing in the
+    examples Roxygen section, 'Untitled1.R'). Which to use?
+-   Mostly *how workflow actually looks like*.
+-   Building functions up slowly, making small targeted functions that
+    build up into a bigger more complex functions
+-   Process control (if, stop)
+-   Dependency management (better term? e.g. using `@importFrom` vs
+    `::`)
 
 TODO: should this be here or later?
 
-- Function documentation (with roxygen2), part 1
-- To use `@examples` to help with creating function
+-   Function documentation (with roxygen2), part 1
+-   To use `@examples` to help with creating function
 
 ## Learning Objectives
 
-* Convert a chunk of R code into a function
-* Include a function in an R package
-* Provide basic function documentation using Roxygen
-* Use functions from other packages in a function in your own package
-* Return an error message from a function
+-   Convert a chunk of R code into a function
+-   Include a function in an R package
+-   Provide basic function documentation using Roxygen
+-   Use functions from other packages in a function in your own package
+-   Return an error message from a function
 
-## Outline of action steps
+## Introduction
 
-* Writing Functions in R
-  * Text: Writing a function starts with working chunk of code. 
-  Where can I write this code, so it doesn't interfere with package
-  conventions?
-  * Code: `use_directory("dev", ignore = TRUE)`
-  * Text: Review how to turn code into a function: pick a name, identify arguments, 
-  fill in the function constructor.  
-  * Code: Use code from `extract_element()` and `book_meta()` on `dracula` as an example. 
-  Convert repeated extracting of elements to `extract_element()`. Avoid pipe for now.
-    * Explicit vs implicit returns?
-  * Exercise: Give updated chunk that uses `extract_element()`. Write 
-  the `book_meta()` function.
+So far, our zipfs package contains some data and a very simple function.
+We've seen the general workflow for adding a function to a package, but
+we skimmed over lots of the details. In this chapter, we'll take a much
+closer look at writing functions, the details of including them in a
+package, documenting them, and how to stop your functions with an error.
 
-* Including Functions in an R Package
-  * Text: Functions live in `.R` files in `R/`.
-  How should functions be organized into files?
-  * Code: `use_r("book-meta")`, `load_all()`, run examples.
-  * Exercise: Write `count_words()` based on chunk. 
+```{r ce-load-zipfs}
+# Temporarily needed?, for getting access to `dracula`
+library(zipfs)
+```
 
-* Dependencies: Using Functions From Other Packages
-  * Text: We have a problem.  On clean session, `load_all()`, 
-  `book_meta(dracula)`, produces an error, 
-  can't find `tibble()`. Difference between interactive work (`library(tibble)`)
-  and package development (don't want to load entire libraries in user's workspaces)
-  * Text: Two changes needed: specify our package relies on another, 
-  inside functions, be specific about where functions inside our own code come from.
-  * Code: `use_package("tibble")`, `tibble::tibble()`
-  * Exercise: Fix dependency problems in `extract_element()`.
-  * Text: The pipe needs slightly more complicated handling.
-  * Code: `use_pipe()`
-  * Exercise: Fix dependency problems in `count_words()`.
+## Writing Functions in R
 
-* Documenting Functions
-  * Text: Outline of Roxygen workflow: special comments above functions + `document()`, 
-  generates `man/` and allows `?function_name`
-  * Code: With `book_meta()` RStudio: Code -> Insert ROxygen Skeleton, `document()`, `?book_meta()`
-  * Text: Common Roxygen tags (title, arguments, return, examples), demo with `book_meta()`
-  * Exercise: Document `count_words()`
-  * Text: `@export`, why we might not document every function.
+We have a number of books included in our zipfs package. One useful
+feature to add to our package would be a way to extract metadata about
+the books from the book text. For example, let's take a look at lines 8
+through 14 in Dracula:
 
-* Stopping Your Function with an Error
-  * Text: Alternate workflow for editing functions, 
-  use `@examples`, edit directly in `R/book-meta.R`. 
-  Add `book_meta(1)` as example.
-  <!-- This will cause a check error later, because examples need to run without error. -->
-  * Text: Basic checks of user input, how to return an error
-  * Code: `if()`, `stop()`
-  * Exercise: Add an input check to `count_words()`.
-  * Text: Re-iterate idea of extracting common code into simpler functions.
-  Suggest input check could be its own function.
-  * Text: Mention other kinds of process control, give pointer to learn more.
-  
+```{r cs-dracula-meta}
+load_all()
+dracula[8:14]
+```
+
+    > load_all()
+    ℹ Loading zipfs
+    > dracula[8:14]
+    [1] ""                                          
+    [2] "Title: Dracula"                            
+    [3] ""                                          
+    [4] "Author: Bram Stoker"                       
+    [5] ""                                          
+    [6] "Release Date: August 16, 2013 [EBook #345]"
+    [7] ""   
+
+We can see the book text includes information on the book title, author
+and release date. This format is consistent across the books, so it is
+ideal for automatic parsing. Our goal will be to add a function
+`book_meta()` that extracts these details from the text of a book.
+
+Writing a function should start with working code. That is, rather than
+starting with a blank function template for `book_meta()` and trying to
+fill it in. First, we should write code that extracts the relevant
+details in a concrete example, and then turn it into a function. We are
+going to start with this working code that extracts these details from
+the `dracula` object:
+
+```{r cs-extract-meta, eval = FALSE}
+library(stringr)
+library(tibble)
+
+devtools::load_all() # Replace with `library(zipfs)` if we've installed by now
+text <- dracula[8:14]
+
+author_line <- str_subset(text, "Author: ")
+author <- str_remove(author_line, "Author: ")
+
+title_line <- str_subset(text, "Title: ")
+title <- str_remove(title_line, "Title: ")
+
+release_date_line <- str_subset(text, "Release Date: ")
+release_date <- str_remove(release_date_line, "Release Date: ")
+
+tibble(
+  author = author, 
+  title = title,
+  release_date = release_date
+)
+```
+
+We are presenting this code fully formed, but usually getting to this
+point is the hardest part of writing a function. We certainly didn't
+write it out in one go. We started with a little example `text` then
+wrote a little code, tested it out, fixed any problems and iterated.
+
+But, where did we write this code? If we weren't working on a package,
+we'd think nothing of opening up a new R script file, or Quarto file,
+and putting our code inside, and saving it any old place. But, when we
+are working on a package, we need to be more careful about adding files
+that aren't directly related to the package. We wouldn't want someone
+who wants to use our package also getting all code files that were
+notes, or experiments, and in fact, there are rules about what files and
+folders **can't** be in a package directory. One option would be to open
+an R script and use it as a temporary code writing area, and never save
+it - the `Untitled.R` strategy. This is fine for quick experiments, but
+is a little dangerous for anything you might write over more than one
+session. A better option is to create a specific location for code that
+isn't part of the package, and make sure it is ignored when the package
+is built. There is a `usethis` function `use_directory()` that helps set
+this up. Let's create a `dev/` directory in our package project:
+
+```{r cs-setup-dev-dir, eval = FALSE}
+use_directory("dev", ignore = TRUE)
+```
+
+    ✓ Creating 'dev/'
+    ✓ Adding '^dev$' to '.Rbuildignore'
+
+The argument `ignore = TRUE` adds this folder to `.Rbuildignore` - a
+file that lists things that shouldn't be included in the package when it
+is built.
+
+Now we can take the chunk above and save it in `dev/creating.R`, and be
+sure it won't end up in the final built package. Let's work through the
+code in that is in this chunk:
+
+1.  Some packages are loaded - stringr is needed for the string
+    operations and tibble for putting the results together.
+2.  A variable `text` is created to hold a little bit of the `dracula`
+    text as a concrete example of book text.
+3.  The author is extracted from `text` into `author` by first pulling
+    out the line that contains the pattern `"Author: "`, then removing
+    the pattern `"Author: "` from that line.
+4.  Repeat 3. but now with the pattern `"Title:  "` to extract the
+    title.
+5.  Repeat 3. but now with the pattern `"Release Date:  "` to extract
+    the release date.
+6.  Combine `author`, `title`, and `release_date` in a one row tibble.
+
+If we run the entire script we should end with the output:
+
+    # A tibble: 1 × 3
+      author      title   release_date                
+      <chr>       <chr>   <chr>                       
+    1 Bram Stoker Dracula August 16, 2013 [EBook #345]
+
+### When to write a function?
+
+-   Identify repetition in above code: x3
+
+```{=html}
+<!-- -->
+```
+    line <- str_subset(text, XXX)
+    value <- str_remove(line, XXX)
+
+-   Review how to turn code into a function: pick a name, identify
+    arguments, fill in the function constructor.
+
+```{r cs-extract-element}
+extract_element <- function(text, element){ 
+  line <- str_subset(text, element)
+  value <- str_remove(line, element)
+  value
+}
+extract_element(text, "Author: ")
+```
+
+-   Explicit vs implicit returns?
+
+```{r cs-implicit-return}
+extract_element <- function(text, element){
+  line <- str_subset(text, element)
+  str_remove(line, element)
+}
+extract_element <- function(text, element){
+  line <- str_subset(text, element)
+  value <- str_remove(line, element)
+  return(value)
+}
+```
+
+-   Updated chunk
+
+```{r cs-updated-chunk}
+library(stringr)
+library(tibble)
+
+text <- dracula[8:14]
+
+tibble(
+  author = extract_element(text, "Author: "), 
+  title =  extract_element(text, "Title: "),
+  release_date = extract_element(text, "Release Date: ")
+)
+```
+
+### Exercise: Write `book_meta()` {#ex-write-book-meta}
+
+Write the `book_meta()` function.
+
+This is how we'd like our chunk to look:
+
+```{r es-book-meta}
+library(stringr)
+library(tibble)
+
+text <- dracula[8:14]
+book_meta(text)
+```
+
+```{r sol-book-meta}
+book_meta <- function(text){
+  tibble(
+    author = extract_element(text, "Author: "), 
+    title =  extract_element(text, "Title: "),
+    release_date = extract_element(text, "Release Date: ")
+  )
+}
+```
+
+## Including Functions in an R Package
+
+Current contents of `dev/creating.R`
+
+```{r cs-creating-contents}
+library(stringr)
+library(tibble)
+load_all() # I don't think we've `install()`ed yet?
+
+text <- dracula[8:14]
+
+extract_element <- function(text, element){ 
+  line <- str_subset(text, element)
+  value <- str_remove(line, element)
+  value
+}
+
+book_meta <- function(text){
+  tibble(
+    author = extract_element(text, "Author: "), 
+    title =  extract_element(text, "Title: "),
+    release_date = extract_element(text, "Release Date: ")
+  )
+}
+
+book_meta(text)
+```
+
+-   Text: Functions live in `.R` files in `R/`. How should functions be
+    organized into files?
+
+```{r ce-create-code-file}
+use_r("book-meta")
+```
+
+-   Text: move function definitions into `R/book-meta`
+
+```{r cs-contents-book-meta}
+extract_element <- function(text, element){ 
+  line <- str_subset(text, element)
+  value <- str_remove(line, element)
+  value
+}
+
+book_meta <- function(text){
+  tibble(
+    author = extract_element(text, "Author: "), 
+    title =  extract_element(text, "Title: "),
+    release_date = extract_element(text, "Release Date: ")
+  )
+}
+```
+
+-   Text: Now, `load_all()` loads our function definitions too.
+
+```{r ce-updated-creating-contents}
+library(stringr)
+library(tibble)
+load_all() # I don't think we've `install()`ed yet?
+book_meta(dracula) # notice this is now all lines 
+```
+
+### Exercise: Write `count_words()` based on chunk
+
+Might put code in `dev/counting.R`
+
+```{r es-count-words-chunk}
+library(stringr)
+library(tibble)
+library(zipfs)
+
+# convert to all lower
+text_lower <- str_to_lower(dracula) 
+
+# split by one or more whitespace characters
+chunks <- unlist(str_split(text_lower, "\\s+"))
+
+# remove punctuation
+words <- str_remove_all(chunks, pattern = "[[:punct:]]+")
+
+# get rid of empty strings
+words <- words[words != ""]
+
+# count occurrences and sort
+word_freq <- sort(table(words), decreasing = TRUE)
+
+# return in rectangular format
+tibble(word = names(word_freq), n = as.numeric(word_freq))
+```
+
+Reminder of steps:
+
+-   Convert chunk into function in `dev/counting.R`. Check it works
+    `count_words(dracula)`
+-   Create new file in `R/` called `count-words.R`, copy over definition
+-   Check work by editing code in `dev/counting.R` to
+
+```{r es-check-count}
+library(stringr)
+library(tibble)
+library(zipfs)
+
+count_words(dracula)
+```
+
+```{r sol-count-words-chunk}
+count_words <- function(text) {
+    # convert to all lower
+    text_lower <- str_to_lower(text) 
+    
+    # split by one or more whitespace characters
+    chunks <- unlist(str_split(text_lower, "\\s+"))
+    
+    # remove punctuation
+    words <- str_remove_all(chunks, pattern = "[[:punct:]]+")
+    
+    # get rid of empty strings
+    words <- words[words != ""]
+    
+    # count occurrences and sort
+    word_freq <- sort(table(words), decreasing = TRUE)
+    
+    # return in rectangular format
+    tibble(word = names(word_freq), n = as.numeric(word_freq))
+}
+```
+
+## Dependencies: Using Functions From Other Packages
+
+-   Text: We have a problem. On clean session, `load_all()`,
+    `book_meta(dracula)`, produces an error, can't find `tibble()`.
+    Difference between interactive work (`library(tibble)`) and package
+    development (don't want to load entire libraries in user's
+    workspaces)
+
+```{r ce-dep-error, error = TRUE}
+# Restart R, clean slate
+load_all()
+book_meta(dracula)
+```
+
+-   Text: Two changes needed: specify our package relies on another,
+    inside functions, be specific about where functions inside our own
+    code come from.
+
+-   Text: Specify our function relies on another package,
+
+```{r ce-use-package}
+use_package("tibble")
+```
+
+-   Text: What changes? Adds line to Imports in DESCRIPTION, ensures
+    when someone installs our package, they get tibble too if they don't
+    have it.
+
+Output includes:
+
+    • Refer to functions with `tibble::fun()`
+
+Text: Also need to be explicit when we use tibble functions that these
+come from the tibble package, use `tibble::` in front
+
+`book_meta()` becomes:
+
+``` {cs-book-meta-tibble}
+book_meta <- function(text){
+  tibble::tibble(
+    author = extract_element(text, "Author: "), 
+    title =  extract_element(text, "Title: "),
+    release_date = extract_element(text, "Release Date: ")
+  )
+}
+```
+
+Text: Try again, restart R,
+
+```{r ce-dep-error-2}
+# Restart R, clean slate
+load_all()
+book_meta(dracula)
+```
+
+Text: Still have an error, but now it's related to functions we use
+inside `extract_element()`.
+
+### Exercise: Fix dependency problems in `extract_element()`
+
+Reminder of steps:
+
+-   Add the stringr package as a dependency with
+    `usethis::use_package()`
+-   Anywhere a stringr function is used preface with `stringr::`
+
+You'll know it's worked if this code works without error in a fresh
+session of R.
+
+```{r es-extract-element-dep}
+# Restart R, clean slate
+load_all()
+book_meta(dracula)
+```
+
+```{r sol-extract-element-dep}
+# + change to DESCRIPTION
+extract_element <- function(text, element){ 
+  line <- stringr::str_subset(text, element)
+  value <- stringr::str_remove(line, element)
+  value
+}
+```
+
+### Exercise: Fix dependency problems in `count_words()`
+
+<!-- Doesn't use pipe anymore, so this is just finding the stringr and tibble functions and adding stringr:: and tibble:: -->
+
+## Documenting Functions
+
+-   Text: Outline of Roxygen workflow: special comments above
+    functions + `document()`, generates `man/` and allows
+    `?function_name`, Maybe explain all this using an existing package.
+
+-   Code: With `book_meta()` RStudio: Code -\> Insert ROxygen Skeleton,
+    `document()`, `?book_meta()`
+
+``` {cs-book-meta-roxygen-skeleton}
+#' Title
+#'
+#' @param text 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+book_meta <- function(text){
+  tibble::tibble(
+    author = extract_element(text, "Author: "), 
+    title =  extract_element(text, "Title: "),
+    release_date = extract_element(text, "Release Date: ")
+  )
+}
+```
+
+``` {cs-document}
+document()
+?book_meta
+```
+
+-   Text: Common Roxygen tags (title, arguments, return, examples), demo
+    with `book_meta()`
+
+``` {cs-book-meta-roxygen-complete}
+#' Get book metadata from a Gutenberg book
+#'
+#' @param text A character vector of lines from a Gutenberg book
+#'
+#' @return a one row tibble with `author`, `title` and `release` columns.
+#' @export
+#'
+#' @examples
+#' book_meta(dracula[1:20])
+book_meta <- function(text){
+  tibble::tibble(
+    author = extract_element(text, "Author: "), 
+    title =  extract_element(text, "Title: "),
+    release_date = extract_element(text, "Release Date: ")
+  )
+}
+```
+
+### Exercise: Document `count_words()`
+
+Reminder of steps:
+
+1.  Insert a roxygen skeleton above the definition of `count_words()`
+2.  Run `document()` to generate help page and preview with
+    `?count_words`
+3.  Edit the roxygen comment.
+4.  Iterate steps 2. and 3. until done.
+
+```{r sol-document-count-words}
+#' Count word frequency in text
+#'
+#' Counts the occurrence of words over all elements provided in `text`.
+#'
+#' Each element of `text` is considered a line.
+#' Lines are first converted to lower case then split into words
+#' by whitespace. Then punctuation is removed, and empty strings are ignored.
+#'
+#' @param text A character vector
+#'
+#' @return A tibble with columns `word`,
+#' and `n` the number of times `word` occurs in `text`.
+#' @export
+#'
+#' @examples
+#' count_words(dracula)
+```
+
+-   Text: `@export`, why we might not document every function., e.g.
+    `extract_element()`
+
+## Stopping Your Function with an Error
+
+-   Text: Alternate workflow for editing functions, use `@examples`,
+    edit directly in `R/book-meta.R`. Add `book_meta(1)` as example.
+
+```{r cs-add-example}
+#' Get book metadata from a Gutenberg book
+#'
+#' @param text A character vector of lines from a Gutenberg book
+#'
+#' @return a one row tibble with `author`, `title` and `release` columns.
+#' @export
+#'
+#' @examples
+#' book_meta(dracula[1:20])
+#' book_meta(1)
+```
+
+<!-- This will cause a check error later, because examples need to run without error. -->
+
+-   Text: Basic checks of user input, how to return an error
+
+Basic template of input check:
+
+``` r
+if( << test for bad input >> ){
+    stop("<< message for bad input >>", call. = FALSE)
+}
+```
+
+-   Text: As a comment? Mention other kinds of process control, give
+    pointer to learn more.
+
+```{r ce-bad-input-ideas}
+text <- 1
+is.numeric(text) 
+is.character(text)
+!is.character(text)
+```
+
+Guidance for writing error messages:
+<https://style.tidyverse.org/error-messages.html>
+
+See if you want fancier bulleted list type error messages:
+<https://rlang.r-lib.org/reference/abort.html>
+
+```{r ce-bad-input-check}
+if(!is.character(text)){
+    stop("`text` must be a character vector.", call. = FALSE)
+}
+```
+
+Add to function definition
+
+```{r cs-book-meta-with-check, eval = FALSE}
+book_meta <- function(text){
+    if(!is.character(text)){
+        stop("`text` must be a character vector.", call. = FALSE)
+    }
+    tibble::tibble(
+        author = extract_element(text, "Author: "), 
+        title =  extract_element(text, "Title: "),
+        release_date = extract_element(text, "Release Date: ")
+    )
+}
+```
+
+`load_all()` Rerun examples
+
+### Exercise: Add an input check to `count_words()`.
+
+```{r sol-input-check-count-words}
+count_words <- function(text) {
+    if(!is.character(text)){
+        stop("`text` must be a character vector.", call. = FALSE)
+    }
+    
+    # convert to all lower
+    text_lower <- str_to_lower(text) 
+    
+    # split by one or more whitespace characters
+    chunks <- unlist(str_split(text_lower, "\\s+"))
+    
+    # remove punctuation
+    words <- str_remove_all(chunks, pattern = "[[:punct:]]+")
+    
+    # get rid of empty strings
+    words <- words[words != ""]
+    
+    # count occurrences and sort
+    word_freq <- sort(table(words), decreasing = TRUE)
+    
+    # return in rectangular format
+    tibble(word = names(word_freq), n = as.numeric(word_freq))
+}
+```
+
+## Wrapping Up
+
+-   Text: Re-iterate idea of extracting common code into simpler
+    functions. Suggest input check could be its own function. Then
+    describe steps as a review of chapter: decide on a name, decide on a
+    file to store it, write it, try it, careful with dependencies,
+    document it.
 
 ## Final exercise {#04-final-exercise}
 
 TODO: INCOMPLETE, need to think about this more.
 
-Complete these tasks as part of the package for your first project assignment.
-The exact functions you should create will depend heavily on what your package
-will do. Get help and guidance from your instructor. Use our examples on the 
-`kenyaweather` package as further guidance.
+Complete these tasks as part of the package for your first project
+assignment. The exact functions you should create will depend heavily on
+what your package will do. Get help and guidance from your instructor.
+Use our examples on the `kenyaweather` package as further guidance.
 
-1. Create a new R script using `use_r("..")`
+1.  Create a new R script using `use_r("..")`
 
-1. Add a `FIXME()` function to your FIXME package
-    
-    The following code snippet produces ... FIXME.  
-    
+2.  Add a `FIXME()` function to your FIXME package
+
+    The following code snippet produces ... FIXME.
+
     ```{r, eval = FALSE}
     # A line or two of R code that does something useful
     FIXME
     ```
-    
-    Turn it into a function called `FIXME()` that takes arguments for `FIXME`
-    and `FIXME` and include it in your FIXME package.
-    
-    Insert a Roxygen Skeleton for this function, making sure to edit the title,
-    description, argument descriptions, and example. Don't forget to run
-    `document()` to produce the help page.
 
-2. Add a `FIXME2()` function to your FIXME package
+    Turn it into a function called `FIXME()` that takes arguments for
+    `FIXME` and `FIXME` and include it in your FIXME package.
 
-    Add another function called `FIMXE2()`, that ... FIXME. It should return an
-    error if FIXME. *This function is intentionlly given without a snippet of
-    code so you can practice the function development workflow.*
-    
-    Insert a Roxygen Skeleton for this function, making sure to edit the title,
-    description, argument descriptions, and example. Don't forget to run
-    `document()` to produce the help page.
+    Insert a Roxygen Skeleton for this function, making sure to edit the
+    title, description, argument descriptions, and example. Don't forget
+    to run `document()` to produce the help page.
 
-While you are completing these tasks, You'll know you are done when after
-installing your package and starting a fresh R session:
+3.  Add a `FIXME2()` function to your FIXME package
 
-* The following code runs without error and produces the right output
+    Add another function called `FIMXE2()`, that ... FIXME. It should
+    return an error if FIXME. *This function is intentionlly given
+    without a snippet of code so you can practice the function
+    development workflow.*
+
+    Insert a Roxygen Skeleton for this function, making sure to edit the
+    title, description, argument descriptions, and example. Don't forget
+    to run `document()` to produce the help page.
+
+While you are completing these tasks, You'll know you are done when
+after installing your package and starting a fresh R session:
+
+-   The following code runs without error and produces the right output
 
     ```{r, eval = FALSE}
     library(FIXME)
     FIXME()
     FIXME2()
-    
+
     # Should give an error
     FIXME2()
     ```
-    
-* `?FIXME()` and `?FIXME2()` bring up help pages that have at least a title, a description of each argument, and at least one example of usage.
+
+-   `?FIXME()` and `?FIXME2()` bring up help pages that have at least a
+    title, a description of each argument, and at least one example of
+    usage.
 
 TODO: Add actions done to kenyaweather package here?
+
+## Final exercise
+
+<!-- NOTE: Preferably something linked to working towards completing the project assignments, maybe to be used as a milestone? -->

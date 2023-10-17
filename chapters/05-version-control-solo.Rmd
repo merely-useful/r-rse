@@ -1,4 +1,4 @@
-# Version control: Introduction to Git and GitHub
+# Version control: Using Git and GitHub as a sole user (part 1) {#git-solo}
 
 ## Learning objectives {#05-learning-objectives}
 
