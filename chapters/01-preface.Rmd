@@ -1,218 +1,273 @@
-# Preface {#preface}
+# Preface {#sec-preface}
 
-Computational skills are essential in the modern research environment, which
-increasingly involves large datasets and high performance computing,
-along with increasing demand that scientific studies be reproducible and
-open. With these modern demands, researchers across nearly all disciplines often
-need to create, use, and share software. Most introductions to programming or
-software engineering focus on developing commercial applications, however,
-researchers needs are largely related to exploring problems and answering
-questions. This book covers the fundamentals of creating software as part of
-your research cycle whether you work alone or as part of a team. We wrote this
-book with three audiences in mind:
+Computational skills are essential in the modern research environment,
+which increasingly involves large datasets and high performance
+computing, along with increasing demand that scientific studies be
+reproducible and open. With these modern demands, researchers across
+nearly all disciplines often need to create, use, and share software.
+Most introductions to programming or software engineering focus on
+developing commercial applications, however, researchers needs are
+largely related to exploring problems and answering questions. This book
+covers the fundamentals of creating software as part of your research
+cycle whether you work alone or as part of a team.
 
-1. **Learners in a class setting** who would be using this book in a more
-formal class or workshop setting, lead by an instructor or instructors.
-Much of the book is written with this reader in mind.
-2. **Independent learners** who would be going through the material and learning
-on their own. An independent learner can for the most part follow the book as if
-they were a learner in a class setting, with some modifications that we
-highlight and describe where necessary.
-3. **Instructors** who would use this book as the basis for a course or workshop
-of their own. Throughout the book there are sections dedicated to this reader
-that give information or instructions on how to use or modify the material for
-the instructor's specific context. See Appendix \@ref(for-instructors) for more
-detail about how to use this book for teaching.
+We wrote this book with three audiences in mind:
+
+1.  **Learners in a class setting** who would be using this book in a
+    more formal class or workshop setting, lead by an instructor or
+    instructors. Much of the book is written with this reader in mind.
+2.  **Independent learners** who would be going through the material and
+    learning on their own. An independent learner can for the most part
+    follow the book as if they were a learner in a class setting, with
+    some modifications that we highlight and describe where necessary.
+3.  **Instructors** who would use this book as the basis for a course or
+    workshop of their own. Throughout the book there are sections
+    dedicated to this reader that give information or instructions on
+    how to use or modify the material for the instructor's specific
+    context. See Appendix @sec-for-instructors for more detail about how
+    to use this book for teaching.
 
 ## Introduction for learners
 
-The primary aim of this book is to teach you the tools, skills, and knowledge
-necessary to making research software that is open, reproducible, and
-sustainable. For researchers and data scientists who can write functions to
-create programs that are hundreds of lines long and who want to be more
-productive and have more confidence in their results, this book provides a
-pragmatic, tools-based introduction to research software engineering. 
-For researchers whose tasks include building software packages, this book will
-help train you to be a [research software engineer][rse]. Unlike material aimed
-at computer scientists and professional software developers, this book uses data
-analysis as the motivating example and assumes that the learner's ultimate goal
-is to answer questions rather than develop commercial software products.
+The primary aim of this book is to teach you the tools, skills, and
+knowledge necessary to making research software that is open,
+reproducible, and sustainable. For researchers and data scientists who
+can write functions to create programs that are hundreds of lines long
+and who want to be more productive and have more confidence in their
+results, this book provides a pragmatic, tools-based introduction to
+research software engineering. For researchers whose tasks include
+building software packages, this book will help train you to be a
+[research software engineer](https://researchsoftware.org/). Unlike
+material aimed at computer scientists and professional software
+developers, this book uses data analysis as the motivating example and
+assumes that the learner's ultimate goal is to answer questions rather
+than develop commercial software products.
 
-Science is a process that depends on scientific results that are accurate,
-precise, replicable, and reproducible. Developing software packages for research
-purposes is an important way in our modern research environment to ensure that
-the analyses that produce our results are exactly that: accurate, precise,
-replicable, and reproducible. Given this, the main learning goal of this book is
-that you learn to *develop an R package*.
-By the end of the book, you will have the skills and knowledge necessary to:
-develop well-built, well-documented, and re-usable R-packages;
-work effectively as part of a team or as a contributor; and optionally prepare
-your package to be submitted to CRAN.
+Science is a process that depends on scientific results that are
+accurate, precise, replicable, and reproducible. Developing software
+packages for research purposes is an important way in our modern
+research environment to ensure that the analyses that produce our
+results are exactly that: accurate, precise, replicable, and
+reproducible. Given this, the main learning goal of this book is that
+you learn to *develop an R package*. By the end of the book, you will
+have the skills and knowledge necessary to: develop well-built,
+well-documented, and re-usable R-packages; work effectively as part of a
+team or as a contributor; and optionally prepare your package to be
+submitted to CRAN.
 
-To support your learning experience, 
-we have developed the following specific **learning objectives**
-that you will master from this book:
+To support your learning experience, we have developed the following
+specific **learning objectives** that you will master from this book:
 
-- Explain what an R package is, how it is structured, and how to set one up.
-- List and describe some best (or good enough) practices in package
-development and how to implement them. 
-- Explain what a code style guide is, why it is important, and how to write code
-that adheres to the style guide.
-- Describe why user-friendly and well-written documentation is crucial to
-building a usable package and some steps to achieve this type of
-documentation.
-- Describe what CRAN is, what policies and quality-control steps it has for packages,
-and how to prepare a package for submission to CRAN so that it passes these checks
-and requirements.
+-   Explain what an R package is, how it is structured, and how to set
+    one up.
+-   List and describe some best (or good enough) practices in package
+    development and how to implement them.
+-   Explain what a code style guide is, why it is important, and how to
+    write code that adheres to the style guide.
+-   Describe why user-friendly and well-written documentation is crucial
+    to building a usable package and some steps to achieve this type of
+    documentation.
+-   Describe what CRAN is, what policies and quality-control steps it
+    has for packages, and how to prepare a package for submission to
+    CRAN so that it passes these checks and requirements.
 
-Aside from the technical aspects of building an R package, the book
-will also cover topics that enhance and improve the process of package development.
-These learning objectives are to:
+Aside from the technical aspects of building an R package, the book will
+also cover topics that enhance and improve the process of package
+development. These learning objectives are to:
 
-- Describe and apply effective workflows and project management tools that
-coordinate the development of software, particularly for software that is
-complex or when working in a team.
-- Outline (and optionally practice) how to work productively in a small team
-that is inclusive and welcoming.
-- Explain why it is beneficial to involve community contributors when designing design software and documentation.
+-   Describe and apply effective workflows and project management tools
+    that coordinate the development of software, particularly for
+    software that is complex or when working in a team.
+-   Outline (and optionally practice) how to work productively in a
+    small team that is inclusive and welcoming.
+-   Explain why it is beneficial to involve community contributors when
+    designing software and documentation.
 
-TODO: Add graphic for overview? Something like https://moderndive.com/preface.html#fig:pipeline-figure?
+<!-- TODO: Add graphic for overview? Something likehttps://moderndive.com/preface.html#fig:pipeline-figure? -->
 
-### Who is this book for? {#learner-personas}
+### Who is this book for? {#sec-learner-personas}
 
-The following personas are examples of the types of people that are our target audience.
+The following personas are examples of the types of people that are our
+target audience.
 
 Amira
-: Completed a master's in library science five years ago and has since worked
-for a small aid organization. She did some statistics during her degree, and has
-learned some R and Python by doing data science courses online, but has no
-formal training in programming. Amira would like to tidy up the scripts, data
-sets, and reports she has created in order to share them with her colleagues.
-These lessons will show her how to do this and what "done" looks like.
+
+:   Completed a master's in library science five years ago and has since
+    worked for a small aid organization. She did some statistics during
+    her degree, and has learned some R and Python by doing data science
+    courses online, but has no formal training in programming. Amira
+    would like to tidy up the scripts, data sets, and reports she has
+    created in order to share them with her colleagues. These lessons
+    will show her how to do this and what "done" looks like.
 
 Jun
-: Completed an [Insight Data Science][insight] fellowship last year after
-doing a PhD in Geology and now works for a company that does forensic audits. He
-uses a variety of machine learning and visualization packages, and would now
-like to turn some of his own work into an open source project. This book will
-show him how such a project should be organized and how to encourage people to
-contribute to it.
+
+:   Completed an [Insight Data
+    Science](https://insightfellows.com/data-science) fellowship last
+    year after doing a PhD in Geology and now works for a company that
+    does forensic audits. He uses a variety of machine learning and
+    visualization packages, and would now like to turn some of his own
+    work into an open source project. This book will show him how such a
+    project should be organized and how to encourage people to
+    contribute to it.
 
 Sami
-: Became a competent programmer during a bachelor's degree in applied math and
-was then hired by the university's research computing center. The kinds of
-applications they are being asked to support have shifted from fluid dynamics to
-data analysis; this guide will teach them how to build and run re-usable data
-analysis pipelines so that they can pass those skills on to their users.
+
+:   Became a competent programmer during a bachelor's degree in applied
+    math and was then hired by the university's research computing
+    center. The kinds of applications they are being asked to support
+    have shifted from fluid dynamics to data analysis; this guide will
+    teach them how to build and run re-usable data analysis pipelines so
+    that they can pass those skills on to their users.
 
 Ali
-: Learned about statistics and programming during high school and decided to 
-enroll into an undergraduate Data Science program. PRONOUN hopes to have a career
-working on open source projects and doing research software engineering for a
-research institution. One of PRONOUN's courses uses this book so PRONOUN will be
-working through the material during the course and will use it as reference
-afterwards.
+
+:   Learned about statistics and programming during high school and
+    decided to enroll into an undergraduate Data Science program. She
+    hopes to have a career working on open source projects and doing
+    research software engineering for a research institution. One of her
+    courses uses this book so she will be working through the material
+    during the course and will use it as reference afterwards.
 
 Luis
-: Has been doing a graduate degree that involves largely doing quantitative
-research. While doing PRONOUN's projects, PRONOUN realizes that learning and creating
-R packages would greatly help PRONOUN's work as well as others in the group. 
-However, PRONOUN has not had any formal courses in computer programming.
-PRONOUNS enrolled in a course at the university that uses this book so will work
-through this book.
+
+:   Has been doing a graduate degree that involves largely doing
+    quantitative research. While doing his projects, he realizes that
+    learning and creating R packages would greatly help his work as well
+    as others in the group. However, he has not had any formal courses
+    in computer programming. He enrolled in a course at the university
+    that uses this book so will work through this book.
 
 ### Prerequisites
 
 Learners are expected to be able to:
 
-- Write functions to analyze tabular data using [R][r].
-- Have a basic understanding of [Git][git] and [GitHub][github], and have at least
-used them a few times with basic version control tasks.
-- Create reproducible reports using [R Markdown][r-markdown].
+-   Write functions to analyze tabular data using
+    [R](https://cran.r-project.org/).
+-   Familiar with using the
+    [RStudio](https://posit.co/products/open-source/rstudio/) IDE.
+-   Have a basic understanding of [Git](https://git-scm.com/) and
+    [GitHub](https://github.com/), and have at least used them a few
+    times with basic version control tasks.
+-   Create reproducible reports using [R
+    Markdown](https://rmarkdown.rstudio.com/) or
+    [Quarto](https://quarto.org/).
 
 Learners will need:
 
-- A personal computer with Internet access.
-- To have [R][r], [Git][git], and [RStudio][rstudio] installed.
-- A [GitHub][github] account.
+-   A personal computer with Internet access.
+-   To have R, Git, and RStudio installed.
+-   A GitHub account.
 
-TODO: List of packages used and that need to be installed here as well,
-link to installation appendix.
+<!-- TODO: List of packages used and that need to be installed here as well. -->
 
-### What's the big picture?
+### How to read this book
 
-This book and the tools, skills, and knowledge being taught come out of the
-growing awareness of and demand for [open science][open-science],
-[reproducible research][reproducibility], and 
-[software sustainability][sustainable-software]. So what are these?
+This book is structured and written in a specific way. Specifically,
+there are a few "syntax" type formatting of the text in this website to
+be aware of:
 
-- [Open science][open-science] is a movement to make scientific data, methods,
-and results publicly and freely accessible by publishing them with 
-[open licenses][open-license]. These licenses allow others to re-use and modify
-these outputs without worrying about copyright infringement, often only requiring
-attribution to the original source.
-- [Reproducible research][reproducible-research] means ensuring that anyone with
-access to data and software can feasibly reproduce the same or similar results,
-both to check them and to build on them. It's important to note that science can
-be open but not reproducible and reproducible but not open.
-- [Sustainable software][sustainable-software] is when software is developed in
-a way that makes it easier for other people to extend and/or maintain it, rather
-than to replace it. Sustainability isn't just about the software itself, it also
-depends on the skills and culture of its users. For instance, if a software
-package is being maintained by a couple of post-docs who are being paid a
-fraction of what they could earn in industry and have no realistic hope of
-promotion because their field doesn't value tool building, it doesn't matter
-whether the package is well tested and easy to install: sooner or later
-(probably sooner) it will become [abandonware][abandonware].
+-   Folder names always end with a `/`, for example `data/` means the
+    data folder.
+-   R variables are always shown as is. For instance, for the code
+    `x <- 10`, `x` is a variable because it was assigned with 10.
+-   Functions (almost) always end with `()`, for instance `mean()` or
+    `read_csv()`, at least when referenced within the text.
+-   Sometimes functions have their package name appended with `::` to
+    indicate to run the code from the specific package rather than
+    loading the package with `library()`. For instance, to install
+    packages from GitHub using the `{pak}` package we use
+    `pak::pkg_install("user/packagename")`.
+
+### What's the big picture? {#big-picture}
+
+This book and the tools, skills, and knowledge being taught come out of
+the growing awareness of and demand for [open
+science](https://en.wikipedia.org/wiki/Open_science), [reproducible
+research](https://en.wikipedia.org/wiki/Reproducibility), and [software
+sustainability](https://software.ac.uk/resources/approaches-software-sustainability).
+So what are these?
+
+-   Open science is a movement to make scientific data, methods, and
+    results publicly and freely accessible by publishing them with [open
+    licenses](https://opendefinition.org/guide/). These licenses allow
+    others to re-use and modify these outputs without worrying about
+    copyright infringement, often only requiring attribution to the
+    original source.
+-   Reproducible research means ensuring that anyone with access to data
+    and software can feasibly reproduce the same or similar results,
+    both to check them and to build on them. It's important to note that
+    science can be open but not reproducible and reproducible but not
+    open.
+-   Sustainable software is when software is developed in a way that
+    makes it easier for other people to extend and/or maintain it,
+    rather than to replace it. Sustainability isn't just about the
+    software itself, it also depends on the skills and culture of its
+    users. For instance, if a software package is being maintained by a
+    couple of post-docs who are being paid a fraction of what they could
+    earn in industry and have no realistic hope of promotion because
+    their field doesn't value tool building, it doesn't matter whether
+    the package is well tested and easy to install: sooner or later
+    (probably sooner) it will become
+    [abandonware](https://en.wikipedia.org/wiki/Abandonware).
 
 This book presents software development that emphasizes openness,
 reproducibility, and sustainability, because it supports both individual
 researchers and the entire research community.
 
-### Overview of the packages created
+### Overview of the packages created {#sec-overview-packages-created}
 
-Throughout the book, you will build at least two packages (maybe more depending on
-the instructor). 
+Throughout the book, you will build at least two packages (maybe more
+depending on the instructor).
 
-- The main example package developed throughout the book is the Zipf's Law package `zipfs`.
-This package is used for the code-alongs, the actual content, and most of the
-exercises. More details about the Zipf's Law will be introduced in Chapter
-\@ref(package-setup).
-- The example package for the first project assignment is the Weather in Kenya
-package `kenyaweather`. This package is used as a reference when you work on
-your package for the first project assignment.
+-   The main example package developed throughout the book is the Zipf's
+    Law package zipfs. This package is used for the code-alongs, the
+    actual content, and most of the exercises. Zipf's Law is a
+    fascinating result in the field of quantitative linguistics that
+    states that the second most common word in a body of text appears
+    half as often as the most common, the third most common appears a
+    third as often, and so on. To test whether Zipf's Law holds for a
+    collection of classic novels that are freely available from Project
+    Gutenberg, we will write a software package that counts and analyzes
+    the word frequency distribution in any arbitrary body of text.
+-   The example package for the first project assignment is the Weather
+    in Kenya package kenyaweather. This package is used as a reference
+    when you work on your package for the first project assignment.
 
-Specific details about the project assignments are found in the
-Appendix \@ref(assignments). Two of the packages are completed and can be
-used as references (`zipfs` and `kenyaweather`).
+Specific details about the project assignments are found in
+@sec-assignments. Two of the packages are completed and can be used as
+references (zipfs and kenyaweather).
 
-TODO: Add link to the repos with these packages.
+<!-- TODO: Add link to the repos with these packages. -->
 
 ### For the self-directed learner
 
-TODO: Fill this in or combine with other sections?
+<!-- TODO: Fill this in or combine with other sections? -->
 
-## Re-use and licensing {#licensing}
+## Re-use and licensing {#sec-licensing}
 
 All of this material can be freely re-used under the terms of the
-[Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/),
-so the material can be used, re-used, and modified, 
-as long as there is attribution to this source.
+[Creative Commons Attribution 4.0 International
+License](https://creativecommons.org/licenses/by/4.0/), so the material
+can be used, re-used, and modified, as long as there is attribution to
+this source.
 
-The source for the book can be found at the [`r-rse` GitHub repository](https://github.com/merely-useful/r-rse).
-Any corrections, additions, or contributions are very much welcomed.
-Check out our
-[contributing guidelines](https://github.com/merely-useful/r-rse/blob/main/.github/CONTRIBUTING.md)
-as well as our
-[Code of Conduct](https://github.com/merely-useful/r-rse/blob/main/CODE_OF_CONDUCT.md)
+The source for the book can be found at the [`r-rse` GitHub
+repository](https://github.com/merely-useful/r-rse). Any corrections,
+additions, or contributions are very much welcomed. Check out our
+[contributing
+guidelines](https://github.com/merely-useful/r-rse/blob/main/.github/CONTRIBUTING.md)
+as well as our [Code of
+Conduct](https://github.com/merely-useful/r-rse/blob/main/CODE_OF_CONDUCT.md)
 for more information on how to contribute.
 
 ## Acknowledgments
 
-This book owes its existence to
-everyone we met through [the Carpentries][carpentries].
-We are also grateful to [Insight Data Science][insight] for sponsoring the early
-stages of this work, to everyone who has contributed,
-and to the authors of [@Nobl2009; @Hadd2010; @Wils2014; @Scop2015; @Tasc2017; @Wils2017; @Brow2018; @Deve2018; @Shol2019; @Wils2019].
+This book owes its existence to everyone we met through the
+[Carpentries](https://carpentries.org). We are also grateful to [Insight
+Data Science](https://insightfellows.com/data-science) for sponsoring
+the early stages of this work, to everyone who has contributed, and to
+the authors of [@Nobl2009; @Hadd2010; @Wils2014; @Scop2015; @Tasc2017;
+@Wils2017; @Brow2018; @Deve2018; @Shol2019; @Wils2019].
 
-TODO: Add more R relevant acknowledgements here.
+<!-- TODO: Add more R relevant acknowledgements here. -->

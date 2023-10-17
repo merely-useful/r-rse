@@ -1,0 +1,3 @@
+keybinds:
+  build: {{< kbd mac=Cmd-Shift-B win=Ctrl-Shift-B linux=Ctrl-Shift-B >}}
+  load_all: {{< kbd mac=Cmd-Shift-L win=Ctrl-Shift-L linux=Ctrl-Shift-L >}}

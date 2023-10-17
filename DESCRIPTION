@@ -1,15 +1,17 @@
-Package: r-rse
 Type: Book
+Package: r-rse
 Title: "Merely Useful: Using R for Research Software Engineering"
 Version: 0.1
 Imports: 
-    tinytex,
-    bookdown (>= 0.21.10),
-    tools,
-    tidyverse,
+    available,
+    devtools,
+    downlit,
+    fs,
     here,
-    bslib (>= 0.2.4.9003),
-    downlit
-Remotes: 
-    rstudio/bslib,
-    rstudio/bookdown
+    tinytex,
+    tools,
+    usethis
+Suggests: 
+    tidyverse
+Encoding: UTF-8
+LazyData: true
