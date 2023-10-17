@@ -1,0 +1,3 @@
+# Resources {#sec-resources}
+
+<!-- TODO: Include link to books like R packages, mastering software dev etc. -->

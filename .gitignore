@@ -25,3 +25,5 @@ merely-useful.log
 settings.json
 r-rse.Rmd
 .Rbuildignore
+
+/.quarto/
