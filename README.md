@@ -1,3 +1,5 @@
+ARCHIVED: Activity and development for a similar project has moved over to https://github.com/rostools/r-pkg-intro
+
 # Using R for Research Software Engineering
 
 <!-- badges: start -->
